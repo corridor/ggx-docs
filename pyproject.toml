@@ -1,0 +1,22 @@
+[build-system]
+requires = [
+    "setuptools>=62.3", # Need recursive package-data glob support
+    "setuptools-scm",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "corridor-docs"
+requires-python = ">=3.9"
+dependencies = ["click", "flask", "requests"]
+
+dynamic = ["version"]
+
+[project.scripts]
+corridor-docs = "corridor_docs.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["corridor_docs", "corridor_docs.*"]
+
+[tool.setuptools.package-data]
+"corridor_docs" = ["version.txt", "site/**"]

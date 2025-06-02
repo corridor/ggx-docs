@@ -1,0 +1,47 @@
+sort:
+  sections: mixed
+nav:
+  - Register and Refine:
+      - Overview: 'register-and-refine/index.md'
+      - Inventory Management:
+          - Overview: 'register-and-refine/inventory-management/index.md'
+          - Table Registry: 'register-and-refine/inventory-management/table-registry/index.md'
+          - Model Catalog: 'register-and-refine/inventory-management/model-catalog/index.md'
+          - Prompts: 'register-and-refine/inventory-management/prompts/index.md'
+          - RAGs: 'register-and-refine/inventory-management/rags/index.md'
+          - Pipelines: 'register-and-refine/inventory-management/pipelines/index.md'
+      - Collaboration: 'register-and-refine/collaboration/index.md'
+      - Version Management: 'register-and-refine/version-management/index.md'
+      - Lineage Tracking: 'register-and-refine/lineage-tracking.md'
+      - Prompt Optimization: 'register-and-refine/prompt-optimization.md'
+
+  - Evaluate and Approve:
+      - Overview: 'evaluate-and-approve/index.md'
+      - Simulation: 'evaluate-and-approve/simulation.md'
+      - Comparison: 'evaluate-and-approve/comparison.md'
+      - Reporting: 'evaluate-and-approve/reporting.md'
+      - Approval Workflows: 'evaluate-and-approve/approval-workflows.md'
+      - Human Testing: 'evaluate-and-approve/human-testing.md'
+      - Document Generation: 'evaluate-and-approve/document-generation.md'
+
+  - Deploy and Monitor:
+      - Overview: 'deploy-and-monitor/index.md'
+      - Direct to Production: 'deploy-and-monitor/direct-to-production.md'
+      - Oversight: 'deploy-and-monitor/oversight.md'
+      - Performance: 'deploy-and-monitor/performance.md'
+      - Annotation Queues: 'deploy-and-monitor/annotation-queues.md'
+
+  - Technology:
+      - Self Hosted Installation:
+          - Overview: 'technology/self-hosting/index.md'
+          - 'technology/self-hosting/*'
+#   - Integrations:
+#       - Overview: 'integrations/index.md'
+#       - Google Cloud: integrations/google-cloud/index.md
+#       - AWS: integrations/aws/index.md
+#       - Azure: integrations/azure/index.md
+#       - OpenAI: integrations/openai/index.md
+#       - Custom Integrations: integrations/custom/index.md
+#       - Jupyter Notebook: integrations/jupyter-notebook/index.md
+#       - VSCode: integrations/vscode/index.md
+#   - Similar Tools:
