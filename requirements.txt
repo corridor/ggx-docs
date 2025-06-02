@@ -1,0 +1,17 @@
+-e .
+
+# For mkdoc site
+mkdocs
+mkdocs-material
+mkdocs-awesome-nav
+mkdocs-with-pdf
+weasyprint
+mkdocs-htmlproofer-plugin
+mkdocs-unused-files
+mkdocs-glightbox
+mkdocs-git-revision-date-plugin 
+mkdocs-git-authors-plugin
+
+ruff  # Linter + formatter for python files
+pyright  # Typing checks for python files
+build  # To build python packages

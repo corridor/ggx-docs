@@ -1,0 +1,137 @@
+site_name: Corridor GGX Documentation
+site_url: ''
+use_directory_urls: true
+copyright: '&copy; Corridor Platforms'
+repo_url: https://github.com/corridor/corridor-docs
+repo_name: 'corridor/ggx-docs'
+edit_uri: edit/ggx/docs/
+
+extra_css:
+  - assets/stylesheets/print-pdf.css
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/mermaid.min.js # Added mermaid here to avoid using CDN in production
+
+extra:
+  generator: false
+  social:
+    - icon: material/file-pdf-box
+      link: /assets/pdfs/user_manual.pdf
+      name: Download User Manual (PDF)
+      target: _blank
+
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: assets/logos/favicon.ico
+  logo: assets/logos/ggx-white.png
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.expand
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.path
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+    - content.action.edit.top
+    - content.time.last_updated
+    - content.code.select
+    - content.code.annotate
+    - toc.follow
+
+plugins:
+  - search
+  - htmlproofer:
+      raise_error_after_finish: False
+  - unused_files:
+      excluded_files:
+        - .pages
+      enabled: !ENV [CI, false]
+  - awesome-nav
+  - with-pdf:
+      # Set author/copyright as a space - using '' or not setting it causes the value 'None' to be shown in PDF
+      author: ' '
+      copyright: ' '
+      cover_title: Corridor GenGuardX
+      toc_level: 2
+      output_path: assets/pdfs/user_manual.pdf
+      enabled_if_env: ENABLE_PDF_EXPORT
+      # theme_handler_path: The path to customize the PDF generation for our theme
+      theme_handler_path: pdf_handler.py
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+  - git-revision-date
+  - git-authors
+
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.inlinehilite
+  - abbr
+  - admonition
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
