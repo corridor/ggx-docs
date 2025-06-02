@@ -1,0 +1,88 @@
+<div
+  id="page-feedback"
+  class="md-footer__feedback">
+  <p>Was this page helpful?</p>
+  <button
+    class="feedback-btn"
+    onclick="sendFeedback('yes')">
+    😊
+  </button>
+  <button
+    class="feedback-btn"
+    onclick="sendFeedback('no')">
+    😞
+  </button>
+  <p id="feedback-message"></p>
+</div>
+
+<script>
+  function sendFeedback(response) {
+    const data = {
+      page: window.location.pathname,
+      helpful: response,
+    };
+
+    // FIXME: What is the best way to put this ?
+    fetch(
+      'https://script.google.com/macros/s/AKfycbxcPUY02NEJeafgn1MFFLa7oJKJEuTIzKC4hzvVU62--5s7UmEwhndIN_RGPXiLj1B1/exec',
+      {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+      .then(res => {
+        if (!res.ok) throw new Error('Bad response');
+        return res.json();
+      })
+      .then(() => {
+        document.getElementById('feedback-message').innerText = 'Thanks for your feedback!';
+      })
+      .catch(err => {
+        console.error('Feedback error:', err);
+        document.getElementById('feedback-message').innerText = 'Something went wrong.';
+      });
+  }
+</script>
+
+<nav
+  class="md-footer__inner md-grid"
+  aria-label="Page navigation">
+  {% if page.previous_page %}
+  <a
+    href="{{ page.previous_page.url | url }}"
+    class="md-footer__link md-footer__link--prev"
+    aria-label="Previous: {{ page.previous_page.title | striptags }}">
+    {% include ".icons/material/arrow-left.svg" %}
+    <div>
+      <small>Previous</small>
+      <div>{{ page.previous_page.title }}</div>
+    </div>
+  </a>
+  {% endif %} {% if page.next_page %}
+  <a
+    href="{{ page.next_page.url | url }}"
+    class="md-footer__link md-footer__link--next"
+    aria-label="Next: {{ page.next_page.title | striptags }}">
+    <div>
+      <small>Next</small>
+      <div>{{ page.next_page.title }}</div>
+    </div>
+    {% include ".icons/material/arrow-right.svg" %}
+  </a>
+  {% endif %}
+</nav>
+
+<div
+  style="text-align: center; font-size: 1.5em; color: #888; margin-top: 0.2em"
+  id="copyright-footer">
+  ©
+  <span id="current-year"></span>
+  Corridor Platforms. All rights reserved.
+</div>
+
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>

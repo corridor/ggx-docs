@@ -1,0 +1,131 @@
+/** Color definitions
+ * Overrides: https://github.com/squidfunk/mkdocs-material/blob/9.6.5/src/templates/assets/stylesheets/main/_colors.scss
+ * Ref: https://squidfunk.github.io/mkdocs-material/getting-started/#color-scheme
+ */
+[data-md-color-scheme='corridor'] {
+  --md-primary-fg-color: #293147;
+  --md-footer-bg-color: #293147;
+}
+
+/* Increase the size of the logo in the header */
+.md-header__button.md-logo :-webkit-any(img, svg) {
+  width: auto;
+  height: 100%;
+  max-height: 1.75rem;
+}
+
+/* Center align the copyright in the footer */
+.md-copyright {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+/* Edit Content Button */
+.md-content__button.md-icon {
+  color: #ffffff;
+  background-color: #3f51b5;
+  padding: 8px 8px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.md-content__button.md-icon:hover {
+  color: #ffffff;
+}
+.md-content__button.md-icon a {
+  text-decoration: none;
+}
+
+/* Feedback Section  */
+#page-feedback {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 400px;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+}
+
+#page-feedback p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.feedback-btn {
+  font-size: 1.5rem;
+  margin: 0 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.feedback-btn:hover {
+  transform: scale(1.2);
+}
+
+#feedback-message {
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
+  color: black;
+}
+
+/* Footer CSS */
+.md-footer__inner {
+  width: 100vw;
+  max-width: 100vw;
+  height: 40px;
+  overflow: hidden;
+  margin: 0;
+  padding: 2.5rem 1rem;
+  background-color: #2e2e2e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.md-footer__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 1rem 1rem;
+}
+
+.md-footer__link small {
+  font-size: 0.75rem;
+  color: #999999;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.md-footer__link svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.md-footer__link--prev svg {
+  margin-right: 0.9rem;
+}
+
+.md-footer__link--next svg {
+  margin-left: 0.9rem;
+}
+
+.md-footer__link--prev {
+  margin-left: 10rem;
+}
+
+.md-footer__link--next {
+  margin-right: 10rem;
+}
