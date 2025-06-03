@@ -21,26 +21,6 @@
   display: flex;
 }
 
-/* Edit Content Button */
-.md-content__button.md-icon {
-  color: #ffffff;
-  background-color: #3f51b5;
-  padding: 8px 8px;
-  font-size: 1.2em;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.md-content__button.md-icon:hover {
-  color: #ffffff;
-}
-.md-content__button.md-icon a {
-  text-decoration: none;
-}
-
 /* Feedback Section  */
 #page-feedback {
   margin: 2rem auto;
