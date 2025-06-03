@@ -12,7 +12,7 @@ Whether its leveraging external agents or in-house custom solutions... Corridor 
 efficient @scale deployment of GenAI - agnostic of industry.
 
 <video controls width="800" height="360">
-    <source src="/assets/GGX_Home_video.mp4" type="video/mp4">
+    <source src="assets/GGX_Home_video.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
 
