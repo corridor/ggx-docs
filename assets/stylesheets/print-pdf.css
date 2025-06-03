@@ -1,0 +1,81 @@
+/** PDF generation
+ * Styles taken from the sample material PDF generation and customize as needed
+ * Ref: https://github.com/orzih/mkdocs-with-pdf/blob/v0.7.5/samples/mkdocs-material/docs/assets/css/extra.css
+ */
+@media print {
+  h3 > a,
+  h4 > a {
+    text-transform: capitalize !important;
+  }
+
+  .md-typeset {
+    line-height: 1.4;
+    font-size: 14px;
+  }
+
+  .md-typeset ul li,
+  .md-typeset ol li {
+    margin-bottom: 0.25rem;
+  }
+
+  #doc-toc ul li > a > span,
+  .md-typeset h1 > span,
+  .md-typeset h2 > span,
+  .md-typeset h3 > span {
+    display: inline-block;
+  }
+
+  .md-typeset h1 > span,
+  .md-typeset h2 > span,
+  .md-typeset h3 > span {
+    padding-right: 0.5rem;
+  }
+
+  .md-typeset .tx-content__footer hr {
+    background-color: transparent;
+    border-bottom: 0.5px solid var(--cor-bg-color);
+  }
+
+  /* Overrides: https://github.com/orzih/mkdocs-with-pdf/blob/v0.7.5/mkdocs_with_pdf/styles/_heading.scss */
+  article h1 {
+    border-bottom: 2px solid black !important;
+  }
+
+  article h2 {
+    border-bottom: 1px solid grey !important;
+    color: rgb(41, 49, 71);
+  }
+
+  article#doc-cover > .wrapper h2 {
+    /* Need to override the border in doc-cover due to the !important above */
+    border: none !important;
+  }
+
+  article h3 {
+    border-bottom: 0.5px solid lightgrey !important;
+  }
+
+  .md-typeset img,
+  .md-typeset svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /*
+      Table related CSS goes here 
+      Referred link: https://github.com/orzih/mkdocs-with-pdf/issues/23
+     */
+  table,
+  .md-typeset table:not([class]) {
+    width: 100%;
+    overflow-wrap: break-word;
+    table-layout: fixed;
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    word-break: break-all;
+    font-size: 14px;
+  }
+}
