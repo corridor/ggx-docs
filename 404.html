@@ -49,6 +49,16 @@
     <script>__md_scope=new URL("/ggx-docs/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-SMFMDV1JW7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-SMFMDV1JW7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-SMFMDV1JW7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -1835,71 +1845,29 @@
         
       </main>
       
-        <div
-  id="page-feedback"
-  class="md-footer__feedback">
-  <p>Was this page helpful?</p>
-  <button
-    class="feedback-btn"
-    onclick="sendFeedback('yes')">
-    😊
-  </button>
-  <button
-    class="feedback-btn"
-    onclick="sendFeedback('no')">
-    😞
-  </button>
-  <p id="feedback-message"></p>
-</div>
-
-<script>
-  function sendFeedback(response) {
-    const data = {
-      page: window.location.pathname,
-      helpful: response,
-    };
-
-    // FIXME: What is the best way to put this ?
-    fetch(
-      'https://script.google.com/macros/s/AKfycbxcPUY02NEJeafgn1MFFLa7oJKJEuTIzKC4hzvVU62--5s7UmEwhndIN_RGPXiLj1B1/exec',
-      {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    )
-      .then(res => {
-        if (!res.ok) throw new Error('Bad response');
-        return res.json();
-      })
-      .then(() => {
-        document.getElementById('feedback-message').innerText = 'Thanks for your feedback!';
-      })
-      .catch(err => {
-        console.error('Feedback error:', err);
-        document.getElementById('feedback-message').innerText = 'Something went wrong.';
-      });
-  }
-</script>
-
-<nav
-  class="md-footer__inner md-grid"
-  aria-label="Page navigation">
+        <nav class="md-footer__inner md-grid" aria-label="Page navigation">
    
 </nav>
 
 <div
-  style="text-align: center; font-size: 1.5em; background-color: #2e2e2e; color: white; margin-top: 0em"
-  id="copyright-footer">
+  style="
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #2e2e2e;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  "
+  id="copyright-footer"
+>
   ©
   <span id="current-year"></span>
   Corridor Platforms. All rights reserved.
 </div>
 
 <script>
-  document.getElementById('current-year').textContent = new Date().getFullYear();
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
 </script>
       
     </div>
