@@ -14,13 +14,6 @@
   max-height: 1.75rem;
 }
 
-/* Center align the copyright in the footer */
-.md-copyright {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-}
-
 /* Feedback Section  */
 #page-feedback {
   margin: 2rem auto;

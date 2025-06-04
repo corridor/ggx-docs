@@ -13,13 +13,28 @@ extra_css:
 extra_javascript:
   - assets/javascripts/mermaid.min.js # Added mermaid here to avoid using CDN in production
 
+# Copyright
+copyright: Copyright &copy; Corridor Platforms
+
 extra:
   generator: false
   social:
-    - icon: material/file-pdf-box
-      link: /assets/pdfs/user_manual.pdf
-      name: Download User Manual (PDF)
-      target: _blank
+    - icon: fontawesome/brands/github
+      link: https://github.com/corridor
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/corridor-platforms/
+      name: LinkedIn
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@corridorplatforms
+      name: YouTube
+    - icon: fontawesome/brands/google
+      link: https://cloud.google.com/find-a-partner/partner/corridor-platforms
+      name: Google Partner
+    # - icon: material/file-pdf-box
+    #   link: /assets/pdfs/user_manual.pdf
+    #   name: Download User Manual (PDF)
+    #   target: _blank
   analytics:
     provider: google
     property: G-SMFMDV1JW7
@@ -39,7 +54,6 @@ extra:
 
 theme:
   name: material
-  custom_dir: overrides
   favicon: assets/logos/favicon.ico
   logo: assets/logos/ggx-white.png
   palette:
@@ -64,7 +78,10 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.top
+    - navigation.tracking
     - navigation.path
+    - navigation.footer
+    - search.highlight
     - search.suggest
     - content.code.copy
     - content.action.edit
