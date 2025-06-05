@@ -31,6 +31,11 @@ nav:
       - Performance: 'deploy-and-monitor/performance.md'
       - Annotation Queues: 'deploy-and-monitor/annotation-queues.md'
 
+  - Integrations:
+      - Overview: 'integrations/index.md'
+      - Evaluation Libraries:
+            - Cleanlab: 'integrations/evaluation_libraries/cleanlab.md'    
+
   - Technology:
       - Self Hosted Installation:
           - Overview: 'technology/self-hosting/index.md'
