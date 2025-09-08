@@ -19,9 +19,6 @@ copyright: Copyright &copy; Corridor Platforms
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/corridor
-      name: GitHub
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/corridor-platforms/
       name: LinkedIn
