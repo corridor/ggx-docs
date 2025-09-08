@@ -56,6 +56,9 @@ theme:
   name: material
   favicon: assets/logos/favicon.ico
   logo: assets/logos/ggx-white.png
+  font:
+    text: DM Sans
+    code: DM Mono
   palette:
     - scheme: corridor
       primary: rgb(41, 49, 71)
