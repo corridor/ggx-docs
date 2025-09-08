@@ -6,48 +6,84 @@ title: RAGs
 
 ## What is a RAG?
 
-**Retrieval-Augmented Generation (RAG)** is an AI approach that helps language models by integrating a retrieval mechanism that fetches relevant external information in real-time. This information allows the model to generate more accurate, up-to-date, and context-aware responses beyond its pre-trained knowledge.
+**Retrieval-Augmented Generation (RAG)** addresses the limitation that language models have fixed knowledge cutoffs and can't access current information. RAG systems retrieve relevant data from external sources in real-time, enabling models to provide up-to-date, factual responses grounded in current information.
 
-The retrieval mechanism in a RAG system typically consists of:
-
-- **Knowledge Source:** A repository of external information. This can include documents, vector databases, Neo4j, or other structured/unstructured data sources.
-- **Initialization Logic:** Prepares the knowledge source or client for processing multiple retrieval requests if needed.
-- **Retrieval Logic:** A set of algorithms designed to fetch the most relevant information based on provided inputs. It often leverages embedding models, similarity functions, and ranking techniques to define the retrieval process.
-
-GGX supports the registration of various types of Retrieval Systems:
-
-- **API-based Retrieval:** Communicates with external knowledge sources like Neo4j, vector databases, etc., using APIs to retrieve information from outside environments.
-- **Python-based Retrieval:** For lightweight Python logic using various libraries or rule-based retrieval systems.
-- **Custom Retrieval:** Leverages uploaded knowledge sources like CSV, Vector databases, etc., to retrieve information.
+Every RAG system in Corridor consists of three key components that work together to retrieve and process information:
 
 ![What is a RAG?](./rag-concept.excalidraw.svg)
 
-## Managing RAGs on the platform:
+- **Knowledge Source:** A repository of external information such as documents (PDFs, text files, CSVs), vector databases (like ChromaDB), graph databases (like Neo4j), or other structured/unstructured data sources
+- **Initialization Logic:** Prepares the knowledge source or client for processing multiple retrieval requests, if needed
+- **Scoring Logic:** Code that implements your retrieval strategy to find and return the most relevant information from the knowledge source based on input queries
 
-The **RAG Registry** organizes all the registered RAGs into customized groups at this centralized location, allowing easier tracking, monitoring, and new RAG creation.
+Corridor supports registration of various RAG types to meet different use cases:
 
-### Registering a RAG:
+- **API-based:** Connect to external knowledge sources like vector databases, graph databases, and other APIs to retrieve information from external environments
+- **Python-based:** Lightweight Python logic using various libraries or rule-based retrieval systems
+- **Custom:** Upload knowledge files (CSV, text documents, PDFs) to create custom retrieval systems
 
-1. Click on **Create** button in RAG Registry.
-2. Fill in important details like **Name**, **Attributes** (Output Type, Alias), **Properties** (Group, Permissible Purpose, Description, Approval Workflow).
-3. **Define Input Arguments** along with their types and default values.
-4. **Select registered resources** (like Model, Global Functions, Prompts, etc.) to use in RAG definition.
-5. **Select Input Type** (API-Based, Python-based, or Custom registration).
-6. **Upload custom knowledge file** if required. Define RAG logic by **writing code in Initialization Logic and Retrieval Logic**.
-7. **Add notes**, **attach documentation** if available in the **Additional Information** section.
-8. Lastly, click on **Save** to complete the registration process.
+## Managing RAGs in Corridor
 
-The registered RAGs can be evaluated in the RAG Registry or used in downstream objects (like Models, Pipeline, Reports, etc.).
+The **RAG Registry** serves as a centralized location that organizes all registered RAGs into customized groups, enabling easier tracking, monitoring, and RAG creation across your organization.
 
-## Benefits of RAG Registration:
+## How to Register a RAG
 
-- Automated tracking and **recording of modifications** with efficient version upgrades.
-- Automatic detection of **Permissible Purpose violations**.
-- **Testing and Comparison** with other registered RAGs using custom and standardized validation kits.
-- **Enhances reusability** across downstream applications and enables usage tracking with **Lineage Tracking**.
-- Journey to production becomes more **transparent and fully auditable**, and **production monitoring** gets easier.
-- Extract ready-to-productionize **executable artifact**.
-- **Fingerprinting** of external API connectivity.
-- **Better Collaboration** for continuous development and testing.
+### Basic Information
+1. Navigate to **RAG Registry** and click **Create**
+2. In the **Details** tab, provide a **Description** of your RAG, including its purpose, when to use it, and other relevant details
+3. Click **Add Additional Details** to include supplementary information if needed
+
+### RAG Configuration
+4. In the **Code** section, configure the following:
+   * **Alias**: Provide a variable name to refer to this RAG in Python definitions
+   * **Output Type**: Specify the data type of the value returned by your RAG
+   * **Input Type**: Select from three options:
+     - **API Based**: For external knowledge sources (vector databases, graph databases, APIs)
+     - **Python Function**: For lightweight Python logic or rule-based retrieval systems
+     - **Custom**: For uploaded knowledge files (CSV, PDFs, etc)
+
+### Arguments and Resources
+5. **Define Arguments**: Add input parameters for your RAG
+   * **Alias**: Variable name for the argument
+   * **Type**: Data type of the input
+   * **Is Optional**: Check if the argument is optional
+   * **Default Value**: Provide default values for optional arguments
+6. Click **Add Argument** to include additional input parameters
+7. Click **Add Resources** to select registered resources (models, functions, prompts) to use in your RAG definition
+
+### RAG Implementation
+8. **For Custom type**: Upload your knowledge file using **Select file** or drag and drop
+   * The uploaded knowledge files (CSV, PDFs, etc) that can be processed by vector databases or other retrieval systems can be accessed in Scoring Logic using the variable `knowledge` (type `pathlib.Path`)
+9. **Write Scoring Logic** that:
+    * Processes input arguments and retrieves relevant information
+    * Accesses the knowledge source (uploaded file or external API)
+    * Returns the retrieved and processed information
+
+### Finalization
+10. Use additional tools as needed:
+    * **Format Code**: To properly format your Python code
+    * **Test Code**: To validate your implementation
+    * **requirements.txt**: To download Python dependencies information
+11. Click **Create** to complete the registration process
+
+Once registered, RAGs can be used in downstream objects such as models, pipelines, and reports.
+
+## Benefits of RAG Registration
+
+### Governance and Compliance
+* **Automated tracking** and recording of modifications with efficient version control
+* **Automatic detection** of Permissible Purpose violations
+* **Transparent and fully auditable** journey to production with streamlined production monitoring
+
+### Development and Testing
+* **Testing and comparison** with other registered RAGs using custom and standardized validation kits
+* **Extract ready-to-deploy executable artifacts** for production use
+* **Fingerprinting** of external API connectivity for security and tracking
+
+### Collaboration and Reusability
+* **Enhanced reusability** across downstream applications and teams
+* **Usage tracking** with comprehensive Lineage Tracking
+* **Better collaboration** for continuous RAG development and testing
+* **Centralized knowledge management** for improved information retrieval consistency
 
 </helper-panel>

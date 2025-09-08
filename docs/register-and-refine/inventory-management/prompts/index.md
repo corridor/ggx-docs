@@ -8,43 +8,68 @@ title: Prompt Registry
 
 A prompt is a natural language instruction provided to a generative model to direct its response or produce a desired outcome. It may include questions, commands, contextual details, few-shot examples, or partial inputs for the model to complete or extend.
 
-A prompt typically includes:
-
-- **Prompt Template:** An instruction containing placeholders.
-- **Input Arguments:** Dynamic inputs that replace the placeholders.
-
-**Note:** System prompts might not always have Input Arguments.
-
-Additionally, to generate the prompt using the template and input arguments, there should be a:
-
-- **Creation Logic:** Code that generates, retrieves, or formats the input arguments and fills them into the template.
-
-> **Note:** If a prompt contains no processing or formatting logic, the creation logic can directly return the prompt template.
+Every prompt in Corridor consists of three key components that work together to generate dynamic, contextual instructions:
 
 ![What is a Prompt?](./prompt-concept.excalidraw.svg)
 
-## Managing Prompts on the Platform:
+* **Prompt Template**: An instruction containing placeholders for dynamic content
+* **Input Arguments**: Dynamic inputs that replace the placeholders in the template
+* **Creation Logic**: Code that generates, retrieves, or formats the input arguments and fills them into the template
 
-The **Prompt Registry** organizes all the registered prompts into customized groups at this centralized location and allows easier tracking, monitoring, and creating new ones.
+**Note:** System prompts and static prompts might not always require Input Arguments. For prompts without processing logic, the creation logic can directly return the prompt template.
 
-### Registering a Prompt:
+## Managing Prompts in the Prompt Registry
 
-1. Click on **Create** button in Prompt Registry.
-2. Fill in important details like **Name**, **Attributes** (alias), **Properties** (Description, Group, Permissible Purpose, Approval Workflow).
-3. **Select registered resources** (like Model, Global Functions, etc.) which can help with prompt creation. These resources can be used in the prompt creation logic section.
-4. Define the **Input Arguments**, **Prompt Template**, **Prompt Creation Logic**.
-5. **Add notes**, **attach documentation** if available in the **Additional Information** section.
-6. Lastly, click on the **Save** button to complete the registration process.
+The **Prompt Registry** serves as a centralized location that organizes all registered prompts into customized groups, enabling easier tracking, monitoring, and prompt creation across your organization.
 
-The registered prompts can be evaluated in the Prompt Registry or can be used in downstream objects (like RAG, Model, Pipeline, Reports, etc.).
+## How to Register a Prompt
 
-## Benefits of Prompt Registration:
+### Basic Information
+1. Navigate to **Prompt Registry** and click **New Prompt**
+2. In the **Details** tab, provide a **Description** of your prompt, including its purpose, when to use it, and expected output format
+3. Click **Add Additional Details** to include supplementary information if needed
 
-- Automated tracking and **recording of modifications** with efficient version upgrades.
-- Automatic detection of **Permissible Purpose violations**.
-- Perform **evaluations** using standardized and custom validation kits.
-- **Enhances reusability** across downstream applications and enables usage tracking with **Lineage Tracking**.
-- Journey to production becomes more **transparent and fully auditable**, and **production monitoring** gets easier.
-- Extract ready-to-productionize **executable artifact**.
+### Prompt Configuration
+4. In the **Code** section, configure the following:
+   * **Alias**: Provide a variable name to refer to this prompt in Python definitions
+   * **Prompt Template**: Write your instruction template with placeholders for dynamic content
+
+### Arguments and Resources
+5. **Define Arguments**: Add input parameters for your prompt
+   * **Alias**: Variable name for the argument
+   * **Type**: Data type of the input
+   * **Is Optional**: Check if the argument is optional
+   * **Default Value**: Provide default values for optional arguments
+6. Click **Add Argument** to include additional input parameters
+7. **Select Resources & Inputs**: Choose other objects like Global Functions that are being used in this definition
+
+### Prompt Implementation
+8. **Write Prompt Creation Logic**: Implement code that:
+   * Processes and formats input arguments
+   * Retrieves any necessary context or data
+   * Accesses the Prompt Template using the variable `prompt` (type `str`)
+   * Returns the final prompt string
+9. For simple static prompts, the creation logic can directly return the template
+
+### Finalization
+10. **Save** your prompt to complete the registration process
+
+Once registered, prompts can be evaluated directly in the Prompt Registry or used in downstream objects such as models, RAG systems, pipelines, and reports.
+
+## Benefits of Prompt Registration
+
+### Version Control and Governance
+* **Automated tracking** and recording of modifications with efficient version control
+* **Automatic detection** of Permissible Purpose violations
+* **Transparent and fully auditable** prompt evolution and usage history
+
+### Testing and Optimization
+* **Standardized evaluations** using custom and built-in validation kits
+
+### Collaboration and Reusability
+* **Enhanced reusability** across downstream applications and teams
+* **Usage tracking** with comprehensive Lineage Tracking
+* **Better collaboration** for prompt engineering and optimization
+* **Centralized prompt management** for consistent messaging and quality control
 
 </helper-panel>

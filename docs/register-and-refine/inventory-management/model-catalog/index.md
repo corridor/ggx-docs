@@ -6,49 +6,85 @@ title: Model Catalog
 
 ## What is a Model?
 
-A model is a software program that uses algorithms/rules to make informed decisions, predictions, or generations based on a set of inputs without being given explicit instructions for every scenario. (e.g., ML models, Lookup tables, If-Else rules, LLMs, etc.)
+A model is a software program that uses algorithms or rules to make informed decisions, predictions, or generate responses based on input data without requiring explicit instructions for every scenario. Examples include machine learning models, lookup tables, if-else rules, and large language models (LLMs).
 
-A model typically includes one or more of the following components:
-
-- **Model file:** Stores learned weights/parameters, lookup tables, tensors, and other important data to be used for initializing the model.
-- **Initialization Logic:** Prepares the model or client for processing multiple inputs if needed.
-- **Scoring Logic:** Code that applies the initialized model to provide inputs to generate/predict responses.
-
-GGX supports the registration of various types of models:
-
-- **API-based models**: Connect to externally hosted models like OpenAI, Gemini, etc., using APIs.
-- **Python-based models**: Lightweight Python logic using various libraries or rule-based models.
-- **Custom models**: Uploaded model files, including Scikit-learn models, NLP models like BERT, and any fine-tuned models.
+Every model in Corridor consists of three key components that work together to process inputs and generate outputs:
 
 ![What is a Model?](./model-concept.excalidraw.svg)
 
-## Managing Models on the Platform:
+* **Model File**: Stores learned weights, parameters, lookup tables, tensors, and other data required to initialize the model
+* **Initialization Logic**: Prepares the model or client for processing multiple inputs, if needed
+* **Scoring Logic**: Code that processes inputs through the initialized model to generate predictions or responses
 
-The **Model Catalog** organizes all the registered models into customized groups at this centralized location, allowing easier tracking, monitoring, and model creation.
+## Supported Model Types
 
-### Registering a Model:
+Corridor supports registration of various model types to meet different use cases:
 
-1. Click on **Create** button in Model Catalog.
-2. Fill in important details like **Name**, **Attributes** (Output Type, Alias), **Properties** (Group, Permissible Purpose, Description, Approval Workflow).
-3. **Define Input Arguments** along with their types and default values.
-4. **Select registered resources** (like Model, Global Functions, Prompts, etc.) to use in model definition.
-5. **Select Input Type** (API-Based, Python-based, or Custom registration).
-6. **Upload weights** if required. Define model logic by **writing code in Initialization Logic and Scoring Logic**.
-7. **Select Training and Validation data**(if any) used for building or testing the models.
-8. **Add notes**, **attach documentation** if available in the **Additional Information** section.
-9. Lastly, click on **Save** to complete the registration process.
+* **API-based models**: Connect to externally hosted models like OpenAI, Gemini, and Claude using APIs
+* **Python-based models**: Lightweight Python logic using various libraries or rule-based models
+* **Custom models**: Uploaded model files, including Scikit-learn models, NLP models like BERT, and fine-tuned models
 
-The registered models can be evaluated in the Model Catalog or used in downstream objects (like RAG, Model, Pipeline, Reports, etc.).
+## Managing Models in the Model Catalog
 
-## Benefits of Model Registration:
+The **Model Catalog** serves as a centralized location that organizes all registered models into customized groups, enabling easier tracking, monitoring, and model creation across your organization.
 
-- Automated tracking and **recording of modifications** with efficient version upgrades.
-- Automatic detection of **Permissible Purpose violations**.
-- **Testing and Comparison** with other registered models using custom and standardized validation kits.
-- **Enhances reusability** across downstream applications and enables usage tracking with **Lineage Tracking**.
-- Journey to production becomes more **transparent and fully auditable**, and **production monitoring** gets easier.
-- Extract ready-to-productionize **executable artifact**.
-- **Fingerprinting** of external API connectivity.
-- **Better collaboration** for continuous model building and testing.
+## How to Register a Model
+
+### Basic Information
+1. Navigate to **Model Catalog** and click **New Model**
+2. In the **Details** tab, provide a **Description** of your model, including how to use it, when it should be used, and when it should not be used
+3. Click **Add Additional Details** to include supplementary information if needed
+
+### Model Configuration
+4. In the **Code** section, configure the following:
+   * **Alias**: Provide a variable name to refer to this object in Python definitions
+   * **Output Type**: Specify the data type of the value returned by your model
+   * **Input Type**: Select from three options:
+     - **API Based**: For externally hosted models (OpenAI, Gemini, Claude, etc.)
+     - **Python Function**: For lightweight Python logic or rule-based models  
+     - **Custom**: For uploaded model files (Scikit-learn, BERT, fine-tuned models, etc.)
+
+### Arguments and Resources
+5. **Define Arguments**: Add input parameters for your model
+   * **Alias**: Variable name for the argument
+   * **Type**: Data type of the input
+   * **Is Optional**: Check if the argument is optional
+   * **Default Value**: Provide default values for optional arguments
+6. Click **Add Argument** to include additional input parameters
+7. Click **Add Resources** to select registered resources (models, functions, prompts) to use in your model definition
+
+### Model Implementation
+8. **For Python Function and Custom types**: Write your logic in the code editor provided
+9. **For Custom type**: Upload your model file using **Select file** or drag and drop
+   * The uploaded file can be accessed in Scoring Logic using the variable `model` (type `pathlib.Path`)
+10. **Model Provider**: For API-based models, select your API provider from the dropdown
+
+### Finalization
+11. Use additional tools as needed:
+    * **Format Code**: To properly format your Python code
+    * **Test Code**: To validate your implementation
+    * **requirements.txt**: To specify Python dependencies
+12. **Save** your model to complete the registration process
+
+Once registered, models can be evaluated directly in the Model Catalog or used in downstream objects such as RAG systems, pipelines, and reports.
+
+## Benefits of Model Registration
+
+### Governance and Compliance
+* **Automated tracking** and recording of modifications with efficient version control
+* **Automatic detection** of Permissible Purpose violations
+* **Transparent and fully auditable** journey to production
+* **Production monitoring** becomes streamlined and efficient
+
+### Development and Testing
+* **Testing and comparison** with other registered models using custom and standardized validation kits
+* **Extract ready-to-deploy executable artifacts** for production use
+* **Fingerprinting** of external API connectivity for security and tracking
+
+### Collaboration and Reusability
+* **Enhanced reusability** across downstream applications and teams
+* **Usage tracking** with comprehensive Lineage Tracking
+* **Better collaboration** for continuous model building and testing
+* **Centralized model management** for improved team coordination
 
 </helper-panel>
