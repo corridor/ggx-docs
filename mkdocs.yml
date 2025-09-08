@@ -57,18 +57,9 @@ theme:
   favicon: assets/logos/favicon.ico
   logo: assets/logos/ggx-white.png
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+    - scheme: corridor
+      primary: rgb(41, 49, 71)
+      accent: rgb(41, 49, 71)
   features:
     - navigation.expand
     - navigation.instant
