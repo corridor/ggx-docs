@@ -16,12 +16,16 @@ It enables reviewers to capture their feedback and scores during testing, offeri
 
 All the chat-based pipelines are available for Pre-Approval Testing.
 
-1. Click on **Start Session** in the Pre-Approval Testing module.
+1. Click on **Start Session** in the Pre-Approval Testing module. A new chat window will open, displaying any previous sessions for reference.
 2. Choose the pipeline to be tested from a list of registered pipelines.
 3. Once the pipeline is selected, a new window will open where you can start interacting.
    ![Testing Window](./test-session-output.png)
-4. Once testing is completed, an experience summary can be recorded by providing an overall session rating and testing notes.
+4. Start interacting in the chat window. Optionally, select a Persona to simulate real-life scenarios, or begin chatting directly.
+   ![Persona Selection](./persona-selection.png)
+5. Provide feedback: Use 👍 if satisfactory, 👎 if not; reasons/comments are prompted for 👎.
+6. Once testing is completed, an experience summary can be recorded by providing an overall session rating and testing notes.
    ![Testing Feedback](./test-session-feedback.png)
+7. You can download the session as a text file for external documentation or further analysis.   
 
 **Note:**
 

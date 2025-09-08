@@ -2,9 +2,7 @@ site_name: Corridor GGX Documentation
 site_url: 'https://corridor.github.io/ggx-docs/'
 use_directory_urls: true
 copyright: '&copy; Corridor Platforms'
-repo_url: https://github.com/corridor/ggx-docs
-repo_name: 'corridor/ggx-docs'
-edit_uri: edit/main/docs/
+
 
 extra_css:
   - assets/stylesheets/print-pdf.css
@@ -19,9 +17,6 @@ copyright: Copyright &copy; Corridor Platforms
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/corridor
-      name: GitHub
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/corridor-platforms/
       name: LinkedIn
@@ -56,19 +51,13 @@ theme:
   name: material
   favicon: assets/logos/favicon.ico
   logo: assets/logos/ggx-white.png
+  font:
+    text: DM Sans
+    code: DM Mono
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+    - scheme: corridor
+      primary: rgb(41, 49, 71)
+      accent: rgb(41, 49, 71)
   features:
     - navigation.expand
     - navigation.instant
@@ -86,7 +75,6 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.edit.top
-    - content.time.last_updated
     - content.code.select
     - content.code.annotate
     - toc.follow
@@ -125,9 +113,6 @@ plugins:
       caption_position: bottom
       background: white
       shadow: true
-  - git-revision-date
-  - git-authors:
-      show_email_address: false
 
 markdown_extensions:
   - meta

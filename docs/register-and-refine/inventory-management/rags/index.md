@@ -11,7 +11,6 @@ title: RAGs
 The retrieval mechanism in a RAG system typically consists of:
 
 - **Knowledge Source:** A repository of external information. This can include documents, vector databases, Neo4j, or other structured/unstructured data sources.
-- **Initialization Logic:** Prepares the knowledge source or client for processing multiple retrieval requests if needed.
 - **Retrieval Logic:** A set of algorithms designed to fetch the most relevant information based on provided inputs. It often leverages embedding models, similarity functions, and ranking techniques to define the retrieval process.
 
 GGX supports the registration of various types of Retrieval Systems:
@@ -33,7 +32,7 @@ The **RAG Registry** organizes all the registered RAGs into customized groups at
 3. **Define Input Arguments** along with their types and default values.
 4. **Select registered resources** (like Model, Global Functions, Prompts, etc.) to use in RAG definition.
 5. **Select Input Type** (API-Based, Python-based, or Custom registration).
-6. **Upload custom knowledge file** if required. Define RAG logic by **writing code in Initialization Logic and Retrieval Logic**.
+6. **Upload custom knowledge file** if required. Define RAG logic by **writing code in Retrieval Logic** section.
 7. **Add notes**, **attach documentation** if available in the **Additional Information** section.
 8. Lastly, click on **Save** to complete the registration process.
 

@@ -14,9 +14,9 @@ Hill Climbing is a method used to solve optimization problems by gradually impro
 
 - **Initialization** – Start with an initial prompt.
 - **Evaluation** – Run an evaluation using fixed components:
-    - Predefined LLM with set hyperparameters
-    - Standardized metrics for performance measurement
-    - A consistent dataset for testing
+  - Predefined LLM with set hyperparameters
+  - Standardized metrics for performance measurement
+  - A consistent dataset for testing
 - **Modification** – Make small, targeted improvements to the prompt.
 - **Comparison** – Rerun the evaluation and measure performance changes.
 - **Update** – If the new prompt improves results, it becomes the new baseline.
@@ -40,4 +40,4 @@ Hill Climbing is a method used to solve optimization problems by gradually impro
 - Make **changes to the prompts** which are part of the object.
 - Prepare the data in **Data Sources** which will be used for evaluation.
 - Click on **Run** at the bottom and wait for job completion.
-- Once the job is completed one can check the optmization progress in Dashboards.
+- Once the job is completed, one can check the optimization progress in Dashboards.

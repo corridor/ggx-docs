@@ -11,8 +11,7 @@ A model is a software program that uses algorithms/rules to make informed decisi
 A model typically includes one or more of the following components:
 
 - **Model file:** Stores learned weights/parameters, lookup tables, tensors, and other important data to be used for initializing the model.
-- **Initialization Logic:** Prepares the model or client for processing multiple inputs if needed.
-- **Scoring Logic:** Code that applies the initialized model to provide inputs to generate/predict responses.
+- **Scoring Logic:** Code that applies the model to provide inputs to generate/predict responses.
 
 GGX supports the registration of various types of models:
 
@@ -29,14 +28,13 @@ The **Model Catalog** organizes all the registered models into customized groups
 ### Registering a Model:
 
 1. Click on **Create** button in Model Catalog.
-2. Fill in important details like **Name**, **Attributes** (Output Type, Alias), **Properties** (Group, Permissible Purpose, Description, Approval Workflow).
+2. Fill in important details like **Name**, **Properties** (Group, Permissible Purpose, Description, Approval Workflow),**Attributes** (Output Type, Alias) or any other relevant details.
 3. **Define Input Arguments** along with their types and default values.
 4. **Select registered resources** (like Model, Global Functions, Prompts, etc.) to use in model definition.
-5. **Select Input Type** (API-Based, Python-based, or Custom registration).
-6. **Upload weights** if required. Define model logic by **writing code in Initialization Logic and Scoring Logic**.
-7. **Select Training and Validation data**(if any) used for building or testing the models.
-8. **Add notes**, **attach documentation** if available in the **Additional Information** section.
-9. Lastly, click on **Save** to complete the registration process.
+5. **Select Input Type** (API-Based, Python-based, or Custom registration) and **Model Provider** and Model is type is API-Based.
+6. **Upload weights** if required. Define model logic by **writing code in Scoring Logic** section.
+7. **Add notes**, **attach documentation** if available in the **Additional Information** section.
+8. Lastly, click on **Save** to complete the registration process.
 
 The registered models can be evaluated in the Model Catalog or used in downstream objects (like RAG, Model, Pipeline, Reports, etc.).
 
