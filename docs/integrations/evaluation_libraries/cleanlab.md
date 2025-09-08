@@ -4,7 +4,7 @@
 
 Pioneered at MIT and proven at 50+ Fortune 500 companies, Cleanlab provides software to detect and remediate inaccurate responses from Enterprise AI applications. Cleanlab detection serves as a trust and reliability layer ensuring Agents, RAG, and Chatbots remain safe and helpful.
 
-Recognized among the _Forbes AI 50_, _CB Insights GenAI 50_, and _Analytics India Magazine’s Top AI Hallucination Detection Tools_, the company was founded by three MIT computer science PhDs and is backed by $30M investment from Databricks, Menlo, Bain, TQ, and the founders of GitHub, Okta, and Yahoo.
+Recognized among the **Forbes AI 50, CB Insights GenAI 50, and Analytics India Magazine’s Top AI Hallucination Detection Tools**, the company was founded by three MIT computer science PhDs and is backed by $30M investment from Databricks, Menlo, Bain, TQ, and the founders of GitHub, Okta, and Yahoo.
 
 ## Integrating Cleanlab
 
