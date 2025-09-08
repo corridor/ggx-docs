@@ -75,7 +75,6 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.edit.top
-    - content.time.last_updated
     - content.code.select
     - content.code.annotate
     - toc.follow
@@ -114,9 +113,6 @@ plugins:
       caption_position: bottom
       background: white
       shadow: true
-  - git-revision-date
-  - git-authors:
-      show_email_address: false
 
 markdown_extensions:
   - meta
