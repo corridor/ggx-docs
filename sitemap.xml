@@ -2,178 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://corridor.github.io/ggx-docs/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/deploy-and-monitor/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/deploy-and-monitor/annotation-queues/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/deploy-and-monitor/direct-to-production/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/deploy-and-monitor/oversight/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/deploy-and-monitor/performance/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/approval-workflows/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/comparison/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/document-generation/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/human-testing/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/reporting/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/evaluate-and-approve/simulation/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/integrations/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/integrations/evaluation_libraries/cleanlab/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/lineage-tracking/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/prompt-optimization/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/collaboration/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/global-functions/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/model-catalog/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/pipelines/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/prompts/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/rags/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/inventory-management/table-registry/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/register-and-refine/version-management/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/hardening/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/approvals/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/common-configs/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/database/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/datalake/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/notifications/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/packages/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/process-management/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/saml/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/configurations/web-servers/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/bundle-install/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/docker/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/minimum-requirements/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/scaling/backups/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/scaling/concurrency/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
     <url>
          <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/scaling/scalability/</loc>
-         <lastmod>2025-06-05</lastmod>
+         <lastmod>2025-09-08</lastmod>
     </url>
 </urlset>
