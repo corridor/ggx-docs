@@ -2,7 +2,7 @@
 title: Human Integrated Testing
 ---
 
-The Human Integrated Testing module enables comprehensive testing of GenAI pipelines both before approval (Pre-Approval) and after deployment (Post-Approval/Post-Depoyment), involving humans in the loop.
+The Human Integrated Testing module enables comprehensive testing of GenAI pipelines both before approval (Pre-Approval) and after deployment (Post-Approval/Post-Deployment), involving humans in the loop.
 
 ## What is a Pre-Approval Testing?
 
