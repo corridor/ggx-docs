@@ -11,10 +11,7 @@ Enabling them to move from experimentation stage to high ROI use cases which usu
 Whether it's leveraging external agents or in-house custom solutions. Corridor provides trust and comfort to facilitate
 efficient @scale deployment of GenAI - agnostic of industry.
 
-<video controls>
-    <source src="assets/GGX_Home_video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+<iframe src="https://player.vimeo.com/video/1116217119" width="100%" height="400" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 It enables the secure and compliant deployment of high-impact GenAI applications, including IVR systems, agent assist tools, and chatbots. It addresses critical challenges often overlooked by
 existing tools, including robust model risk management, hallucinations, PII leakage, and fair lending bias. GGX ensures comprehensive governance through rigorous full-pipeline testing, out-of-the-box standardized evaluation metrics, regulatory compliance checks, and continuous human-in-the-loop oversight. By streamlining these processes across the LLM pipeline, GGX
