@@ -703,10 +703,43 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Registering a Pipeline:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-pipeline-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Pipeline from Scratch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-external-agentspipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect to External Agents/Pipelines
+    </span>
+  </a>
+  
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-risk-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Risk Assessment:
+    </span>
+  </a>
   
 </li>
       
@@ -2113,10 +2146,43 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Registering a Pipeline:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-pipeline-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Pipeline from Scratch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-external-agentspipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect to External Agents/Pipelines
+    </span>
+  </a>
+  
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-risk-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Risk Assessment:
+    </span>
+  </a>
   
 </li>
       
@@ -2157,7 +2223,45 @@
 
 <p><helper-panel object="Pipeline" location="list"></helper-panel></p>
 <h2 id="what-is-a-pipeline">What is a Pipeline?<a class="headerlink" href="#what-is-a-pipeline" title="Permanent link">¶</a></h2>
-<p>A pipeline is a use-case-specific combination of multiple reusable components such as Models, RAGs, Prompts, Guardrails, and Other Pipelines. It processes inputs through a logically structured sequence of these components to generate or predict an output.</p>
+<p>A pipeline is a combination of multiple reusable components such as Models, RAGs, Prompts, Guardrails, and Other Sub Pipelines. It processes inputs through a logically structured sequence of these components to generate or predict an output.</p>
+<p>For example, consider an <strong>IVR (Interactive Voice Response) pipeline</strong> that automates customer support calls. This pipeline can be constructed by combining two subpipelines:</p>
+<ol>
+<li><strong>Intent Classification Subpipeline:</strong><br>
+   This component analyzes the user's spoken or typed input (e.g., "I want to check my account balance") and classifies the intent, such as "Check Balance", "Report Lost Card", or "Speak to Agent".  </li>
+<li>
+<p>It can use a <strong>Large Language Model (LLM)</strong> and a <strong>Prompt</strong> to interpret the user's message and determine the intent. For example, a prompt can be designed to instruct the LLM to extract the intent from the input text.</p>
+</li>
+<li>
+<p><strong>Response Generation Subpipeline:</strong><br>
+   Based on the classified intent, this subpipeline generates an appropriate response. For example, if the intent is "Check Balance", it fetches the account balance and formulates a response; if the intent is "Report Lost Card", it initiates the card blocking process and confirms to the user.  </p>
+</li>
+<li>This subpipeline can use an <strong>LLM</strong>, a <strong>Prompt</strong>, and a <strong>RAG (Retrieval-Augmented Generation) component</strong> to access customer data or knowledge bases. For instance, the RAG can retrieve the latest account information or support policies, which the LLM then uses (guided by a prompt) to generate a personalized and accurate response.</li>
+</ol>
+<p>The IVR pipeline orchestrates these subpipelines in sequence:</p>
+<ul>
+<li>
+<p><strong>Step 1:</strong> Receives the user's message.</p>
+</li>
+<li>
+<p><strong>Step 2:</strong> Passes the message to the Intent Classification subpipeline to determine the user's intent.</p>
+</li>
+<li>
+<p><strong>Step 3:</strong> Forwards the intent (and possibly the original message) to the Response Generation subpipeline to produce the final reply.</p>
+</li>
+</ul>
+<p>This modular approach allows you to reuse the LLMs, Intent Classification and Response Generation subpipelines in other pipelines as well. You can register each subpipeline and then stitch them to create an overall IVR pipeline in the Pipeline Registry.</p>
+<p><strong>Example Flow:</strong></p>
+<ol>
+<li>
+<p>User says: "I lost my credit card."</p>
+</li>
+<li>
+<p>Intent Classification subpipeline (using LLM + Prompt) detects intent: "Report Lost Card".</p>
+</li>
+<li>
+<p>Response Generation subpipeline (using LLM + Prompt + RAG to customer data) replies: "I'm sorry to hear that. I have blocked your card. Would you like to request a replacement?"</p>
+</li>
+</ol>
 <p>Pipelines in GGX can be categorized into two types:</p>
 <ul>
 <li><strong>Chat-based Pipelines:</strong> Maintain history and context across multiple user messages and pipeline responses, enabling context-aware interactions.</li>
@@ -2166,33 +2270,42 @@
 <p>A typical pipeline consists of:</p>
 <ul>
 <li><strong>Resources:</strong> Like Model, RAGs, Prompts, Guardrails, Other Pipelines, etc.</li>
-<li><strong>Pipeline Initialization Logic:</strong> Prepares the pipeline for multiple requests if needed.</li>
-<li><strong>Pipeline Scoring Logic:</strong> Code that applies the initialized pipelines to provided inputs and uses the various resources to generate/predict responses.</li>
+<li><strong>Pipeline Scoring Logic:</strong> Code that applies the pipelines to provided inputs and uses the various components to generate/predict responses.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="pipeline-concept.excalidraw.svg" data-desc-position="bottom"><img alt="What is a Pipeline?" src="pipeline-concept.excalidraw.svg"></a></p>
 <h2 id="managing-pipelines-on-the-platform">Managing Pipelines on the Platform<a class="headerlink" href="#managing-pipelines-on-the-platform" title="Permanent link">¶</a></h2>
 <p>The <strong>Pipeline Registry</strong> organizes all the registered pipelines into customized groups at a centralized location, allowing easier tracking, monitoring, and new pipeline creation.</p>
 <h3 id="registering-a-pipeline">Registering a Pipeline:<a class="headerlink" href="#registering-a-pipeline" title="Permanent link">¶</a></h3>
+<h4 id="create-a-pipeline-from-scratch">Create a Pipeline from Scratch<a class="headerlink" href="#create-a-pipeline-from-scratch" title="Permanent link">¶</a></h4>
 <ol>
-<li>Click on <strong>Create</strong> button in the Pipeline Registry.</li>
-<li>Fill in important details like <strong>Name</strong>, <strong>Attributes</strong> (Output Type, Alias, Pipeline Type), <strong>Properties</strong> (Group, Permissible Purpose, Description, Approval Workflow)</li>
-<li><strong>Define Input Arguments or Configs</strong> along with their types and default values.</li>
-<li><strong>Select registered resources</strong> (like Model, Global Functions, Prompts, RAGs, etc.) to use in pipeline definition.</li>
-<li><strong>Select Input Type</strong> (Python-based or Custom registration).</li>
-<li><strong>Upload custom files/models if required</strong> and define pipeline logic by writing code in <strong>Initialization Logic</strong> and <strong>Scoring Logic</strong>.</li>
+<li>Click the <strong>Create</strong> button in the Pipeline Registry.</li>
+<li>Fill in important details such as <strong>Name</strong> and <strong>Properties</strong> (Group, Permissible Purpose, Description, Approval Workflow), along with any other relevant information.</li>
+<li><strong>Provide an alias</strong> for the pipeline.</li>
+<li><strong>Select Input Type</strong> (Python-based, Custom Registration, or External Agent) and also choose the Pipeline Type (Chat-based or Free-Flow).</li>
+<li><strong>Define input arguments or configs</strong> along with their types and default values.</li>
+<li><strong>Select registered resources</strong> (such as Model, Global Functions, Prompts, RAGs, etc.) to use in the pipeline definition.</li>
+<li><strong>Upload custom files/models if required</strong> and define pipeline logic by writing code in the <strong>Scoring Logic</strong> section.</li>
+<li>Optionally, configure starting examples for human-in-the-loop testing.</li>
 <li><strong>Add notes</strong> and <strong>attach documentation</strong> if available in the <strong>Additional Information</strong> section.</li>
-<li>Lastly, click <strong>Save</strong> to complete the registration process.</li>
+<li>Finally, click <strong>Save</strong> to complete the registration process.</li>
 </ol>
+<h4 id="connect-to-external-agentspipelines">Connect to External Agents/Pipelines<a class="headerlink" href="#connect-to-external-agentspipelines" title="Permanent link">¶</a></h4>
+<p>External agents which has been built in another development environment can be connected to the GGX platform. This can be done by connecting to the external agent's API. For example, if an external agent has been built in Vertex AI Agent Playbooks, it can be connected to the GGX platform by connecting to the Vertex AI Agent Playbooks API.</p>
+<p>Integrations to external agent providers like Vertex AI Agent Playbooks, AgentForce, Microsoft Copilot Studio, Vapi AI, etc. are available an can be configured in the Integration Module. New provider integrations can be added to the platform by extending the existing integration framework.</p>
 <blockquote>
 <p><strong>Note:</strong></p>
 <ul>
 <li>The output type for Chat pipelines is fixed as a dictionary <code>{"output": string, "context": custom type}</code>. The context type can be defined in the <strong>Formula Section</strong>.</li>
 <li>For chat pipelines, there is a default argument called <code>user_message</code>.</li>
 <li>For chat pipelines, <code>history</code>, <code>context</code>, and <code>user_message</code> are available by default, maintaining historical messages in the standard OpenAI format (<code>Struct[content: String, role: String]</code>), context for information retention across turns, and <code>user_message</code> for the current message.</li>
+<li>A <code>cache</code> variable is available by default which can be used to store any intermediate and resuable object/logic to avoid recomputation. One pipeline has a single cache and it is shared across all the sessions.</li>
 </ul>
 </blockquote>
 <p>Registered pipelines can be evaluated in the <strong>Pipeline Registry</strong>, <strong>Human Integrated Testing</strong>, or used in <strong>downstream pipelines</strong>. Live monitoring of pipelines can be done <strong>Monitoring Module and Annotation Queues</strong>.</p>
 <p></p>
+<h2 id="pipeline-risk-assessment">Pipeline Risk Assessment:<a class="headerlink" href="#pipeline-risk-assessment" title="Permanent link">¶</a></h2>
+<p>Platform provides a separate risk assessment tab for pipelines to document the assumptions, risks, and mitigations for the pipeline.
+The users can document the risk assessment for the pipeline in this tab in various dimensions like : Accuracy, Stability, Ethics and Vulnerability. It also allow attaching the simulation to show the testing done.</p>
 <h2 id="benefits-of-pipeline-registration">Benefits of Pipeline Registration:<a class="headerlink" href="#benefits-of-pipeline-registration" title="Permanent link">¶</a></h2>
 <ul>
 <li>Automated tracking and <strong>recording of modifications</strong> with efficient version upgrades.</li>
@@ -2200,6 +2313,7 @@
 <li><strong>Testing and Comparison</strong> with other registered pipelines using custom and standardized validation kits.</li>
 <li><strong>Enhances reusability</strong> across downstream applications and enables usage tracking with <strong>Lineage Tracking</strong>.</li>
 <li>Journey to production becomes more <strong>transparent and fully auditable</strong>, and <strong>production monitoring</strong> becomes easier.</li>
+<li>Maintain a <strong>Risk Assessment</strong> record of the pipeline and its components.</li>
 <li><strong>Human Integrated Testing</strong> and feedback logging for chat-based pipelines.</li>
 <li>Extract ready-to-productionize <strong>executable artifacts</strong>.</li>
 <li><strong>Better Collaboration</strong> for continuous development and testing.</li>
@@ -2224,7 +2338,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    2025-06-02
+    2025-09-08
   </span>
 
     
