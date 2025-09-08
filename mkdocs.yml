@@ -2,9 +2,7 @@ site_name: Corridor GGX Documentation
 site_url: 'https://corridor.github.io/ggx-docs/'
 use_directory_urls: true
 copyright: '&copy; Corridor Platforms'
-repo_url: https://github.com/corridor/ggx-docs
-repo_name: 'corridor/ggx-docs'
-edit_uri: edit/main/docs/
+
 
 extra_css:
   - assets/stylesheets/print-pdf.css
