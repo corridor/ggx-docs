@@ -4,11 +4,11 @@ hide:
   - navigation
 ---
 
-[Corridor GenGuardX](https://ggx.corridorplatforms.com) is a Responsible AI Governance & Testing Automation Platform designed by risk managementexperts to help companies harness the benefits of GenAI.
+[Corridor GenGuardX](https://ggx.corridorplatforms.com) is a Responsible AI Governance & Testing Automation Platform designed by risk management experts to help companies harness the benefits of GenAI.
 
 Enabling them to move from experimentation stage to high ROI use cases which usually require strong end-to-end pipeline testing, regulatory governance and continual human in the loop monitoring.
 
-Whether its leveraging external agents or in-house custom solutions. Corridor provides trust and comfort to facilitate
+Whether it's leveraging external agents or in-house custom solutions. Corridor provides trust and comfort to facilitate
 efficient @scale deployment of GenAI - agnostic of industry.
 
 <video controls>
@@ -31,8 +31,8 @@ It provides:
 
 ### 1. Centralized Governed Platform
 
-- **Organized GenAI Studio** for registering, evaluating, and governing LLM pipelines and its components like RAG, LLMs, Prompts
-- **Version tracking** with comprehensive audit nd governance capabilities
+- **Organized GenAI Studio** for registering, evaluating, and governing LLM pipelines and their components like RAG, LLMs, Prompts
+- **Version tracking** with comprehensive audit and governance capabilities
 - **Flexibility** to recreate production pipelines for iterative testing and updates
 - **Automated approval workflows** for direct-to-production deployment
 - **Built-in Role Governance** for proper approval, access, and monitoring rights

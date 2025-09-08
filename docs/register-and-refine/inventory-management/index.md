@@ -4,7 +4,7 @@ title: Inventory Management
 
 ## Overview
 
-The platform allows registering, Tracking and Monitoring of Data and GenAi assets (like RAG, Models, LLMs and Pipelines) at a centralized location.
+The platform allows registering, tracking, and monitoring of Data and GenAI assets (like RAG, Models, LLMs and Pipelines) at a centralized location.
 
 ## Why Inventory Management is Helpful?
 
@@ -13,7 +13,7 @@ The platform allows registering, Tracking and Monitoring of Data and GenAi asset
 - **Security & Access Control**: Centralized inventories allow proper role-based access management.
 - **Monitoring & Continuous Improvement**: Ensures GenAI systems can be tested before moving to production and periodically monitored post-production.
 
-## Asset Regesteries:
+## Asset Registries:
 
 Read more on different registries below:
 
@@ -66,28 +66,28 @@ Data Types on the platform are useful to declare clear types that can be used fo
 
 - Scalar Types:
 
-    - Numerical
-    - String
-    - DateTime
-    - Boolean
+  - Numerical
+  - String
+  - DateTime
+  - Boolean
 
 - Array Types:
 
-    - Array[Numerical]
-    - Array[String]
-    - Array[Array[DateTime]]
-    - and other types can be created by mixing existing types ...
+  - Array[Numerical]
+  - Array[String]
+  - Array[Array[DateTime]]
+  - and other types can be created by mixing existing types ...
 
 - Struct Types:
 
-    - Struct[decision: String, ranking: Numerical]
-    - Struct[amt: Array[Numerical], flag: Boolean]
-    - Struct[info: Map[Numerical,String],details: Struct[id: String,date: DateTime,age: Numerical]]
-    - and other types can be created by mixing existing types ...
+  - Struct[decision: String, ranking: Numerical]
+  - Struct[amt: Array[Numerical], flag: Boolean]
+  - Struct[info: Map[Numerical,String],details: Struct[id: String,date: DateTime,age: Numerical]]
+  - and other types can be created by mixing existing types ...
 
 - Map Types:
 
-    - Map[Numerical, String]
-    - Map[String, Numerical]
-    - Map[Numerical, Array[Boolean]]
-    - and other types can be created by mixing existing types ...
+  - Map[Numerical, String]
+  - Map[String, Numerical]
+  - Map[Numerical, Array[Boolean]]
+  - and other types can be created by mixing existing types ...
