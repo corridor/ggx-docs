@@ -40,8 +40,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CDM+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"DM Mono"}</style>
       
     
     
@@ -2085,7 +2085,7 @@
   <h1>Overview</h1>
 
 <h2 id="purpose-of-evaluations">Purpose of Evaluations<a class="headerlink" href="#purpose-of-evaluations" title="Permanent link">¶</a></h2>
-<p>Evaluating GenAi pipelines is key to making sure they generate reliable, high-quality responses. Without a solid evaluation process, it is hard to tell if changes—like tweaking prompts, removing LLMs, adjusting parameters, or refining retrieval steps—are actually improving performance or breaking something. By measuring factors like relevance, hallucination rates, and latency, teams can make informed decisions about how to optimize their pipelines. Integrating evaluations into CI/CD pipelines ensures that every update is tested, so performance stays consistent and issues are caught early.</p>
+<p>Evaluating GenAI pipelines is key to making sure they generate reliable, high-quality responses. Without a solid evaluation process, it is hard to tell if changes—like tweaking prompts, removing LLMs, adjusting parameters, or refining retrieval steps—are actually improving performance or breaking something. By measuring factors like relevance, hallucination rates, and latency, teams can make informed decisions about how to optimize their pipelines. Integrating evaluations into CI/CD pipelines ensures that every update is tested, so performance stays consistent and issues are caught early.</p>
 <p>The quality of an evaluation depends on having a well-rounded dataset and metrics. If test cases are too limited, models might appear to perform well but fail in real-world scenarios. A diverse dataset ensures that evaluation metrics truly reflect how the model will behave in production. At the end of the day, evaluations help build trust, keeping LLM applications accurate, scalable, and dependable across different use cases.</p>
 <h2 id="choosing-the-right-evaluation-method">Choosing the Right Evaluation Method<a class="headerlink" href="#choosing-the-right-evaluation-method" title="Permanent link">¶</a></h2>
 <p>There are two main types of evaluators for assessing LLM performance: <strong>automated evaluation</strong> (using LLMs or code) and <strong>human annotations</strong>. Each method serves a different purpose depending on the type of assessment needed.</p>
@@ -2144,16 +2144,16 @@
 </tbody>
 </table>
 <p>By following these steps, teams can systematically evaluate their Gen AI pipelines, mitigate risks, and enhance performance with data-driven insights.<br>
-Corridor provides the ability to <strong>Run Evaluation Jobs</strong> for registered GenAi components.</p>
+Corridor provides the ability to <strong>run evaluation jobs</strong> for registered GenAI components.</p>
 <h2 id="introduction-to-jobs">Introduction to Jobs<a class="headerlink" href="#introduction-to-jobs" title="Permanent link">¶</a></h2>
-<p>Corridor provides the ability to perform evaluations by running jobs on the registered objects and generating standardised and customized reports/metrics. Evaluations are controlled by Corridor - and run in a dedicated locked environment to ensure reproducibility of results.</p>
+<p>Corridor provides the ability to perform evaluations by running jobs on the registered objects and generating standardised and customized reports/metrics. Evaluations are controlled by Corridor and run in a dedicated locked environment to ensure reproducibility of results.</p>
 <p>The platform supports batch evaluation of objects through <strong>simulation jobs</strong> or <strong>comparisons with similar objects</strong> on given datasets. Reports and metrics for these evaluations can be customized within Corridor under <strong>Resources → Reports Section</strong>. For more details, refer to the <a href="reporting/">Reporting</a> section.</p>
-<p>Once the job is completed, Corridor records all the details about specific steps of the jobs, logs resource usages and publishes the dashboard containing all the selected reports which can be shared across the team on Corridor for feedback and approval process. The results can be exported outside Corridor or used for automated documentation.</p>
+<p>Once the job is completed, Corridor records all the details about the specific steps of the jobs, logs resource usages and publishes the dashboard containing all the selected reports which can be shared across the team on Corridor for feedback and approval process. The results can be exported outside Corridor or used for automated documentation.</p>
 <h2 id="approvals-post-evaluations">Approvals post Evaluations<a class="headerlink" href="#approvals-post-evaluations" title="Permanent link">¶</a></h2>
 <p>The approval process is a key governance capability of the platform. After the object is fully evaluated using automated dashboard or manual tests, all the evaluation results can be shared with predefined roles within an Approval Workflow, ensuring structured reviews, feedback, and approvals for production use.</p>
 <p>Once approved, the object is locked, preventing any modifications within the system. This guarantees the artifact remains unchanged before being exported directly to the production system.</p>
 <h2 id="standardized-ggx-reports">Standardized GGX Reports<a class="headerlink" href="#standardized-ggx-reports" title="Permanent link">¶</a></h2>
-<p>Apart from the ability to create customized reports, Corridor already has a battery of tests registered for evaluation and validation of different components of Corridor. GGX Reports are crafted by a team of generative AI risk experts following thorough research and analysis. The list of reports is expanding with all the latest developments in the GenAi Industry. All these reports can be used if applicable and can be maintained or forked for a specific use case.</p>
+<p>Apart from the ability to create customized reports, Corridor already has a suite of tests registered for evaluation and validation of different components of Corridor. GGX Reports are crafted by a team of generative AI risk experts following thorough research and analysis. The list of reports is expanding with all the latest developments in the GenAI industry. All these reports can be used if applicable and can be maintained or forked for a specific use case.</p>
 <table>
 <thead>
 <tr>
@@ -2369,7 +2369,7 @@ Corridor provides the ability to <strong>Run Evaluation Jobs</strong> for regist
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    2025-06-02
+    2025-09-08
   </span>
 
     
@@ -2380,11 +2380,11 @@ Corridor provides the ability to <strong>Run Evaluation Jobs</strong> for regist
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
       
     </span>
     <nav>
-      rajneesh407
+      Aniket Agrawal, rajneesh407
     </nav>
   </span>
 

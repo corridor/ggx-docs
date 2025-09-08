@@ -40,8 +40,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CDM+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"DM Mono"}</style>
       
     
     
@@ -2250,25 +2250,25 @@
 <li>Go to the approved Object's page and navigate to the Jobs tab.</li>
 <li>
 <p>For each row in the Jobs table, an action link labelled "Select for Metrics MD" will be visible under specific conditions:</p>
-<ul>
-<li>The job must be the Iteration0 of a recurring job (only iteration 0 has this button)</li>
+</li>
+<li>
+<p>The job must be the Iteration0 of a recurring job (only iteration 0 has this button)</p>
+</li>
 <li>There should be at least two iterations left to be completed in the recurring job</li>
 <li>The job can be of any type (Simulation, Comparison, Validation, etc.)</li>
 <li>The job should not be marked as "old"</li>
-</ul>
-</li>
 </ul>
 <p><strong>Note</strong>: Users are allowed to select jobs run by other individuals, enabling stakeholders to leverage this capability as needed.</p>
 <h3 id="unselecting-a-job">Unselecting a Job<a class="headerlink" href="#unselecting-a-job" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p>To unselect a previously selected job, follow these steps:</p>
-<ul>
-<li>Go to the approved Object's page and access the Jobs Tab</li>
+</li>
+<li>
+<p>Go to the approved Object's page and access the Jobs Tab</p>
+</li>
 <li>Find the Iteration0 of the recurring job that was previously selected and click on the action link "Unselect Job for MD."</li>
 <li>Confirmation popup will appear. Upon confirmation, the job will no longer be tracked in the Metrics Dashboard.</li>
-</ul>
-</li>
 </ul>
 <h3 id="selecting-another-job-when-a-job-was-previously-selected">Selecting Another Job (When a Job Was Previously Selected)<a class="headerlink" href="#selecting-another-job-when-a-job-was-previously-selected" title="Permanent link">¶</a></h3>
 <ul>
@@ -2276,11 +2276,13 @@
 <li>Go to the approved Object's page and access the Jobs Tab.</li>
 <li>
 <p>For each row in the Jobs tab, observe the following conditions:</p>
-<ul>
-<li>If there is no action link for MD, the job is not eligible based on the criteria mentioned earlier</li>
+</li>
+<li>
+<p>If there is no action link for MD, the job is not eligible based on the criteria mentioned earlier</p>
+</li>
 <li>If the action link "Select for Metrics MD" is shown, the job is eligible for selection</li>
-<li>If the action link "Unselect Job for MD" shows, the currently selected row corresponds to the job previously chosen.</li>
-</ul>
+<li>
+<p>If the action link "Unselect Job for MD" shows, the currently selected row corresponds to the job previously chosen.</p>
 </li>
 <li>
 <p>Click on "Select for Metrics MD" for the job you wish to select.</p>
@@ -2294,12 +2296,12 @@
 <li>Upon job tracking completion, additional notifications/emails can be sent.</li>
 <li>
 <p>After job completion:</p>
-<ul>
-<li>If a user selects a new recurring job, it will be used from the time the new job was selected</li>
+</li>
+<li>
+<p>If a user selects a new recurring job, it will be used from the time the new job was selected</p>
+</li>
 <li>If a user unselects the current recurring job, it will be stopped from the time the job was selected</li>
 <li>If a user takes no action, the last iteration will continue to be shown in the Metrics Dashboard.</li>
-</ul>
-</li>
 </ul>
 <h3 id="metrics-display-and-thresholds">Metrics Display and Thresholds<a class="headerlink" href="#metrics-display-and-thresholds" title="Permanent link">¶</a></h3>
 <ul>
@@ -2318,7 +2320,7 @@
 <p>This view presents the complete data for the selected object type in a tabular format. Users can easily navigate to specific objects by clicking on the rows. Additionally, they can apply filters or sort rows based on any specified column.</p>
 <p>The data view is a comprehensive place to access all information across the entire platform - and is the base for nearly all other types of monitoring - be it creating Custom Views or creating automated Alerts.</p>
 <h3 id="automated-alerts">Automated Alerts<a class="headerlink" href="#automated-alerts" title="Permanent link">¶</a></h3>
-<p>Alerts are defined as a set of rules that are designed to identify specific items or events that require immediate attention or further action. These rules are created based on predefined criteria, enabling the system to detect critical situations, anomalies, or deviations from expected behaviour. When the conditions specified in the alert rules are met, the system triggers events such as notifications, emails etc. ensuring that appropriate actions can be taken promptly to address the identified issues.</p>
+<p>Alerts are defined as a set of rules that are designed to identify specific items or events that require immediate attention or further action. These rules are created based on predefined criteria, enabling the system to detect critical situations, anomalies, or deviations from expected behaviour. When the conditions specified in the alert rules are met, the system triggers events such as notifications, emails, etc., ensuring that appropriate actions can be taken promptly to address the identified issues.</p>
 <h3 id="creating-alerts">Creating Alerts<a class="headerlink" href="#creating-alerts" title="Permanent link">¶</a></h3>
 <p>On the platform, users have the flexibility to create custom alerts tailored to their specific needs. Custom alerts encompass essential properties, including name, description, conditions, severity, and associated actions.</p>
 <ul>
@@ -2334,13 +2336,13 @@
 <li>
 <p><strong>Actions</strong>
   Choose an action type from the "Type" dropdown menu to determine the action that will be executed when the alert is triggered. The following actions can be associated with custom alerts:</p>
-<ul>
-<li><strong>Send Notification</strong>: The system can send notifications to selected users, or user roles informing them about the triggered alert.</li>
+</li>
+<li>
+<p><strong>Send Notification</strong>: The system can send notifications to selected users, or user roles informing them about the triggered alert.</p>
+</li>
 <li><strong>Add Alert Flag</strong>: When an alert condition is met, users have the option to add a predefined flag to the object responsible for the alert. Flags serve as visual indicators to highlight objects that require attention.</li>
 <li><strong>Create Review</strong>: For Approved objects, users can choose to add an ongoing review to the object's responsibility and assign reviewers. This action facilitates a thorough review process for objects flagged by the custom alert.</li>
 <li><strong>Send Email</strong>: Users can configure the system to send email notifications to external users when an alert is triggered. The custom field associated with the objects should contain a string of comma-separated email addresses for users who should receive these emails.</li>
-</ul>
-</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2374,7 +2376,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    2025-06-02
+    2025-09-08
   </span>
 
     
@@ -2385,11 +2387,11 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
       
     </span>
     <nav>
-      rajneesh407
+      Aniket Agrawal, rajneesh407
     </nav>
   </span>
 
