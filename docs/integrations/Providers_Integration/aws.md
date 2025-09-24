@@ -115,8 +115,8 @@ try:
     )
     
     return {
-        "response": response["output"]["message"]["content"][0]["text"],
-        "usage": response["usage"]["inputTokens"] + response["usage"]["outputTokens"]
+        "output": response["output"]["message"]["content"][0]["text"],
+        "context": response["usage"]["inputTokens"] + response["usage"]["outputTokens"]
     }
 except Exception as e:
     return {"error": str(e)}

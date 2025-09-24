@@ -94,7 +94,7 @@ completion = client.chat.completions.create(
     stream=False,
 )
 
-return {"response": completion.choices[0].message.content, "context": None}
+return {"output": completion.choices[0].message.content, "context": None}
 ```
 
 ## Platform Integration Setup
