@@ -95,7 +95,7 @@ message = client.messages.create(
     ]
 )
 
-return {"response": message.content[0].text, "usage": message.usage.input_tokens}
+return {"output": message.content[0].text, "context": None}
 ```
 
 ## Platform Integration Setup

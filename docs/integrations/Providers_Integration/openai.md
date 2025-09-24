@@ -97,7 +97,7 @@ completion = client.chat.completions.create(
     presence_penalty=0
 )
 
-return {"response": completion.choices[0].message.content, "usage": completion.usage.total_tokens}
+return {"output": completion.choices[0].message.content, "context": None}
 ```
 
 ## Platform Integration Setup
