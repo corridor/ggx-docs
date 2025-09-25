@@ -83,18 +83,7 @@ response = client.models.generate_content(
     config=config
 )
 
-input_cost = ((response.usage_metadata.prompt_token_count or 0) * 0.10) / 1000000
-# Output cost = candidates + thinking tokens
-output_cost = ((response.usage_metadata.candidates_token_count or 0) * 0.40) / 1000000
-# Total cost is input + output
-total_cost = input_cost + output_cost
-
-return {
-    "response": response.text,
-    "input_cost": str(input_cost),
-    "output_cost": str(output_cost),
-    "total_cost": str(total_cost),
-}
+return {"response": response.text}
 ```
 
 ## Platform Integration Setup
