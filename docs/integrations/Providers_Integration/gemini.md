@@ -18,7 +18,7 @@ Google Cloud Vertex AI provides access to Gemini models and agents:
 **Gemini 2.5 Pro** - Advanced reasoning and multimodal capabilities  
 **Gemini 2.5 Flash** - Fast, efficient responses for high-volume use cases  
 **Gemini 2.0 Flash** - Latest generation model with improved performance  
-**Additional Models** - +4 more Gemini variants available
+**Additional Models** - other Gemini variants available
 
 ## Registering a New Gemini Model
 
