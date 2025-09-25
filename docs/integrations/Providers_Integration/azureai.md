@@ -18,7 +18,7 @@ Azure AI provides access to OpenAI models hosted on Microsoft Azure:
 **GPT-4** - Advanced reasoning and complex task completion  
 **GPT-3.5 Turbo** - Fast, efficient responses for most use cases  
 **o4-mini, o3, o3-mini** - Latest OpenAI models with enhanced capabilities  
-**Additional Models** - +12 more OpenAI variants available
+**Additional Models** - other OpenAI variants available
 
 ## Registering a New Azure Model
 

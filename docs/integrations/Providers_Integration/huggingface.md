@@ -19,7 +19,7 @@ Hugging Face provides access to thousands of models across multiple categories:
 **Text Generation** - LLaMA, Mistral, CodeLlama, and other foundation models  
 **Text Embedding** - Sentence transformers, multilingual embeddings  
 **Guardrail Models** - Prompt injection detection, content safety filters  
-**Additional Models** - more models available on Hugging Face Hub
+**Additional Models** - other models available on Hugging Face Hub
 
 ## Registering a New Hugging Face Model
 

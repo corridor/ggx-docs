@@ -9,28 +9,28 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
 ## LLM Providers
 
 ### OpenAI
-**Models available**: o4-mini, o3, o3-mini, +8 more
+**Models available**: o4-mini, o3, o3-mini, etc
 
 1. Click the OpenAI card
 2. Enter your API key from platform.openai.com
 3. Test connection and save
 
 ### Anthropic
-**Models available**: claude-4-opus, claude-4-sonnet, claude-3.7-sonnet, +5 more
+**Models available**: claude-4-opus, claude-4-sonnet, claude-3.7-sonnet, etc
 
 1. Click the Anthropic card
 2. Enter your API key from console.anthropic.com
 3. Test connection and save
 
 ### Azure AI (Active)
-**Models available**: o4-mini, o3, o3-mini, +12 more
+**Models available**: o4-mini, o3, o3-mini, etc
 
 1. Click the Azure AI card
 2. Enter your Azure OpenAI API key
 3. Test connection and save
 
 ### Amazon Bedrock
-**Models available**: amazon.titan-text-premier-v1:0, amazon.titan-text-express-v1, amazon.titan-text-lite-v1, +17 more
+**Models available**: amazon.titan-text-premier-v1:0, amazon.titan-text-express-v1, amazon.titan-text-lite-v1, etc
 
 1. Click the Amazon Bedrock card
 2. Configure AWS credentials:
@@ -50,28 +50,28 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
 5. Click "Save" to complete setup
 
 ### Google Vertex AI (Active)
-**Models available**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash, +4 more
+**Models available**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash, etc
 
 1. Click the Google Vertex AI card
 2. Upload service account JSON key
 3. Test connection and save
 
 ### Hugging Face (Active)
-**Models available**: llama-3.1-8b-instruct, llama-3.1-70b-instruct, llama-3.1-405b-instruct, +3 more
+**Models available**: llama-3.1-8b-instruct, llama-3.1-70b-instruct, llama-3.1-405b-instruct, etc
 
 1. Click the Hugging Face card
 2. Enter your HF token from huggingface.co/settings/tokens
 3. Test connection and save
 
 ### Nvidia NIM (Active)
-**Models available**: llama-3.1-nemotron-instruct-70b, llama-3.3-nemotron-super-49b-reasoning, llama-3.1-nemotron-ultra-253b-v1-reasoning, +1 more
+**Models available**: llama-3.1-nemotron-instruct-70b, llama-3.3-nemotron-super-49b-reasoning, llama-3.1-nemotron-ultra-253b-v1-reasoning, etc
 
 1. Click the Nvidia NIM card
 2. Enter your Nvidia API key
 3. Test connection and save
 
 ### GitHub Models (Active)
-**Models available**: o4-mini, o3, o3-mini, +13 more
+**Models available**: o4-mini, o3, o3-mini, etc
 
 1. Click the GitHub Models card
 2. Enter your GitHub token
