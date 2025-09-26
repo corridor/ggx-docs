@@ -68,24 +68,18 @@ Example implementation for a text classification model:
 
 ```python
 # Arguments: text, threshold are automatically available
-def init():
-    from transformers import pipeline
-    from huggingface_hub import login
-    
-    # Authentication for private models (optional)
-    import os
-    login(token=os.getenv("HUGGINGFACE_TOKEN"))
-    
-    pipe = pipeline(
-        "text-classification",
-        model="cardiffnlp/twitter-roberta-base-sentiment-latest"
-    )
-    return pipe
+import os
+from transformers import pipeline
+from huggingface_hub import login
 
-if "model" not in cache:
-    cache["model"] = init()
+# Authentication for private models (optional)
+login(token=os.getenv("HUGGINGFACE_TOKEN"))
 
-client = cache["model"]
+# Direct initialization
+client = pipeline(
+    "text-classification",
+    model="cardiffnlp/twitter-roberta-base-sentiment-latest"
+)
 
 if text is None:
     return None

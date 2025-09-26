@@ -66,18 +66,13 @@ In the Scoring Logic section, you can directly reference any variable declared i
 
 ```python
 # Arguments: text, temperature are automatically available
-def init():
-    import os
-    from openai import OpenAI
-    client = OpenAI(
-        api_key=os.getenv("OPENAI_API_KEY")
-    )
-    return client
+import os
+from openai import OpenAI
 
-if "model" not in cache:
-    cache["model"] = init()
-
-client = cache["model"]
+# Direct initialization
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 if text is None:
     return None

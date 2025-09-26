@@ -68,23 +68,18 @@ In the Scoring Logic section, you can directly reference any variable declared i
 
 ```python
 # Arguments: text, temperature are automatically available
-def init():
-    import os
-    import boto3
-    
-    client = boto3.client(
-        service_name="bedrock-runtime",
-        region_name=os.getenv("AWS_DEFAULT_REGION", "us-east-1"),
-        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-        aws_session_token=os.getenv("AWS_SESSION_TOKEN")
-    )
-    return client
 
-if "model" not in cache:
-    cache["model"] = init()
+import os
+import boto3
 
-client = cache["model"]
+# Direct initialization
+client = boto3.client(
+    service_name="bedrock-runtime",
+    region_name=os.getenv("AWS_DEFAULT_REGION", "us-east-1"),
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+    aws_session_token=os.getenv("AWS_SESSION_TOKEN")
+)
 
 if text is None:
     return None
@@ -104,22 +99,19 @@ if system_prompt:
         "content": [{"text": system_prompt}]
     })
 
-try:
-    response = client.converse(
-        modelId="anthropic.claude-3-5-sonnet-20240620-v1:0",
-        messages=conversation,
-        inferenceConfig={
-            "temperature": float(temperature),
-            "maxTokens": int(max_tokens)
-        }
-    )
-    
-    return {
-        "output": response["output"]["message"]["content"][0]["text"],
-        "context": response["usage"]["inputTokens"] + response["usage"]["outputTokens"]
+response = client.converse(
+    modelId="anthropic.claude-3-5-sonnet-20240620-v1:0",
+    messages=conversation,
+    inferenceConfig={
+        "temperature": float(temperature),
+        "maxTokens": int(max_tokens)
     }
-except Exception as e:
-    return {"error": str(e)}
+)
+
+return {
+    "output": response["output"]["message"]["content"][0]["text"],
+    "context": response["usage"]["inputTokens"] + response["usage"]["outputTokens"]
+}
 ```
 
 ## Platform Integration Setup

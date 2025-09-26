@@ -68,19 +68,13 @@ Example implementation for a text analysis model:
 
 ```python
 # Arguments: text, max_tokens, temperature are automatically available
-def init():
-    import os
-    import anthropic
-    
-    client = anthropic.Anthropic(
-        api_key=os.getenv("ANTHROPIC_API_KEY")
-    )
-    return client
+import os
+import anthropic
 
-if "model" not in cache:
-    cache["model"] = init()
-
-client = cache["model"]
+# Direct initialization
+client = anthropic.Anthropic(
+    api_key=os.getenv("ANTHROPIC_API_KEY")
+)
 
 if text is None:
     return None
