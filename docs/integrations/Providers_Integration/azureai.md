@@ -65,25 +65,20 @@ In the Scoring Logic section, you can directly reference any variable declared i
 
 ```python
 # Arguments: text, temperature are automatically available
-def init():
-    import os
-    from openai import AzureOpenAI
-    client = AzureOpenAI(
-        azure_endpoint="https://corridor-genai-demo.openai.azure.com/",
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-        api_version="2024-12-01-preview",
-    )
-    return client
+import os
+from openai import AzureOpenAI
 
-if "model" not in cache:
-    cache["model"] = init()
-
-client = cache["model"]
+# Direct initialization
+client = AzureOpenAI(
+    azure_endpoint="https://corridor-genai-demo.openai.azure.com/",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    api_version="2024-12-01-preview",
+)
 
 chat_prompt = [{"role": "system", "content": [{"type": "text", "text": text}]}]
 
 completion = client.chat.completions.create(
-    model="corridor-gpt-4.1",
+    model="gpt-4.1",
     messages=chat_prompt,
     max_tokens=1500,
     temperature=float(temperature),
