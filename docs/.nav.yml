@@ -35,6 +35,14 @@ nav:
       - Overview: 'integrations/index.md'
       - Evaluation Libraries:
             - Cleanlab: 'integrations/evaluation_libraries/cleanlab.md'    
+      - Integrations:
+            - Overview: 'integrations/Providers_Integration/overview.md'
+            - Google Cloud: 'integrations/Providers_Integration/gemini.md'
+            - AWS: 'integrations/Providers_Integration/aws.md'
+            - Azure: 'integrations/Providers_Integration/azureai.md'
+            - OpenAI: 'integrations/Providers_Integration/openai.md'
+            - HuggingFace: 'integrations/Providers_Integration/huggingface.md'
+            - Anthropic: 'integrations/Providers_Integration/anthropic.md'
 
   - Technology:
       - Self Hosted Installation:
