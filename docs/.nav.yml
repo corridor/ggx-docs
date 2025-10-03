@@ -47,14 +47,17 @@ nav:
   - Technology:
       - Self Hosted Installation:
           - Overview: 'technology/self-hosting/index.md'
-          - 'technology/self-hosting/*'
-#   - Integrations:
-#       - Overview: 'integrations/index.md'
-#       - Google Cloud: integrations/google-cloud/index.md
-#       - AWS: integrations/aws/index.md
-#       - Azure: integrations/azure/index.md
-#       - OpenAI: integrations/openai/index.md
-#       - Custom Integrations: integrations/custom/index.md
-#       - Jupyter Notebook: integrations/jupyter-notebook/index.md
-#       - VSCode: integrations/vscode/index.md
-#   - Similar Tools:
+          - Installation:
+              - GCP:  
+                - 'technology/self-hosting/installation/GCP/gcp.md'
+              - AWS: 
+                - 'technology/self-hosting/installation/AWS/aws.md'
+              - Azure: 
+                - 'technology/self-hosting/installation/Azure/azure.md'
+              - On Premss: 
+                - 'technology/self-hosting/installation/On Prem/onprem.md'
+          - Configurations:
+              - 'technology/self-hosting/configurations/*'
+          - Hardening - Security: 'technology/self-hosting/hardening.md'
+          - Scaling:
+              - 'technology/self-hosting/scaling/*'
