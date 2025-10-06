@@ -2,62 +2,72 @@ sort:
   sections: mixed
 nav:
   - Register and Refine:
-      - Overview: 'register-and-refine/index.md'
+      - Overview: "register-and-refine/index.md"
       - Inventory Management:
-          - Overview: 'register-and-refine/inventory-management/index.md'
-          - Table Registry: 'register-and-refine/inventory-management/table-registry/index.md'
-          - Model Catalog: 'register-and-refine/inventory-management/model-catalog/index.md'
-          - Prompts: 'register-and-refine/inventory-management/prompts/index.md'
-          - RAGs: 'register-and-refine/inventory-management/rags/index.md'
-          - Pipelines: 'register-and-refine/inventory-management/pipelines/index.md'
-      - Collaboration: 'register-and-refine/collaboration/index.md'
-      - Version Management: 'register-and-refine/version-management/index.md'
-      - Lineage Tracking: 'register-and-refine/lineage-tracking.md'
-      - Prompt Optimization: 'register-and-refine/prompt-optimization.md'
+          - Overview: "register-and-refine/inventory-management/index.md"
+          - Table Registry: "register-and-refine/inventory-management/table-registry/index.md"
+          - Model Catalog: "register-and-refine/inventory-management/model-catalog/index.md"
+          - Prompts: "register-and-refine/inventory-management/prompts/index.md"
+          - RAGs: "register-and-refine/inventory-management/rags/index.md"
+          - Pipelines: "register-and-refine/inventory-management/pipelines/index.md"
+      - Collaboration: "register-and-refine/collaboration/index.md"
+      - Version Management: "register-and-refine/version-management/index.md"
+      - Lineage Tracking: "register-and-refine/lineage-tracking.md"
+      - Prompt Optimization: "register-and-refine/prompt-optimization.md"
 
   - Evaluate and Approve:
-      - Overview: 'evaluate-and-approve/index.md'
-      - Simulation: 'evaluate-and-approve/simulation.md'
-      - Comparison: 'evaluate-and-approve/comparison.md'
-      - Reporting: 'evaluate-and-approve/reporting.md'
-      - Approval Workflows: 'evaluate-and-approve/approval-workflows.md'
-      - Human Testing: 'evaluate-and-approve/human-testing.md'
-      - Document Generation: 'evaluate-and-approve/document-generation.md'
+      - Overview: "evaluate-and-approve/index.md"
+      - Simulation: "evaluate-and-approve/simulation.md"
+      - Comparison: "evaluate-and-approve/comparison.md"
+      - Reporting: "evaluate-and-approve/reporting.md"
+      - Approval Workflows: "evaluate-and-approve/approval-workflows.md"
+      - Human Testing: "evaluate-and-approve/human-testing.md"
+      - Document Generation: "evaluate-and-approve/document-generation.md"
 
   - Deploy and Monitor:
-      - Overview: 'deploy-and-monitor/index.md'
-      - Direct to Production: 'deploy-and-monitor/direct-to-production.md'
-      - Oversight: 'deploy-and-monitor/oversight.md'
-      - Performance: 'deploy-and-monitor/performance.md'
-      - Annotation Queues: 'deploy-and-monitor/annotation-queues.md'
+      - Overview: "deploy-and-monitor/index.md"
+      - Direct to Production: "deploy-and-monitor/direct-to-production.md"
+      - Oversight: "deploy-and-monitor/oversight.md"
+      - Performance: "deploy-and-monitor/performance.md"
+      - Annotation Queues: "deploy-and-monitor/annotation-queues.md"
 
   - Integrations:
-      - Overview: 'integrations/index.md'
-      - Evaluation Libraries:
-            - Cleanlab: 'integrations/evaluation_libraries/cleanlab.md'    
-      - Integrations:
-            - Overview: 'integrations/Providers_Integration/overview.md'
-            - Google Cloud: 'integrations/Providers_Integration/gemini.md'
-            - AWS: 'integrations/Providers_Integration/aws.md'
-            - Azure: 'integrations/Providers_Integration/azureai.md'
-            - OpenAI: 'integrations/Providers_Integration/openai.md'
-            - HuggingFace: 'integrations/Providers_Integration/huggingface.md'
-            - Anthropic: 'integrations/Providers_Integration/anthropic.md'
+      - Overview: "integrations/index.md"
+      - LLM Providers:
+          - Setting up Integrations: "integrations/llm-providers/index.md"
+          - GCP VertexAI: "integrations/llm-providers/gcp-vertexai.md"
+          - AWS Bedrock: "integrations/llm-providers/aws-bedrock.md"
+          - AzureAI: "integrations/llm-providers/azureai.md"
+          - OpenAI: "integrations/llm-providers/openai.md"
+          - HuggingFace: "integrations/llm-providers/huggingface.md"
+          - Anthropic: "integrations/llm-providers/anthropic.md"
+      - Evaluation Providers:
+          - Cleanlab: "integrations/evaluation-providers/cleanlab.md"
 
   - Technology:
       - Self Hosted Installation:
-          - Overview: 'technology/self-hosting/index.md'
+          - Overview: "technology/self-hosting/index.md"
+          - Minimum Requirements: "technology/self-hosting/installation/minimum-requirements.md"
           - Installation:
-              - GCP:  
-                - 'technology/self-hosting/installation/GCP/gcp.md'
-              - AWS: 
-                - 'technology/self-hosting/installation/AWS/aws.md'
-              - Azure: 
-                - 'technology/self-hosting/installation/Azure/azure.md'
-              - On Premss: 
-                - 'technology/self-hosting/installation/On Prem/onprem.md'
+              - GCP:
+                  - Installation on GCP: "technology/self-hosting/installation/gcp/index.md"
+                  - Google Kubernetes Engine (GKE): "technology/self-hosting/installation/gcp/gcp-gke.md"
+                  - Google Compute Engine VMs (GCE): "technology/self-hosting/installation/gcp/gcp-vms.md"
+              - AWS:
+                  - Installation on AWS: "technology/self-hosting/installation/aws/index.md"
+                  - Amazon Fargate: "technology/self-hosting/installation/aws/aws-fargate.md"
+                  - Amazon Elastic Kubernetes Service (EKS): "technology/self-hosting/installation/aws/aws-eks.md"
+                  - Amazon Elastic Compute Cloud (EC2): "technology/self-hosting/installation/aws/aws-ec2.md"
+              - Azure:
+                  - Installation on Azure: "technology/self-hosting/installation/azure/index.md"
+                  - Azure Kubernetes Service (AKS): "technology/self-hosting/installation/azure/azure-aks.md"
+                  - Azure Virtual Machines: "technology/self-hosting/installation/azure/azure-vms.md"
+              - On Prem:
+                  - Installation On Prem: "technology/self-hosting/installation/on-prem/index.md"
+                  - Bundle Install: "technology/self-hosting/installation/on-prem/bundle-install.md"
+                  - Docker Containers: "technology/self-hosting/installation/on-prem/docker.md"
           - Configurations:
-              - 'technology/self-hosting/configurations/*'
-          - Hardening - Security: 'technology/self-hosting/hardening.md'
+              - "technology/self-hosting/configurations/*"
+          - Hardening - Security: "technology/self-hosting/hardening.md"
           - Scaling:
-              - 'technology/self-hosting/scaling/*'
+              - "technology/self-hosting/scaling/*"

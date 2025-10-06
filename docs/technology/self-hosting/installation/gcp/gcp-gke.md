@@ -21,11 +21,13 @@ Corridor can be deployed on GKE using Kubernetes to manage containerized service
 ### Required GCP Services
 
 1. **Google Kubernetes Engine (GKE)**: Managed Kubernetes cluster
+
    - Private cluster recommended
    - Node autoscaling configured
    - Cloud NAT for egress traffic
 
 2. **Cloud SQL**: PostgreSQL database for metadata
+
    - PostgreSQL 14+ recommended
    - High availability configuration
    - Automated backups enabled
@@ -122,7 +124,7 @@ After deployment:
 # View application logs
 kubectl logs -n <namespace> deploy/corridor-app
 
-# View worker logs  
+# View worker logs
 kubectl logs -n <namespace> deploy/corridor-worker
 ```
 
@@ -236,7 +238,6 @@ EXPOSE 5002 5003
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:5002/corr-api || exit 1
 ```
-
 
 **Building the Image:**
 
@@ -528,6 +529,7 @@ gcloud container clusters get-credentials corridor-gke \
 ```
 
 **Notes:**
+
 - Store sensitive variables in `terraform.tfvars` (add to `.gitignore`)
 - Consider using Terraform Cloud or GCS backend for remote state
 - Adjust machine types and disk sizes based on your requirements

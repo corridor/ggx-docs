@@ -1,48 +1,48 @@
 ---
-title: Install on AWS - EC2
+title: Install on Azure - Virtual Machines
 ---
 
-This guide provides an overview of deploying Corridor on a single Amazon EC2 instance.
+This guide provides an overview of deploying Corridor on a single Azure Virtual Machine.
 
 ## Background
 
-Corridor can be deployed on a single EC2 instance running all components (app, api, workers, jupyter). This approach provides a simple deployment model suitable for organizations that prefer traditional VM-based infrastructure.
+Corridor can be deployed on a single Azure VM running all components (app, api, workers, jupyter). This approach provides a simple deployment model suitable for organizations that prefer traditional VM-based infrastructure.
 
 ## Before Installation
 
 ### Prerequisites
 
-- AWS Account with appropriate permissions
-- AWS CLI installed and configured
-- SSH access to EC2 instance
+- Azure subscription with appropriate permissions
+- Azure CLI installed and configured
+- SSH access to Azure VM
 - Access to Corridor installation bundle
-- Sufficient AWS service quotas
-- [Minimum Requirements and System Dependencies](../On%20Prem/minimum-requirements.md) are met
+- Sufficient Azure service quotas
+- [Minimum Requirements and System Dependencies](../minimum-requirements.md) are met
 
-### Required AWS Services
+### Required Azure Services
 
-1. **Amazon EC2**: Virtual machine for running all Corridor components
-   - Instance size based on [Minimum Requirements](../On%20Prem/minimum-requirements.md)
-   - Recommended: t3.2xlarge or larger
-   - EBS volume for local storage
+1. **Azure Virtual Machines**: VM for running all Corridor components
+   - Instance size based on [Minimum Requirements](../minimum-requirements.md)
+   - Recommended: Standard_D8s_v3 or larger
+   - Premium SSD for local storage
 
-2. **Amazon RDS**: PostgreSQL database for metadata
+2. **Azure Database for PostgreSQL**: Database for metadata
    - PostgreSQL 14+ recommended
-   - Multi-AZ configuration (for production)
+   - Zone redundant configuration (for production)
    - Automated backups enabled
 
-### Optional AWS Services
+### Optional Azure Services
 
-- **Route 53**: For domain management
-- **Secrets Manager**: For storing sensitive configuration
-- **CloudWatch**: For logging and monitoring
-- **AWS WAF**: For DDoS protection and WAF
-- **CloudFront**: For static asset caching
+- **Azure DNS**: For domain management
+- **Key Vault**: For storing sensitive configuration
+- **Azure Monitor**: For logging and monitoring
+- **Application Gateway**: For WAF and load balancing
+- **Azure CDN**: For static asset caching
 
 ## Architecture Overview
 
 ```
-EC2 Instance (t3.2xlarge)
+Azure VM (Standard_D8s_v3)
 ├── Corridor Components
 │   ├── corridor-app (Web UI)
 │   ├── corridor-api (API Server)
@@ -51,9 +51,9 @@ EC2 Instance (t3.2xlarge)
 │   ├── corridor-jupyter (JupyterHub)
 │   └── redis (Message Queue)
 └── Local Storage
-    └── EBS Volume (/opt/corridor)
+    └── Premium SSD (/opt/corridor)
 
-Amazon RDS
+Azure Database for PostgreSQL
 └── PostgreSQL Database
     ├── Metadata
     └── Application Data
@@ -61,66 +61,72 @@ Amazon RDS
 
 ## Installation Steps
 
-### Step 1: Launch EC2 Instance
+### Step 1: Create Azure VM
 
 ```bash
-# Launch EC2 instance
-aws ec2 run-instances \
-  --image-id ami-0123456789abcdef0 \
-  --instance-type t3.2xlarge \
-  --key-name your-key \
-  --security-group-ids sg-xxxxx \
-  --subnet-id subnet-xxxxx \
-  --block-device-mappings '[
-    {
-      "DeviceName": "/dev/xvda",
-      "Ebs": {
-        "VolumeSize": 100,
-        "VolumeType": "gp3"
-      }
-    }
-  ]' \
-  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=corridor-server}]'
+# Create resource group
+az group create \
+  --name corridor-rg \
+  --location eastus
+
+# Create VM
+az vm create \
+  --resource-group corridor-rg \
+  --name corridor-vm \
+  --image UbuntuLTS \
+  --size Standard_D8s_v3 \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 100
+
+# Configure data disk
+az vm disk attach \
+  --resource-group corridor-rg \
+  --vm-name corridor-vm \
+  --name corridor-data \
+  --size-gb 100 \
+  --sku Premium_LRS \
+  --new
 ```
 
-### Step 2: Create RDS Instance
+### Step 2: Create PostgreSQL Database
 
 ```bash
-# Create RDS instance
-aws rds create-db-instance \
-  --db-instance-identifier corridor-db \
-  --db-instance-class db.t3.xlarge \
-  --engine postgres \
-  --engine-version 14.9 \
-  --master-username corridor \
-  --master-user-password <secure-password> \
-  --allocated-storage 100 \
-  --storage-type gp3 \
-  --multi-az \
-  --vpc-security-group-ids sg-xxxxx \
-  --db-subnet-group-name corridor-db-subnet
+# Create PostgreSQL server
+az postgres flexible-server create \
+  --resource-group corridor-rg \
+  --name corridor-db \
+  --location eastus \
+  --admin-user corridor \
+  --admin-password <secure-password> \
+  --sku-name Standard_D4s_v3 \
+  --tier GeneralPurpose \
+  --storage-size 128 \
+  --version 14 \
+  --high-availability ZoneRedundant
 ```
 
 ### Step 3: Install System Dependencies
 
-SSH into the EC2 instance and run:
+SSH into the Azure VM and run:
 
 ```bash
 # Update system
-sudo yum update -y
+sudo apt-get update
+sudo apt-get upgrade -y
 
 # Install dependencies
-sudo yum install -y \
+sudo apt-get install -y \
     python3.11 \
-    python3.11-devel \
-    java-1.8.0-openjdk \
-    redis \
+    python3.11-dev \
+    openjdk-8-jdk \
+    redis-server \
     nginx \
     unzip
 
 # Start and enable Redis
-sudo systemctl start redis
-sudo systemctl enable redis
+sudo systemctl start redis-server
+sudo systemctl enable redis-server
 ```
 
 ### Step 4: Install Corridor Components
@@ -153,7 +159,7 @@ sudo ./corridor-bundle/install jupyter -i /opt/corridor
 
 1. Update API configuration in `/opt/corridor/instances/default/config/api_config.py`:
 ```python
-SQLALCHEMY_DATABASE_URI = "postgresql://corridor:password@corridor-db.xxxxx.region.rds.amazonaws.com:5432/corridor"
+SQLALCHEMY_DATABASE_URI = "postgresql://corridor:password@corridor-db.postgres.database.azure.com:5432/corridor"
 ```
 
 2. Initialize the database:
@@ -169,7 +175,7 @@ Create systemd service files for each component:
 ```ini
 [Unit]
 Description=Corridor Application Server
-After=network.target redis.service
+After=network.target redis-server.service
 
 [Service]
 Type=simple
@@ -188,7 +194,7 @@ WantedBy=multi-user.target
 ```ini
 [Unit]
 Description=Corridor API Server
-After=network.target redis.service
+After=network.target redis-server.service
 
 [Service]
 Type=simple
@@ -207,7 +213,7 @@ WantedBy=multi-user.target
 ```ini
 [Unit]
 Description=Corridor API Worker
-After=network.target redis.service
+After=network.target redis-server.service
 
 [Service]
 Type=simple
@@ -226,7 +232,7 @@ WantedBy=multi-user.target
 ```ini
 [Unit]
 Description=Corridor Spark Worker
-After=network.target redis.service
+After=network.target redis-server.service
 
 [Service]
 Type=simple
@@ -274,6 +280,7 @@ sudo systemctl start corridor-app corridor-api corridor-worker-api corridor-work
 
 ## Monitoring and Operations
 
+
 ### Service Management
 
 ```bash
@@ -283,7 +290,7 @@ sudo systemctl status corridor-api
 sudo systemctl status corridor-worker-api
 sudo systemctl status corridor-worker-spark
 sudo systemctl status corridor-jupyter
-sudo systemctl status redis
+sudo systemctl status redis-server
 
 # Restart services
 sudo systemctl restart corridor-app
@@ -291,67 +298,91 @@ sudo systemctl restart corridor-api
 sudo systemctl restart corridor-worker-api
 sudo systemctl restart corridor-worker-spark
 sudo systemctl restart corridor-jupyter
-sudo systemctl restart redis
+sudo systemctl restart redis-server
 ```
 
 ## Security Best Practices
 
 - Deploy in **private subnet** with NAT Gateway
-- Use **IAM Instance Profile** for AWS service access
-- Configure **Security Groups** for instance access
-- Enable **Systems Manager Session Manager** for SSH
-- Store secrets in AWS Secrets Manager
-- Enable **CloudWatch Agent** for monitoring
-- Configure **RDS encryption** at rest
-- Enable **automated backups** for RDS
+- Use **Managed Identities** for Azure service access
+- Configure **Network Security Groups** for VM access
+- Enable **Azure Bastion** for SSH access
+- Store secrets in Azure Key Vault
+- Enable **Azure Monitor Agent** for monitoring
+- Configure **PostgreSQL encryption** at rest
+- Enable **automated backups** for PostgreSQL
 
 ## Example Terraform Configuration
 
 ```hcl
-# EC2 Instance
-resource "aws_instance" "corridor" {
-  ami           = "ami-0123456789abcdef0"
-  instance_type = "t3.2xlarge"
-  subnet_id     = aws_subnet.private.id
+# Azure VM
+resource "azurerm_virtual_machine" "corridor" {
+  name                  = "corridor-vm"
+  location              = azurerm_resource_group.main.location
+  resource_group_name   = azurerm_resource_group.main.name
+  network_interface_ids = [azurerm_network_interface.main.id]
+  vm_size              = "Standard_D8s_v3"
 
-  root_block_device {
-    volume_size = 100
-    volume_type = "gp3"
-    encrypted   = true
+  storage_os_disk {
+    name              = "corridor-os"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Premium_LRS"
   }
 
-  user_data = file("init.sh")
+  storage_data_disk {
+    name              = "corridor-data"
+    managed_disk_type = "Premium_LRS"
+    create_option     = "Empty"
+    lun               = 0
+    disk_size_gb      = 100
+  }
+
+  os_profile {
+    computer_name  = "corridor"
+    admin_username = "azureuser"
+  }
+
+  os_profile_linux_config {
+    disable_password_authentication = true
+    ssh_keys {
+      path     = "/home/azureuser/.ssh/authorized_keys"
+      key_data = var.ssh_public_key
+    }
+  }
 
   tags = {
     Name = "corridor-server"
   }
 }
 
-# RDS Instance
-resource "aws_db_instance" "corridor" {
-  identifier           = "corridor-db"
-  engine              = "postgres"
-  engine_version      = "14.9"
-  instance_class      = "db.t3.xlarge"
-  allocated_storage   = 100
-  storage_type        = "gp3"
-  storage_encrypted   = true
+# PostgreSQL Database
+resource "azurerm_postgresql_flexible_server" "corridor" {
+  name                = "corridor-db"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+  version            = "14"
   
-  db_name             = "corridor"
-  username           = "corridor"
-  password           = var.db_password
+  administrator_login    = "corridor"
+  administrator_password = var.db_password
 
-  multi_az           = true
-  publicly_accessible = false
+  sku_name = "Standard_D4s_v3"
   
-  backup_retention_period = 7
-  backup_window          = "03:00-04:00"
-  maintenance_window     = "Mon:04:00-Mon:05:00"
+  storage_mb = 131072
+  
+  zone_redundant = true
+  
+  backup_retention_days = 7
+  
+  high_availability {
+    mode = "ZoneRedundant"
+  }
 
-  vpc_security_group_ids = [aws_security_group.db.id]
-  db_subnet_group_name   = aws_db_subnet_group.main.name
-
-  deletion_protection = true
+  maintenance_window {
+    day_of_week  = 0
+    start_hour   = 3
+    start_minute = 0
+  }
 
   tags = {
     Name = "corridor-db"

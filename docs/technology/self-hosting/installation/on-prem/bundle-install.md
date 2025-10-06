@@ -14,7 +14,7 @@ There is a command-line interface available with each component that is installe
 
 ## Pre Requisites
 
-Before starting, ensure that the [Minimum Requirements and System Dependencies](./minimum-requirements.md) are met.
+Before starting, ensure that the [Minimum Requirements and System Dependencies](../minimum-requirements.md) are met.
 
 ## Installation
 

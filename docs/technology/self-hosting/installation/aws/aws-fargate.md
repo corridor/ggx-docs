@@ -20,11 +20,13 @@ Corridor can be deployed on AWS Fargate using a single service with multiple con
 ### Required AWS Services
 
 1. **Amazon ECS**: Container orchestration
+
    - Fargate launch type
    - Service auto-scaling
    - Application Load Balancer
 
 2. **Amazon RDS**: PostgreSQL database for metadata
+
    - PostgreSQL 14+ recommended
    - Multi-AZ configuration
    - Automated backups enabled
@@ -79,6 +81,7 @@ ECS Cluster (Fargate)
 ### Step 3: Create Task Definition
 
 Create a single task definition containing all containers:
+
 - corridor-app container
 - corridor-worker container
 - corridor-jupyter container
@@ -151,7 +154,10 @@ Create a single task definition containing all containers:
         }
       },
       "healthCheck": {
-        "command": ["CMD-SHELL", "curl -f http://localhost:5002/health || exit 1"],
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:5002/health || exit 1"
+        ],
         "interval": 30,
         "timeout": 5,
         "retries": 3,
@@ -363,4 +369,3 @@ aws ecs describe-services \
 - Enable **Execute Command** logging
 - Store secrets in AWS Secrets Manager
 - Enable **Container Insights** for monitoring
-

@@ -45,12 +45,10 @@ Both deployment options utilize these GCP managed services:
 
 ## Choosing the Right Option
 
-| Factor | GKE (Kubernetes) | VMs (Compute Engine) |
-|--------|------------------|----------------------|
-| **Complexity** | Higher | Lower |
-| **Scalability** | Automatic | Manual |
-| **Multi-tenancy** | Native (namespaces) | Separate VMs |
+| Factor                   | GKE (Kubernetes)    | VMs (Compute Engine)   |
+| ------------------------ | ------------------- | ---------------------- |
+| **Complexity**           | Higher              | Lower                  |
+| **Scalability**          | Automatic           | Manual                 |
+| **Multi-tenancy**        | Native (namespaces) | Separate VMs           |
 | **Operational Overhead** | Lower (managed K8s) | Higher (OS management) |
-| **Deployment Speed** | Faster | Moderate |
-
-
+| **Deployment Speed**     | Faster              | Moderate               |

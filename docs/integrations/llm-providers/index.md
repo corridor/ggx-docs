@@ -1,4 +1,4 @@
-# Platform Integrations
+# Setting up Integrations
 
 Setup integrations to services that provide LLMs as an API. Configure your API keys once to access multiple AI providers across the platform.
 

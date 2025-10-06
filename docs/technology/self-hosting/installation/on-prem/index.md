@@ -1,5 +1,5 @@
 ---
-title: Install On-Premises
+title: Install On-Premises or in Data Centers
 ---
 
 This guide provides an overview of deploying Corridor on-premises or in your own data center infrastructure.

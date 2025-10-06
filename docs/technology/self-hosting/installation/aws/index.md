@@ -56,13 +56,13 @@ All deployment options utilize these AWS managed services:
 
 ## Choosing the Right Option
 
-| Factor | EKS (Kubernetes) | ECS Fargate | EC2 (VMs) |
-|--------|------------------|-------------|------------|
-| **Complexity** | Higher | Medium | Lower |
-| **Scalability** | Automatic | Automatic | Manual |
-| **Multi-tenancy** | Native (namespaces) | Task-based | Separate VMs |
-| **Operational Overhead** | Lower (managed K8s) | Lowest | Higher |
-| **Deployment Speed** | Fast | Fastest | Moderate |
-| **Infrastructure Management** | Minimal | None | Full |
-| **Cost Model** | Node-based | Per task | Per instance |
-| **Kubernetes Skills Required** | Yes | No | No |
+| Factor                         | EKS (Kubernetes)    | ECS Fargate | EC2 (VMs)    |
+| ------------------------------ | ------------------- | ----------- | ------------ |
+| **Complexity**                 | Higher              | Medium      | Lower        |
+| **Scalability**                | Automatic           | Automatic   | Manual       |
+| **Multi-tenancy**              | Native (namespaces) | Task-based  | Separate VMs |
+| **Operational Overhead**       | Lower (managed K8s) | Lowest      | Higher       |
+| **Deployment Speed**           | Fast                | Fastest     | Moderate     |
+| **Infrastructure Management**  | Minimal             | None        | Full         |
+| **Cost Model**                 | Node-based          | Per task    | Per instance |
+| **Kubernetes Skills Required** | Yes                 | No          | No           |

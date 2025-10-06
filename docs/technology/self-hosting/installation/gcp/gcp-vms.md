@@ -17,12 +17,12 @@ Corridor can be deployed on a single GCE instance running all components (app, a
 - SSH access to GCE instance
 - Access to Corridor installation bundle
 - Sufficient GCP service quotas
-- [Minimum Requirements and System Dependencies](../On%20Prem/minimum-requirements.md) are met
+- [Minimum Requirements and System Dependencies](../minimum-requirements.md) are met
 
 ### Required GCP Services
 
 1. **Compute Engine**: VM for running all Corridor components
-   - Instance size based on [Minimum Requirements](../On%20Prem/minimum-requirements.md)
+   - Instance size based on [Minimum Requirements](../minimum-requirements.md)
    - Recommended: n2-standard-8 or larger
    - Persistent SSD for local storage
 
