@@ -57,39 +57,35 @@
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/anthropic/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/evaluation-providers/cleanlab/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/aws/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/azureai/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/anthropic/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/gemini/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/aws-bedrock/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/googlecloud/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/azureai/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/huggingface/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/gcp-vertexai/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/openai/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/huggingface/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/Providers_Integration/overview/</loc>
-         <lastmod>2025-10-06</lastmod>
-    </url>
-    <url>
-         <loc>https://corridor.github.io/ggx-docs/integrations/evaluation_libraries/cleanlab/</loc>
+         <loc>https://corridor.github.io/ggx-docs/integrations/llm-providers/openai/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
@@ -185,59 +181,59 @@
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/AWS/aws-ec2/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/minimum-requirements/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/AWS/aws-eks/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/aws/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/AWS/aws-fargate/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/aws/aws-ec2/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/AWS/aws/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/aws/aws-eks/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/Azure/azure-aks/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/aws/aws-fargate/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/Azure/azure-vms/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/azure/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/Azure/azure/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/azure/azure-aks/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/GCP/gcp-gke/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/azure/azure-vms/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/GCP/gcp-vms/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/gcp/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/GCP/gcp/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/gcp/gcp-gke/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/On%20Prem/bundle-install/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/gcp/gcp-vms/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/On%20Prem/docker/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/on-prem/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/On%20Prem/minimum-requirements/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/on-prem/bundle-install/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
-         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/On%20Prem/onprem/</loc>
+         <loc>https://corridor.github.io/ggx-docs/technology/self-hosting/installation/on-prem/docker/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
