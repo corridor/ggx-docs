@@ -11,10 +11,10 @@ Guides that cover the installation, configuration, and scaling of Self-Hosted Co
 - [Minimum Requirements](./installation/minimum-requirements.md)
 - Installing on your own infrastructure
 
-    - [Google Cloud Platform (GCP)](./installation/gcp)
-    - [Amazon Web Services (AWS)](./installation/aws)
-    - [Microsoft Azure](./installation/azure)
-    - [On-Premises](./installation/onprem)
+    - [Google Cloud Platform (GCP)](./installation/gcp.md)
+    - [Amazon Web Services (AWS)](./installation/aws.md)
+    - [Microsoft Azure](./installation/azure.md)
+    - [On-Premises](./installation/onprem.md)
 
 - Configurations: How to configure your self-hosted instance of Corridor
 

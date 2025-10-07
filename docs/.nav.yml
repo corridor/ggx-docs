@@ -48,14 +48,10 @@ nav:
       - Self Hosted Installation:
           - Overview: 'technology/self-hosting/index.md'
           - Installation:
-              - GCP:  
-                - 'technology/self-hosting/installation/GCP/gcp.md'
-              - AWS: 
-                - 'technology/self-hosting/installation/AWS/aws.md'
-              - Azure: 
-                - 'technology/self-hosting/installation/Azure/azure.md'
-              - On Premss: 
-                - 'technology/self-hosting/installation/On Prem/onprem.md'
+              - Install on GCP: 'technology/self-hosting/installation/gcp.md'
+              - Install on AWS: 'technology/self-hosting/installation/aws.md'
+              - Install on Azure: 'technology/self-hosting/installation/azure.md'
+              - Install On-Premises: 'technology/self-hosting/installation/onprem.md'
           - Configurations:
               - 'technology/self-hosting/configurations/*'
           - Hardening - Security: 'technology/self-hosting/hardening.md'
