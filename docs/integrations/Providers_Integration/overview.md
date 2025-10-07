@@ -16,7 +16,7 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
 3. Test connection and save
 
 ### Anthropic
-**Models available**: claude-4-opus, claude-4-sonnet, claude-3.7-sonnet, etc
+**Models available**: claude-4-opus, claude-4-sonnet, etc
 
 1. Click the Anthropic card
 2. Enter your API key from console.anthropic.com
