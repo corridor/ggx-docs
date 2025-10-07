@@ -77,11 +77,6 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
 2. Enter your GitHub token
 3. Test connection and save
 
-## Integration Status
-
-* **Active**: Ready to use in model registration
-* **Inactive**: Needs configuration or has connection issues
-
 ## Setting Up API Keys
 
 Each integration creates environment variables that you can use in your model code:
