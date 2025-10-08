@@ -22,7 +22,7 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
 2. Enter your API key from console.anthropic.com
 3. Test connection and save
 
-### Azure AI (Active)
+### Azure AI
 **Models available**: o4-mini, o3, o3-mini, etc
 
 1. Click the Azure AI card
@@ -40,7 +40,7 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
    * **Default Region**: AWS region (e.g., us-east-1)
 3. Test connection and save
 
-### DeepSeek (Active)
+### DeepSeek
 **Models available**: deepseek-r1, deepseek-v3, deepseek-v2.5
 
 1. Click the DeepSeek card
@@ -49,28 +49,28 @@ Navigate to **Settings > Platform Integrations** to configure your LLM providers
 4. Click "Test Connection" to verify
 5. Click "Save" to complete setup
 
-### Google Vertex AI (Active)
+### Google Vertex AI
 **Models available**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash, etc
 
 1. Click the Google Vertex AI card
 2. Upload service account JSON key
 3. Test connection and save
 
-### Hugging Face (Active)
+### Hugging Face
 **Models available**: llama-3.1-8b-instruct, llama-3.1-70b-instruct, llama-3.1-405b-instruct, etc
 
 1. Click the Hugging Face card
 2. Enter your HF token from huggingface.co/settings/tokens
 3. Test connection and save
 
-### Nvidia NIM (Active)
+### Nvidia NIM 
 **Models available**: llama-3.1-nemotron-instruct-70b, llama-3.3-nemotron-super-49b-reasoning, llama-3.1-nemotron-ultra-253b-v1-reasoning, etc
 
 1. Click the Nvidia NIM card
 2. Enter your Nvidia API key
 3. Test connection and save
 
-### GitHub Models (Active)
+### GitHub Models
 **Models available**: o4-mini, o3, o3-mini, etc
 
 1. Click the GitHub Models card
