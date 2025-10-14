@@ -42,10 +42,10 @@ Before syncing any components, you need to authenticate with your GenGuardX inst
 ### Initialize in Your Code
 
 ```python
-import genguardx
+import genguardx as ggx
 
 # Initialize connection to your GenGuardX instance
-genguardx.init(
+ggx.init(
     api_url="https://devaisandbox.corridorplatforms.com",  # Change for your instance
     api_key="your-api-key-here",
 )
@@ -68,7 +68,8 @@ Prompts define system instructions, templates, or conversation guidelines.
 ### Decorator Syntax
 
 ```python
-@genguardx.Prompt.declare(
+import genguardx as ggx
+@ggx.Prompt.declare(
     name='My Prompt Name',           # Optional: defaults to function name
     group='My Group',                # Optional: organizational grouping
     task_type='Question Answering',  # Optional: Classification | Summarization | etc.
@@ -81,7 +82,7 @@ def my_prompt_function(*, cache: dict = {}, prompt: str = "Your prompt text here
     return prompt
 
 # Sync to platform
-genguardx.sync(my_prompt_function)
+ggx.sync(my_prompt_function)
 
 ```
 
@@ -94,7 +95,8 @@ Models wrap LLM API calls with consistent interfaces and cost tracking.
 ### Decorator Syntax
 
 ```python
-@genguardx.Model.declare(
+import genguardx as ggx
+@ggx.Model.declare(
     name='My Model Name',          # Optional: defaults to function name
     group='My Group',              # Optional: organizational grouping
     ownership_type='Proprietary',  # Optional: Proprietary | Open Source
@@ -109,7 +111,7 @@ def my_model_function(text: str, temperature: float = 0.7, *, cache: dict = {}):
     return {"response": "...", "cost": "..."}
 
 # Sync to platform
-genguardx.sync(my_model_function)
+ggx.sync(my_model_function)
 
 ```
 
@@ -123,8 +125,8 @@ RAGs connect to knowledge bases, databases, or document stores to retrieve relev
 
 ```python
 import pathlib
-
-@genguardx.Rag.declare(
+import genguardx as ggx
+@ggx.Rag.declare(
     name='My RAG System',                    # Optional: defaults to function name
     group='My Group',                        # Optional: organizational grouping
     knowledge_base_format='Relational Database',    # Optional: Vector Database | Graph Database | etc.
@@ -142,7 +144,7 @@ def my_rag_function(
     return {"retrieved_data": "...", "query_used": "..."}
 
 # Sync to platform
-genguardx.sync(my_rag_function)
+ggx.sync(my_rag_function)
 
 ```
 
@@ -156,8 +158,8 @@ Pipelines orchestrate multiple components into complete workflows.
 
 ```python
 import typing as t
-
-@genguardx.Pipeline.declare(
+import genguardx as ggx
+@ggx.Pipeline.declare(
     name='My Pipeline',                    # Optional: defaults to function name
     group='My Group',                      # Optional: organizational grouping
     usecase_type='Question Answering',     # Optional: Summarization | Translation
@@ -179,7 +181,7 @@ def my_pipeline_function(
     return {"output": "...", "context": "..."}
 
 # Sync to platform
-genguardx.sync(my_pipeline_function)
+ggx.sync(my_pipeline_function)
 
 ```
 
@@ -192,7 +194,8 @@ Global Functions are reusable utility functions that can be referenced by other 
 ### Decorator Syntax
 
 ```python
-@genguardx.GlobalFunction.declare(
+import genguardx as ggx
+@ggx.GlobalFunction.declare(
     name='My Utility Function',  # Optional: defaults to function name
     group='My Group',            # Optional: organizational grouping
 )
@@ -203,7 +206,7 @@ def my_utility_function(input_text: str, max_length: int = 100, *, cache: dict =
     return input_text[:max_length]
 
 # Sync to platform
-genguardx.sync(my_utility_function)
+ggx.sync(my_utility_function)
 
 ```
 
@@ -221,8 +224,8 @@ Reports generate evaluation dashboards with metrics and visualizations for monit
 
 ```python
 import typing as t
-
-@genguardx.Report.declare(
+import genguardx as ggx
+@ggx.Report.declare(
     name='My Evaluation Report',                     # Optional: defaults to function name
     object_types=['PIPELINE', 'FOUNDATION_MODEL'],   # Required: list of object types this report evaluates
     group='My Group',                                # Optional: organizational grouping
@@ -241,7 +244,7 @@ def my_evaluation_report(job: t.Any, data: t.Any, *, cache: dict = {}) -> t.Any:
     return metrics_dict, processed_data
 
 # Sync to platform
-genguardx.sync(my_evaluation_report)
+ggx.sync(my_evaluation_report)
 
 ```
 
@@ -303,20 +306,21 @@ When you sync a Pipeline, the system:
 
 ```python
 # Define components
-@genguardx.Prompt.declare(name='System Prompt')
+import genguardx as ggx
+@ggx.Prompt.declare(name='System Prompt')
 def system_prompt(*, cache: dict = {}, prompt: str = "You are a helpful assistant."):
     """System instruction for the assistant."""
     # -- BEGIN DEFINITION --
     return prompt
 
-@genguardx.Model.declare(name='GPT-4', provider='openai', model='gpt-4', ownership_type='Proprietary', model_type='LLM')
+@ggx.Model.declare(name='GPT-4', provider='openai', model='gpt-4', ownership_type='Proprietary', model_type='LLM')
 def gpt4(text: str, *, cache: dict = {}):
     """GPT-4 model wrapper."""
     # -- BEGIN DEFINITION --
     # Implementation
     return {"response": "..."}
 
-@genguardx.Pipeline.declare(name='Q&A Pipeline', pipeline_type='Chat based - OpenAI Spec')
+@ggx.Pipeline.declare(name='Q&A Pipeline', pipeline_type='Chat based - OpenAI Spec')
 def qa_pipeline(
     user_message: str,
     history: list[t.TypedDict("T", {'role': str, 'content': str}, total=False)] = (),
@@ -331,7 +335,7 @@ def qa_pipeline(
     return {"output": response["response"]}
 
 # Sync only the pipeline - dependencies sync automatically
-genguardx.sync(qa_pipeline)
+ggx.sync(qa_pipeline)
 
 ```
 
@@ -345,14 +349,14 @@ You can declare and sync components **without** using them in a pipeline:
 
 ```python
 # Declare a standalone prompt
-@genguardx.Prompt.declare(name='Greeting Prompt', group='Standalone')
+@ggx.Prompt.declare(name='Greeting Prompt', group='Standalone')
 def greeting_prompt(*, cache: dict = {}, prompt: str = "Hello! How can I help you today?"):
     """Greeting message prompt."""
     # -- BEGIN DEFINITION --
     return prompt
 
 # Sync it independently
-genguardx.sync(greeting_prompt)
+ggx.sync(greeting_prompt)
 
 ```
 
@@ -361,7 +365,7 @@ genguardx.sync(greeting_prompt)
 Or use components together in a pipeline (they'll sync automatically):
 
 ```python
-@genguardx.Pipeline.declare(name='Greeter Bot', pipeline_type='Chat based - OpenAI Spec')
+@ggx.Pipeline.declare(name='Greeter Bot', pipeline_type='Chat based - OpenAI Spec')
 def greeter_pipeline(
     user_message: str,
     history: list[t.TypedDict("T", {'role': str, 'content': str}, total=False)] = (),
@@ -374,7 +378,7 @@ def greeter_pipeline(
     prompt = greeting_prompt()  # References the prompt
     return {"output": prompt}
 
-genguardx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
+ggx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
 
 ```
 
@@ -435,17 +439,17 @@ genguardx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
 ## Complete Workflow Example
 
 ```python
-import genguardx
+import genguardx as ggx
 import typing as t
 
 # Step 1: Initialize
-genguardx.init(
+ggx.init(
     api_url="https://devaisandbox.corridorplatforms.com",
     api_key="your-api-key-here",
 )
 
 # Step 2: Declare components
-@genguardx.Prompt.declare(
+@ggx.Prompt.declare(
     name='FAQ Prompt',
     group='Support',
     task_type='Question Answering',
@@ -456,7 +460,7 @@ def faq_prompt(*, cache: dict = {}, prompt: str = "Answer FAQs concisely and pro
     # -- BEGIN DEFINITION --
     return prompt
 
-@genguardx.Model.declare(
+@ggx.Model.declare(
     name='GPT-3.5',
     group='Models',
     ownership_type='Proprietary',
@@ -470,7 +474,7 @@ def gpt35(text: str, *, cache: dict = {}):
     # Implementation here
     return {"response": "..."}
 
-@genguardx.Pipeline.declare(
+@ggx.Pipeline.declare(
     name='FAQ Bot',
     group='Support',
     usecase_type='Question Answering',
@@ -493,7 +497,7 @@ def faq_pipeline(
     return {"output": response["response"]}
 
 # Step 3: Sync (syncs all dependencies automatically)
-genguardx.sync(faq_pipeline)
+ggx.sync(faq_pipeline)
 
 ```
 
@@ -548,7 +552,8 @@ genguardx.sync(faq_pipeline)
 **Solution**: Add the anchor comment before your function's core logic:
 
 ```python
-@genguardx.Prompt.declare(name='My Prompt')
+import genguardx as ggx
+@ggx.Prompt.declare(name='My Prompt')
 def my_prompt(*, cache: dict = {}, prompt: str = "Hello"):
     """Docstring here"""
     # -- BEGIN DEFINITION --  # <-- Add this line
@@ -567,12 +572,13 @@ def my_prompt(*, cache: dict = {}, prompt: str = "Hello"):
 **Solution**: Add the appropriate decorator to the referenced function:
 
 ```python
+import genguardx as ggx
 # Before (causes warning)
 def helper_function():
     return "result"
 
 # After (no warning)
-@genguardx.Prompt.declare(name='Helper')
+@ggx.Prompt.declare(name='Helper')
 def helper_function(*, cache: dict = {}, prompt: str = "result"):
     # -- BEGIN DEFINITION --
     return prompt
@@ -610,7 +616,8 @@ def helper_function(*, cache: dict = {}, prompt: str = "result"):
 **Solution**: Add `prompt: str = "your template"` as a keyword-only parameter:
 
 ```python
-@genguardx.Prompt.declare(name='My Prompt')
+import genguardx as ggx
+@ggx.Prompt.declare(name='My Prompt')
 def my_prompt(*, cache: dict = {}, prompt: str = "Your prompt text here"):
     """Docstring"""
     # -- BEGIN DEFINITION --
