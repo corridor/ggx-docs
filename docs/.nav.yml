@@ -14,6 +14,10 @@ nav:
       - Version Management: "register-and-refine/version-management/index.md"
       - Lineage Tracking: "register-and-refine/lineage-tracking.md"
       - Prompt Optimization: "register-and-refine/prompt-optimization.md"
+      - Corridor Sync: "register-and-refine/corridor_sync.md"
+      - Example Pipeline: 
+            - Language Transaltion Pipeline: "register-and-refine/example/language_translation_pipeline.md"
+            - Weather API Pipeline: "register-and-refine/example/weather_api_pipeline.md" 
 
   - Evaluate and Approve:
       - Overview: "evaluate-and-approve/index.md"
