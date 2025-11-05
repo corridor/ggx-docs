@@ -283,7 +283,7 @@ elif classified_intent == "BLOCK CARD":
 ## Related Documentation
 
 - [Model Registration Guide](../model/) - Register LLM models to use with prompts
-- [Pipeline Registration Guide](#) - Combine prompts with models in workflows
+- [Pipeline Registration Guide](../pipeline/) - Combine prompts with models in workflows
 ---
 
 ## Next Steps

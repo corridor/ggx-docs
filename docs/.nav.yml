@@ -18,6 +18,7 @@ nav:
       - Example Pipeline: 
             - Model Registeration: "register-and-refine/example/model.md"
             - Prompt Registeration: "register-and-refine/example/prompt.md"
+            - Pipeline Registeration: "register-and-refine/example/pipeline.md"
             - Language Transaltion Pipeline: "register-and-refine/example/language_translation_pipeline.md"
             - Weather API Pipeline: "register-and-refine/example/weather_api_pipeline.md" 
 
