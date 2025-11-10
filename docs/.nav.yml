@@ -16,9 +16,9 @@ nav:
       - Prompt Optimization: "register-and-refine/prompt-optimization.md"
       - Corridor Sync: "register-and-refine/corridor_sync.md"
       - Example Pipeline: 
-            - Model Registeration: "register-and-refine/example/model.md"
-            - Prompt Registeration: "register-and-refine/example/prompt.md"
-            - Pipeline Registeration: "register-and-refine/example/pipeline.md"
+            - Model Registration: "register-and-refine/example/model.md"
+            - Prompt Registration: "register-and-refine/example/prompt.md"
+            - Pipeline Registration: "register-and-refine/example/pipeline.md"
             - Language Transaltion Pipeline: "register-and-refine/example/language_translation_pipeline.md"
             - Weather API Pipeline: "register-and-refine/example/weather_api_pipeline.md" 
 
