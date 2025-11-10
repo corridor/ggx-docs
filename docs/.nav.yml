@@ -15,7 +15,9 @@ nav:
       - Lineage Tracking: "register-and-refine/lineage-tracking.md"
       - Prompt Optimization: "register-and-refine/prompt-optimization.md"
       - Corridor Sync: "register-and-refine/corridor_sync.md"
-
+      - Example Pipeline: 
+            - Model Registration: "register-and-refine/example/model.md"
+            
   - Evaluate and Approve:
       - Overview: "evaluate-and-approve/index.md"
       - Simulation: "evaluate-and-approve/simulation.md"
