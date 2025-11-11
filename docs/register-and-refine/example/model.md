@@ -24,6 +24,15 @@ Go to **GenAI Studio → Model Catalog** and click the **Create** button.
 
 ![alt text](image-21.png)
 
+**Basic Information** fields help organize and identify your model:
+
+- **Name:** Human-readable identifier for the model (e.g., "Gemini 2.0 Flash")
+- **Description:** Brief explanation of the model's purpose and capabilities
+- **Group:** Category for organizing similar models together (e.g., "Foundation LLMs")
+- **Permissible Purpose:** Approved use cases and business scenarios for this model
+- **Ownership Type:** License type - Proprietary, Open Source, or Internal
+- **Model Type:** Classification of the model (e.g., "LLM" for language models)
+
 ### 3. Configure Code 
 
 #### Choose Input Type
@@ -40,17 +49,15 @@ For this guide, we'll use **API Based**.
 
 **Model Provider:** Select `Google Vertex AI` from the dropdown
 
-Once you select a provider, additional fields will appear:
+Once you select a provider, additional fields will appear to configure how the model is called:
 
 ![alt text](image-22.png)
 
-**Alias:** `gemini_2_0_flash`
-- A variable name to refer to this object in Python definitions
-
-**Output Type:** `dict[str, str]`
-- The data type of the value returned by this model. You can customize this based on your model's actual return type.
-
-**Model:** Select `Gemini 2.0 Flash` from the dropdown
+- **Alias:** Variable name to reference this model in pipeline code (e.g., `gemini_2_0_flash`)
+- **Output Type:** Data type returned by the model (e.g., `dict[str, str]`)
+- **Input Type:** Choose between API-based (for external providers) or Python Function (for custom code)
+- **Model Provider:** Select the API provider hosting the model (Google Vertex AI)
+- **Model:** Specific model version from the provider's catalog (Gemini 2.0 Flash)
 
 #### Define Arguments
 
@@ -127,11 +134,10 @@ Click **Test Code** to run a sample query.
 
 Use the platform's test interface to verify:
 
-- API authentication works correctly
-
-- Model responds as expected
-
-- Output format matches your requirements
+- Verify API authentication is working
+- Test with sample inputs before using in production
+- Debug any configuration issues
+- Validate the output format matches expectations
 
 ## Usage in Pipelines
 
