@@ -8,15 +8,11 @@ If you are new to Prompts, then this doc might help you understanding what they 
 
 ## Registration Steps
 
-### 1. Navigate to Prompt Registry
+### Step 1. Navigate to Prompt Registry
 
 Go to **GenAI Studio → Prompt Registry** and click the **Create** button.
 
-### 2. Fill in Basic Information
-
-**Description:**
-
-Write a clear description of what your prompt does.
+### Step 2. Fill in Basic Information
 
 **Example for Intent Classification:**
 
@@ -31,7 +27,7 @@ Write a clear description of what your prompt does.
 - **Prompt Type:** Format of the prompt (e.g., "System Instruction" for system-level prompts)
 - **Prompt Elements:** Optional tags or metadata for additional categorization
 
-### 3. Configure Prompt Template
+### Step 3. Configure Prompt Template
 
 ![alt text](image-1.png)
 
@@ -166,7 +162,7 @@ Click **+ Add Argument** to add:
 
 **Note:** Use `{customer_utterance}` in the template and map it from `user_message` in Prompt Creation Logic.
 
-### 4. Write Prompt Creation Logic
+### Step 4. Write Prompt Creation Logic
 
 **Prompt Creation Logic** allows you to programmatically process arguments before they're inserted into the template. This is useful for:
 
@@ -252,7 +248,7 @@ return prompt.format(
 2. Formats them into a structured, numbered list
 3. Fills in `{customer_utterance}` and `{list_of_intents}` placeholders
 
-### 5. Save the Prompt
+### Step 5. Save the Prompt
 
 Click **Create** to register the prompt.
 
@@ -261,7 +257,7 @@ The prompt is now:
 - Available in the Prompt Registry
 - Usable in pipelines and other objects
 
-### 6. Analyze and Improve the Prompt
+### Analyze and Improve the Prompt using GGX Capability
 
 After saving the prompt, you can test and refine it directly within **GenAI Studio**:
 
@@ -277,7 +273,7 @@ After saving the prompt, you can test and refine it directly within **GenAI Stud
 
 ## Using Prompts in Pipelines
 
-Once registered, prompts can be used in pipelines:
+Once registered, prompts can be used in downstream applications:
 
 ```python
 # Reference the prompt in pipeline code
@@ -299,20 +295,18 @@ elif classified_intent == "BLOCK CARD":
 
 ---
 
-## Related Documentation
-
-- [Model Registration Guide](../model/) - Register LLM models to use with prompts
-- [Pipeline Registration Guide](../pipeline/) - Combine prompts with models in workflows
-
----
-
 ## Next Steps
 
 After registering your prompt:
 
 1. **Register a model** - If you haven't already, register the LLM to use with this prompt
-2. **Build a pipeline** - Combine your prompt with a model and other resources
+2. **Build a pipeline** - Combine your prompt with a model and other resources to create a use-case specific pipeline. 
 
 ---
 
-By following this guide, you can create well-structured, maintainable prompts that drive reliable LLM behavior across your organization.
+
+## Related Documentation
+
+- [Model Registration Guide](../model/) - Register LLM models to use with prompts
+
+---

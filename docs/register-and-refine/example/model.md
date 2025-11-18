@@ -1,26 +1,18 @@
 # Model Registration: Gemini 2.0 Flash
 
-This guide covers registering the Gemini 2.0 Flash model for use in your pipelines.
-
-## Overview
+This guide covers registering the Gemini 2.0 Flash model on the platform. 
 
 **Gemini 2.0 Flash** is Google's language model for classification and structured output tasks.
-
-**Key Characteristics:**
-
-- Provider: Google
-
-- Model ID: `gemini-2.0-flash`
 
 ---
 
 ## Registration Steps
 
-### 1. Navigate to Model Catalog
+### Step 1. Navigate to Model Catalog
 
 Go to **GenAI Studio → Model Catalog** and click the **Create** button.
 
-### 2. Fill in Basic Information
+### Step 2. Fill in Basic Information
 
 ![alt text](image-21.png)
 
@@ -33,7 +25,7 @@ Go to **GenAI Studio → Model Catalog** and click the **Create** button.
 - **Ownership Type:** License type - Proprietary, Open Source, or Internal
 - **Model Type:** Classification of the model (e.g., "LLM" for language models)
 
-### 3. Configure Code 
+### Step 3. Configure Inferencing Logic 
 
 #### Choose Input Type
 
@@ -114,19 +106,16 @@ return {
 **What This Code Does:**
 
 - Authenticates using the `GOOGLE_API_TOKEN` environment variable (configured in Platform Integrations)
-
 - Sets up generation config with temperature and system instruction
-
 - Calls the Gemini 2.0 Flash model with the input text
-
 - Returns the generated response
 
-### 4. Save the Model
+### Step 4. Save the Model
 
 Add any notes or additional information in the **Additional Information** section, then click **Create** to complete registration.
 
 
-### 5. Quick Check 
+### Step 5. Quick Example Run 
 
 Click **Test Code** to run a sample query.
 
@@ -141,7 +130,7 @@ Use the platform's test interface to verify:
 
 ## Usage in Pipelines
 
-Once registered, the model appears in your Resources library and can be selected when building pipelines.
+Once registered, the model appears in your Resources library and can be selected for any downstream usages.
 
 **Reference in pipeline code:**
 ```python
@@ -161,7 +150,6 @@ output_text = response["response"]
 ## Related Documentation
 
 - [Prompt Registration Guide](../prompt/) - Create reusable prompts
-- [Pipeline Registration Guide](../pipeline/) - Build pipelines using registered models
 - [Google Gemini API Docs](https://ai.google.dev/gemini-api/docs) - Official Google documentation
 
 ---
