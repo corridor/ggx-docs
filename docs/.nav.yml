@@ -18,6 +18,7 @@ nav:
       - Asset Registration Examples: 
             - Model Registration: "register-and-refine/example/model.md"
             - Prompt Registration: "register-and-refine/example/prompt.md"
+            - Pipeline Registration: "register-and-refine/example/pipeline.md"
             
   - Evaluate and Approve:
       - Overview: "evaluate-and-approve/index.md"
