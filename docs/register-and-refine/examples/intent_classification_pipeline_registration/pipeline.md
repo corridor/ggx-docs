@@ -1,12 +1,12 @@
 # Pipeline Registration Guide
 
-A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Pipelines](../../register-and-refine/inventory-management/pipelines/index.md) to understand more about what they are and how they work. This guide covers how to register pipelines on the Corridor platform, using an **Intent Classification Pipeline** as a working example.
+A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Pipelines](../../inventory-management/pipelines/index.md) to understand more about what they are and how they work. This guide covers how to register pipelines on the Corridor platform, using an **Intent Classification Pipeline** as a working example.
 
 ## Prerequisites
 
 Before registering a pipeline, ensure you have:
 
-- ✅ **Registered a Model** - Follow the [Model Registration Guide](../model/) to register Gemini 2.0 Flash
+- ✅ **Registered a Model** - Follow the [Model Registration Guide](../../model/) to register Gemini 2.0 Flash
 
 - ✅ **Registered a Prompt** - Follow the [Prompt Registration Guide](../prompt/) to register the intent classification prompt
 
@@ -24,7 +24,7 @@ Go to **GenAI Studio → Pipeline Registry** and click the **Create** button.
 
 ### Step 2. Fill in Basic Information
 
-![alt text](image-3.png)
+![alt text](intent-pipeline-description.png)
 
 **Basic Information** fields help organize and identify your pipeline:
 
@@ -54,7 +54,7 @@ without maintaining conversational context across interactions.
 
 ### Step 3. Configure Code Settings
 
-![alt text](image-4.png)
+![alt text](intent-pipeline-code-configure.png)
 
 **Code Settings** define how your pipeline operates and which resources it uses.
 
@@ -85,7 +85,7 @@ Click **+ Create New** or search for existing resources to add:
 
 ### Step 5. Write Pipeline Scoring Logic
 
-![alt text](image-5.png)
+![alt text](intent-pipeline-scoring.png)
 
 **Pipeline Scoring Logic** orchestrates how resources work together:
 
@@ -142,7 +142,7 @@ return {
 
 ### Step 6. Add Examples (Optional)
 
-![alt text](image-6.png)
+![alt text](intent-pipeline-examples.png)
 
 Add test examples to validate pipeline behavior.
 
@@ -205,7 +205,7 @@ context = result["context"]  # "Any information that needs to be stored across t
 
 ## Related Documentation
 
-- [Model Registration Guide](../model/) - Register foundation models
+- [Model Registration Guide](../../model/) - Register foundation models
 - [Prompt Registration Guide](../prompt/) - Create reusable prompts
 
 ---

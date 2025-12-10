@@ -2,7 +2,7 @@
 
 This guide covers how to register prompts on the Corridor platform, using an **Intent Classification Prompt** as a working example.
 
-If you are new to Prompts, then this doc might help you understanding what they are and how do they work -> [Prompts](/docs/register-and-refine/inventory-management/prompts/index.md)
+If you are new to Prompts, then this doc might help you understanding what they are and how do they work -> [Prompts](../../inventory-management/prompts/index.md)
 
 ---
 
@@ -16,7 +16,7 @@ Go to **GenAI Studio → Prompt Registry** and click the **Create** button.
 
 **Example for Intent Classification:**
 
-![alt text](image.png)
+![alt text](prompt-description.png)
 
 **Basic Information** fields help organize and identify your prompt:
 
@@ -29,7 +29,7 @@ Go to **GenAI Studio → Prompt Registry** and click the **Create** button.
 
 ### Step 3. Configure Prompt Template
 
-![alt text](image-1.png)
+![alt text](prompt-template.png)
 
 **Alias:** `customer_intent_classification_prompt`
 
@@ -173,7 +173,7 @@ Click **+ Add Argument** to add:
 
 **Example - Formatting Intent Definitions:**
 
-![alt text](image-2.png)
+![alt text](prompt-creation.png)
 
 ```python
 intent_definitions = [
@@ -307,6 +307,6 @@ After registering your prompt:
 
 ## Related Documentation
 
-- [Model Registration Guide](../model/) - Register LLM models to use with prompts
+- [Model Registration Guide](../../model/) - Register LLM models to use with prompts
 
 ---

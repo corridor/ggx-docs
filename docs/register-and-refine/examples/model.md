@@ -14,7 +14,7 @@ Go to **GenAI Studio → Model Catalog** and click the **Create** button.
 
 ### Step 2. Fill in Basic Information
 
-![alt text](image-21.png)
+![alt text](model-description.png)
 
 **Basic Information** fields help organize and identify your model:
 
@@ -43,7 +43,7 @@ For this guide, we'll use **API Based**.
 
 Once you select a provider, additional fields will appear to configure how the model is called:
 
-![alt text](image-22.png)
+![alt text](model-code-configure.png)
 
 - **Alias:** Variable name to reference this model in pipeline code (e.g., `gemini_2_0_flash`)
 - **Output Type:** Data type returned by the model (e.g., `dict[str, str]`)
@@ -75,7 +75,7 @@ You can add additional arguments based on your model's requirements.
 
 #### Write Scoring Logic
 
-![alt text](image-23.png)
+![alt text](model-scoring.png)
 
 Provide logic to initialize and score the model:
 
@@ -119,7 +119,7 @@ Add any notes or additional information in the **Additional Information** sectio
 
 Click **Test Code** to run a sample query.
 
-![alt text](image-19.png)
+![alt text](model-test-code.png)
 
 Use the platform's test interface to verify:
 
@@ -149,7 +149,7 @@ output_text = response["response"]
 
 ## Related Documentation
 
-- [Prompt Registration Guide](../prompt/) - Create reusable prompts
+- [Prompt Registration Guide](../intent_classification_pipeline_registration/prompt/) - Create reusable prompts
 - [Google Gemini API Docs](https://ai.google.dev/gemini-api/docs) - Official Google documentation
 
 ---
