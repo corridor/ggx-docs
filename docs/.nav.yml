@@ -18,8 +18,8 @@ nav:
       - Asset Registration Examples: 
             - Gemini 2.0 Flash Model Registration: "register-and-refine/examples/model.md"
             - Intent Classification Pipeline Example:
-                - Prompt Registration: "register-and-refine/examples/intent_classification_pipeline_registration/prompt.md"
-                - Pipeline Registration: "register-and-refine/examples/intent_classification_pipeline_registration/pipeline.md"
+                - Prompt Registration: "register-and-refine/examples/intent-classification-pipeline-registration/prompt.md"
+                - Pipeline Registration: "register-and-refine/examples/intent-classification-pipeline-registration/pipeline.md"
             
   - Evaluate and Approve:
       - Overview: "evaluate-and-approve/index.md"
