@@ -5,31 +5,27 @@
       
       
       
-        <link rel="canonical" href="https://corridor.github.io/ggx-docs/integrations/llm-providers/anthropic/">
+        <link rel="canonical" href="https://corridor.github.io/ggx-docs/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/">
       
       
-        <link rel="prev" href="../huggingface/">
-      
-      
-        <link rel="next" href="../../evaluation-providers/cleanlab/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/logos/favicon.ico">
+      <link rel="icon" href="../../../../assets/logos/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Anthropic - Corridor GGX Documentation</title>
+        <title>Pipeline Registration Guide - Corridor GGX Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,11 +44,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/print-pdf.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/print-pdf.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -68,7 +64,7 @@
 
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -97,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#anthropic-integration" class="md-skip">
+        <a href="#pipeline-registration-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -111,9 +107,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Corridor GGX Documentation" class="md-header__button md-logo" aria-label="Corridor GGX Documentation" data-md-component="logo">
+    <a href="../../../.." title="Corridor GGX Documentation" class="md-header__button md-logo" aria-label="Corridor GGX Documentation" data-md-component="logo">
       
-  <img src="../../../assets/logos/ggx-white.png" alt="logo">
+  <img src="../../../../assets/logos/ggx-white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -130,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Anthropic
+              Pipeline Registration Guide
             
           </span>
         </div>
@@ -231,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../register-and-refine/" class="md-tabs__link">
+        <a href="../../../" class="md-tabs__link">
           
   
   
@@ -253,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../evaluate-and-approve/" class="md-tabs__link">
+        <a href="../../../../evaluate-and-approve/" class="md-tabs__link">
           
   
   
@@ -275,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../deploy-and-monitor/" class="md-tabs__link">
+        <a href="../../../../deploy-and-monitor/" class="md-tabs__link">
           
   
   
@@ -293,13 +289,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../integrations/" class="md-tabs__link">
           
   
   
@@ -328,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../technology/self-hosting/" class="md-tabs__link">
+        <a href="../../../../technology/self-hosting/" class="md-tabs__link">
           
   
   
@@ -367,9 +361,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Corridor GGX Documentation" class="md-nav__button md-logo" aria-label="Corridor GGX Documentation" data-md-component="logo">
+    <a href="../../../.." title="Corridor GGX Documentation" class="md-nav__button md-logo" aria-label="Corridor GGX Documentation" data-md-component="logo">
       
-  <img src="../../../assets/logos/ggx-white.png" alt="logo">
+  <img src="../../../../assets/logos/ggx-white.png" alt="logo">
 
     </a>
     Corridor GGX Documentation
@@ -435,7 +429,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../register-and-refine/" class="md-nav__link ">
+            <a href="../../../" class="md-nav__link ">
               
   
   
@@ -514,7 +508,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../register-and-refine/inventory-management/" class="md-nav__link ">
+            <a href="../../../inventory-management/" class="md-nav__link ">
               
   
   
@@ -558,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/inventory-management/table-registry/" class="md-nav__link">
+      <a href="../../../inventory-management/table-registry/" class="md-nav__link">
         
   
   
@@ -586,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/inventory-management/model-catalog/" class="md-nav__link">
+      <a href="../../../inventory-management/model-catalog/" class="md-nav__link">
         
   
   
@@ -614,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/inventory-management/prompts/" class="md-nav__link">
+      <a href="../../../inventory-management/prompts/" class="md-nav__link">
         
   
   
@@ -642,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/inventory-management/rags/" class="md-nav__link">
+      <a href="../../../inventory-management/rags/" class="md-nav__link">
         
   
   
@@ -670,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/inventory-management/pipelines/" class="md-nav__link">
+      <a href="../../../inventory-management/pipelines/" class="md-nav__link">
         
   
   
@@ -706,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/collaboration/" class="md-nav__link">
+      <a href="../../../collaboration/" class="md-nav__link">
         
   
   
@@ -734,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/version-management/" class="md-nav__link">
+      <a href="../../../version-management/" class="md-nav__link">
         
   
   
@@ -762,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/lineage-tracking/" class="md-nav__link">
+      <a href="../../../lineage-tracking/" class="md-nav__link">
         
   
   
@@ -790,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/prompt-optimization/" class="md-nav__link">
+      <a href="../../../prompt-optimization/" class="md-nav__link">
         
   
   
@@ -818,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/corridor_sync/" class="md-nav__link">
+      <a href="../../../corridor_sync/" class="md-nav__link">
         
   
   
@@ -906,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/examples/model/" class="md-nav__link">
+      <a href="../../model/" class="md-nav__link">
         
   
   
@@ -994,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/examples/intent_classification_pipeline_registration/prompt.md" class="md-nav__link">
+      <a href="../../intent_classification_pipeline_registration/prompt.md" class="md-nav__link">
         
   
   
@@ -1022,7 +1016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../register-and-refine/examples/intent_classification_pipeline_registration/pipeline.md" class="md-nav__link">
+      <a href="../../intent_classification_pipeline_registration/pipeline.md" class="md-nav__link">
         
   
   
@@ -1110,7 +1104,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../evaluate-and-approve/" class="md-nav__link ">
+            <a href="../../../../evaluate-and-approve/" class="md-nav__link ">
               
   
   
@@ -1154,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../evaluate-and-approve/simulation/" class="md-nav__link">
+      <a href="../../../../evaluate-and-approve/simulation/" class="md-nav__link">
         
   
   
@@ -1182,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../evaluate-and-approve/comparison/" class="md-nav__link">
+      <a href="../../../../evaluate-and-approve/comparison/" class="md-nav__link">
         
   
   
@@ -1210,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../evaluate-and-approve/reporting/" class="md-nav__link">
+      <a href="../../../../evaluate-and-approve/reporting/" class="md-nav__link">
         
   
   
@@ -1238,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../evaluate-and-approve/approval-workflows/" class="md-nav__link">
+      <a href="../../../../evaluate-and-approve/approval-workflows/" class="md-nav__link">
         
   
   
@@ -1266,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../evaluate-and-approve/human-testing/" class="md-nav__link">
+      <a href="../../../../evaluate-and-approve/human-testing/" class="md-nav__link">
         
   
   
@@ -1294,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../evaluate-and-approve/document-generation/" class="md-nav__link">
+      <a href="../../../../evaluate-and-approve/document-generation/" class="md-nav__link">
         
   
   
@@ -1362,7 +1356,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../deploy-and-monitor/" class="md-nav__link ">
+            <a href="../../../../deploy-and-monitor/" class="md-nav__link ">
               
   
   
@@ -1406,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deploy-and-monitor/direct-to-production/" class="md-nav__link">
+      <a href="../../../../deploy-and-monitor/direct-to-production/" class="md-nav__link">
         
   
   
@@ -1434,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deploy-and-monitor/oversight/" class="md-nav__link">
+      <a href="../../../../deploy-and-monitor/oversight/" class="md-nav__link">
         
   
   
@@ -1462,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deploy-and-monitor/performance/" class="md-nav__link">
+      <a href="../../../../deploy-and-monitor/performance/" class="md-nav__link">
         
   
   
@@ -1490,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deploy-and-monitor/annotation-queues/" class="md-nav__link">
+      <a href="../../../../deploy-and-monitor/annotation-queues/" class="md-nav__link">
         
   
   
@@ -1522,8 +1516,6 @@
       
   
   
-    
-  
   
   
     
@@ -1541,23 +1533,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../integrations/" class="md-nav__link ">
               
   
   
@@ -1575,13 +1566,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1598,8 +1589,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1627,21 +1616,20 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../../integrations/llm-providers/" class="md-nav__link ">
               
   
   
@@ -1659,13 +1647,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1685,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gcp-vertexai/" class="md-nav__link">
+      <a href="../../../../integrations/llm-providers/gcp-vertexai/" class="md-nav__link">
         
   
   
@@ -1713,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws-bedrock/" class="md-nav__link">
+      <a href="../../../../integrations/llm-providers/aws-bedrock/" class="md-nav__link">
         
   
   
@@ -1741,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureai/" class="md-nav__link">
+      <a href="../../../../integrations/llm-providers/azureai/" class="md-nav__link">
         
   
   
@@ -1769,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openai/" class="md-nav__link">
+      <a href="../../../../integrations/llm-providers/openai/" class="md-nav__link">
         
   
   
@@ -1797,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../huggingface/" class="md-nav__link">
+      <a href="../../../../integrations/llm-providers/huggingface/" class="md-nav__link">
         
   
   
@@ -1822,37 +1810,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Anthropic
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../integrations/llm-providers/anthropic/" class="md-nav__link">
         
   
   
@@ -1868,170 +1829,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#integrating-anthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integrating Anthropic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-of-models-supported" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example of Models Supported
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registering-a-new-anthropic-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registering a New Anthropic Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registering a New Anthropic Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Information
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#arguments-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arguments Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scoring-logic-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scoring Logic Implementation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#platform-integration-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Platform Integration Setup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-use-case-document-analysis-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example Use Case: Document Analysis Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example Use Case: Document Analysis Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#arguments-configuration_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arguments Configuration:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#want-to-learn-more" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Want to Learn More?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2062,13 +1859,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2077,7 +1871,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3">
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -2113,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../evaluation-providers/cleanlab/" class="md-nav__link">
+      <a href="../../../../integrations/evaluation-providers/cleanlab/" class="md-nav__link">
         
   
   
@@ -2249,7 +2043,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../technology/self-hosting/" class="md-nav__link ">
+            <a href="../../../../technology/self-hosting/" class="md-nav__link ">
               
   
   
@@ -2293,7 +2087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/minimum-requirements/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/minimum-requirements/" class="md-nav__link">
         
   
   
@@ -2414,7 +2208,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../technology/self-hosting/installation/gcp/" class="md-nav__link ">
+            <a href="../../../../technology/self-hosting/installation/gcp/" class="md-nav__link ">
               
   
   
@@ -2458,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/gcp/gcp-gke/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/gcp/gcp-gke/" class="md-nav__link">
         
   
   
@@ -2486,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/gcp/gcp-vms/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/gcp/gcp-vms/" class="md-nav__link">
         
   
   
@@ -2553,7 +2347,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../technology/self-hosting/installation/aws/" class="md-nav__link ">
+            <a href="../../../../technology/self-hosting/installation/aws/" class="md-nav__link ">
               
   
   
@@ -2597,7 +2391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/aws/aws-fargate/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/aws/aws-fargate/" class="md-nav__link">
         
   
   
@@ -2625,7 +2419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/aws/aws-eks/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/aws/aws-eks/" class="md-nav__link">
         
   
   
@@ -2653,7 +2447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/aws/aws-ec2/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/aws/aws-ec2/" class="md-nav__link">
         
   
   
@@ -2718,7 +2512,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../technology/self-hosting/installation/azure/" class="md-nav__link ">
+            <a href="../../../../technology/self-hosting/installation/azure/" class="md-nav__link ">
               
   
   
@@ -2762,7 +2556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/azure/azure-aks/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/azure/azure-aks/" class="md-nav__link">
         
   
   
@@ -2790,7 +2584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/azure/azure-vms/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/azure/azure-vms/" class="md-nav__link">
         
   
   
@@ -2855,7 +2649,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../technology/self-hosting/installation/on-prem/" class="md-nav__link ">
+            <a href="../../../../technology/self-hosting/installation/on-prem/" class="md-nav__link ">
               
   
   
@@ -2899,7 +2693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/on-prem/bundle-install/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/on-prem/bundle-install/" class="md-nav__link">
         
   
   
@@ -2927,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/installation/on-prem/docker/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/installation/on-prem/docker/" class="md-nav__link">
         
   
   
@@ -3045,7 +2839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/approvals/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/approvals/" class="md-nav__link">
         
   
   
@@ -3073,7 +2867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/common-configs/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/common-configs/" class="md-nav__link">
         
   
   
@@ -3101,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/database/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/database/" class="md-nav__link">
         
   
   
@@ -3129,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/datalake/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/datalake/" class="md-nav__link">
         
   
   
@@ -3157,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/notifications/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/notifications/" class="md-nav__link">
         
   
   
@@ -3185,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/packages/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/packages/" class="md-nav__link">
         
   
   
@@ -3213,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/process-management/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/process-management/" class="md-nav__link">
         
   
   
@@ -3241,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/saml/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/saml/" class="md-nav__link">
         
   
   
@@ -3269,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/configurations/web-servers/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/configurations/web-servers/" class="md-nav__link">
         
   
   
@@ -3305,7 +3099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/hardening/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/hardening/" class="md-nav__link">
         
   
   
@@ -3395,7 +3189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/scaling/backups/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/scaling/backups/" class="md-nav__link">
         
   
   
@@ -3423,7 +3217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/scaling/concurrency/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/scaling/concurrency/" class="md-nav__link">
         
   
   
@@ -3451,7 +3245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../technology/self-hosting/scaling/scalability/" class="md-nav__link">
+      <a href="../../../../technology/self-hosting/scaling/scalability/" class="md-nav__link">
         
   
   
@@ -3522,10 +3316,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#integrating-anthropic" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integrating Anthropic
+        Prerequisites
       
     </span>
   </a>
@@ -3533,33 +3327,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-of-models-supported" class="md-nav__link">
+  <a href="#registration-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example of Models Supported
+        Registration Steps
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registering-a-new-anthropic-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registering a New Anthropic Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registering a New Anthropic Model">
+    <nav class="md-nav" aria-label="Registration Steps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-information" class="md-nav__link">
+  <a href="#step-1-navigate-to-pipeline-registry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic Information
+        Step 1. Navigate to Pipeline Registry
       
     </span>
   </a>
@@ -3567,10 +3350,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#code-configuration" class="md-nav__link">
+  <a href="#step-2-fill-in-basic-information" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Configuration
+        Step 2. Fill in Basic Information
       
     </span>
   </a>
@@ -3578,10 +3361,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#arguments-configuration" class="md-nav__link">
+  <a href="#step-3-configure-code-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arguments Configuration
+        Step 3. Configure Code Settings
       
     </span>
   </a>
@@ -3589,10 +3372,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scoring-logic-implementation" class="md-nav__link">
+  <a href="#step-4-add-resources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scoring Logic Implementation
+        Step 4. Add Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-write-pipeline-scoring-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5. Write Pipeline Scoring Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-add-examples-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6. Add Examples (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-save-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7. Save the Pipeline
       
     </span>
   </a>
@@ -3605,33 +3421,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#platform-integration-setup" class="md-nav__link">
+  <a href="#testing-your-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform Integration Setup
+        Testing Your Pipeline
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-use-case-document-analysis-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example Use Case: Document Analysis Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example Use Case: Document Analysis Model">
+    <nav class="md-nav" aria-label="Testing Your Pipeline">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#arguments-configuration_1" class="md-nav__link">
+  <a href="#quick-test-during-creationediting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arguments Configuration:
+        Quick Test (During Creation/Editing)
       
     </span>
   </a>
@@ -3639,10 +3444,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#interactive-test-after-saving" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage:
+        Interactive Test (After Saving)
       
     </span>
   </a>
@@ -3655,10 +3460,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#want-to-learn-more" class="md-nav__link">
+  <a href="#using-pipelines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Want to Learn More?
+        Using Pipelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
       
     </span>
   </a>
@@ -3681,49 +3514,6 @@
 
 
 
-  <nav class="md-path" aria-label="Navigation">
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Integrations
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    LLM Providers
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3731,7 +3521,7 @@
 
 
   
-    <a href="https://github.com/corridor/ggx-docs/edit/main/docs/integrations/llm-providers/anthropic.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/corridor/ggx-docs/edit/main/docs/register-and-refine/examples/intent-classification-pipeline-registration/pipeline.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -3739,142 +3529,179 @@
   
 
 
-<h1 id="anthropic-integration">Anthropic Integration<a class="headerlink" href="#anthropic-integration" title="Permanent link">¶</a></h1>
-<p>The Anthropic integration provides access to Claude models through a unified interface. Configure once, use everywhere with enterprise-grade safety features and constitutional AI principles built into every interaction.</p>
-<h2 id="integrating-anthropic">Integrating Anthropic<a class="headerlink" href="#integrating-anthropic" title="Permanent link">¶</a></h2>
-<p>Simply enter your Anthropic API key once in the Platform Integrations section. This enables authorized users to access Claude models within the platform. Once integrated, models can be registered and used as any other python object on the platform.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example: Using a registered Anthropic model</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">claude_sonnet_model</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">"Analyze this document"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+<h1 id="pipeline-registration-guide">Pipeline Registration Guide<a class="headerlink" href="#pipeline-registration-guide" title="Permanent link">¶</a></h1>
+<p>A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about <a href="../../../inventory-management/pipelines/">Pipelines</a> to understand more about what they are and how they work. This guide covers how to register pipelines on the Corridor platform, using an <strong>Intent Classification Pipeline</strong> as a working example.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>Before registering a pipeline, ensure you have:</p>
+<ul>
+<li>
+<p>✅ <strong>Registered a Model</strong> - Follow the <a href="../../model/">Model Registration Guide</a> to register Gemini 2.0 Flash</p>
+</li>
+<li>
+<p>✅ <strong>Registered a Prompt</strong> - Follow the <a href="../prompt/">Prompt Registration Guide</a> to register the intent classification prompt</p>
+</li>
+</ul>
+<p><strong>Quick Check:</strong> Navigate to <strong>GenAI Studio → Model Catalog</strong> and <strong>Prompt Registry</strong> to verify your resources are available.</p>
+<p>If you haven't completed these steps, please do so before proceeding.</p>
+<hr>
+<h2 id="registration-steps">Registration Steps<a class="headerlink" href="#registration-steps" title="Permanent link">¶</a></h2>
+<h3 id="step-1-navigate-to-pipeline-registry">Step 1. Navigate to Pipeline Registry<a class="headerlink" href="#step-1-navigate-to-pipeline-registry" title="Permanent link">¶</a></h3>
+<p>Go to <strong>GenAI Studio → Pipeline Registry</strong> and click the <strong>Create</strong> button.</p>
+<h3 id="step-2-fill-in-basic-information">Step 2. Fill in Basic Information<a class="headerlink" href="#step-2-fill-in-basic-information" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../intent-pipeline-description.png" data-desc-position="bottom"><img alt="alt text" src="../intent-pipeline-description.png"></a></p>
+<p><strong>Basic Information</strong> fields help organize and identify your pipeline:</p>
+<ul>
+<li><strong>Description:</strong> Clear explanation of what the pipeline does and its workflow</li>
+<li><strong>Usecase Type:</strong> The primary use case category (e.g., "Question Answering")</li>
+<li><strong>Task Type:</strong> Specific task the pipeline performs (e.g., "Classification")</li>
+<li><strong>Impact of Generated Output:</strong> Scope of the pipeline's usage (e.g., "Internal Only")</li>
+<li><strong>Data Usage:</strong> Whether the pipeline uses additional data sources beyond user input</li>
+<li><strong>Group:</strong> Category for organizing similar pipelines (e.g., "Conversational AI ChatBot Pipeline")</li>
+<li><strong>Permissible Purpose:</strong> Approved use cases and business scenarios for this pipeline</li>
+</ul>
+<p><strong>Example for Intent Classification Pipeline:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>This is a chat-based pipeline designed for intent recognition &amp; classifies incoming user
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>messages by assigning them to one of the following predefined intents:
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>1. ACTIVATE CARD
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>2. APPLY FOR LOAN
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>3. APPLY FOR MORTGAGE
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>4. BLOCK CARD
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>5. CANCEL LOAN
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>This pipeline operates on a single input and produces a single output for each message,
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>without maintaining conversational context across interactions.
 </span></code></pre></div>
-<h2 id="example-of-models-supported">Example of Models Supported<a class="headerlink" href="#example-of-models-supported" title="Permanent link">¶</a></h2>
-<p>Anthropic provides access to Claude models with different capabilities and performance characteristics:</p>
-<p><strong>Claude 3.5 Sonnet</strong> - Balanced performance for most use cases with strong reasoning<br>
-<strong>Claude 3 Opus</strong> - Most capable model for complex tasks requiring deep analysis<br>
-<strong>Claude 3 Haiku</strong> - Fast, cost-effective model for simple tasks<br>
-<strong>Claude 3.5 Haiku</strong> - Enhanced version with improved speed and capabilities<br>
-<strong>Additional Models</strong> - Latest Claude variants with enhanced reasoning capabilities</p>
-<h2 id="registering-a-new-anthropic-model">Registering a New Anthropic Model<a class="headerlink" href="#registering-a-new-anthropic-model" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>New Model</strong> to begin registration. The registration form connects your Anthropic integration with custom model configurations.</p>
-<h3 id="basic-information">Basic Information<a class="headerlink" href="#basic-information" title="Permanent link">¶</a></h3>
-<p><strong>Description</strong>: Document your model's purpose, use cases, and limitations. For example: "Claude 3.5 Sonnet optimized for document analysis and content generation. Use for enterprise content processing with built-in safety features. Ideal for complex reasoning tasks and multi-step analysis."</p>
-<h3 id="code-configuration">Code Configuration<a class="headerlink" href="#code-configuration" title="Permanent link">¶</a></h3>
-<p><strong>Alias</strong>: A unique identifier for your model (e.g., <code>claude_sonnet_analyzer</code>, <code>claude_document_processor</code>). This becomes the variable name you'll use in code.</p>
-<p><strong>Output Type</strong>: Define the return format:
-- <code>Map[String, String]</code> - Key-value pairs for structured responses
-- <code>String</code> - Simple text responses
-- <code>List</code> - Array of items</p>
-<p><strong>Input Type</strong>: Select your implementation approach:
-- <strong>API Based</strong>: Platform handles API calls automatically using your Anthropic integration
-- <strong>Python Function</strong>: Custom function implementation with full control
-- <strong>Custom</strong>: Advanced configurations for specialized use cases</p>
-<p><strong>Model Provider</strong>: Select "Anthropic" from your configured integrations.</p>
-<h3 id="arguments-configuration">Arguments Configuration<a class="headerlink" href="#arguments-configuration" title="Permanent link">¶</a></h3>
-<p>Define input parameters that your model will accept. Important: Variables declared here are automatically available in the Scoring Logic section.</p>
-<p>Common argument patterns for Anthropic models:</p>
-<table>
-<thead>
-<tr>
-<th>Alias</th>
-<th>Type</th>
-<th>Optional</th>
-<th>Default Value</th>
-<th>Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>text</code></td>
-<td>String</td>
-<td>No</td>
-<td>N/A</td>
-<td>Main input content</td>
-</tr>
-<tr>
-<td><code>max_tokens</code></td>
-<td>Numerical</td>
-<td>Yes</td>
-<td>1500</td>
-<td>Maximum response length</td>
-</tr>
-<tr>
-<td><code>temperature</code></td>
-<td>Numerical</td>
-<td>Yes</td>
-<td>0.7</td>
-<td>Controls response creativity</td>
-</tr>
-<tr>
-<td><code>system_prompt</code></td>
-<td>String</td>
-<td>Yes</td>
-<td>""</td>
-<td>System instructions</td>
-</tr>
-</tbody>
-</table>
-<p>Use <strong>+ Add Argument</strong> to include additional parameters.</p>
-<h3 id="scoring-logic-implementation">Scoring Logic Implementation<a class="headerlink" href="#scoring-logic-implementation" title="Permanent link">¶</a></h3>
-<p>In the Scoring Logic section, you can directly reference any variable declared in the Arguments section. The platform automatically makes these available in your code.</p>
-<p>Example implementation for a text analysis model:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Arguments: text, max_tokens, temperature are automatically available</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">anthropic</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Direct initialization</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">(</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"ANTHROPIC_API_KEY"</span><span class="p">)</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="kc">None</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">message</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"claude-3-5-sonnet-20241022"</span><span class="p">,</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">max_tokens</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">max_tokens</span><span class="p">),</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">temperature</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">temperature</span><span class="p">),</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">system</span><span class="o">=</span><span class="n">system_prompt</span> <span class="k">if</span> <span class="n">system_prompt</span> <span class="k">else</span> <span class="s2">"You are a helpful AI assistant."</span><span class="p">,</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="p">]</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">)</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="k">return</span> <span class="p">{</span><span class="s2">"output"</span><span class="p">:</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"context"</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<h3 id="step-3-configure-code-settings">Step 3. Configure Code Settings<a class="headerlink" href="#step-3-configure-code-settings" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../intent-pipeline-code-configure.png" data-desc-position="bottom"><img alt="alt text" src="../intent-pipeline-code-configure.png"></a></p>
+<p><strong>Code Settings</strong> define how your pipeline operates and which resources it uses.</p>
+<p>Fill in the <strong>Basic Information</strong> fields as shown in the image above. These includes Alias, Input Type, Pipeline Type, and Context Type.</p>
+<p>NOTE: For this case we have chosen to create a chat-based pipeline as in future we can expand the pipeline to recognize the user's intent over multiple turns, though for now we are keeping it simple and using a single input/output.</p>
+<h3 id="step-4-add-resources">Step 4. Add Resources<a class="headerlink" href="#step-4-add-resources" title="Permanent link">¶</a></h3>
+<p><strong>Resources</strong> are the pre-registered components your pipeline will use.</p>
+<p>Click <strong>+ Create New</strong> or search for existing resources to add:</p>
+<p><strong>LLMs / Models:</strong></p>
+<ul>
+<li><code>gemini_2_0_flash</code> - The foundation model for generating responses</li>
+</ul>
+<p><strong>Prompts:</strong></p>
+<ul>
+<li><code>customer_intent_classification_prompt</code> - The structured instructions for intent classification</li>
+</ul>
+<p><strong>Other Resources</strong> (Not required for this example):</p>
+<ul>
+<li><strong>RAGs:</strong> For retrieving relevant documents</li>
+<li><strong>Agents &amp; Sub-Pipelines:</strong> For complex multi-step workflows</li>
+<li><strong>Helper Functions:</strong> For data processing utilities, or any other function according to your requirement</li>
+</ul>
+<h3 id="step-5-write-pipeline-scoring-logic">Step 5. Write Pipeline Scoring Logic<a class="headerlink" href="#step-5-write-pipeline-scoring-logic" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../intent-pipeline-scoring.png" data-desc-position="bottom"><img alt="alt text" src="../intent-pipeline-scoring.png"></a></p>
+<p><strong>Pipeline Scoring Logic</strong> orchestrates how resources work together:</p>
+<ul>
+<li>Combines models, prompts, and other resources</li>
+<li>Processes user inputs and conversation history</li>
+<li>Generates outputs and maintains context across turns</li>
+</ul>
+<p><strong>Example - Intent Classification Pipeline:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Run Gemini with prompt and user input</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">response</span> <span class="o">=</span> <span class="n">gemini_2_0_flash</span><span class="p">(</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">customer_intent_classification_prompt</span><span class="p">(</span><span class="n">user_message</span><span class="o">=</span><span class="n">user_message</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Parse the JSON response to get the classified intent</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">response_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s2">"response"</span><span class="p">])</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">classified_intent</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"classified_intent"</span><span class="p">,</span> <span class="s2">"UNKNOWN"</span><span class="p">)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># List of valid intents</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">valid_intents</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="s2">"ACTIVATE CARD"</span><span class="p">,</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="s2">"BLOCK CARD"</span><span class="p">,</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="s2">"CARD DETAILS"</span><span class="p">,</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="s2">"CHECK CARD ANNUAL FEE"</span><span class="p">,</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="s2">"CHECK CURRENT BALANCE ON CARD"</span><span class="p">,</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">]</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="c1"># Validate the classified intent</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="k">if</span> <span class="n">classified_intent</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_intents</span><span class="p">:</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="n">classified_intent</span> <span class="o">=</span> <span class="s2">"UNKNOWN"</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="c1"># Return output and context</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="s2">"output"</span><span class="p">:</span>  <span class="n">classified_intent</span><span class="p">,</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="s2">"context"</span><span class="p">:</span> <span class="s2">"Any information that needs to be stored across turns"</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="platform-integration-setup">Platform Integration Setup<a class="headerlink" href="#platform-integration-setup" title="Permanent link">¶</a></h2>
-<p>Before registering models, configure your Anthropic credentials:</p>
+<p><strong>What This Does:</strong></p>
 <ol>
-<li>Navigate to <strong>Settings &gt; Platform Integrations</strong></li>
-<li>Click on <strong>Anthropic</strong></li>
-<li>Enter your Anthropic API key</li>
-<li>Test the connection</li>
+<li>Calls the Gemini model with the classification prompt and user message.</li>
+<li>Parses the JSON response to extract the classified intent.</li>
+<li>Validates the intent against the list of valid intents.</li>
+<li>Returns the classification result as the output and any information that needs to be stored across turns as the context.</li>
 </ol>
-<p>The platform creates environment variables automatically:
-- <code>ANTHROPIC_API_KEY</code></p>
-<h2 id="example-use-case-document-analysis-model">Example Use Case: Document Analysis Model<a class="headerlink" href="#example-use-case-document-analysis-model" title="Permanent link">¶</a></h2>
-<p>An Anthropic Claude model configured for enterprise document analysis demonstrates the complete workflow:</p>
-<h3 id="arguments-configuration_1">Arguments Configuration:<a class="headerlink" href="#arguments-configuration_1" title="Permanent link">¶</a></h3>
+<p><strong>Variables Available:</strong></p>
 <ul>
-<li><code>text</code> (String, required)</li>
-<li><code>max_tokens</code> (Numerical, optional, default: "2000")</li>
-<li><code>temperature</code> (Numerical, optional, default: "0.3")</li>
-<li><code>system_prompt</code> (String, optional, default: "You are a helpful document analysis assistant.")</li>
+<li><code>user_message</code> - The current user input (type: String)</li>
+<li><code>history</code> - Previous conversation messages (type: list[TypedDict[{'role': str, 'content': str}]])</li>
+<li><code>context</code> - Any information that needs to be stored across turns (type: String)</li>
 </ul>
-<h3 id="usage">Usage:<a class="headerlink" href="#usage" title="Permanent link">¶</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Model becomes available as: claude_document_analyzer</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">claude_document_analyzer</span><span class="p">(</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">text</span><span class="o">=</span><span class="s2">"Your document text here..."</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">system_prompt</span><span class="o">=</span><span class="s2">"Analyze this document and provide key insights with detailed explanations."</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
+<h3 id="step-6-add-examples-optional">Step 6. Add Examples (Optional)<a class="headerlink" href="#step-6-add-examples-optional" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../intent-pipeline-examples.png" data-desc-position="bottom"><img alt="alt text" src="../intent-pipeline-examples.png"></a></p>
+<p>Add test examples to validate pipeline behavior.</p>
+<p><strong>Note:</strong> Examples help with testing and documenting expected behavior.</p>
+<h3 id="step-7-save-the-pipeline">Step 7. Save the Pipeline<a class="headerlink" href="#step-7-save-the-pipeline" title="Permanent link">¶</a></h3>
+<p>Click <strong>Create</strong> to register the pipeline.</p>
+<p>The pipeline is now:</p>
+<ul>
+<li>Available in the Pipeline Registry</li>
+<li>Ready for simulation and testing</li>
+<li>Ready for use in downstream applications</li>
+</ul>
+<hr>
+<h2 id="testing-your-pipeline">Testing Your Pipeline<a class="headerlink" href="#testing-your-pipeline" title="Permanent link">¶</a></h2>
+<p>After creating the pipeline, test it to verify behavior:</p>
+<h3 id="quick-test-during-creationediting">Quick Test (During Creation/Editing)<a class="headerlink" href="#quick-test-during-creationediting" title="Permanent link">¶</a></h3>
+<ol>
+<li>While creating or editing the pipeline, scroll to the <strong>Code</strong> section</li>
+<li>Click <strong>Test Code</strong> in the bottom right corner</li>
+<li>Enter test inputs to verify logic without saving</li>
+</ol>
+<h3 id="interactive-test-after-saving">Interactive Test (After Saving)<a class="headerlink" href="#interactive-test-after-saving" title="Permanent link">¶</a></h3>
+<ol>
+<li>Navigate to your saved pipeline</li>
+<li>
+<p>Click <strong>Run</strong> → <strong>Chat Session</strong> (top right corner)</p>
+<p>NOTE: Chat sessions is only available for chat-based pipelines. For free-flow pipelines, you can test the pipeline by calling the pipeline function with sample inputs using the test code button.</p>
+</li>
+<li>
+<p>Enter sample messages to test the full conversation flow</p>
+</li>
+<li>Verify outputs match expected behavior</li>
+</ol>
+<hr>
+<h2 id="using-pipelines">Using Pipelines<a class="headerlink" href="#using-pipelines" title="Permanent link">¶</a></h2>
+<h3 id="in-applications">In Applications<a class="headerlink" href="#in-applications" title="Permanent link">¶</a></h3>
+<p>Reference the pipeline in your application code:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Call the pipeline</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">customer_intent_classification_pipeline</span><span class="p">(</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">user_message</span><span class="o">=</span><span class="s2">"I want to block my card"</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">history</span><span class="o">=</span><span class="p">[],</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">context</span><span class="o">=</span><span class="s2">""</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Access the output</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">classified_intent</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]</span>  <span class="c1"># "BLOCK CARD"</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">context</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"context"</span><span class="p">]</span>  <span class="c1"># "Any information that needs to be stored across turns"</span>
 </span></code></pre></div>
-<h2 id="want-to-learn-more">Want to Learn More?<a class="headerlink" href="#want-to-learn-more" title="Permanent link">¶</a></h2>
+<hr>
+<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">¶</a></h2>
 <ul>
-<li>Review <a href="https://docs.anthropic.com/">Anthropic documentation</a></li>
-<li>Check <a href="https://www.anthropic.com/claude">Claude model capabilities</a></li>
-<li>Monitor usage through Anthropic Console</li>
-<li>Set up rate limiting and cost management</li>
+<li><a href="../../model/">Model Registration Guide</a> - Register foundation models</li>
+<li><a href="../prompt/">Prompt Registration Guide</a> - Create reusable prompts</li>
 </ul>
+<hr>
+<p>By following this guide, you can create reliable, production-ready pipelines that combine multiple AI resources into cohesive workflows.</p>
 
 
 
@@ -3895,7 +3722,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    2025-10-06
+    2025-12-16
   </span>
 
     
@@ -3906,11 +3733,11 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
       
     </span>
     <nav>
-      rajneesh jha
+      The-Great-Aeochs, rajneesh407
     </nav>
   </span>
 
@@ -3993,44 +3820,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer">
-        
-          
-          <a href="../huggingface/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HuggingFace">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                HuggingFace
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../evaluation-providers/cleanlab/" class="md-footer__link md-footer__link--next" aria-label="Next: Cleanlab">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Cleanlab
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -4095,12 +3884,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit", "content.action.edit.top", "content.time.last_updated", "content.code.select", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit", "content.action.edit.top", "content.time.last_updated", "content.code.select", "content.code.annotate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../../assets/javascripts/mermaid.min.js"></script>
+        <script src="../../../../assets/javascripts/mermaid.min.js"></script>
       
     
   
