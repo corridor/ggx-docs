@@ -20,6 +20,8 @@ nav:
             - Intent Classification Pipeline Example:
                 - Prompt Registration: "register-and-refine/examples/intent-classification-pipeline-registration/prompt.md"
                 - Pipeline Registration: "register-and-refine/examples/intent-classification-pipeline-registration/pipeline.md"
+            - Language Translation Pipeline Example:
+                - Pipeline Registration: "register-and-refine/examples/language-translation-pipeline-registration/pipeline.md"
             
   - Evaluate and Approve:
       - Overview: "evaluate-and-approve/index.md"
