@@ -3,7 +3,7 @@ title: Install on Amazon Web Services (AWS)
 ---
 
 This guide provides an overview of deploying Corridor on Amazon Web Services. Corridor supports three deployment approaches on AWS.
-
+Expected time for installation: 30 minutes
 ## Deployment Options
 
 ### Option 1: Kubernetes - EKS
