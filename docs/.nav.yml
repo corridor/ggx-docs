@@ -30,6 +30,7 @@ nav:
       - Reporting: "evaluate-and-approve/reporting.md"
       - Approval Workflows: "evaluate-and-approve/approval-workflows.md"
       - Human Testing: "evaluate-and-approve/human-testing.md"
+      - Feedback Portals: "evaluate-and-approve/feedback-portals/index.md"
       - Document Generation: "evaluate-and-approve/document-generation.md"
 
   - Deploy and Monitor:
