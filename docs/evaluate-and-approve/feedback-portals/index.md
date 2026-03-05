@@ -1,6 +1,6 @@
 # Feedback Portals
 
-The Feedback Portal is a platform feature designed to help teams evaluate, test, and improve AI pipelines by collecting structured feedback from domain experts and testers. It bridges the gap between raw pipeline outputs and real-world quality assessment by letting subject matter experts interact with a pipeline directly and provide detailed evaluations on every session.
+The Feedback Portal is a platform feature designed to help teams evaluate, test, and improve AI pipelines by collecting structured feedback from domain experts and testers. It bridges the gap between raw pipeline outputs and real-world quality assessment by letting subject matter experts interact with a pipeline directly and provide detailed evaluations of every session.
 
 It is especially useful for pipelines that involve classification, triage, or decision-making, where correctness needs to be validated by humans with domain knowledge.
 
@@ -34,13 +34,13 @@ The AI system being evaluated. It receives a user message and returns an output 
 
 A lightweight code layer that sits between the pipeline and the portal. It calls the pipeline, optionally transforms the output for display, and can extract key metrics into `collected_fields` to track them as session-level statistics in the portal's results table.
 
-### Test Definition Schema
+### Instructions for User Impersonator
 
-A JSON schema that defines the fields shown to testers before they start a session. These fields capture the tester's expectations upfront, such as the expected classification, disposition, or protocol.
+A prompt that instructs an AI to simulate realistic user messages during testing. It defines how the AI should behave when generating messages on behalf of a test user, including the tone, context, and constraints it should follow.
 
-### Closing Question Schema
+### Advanced Configs
 
-A JSON schema that defines the fields shown to testers at the end of a session. These fields capture the tester's final assessment of the pipeline's predictions, including whether the output was correct and what the correct answer should have been.
+A single JSON object that combines the `testDefinition` and `closingQuestions` field arrays. The `testDefinition` array defines fields shown before a session starts, and the `closingQuestions` array defines fields shown at the end of a session.
 
 ### Collected Fields
 
@@ -60,8 +60,8 @@ When creating a Feedback Portal, you configure the following settings:
 | Feedback Instructions | Instructions shown to testers before they start, written in plain text |
 | Pipeline | The AI pipeline this portal collects feedback for |
 | Processing Logic | Custom code to call the pipeline and optionally extract metrics |
-| Test Definition Schema | JSON schema for fields shown before the session starts |
-| Closing Question Schema | JSON schema for fields shown at the end of the session |
+| Instructions for User Impersonator | A prompt that instructs an AI to simulate realistic user messages during testing |
+| Advanced Configs | A single JSON object combining the `testDefinition` and `closingQuestions` field arrays |
 
 ---
 
@@ -73,7 +73,7 @@ Navigate to **Human Integrated Testing → Feedback Portals** and click **+ Crea
 
 ![Feedback Portals list page](feedback-portals-list.png)
 
-Fill in the Name, Group, Description, and Feedback Instructions. These top-level fields are shown in the portal's settings page:
+Fill in the Name, Group, Description, and Feedback Instructions. These top-level fields are shown on the portal's settings page:
 
 ![Portal settings — name, group, description, and feedback instructions](portal-settings-top.png)
 
@@ -83,7 +83,7 @@ Scroll down to the **Pipeline** section and select the pipeline you want to eval
 
 ![Portal settings — pipeline selector and processing logic code](portal-settings-pipeline-logic.png)
 
-At minimum, the processing logic looks like this:
+At a minimum, the processing logic looks like this:
 
 ```python
 return my_pipeline(user_message, history=history)
@@ -120,101 +120,90 @@ The return value must be a dictionary with the following keys:
 }
 ```
 
-### Step 3 — Define the Test Definition Schema
+### Step 3 — Write the Instructions for User Impersonator
 
-The **Test Definition Schema** controls what fields appear on the Start a Conversation screen. Use it to capture the tester's expectations before the session begins.
+The **Instructions for User Impersonator** field lets you define how an AI should simulate realistic user messages during a test session. Write a plain text prompt that describes the persona, context, and constraints the AI should follow when generating messages.
 
-![Portal settings — Test Definition Form Schema](portal-settings-test-definition-schema.png)
+![Portal settings — Instructions for User Impersonator](portal-settings-user-impersonator.png)
 
-Each field in the schema follows this structure:
+A good impersonator prompt describes:
+
+- The role the AI is playing (e.g., a banking customer, a patient)
+- The style and tone of messages it should generate
+- Any rules it should follow, such as staying in context or avoiding meta-commentary
+
+### Step 4 — Configure the Advanced Configs
+
+The **Advanced Configs** section replaces the previous separate Test Definition and Closing Question schema editors. It accepts a single JSON object with two keys: `closingQuestions` and `testDefinition`.
+
+![Portal settings — Advanced Configs](portal-settings-advanced-configs.png)
+
+Each field in either array follows this structure:
 
 ```json
 {
   "key": "field_key",
-  "type": "selectbox",
   "label": "Human readable label",
-  "placeholder": "Placeholder text shown in the dropdown",
   "options": ["Option A", "Option B", "Option C"],
-  "validators": {
-    "required": false
-  }
+  "placeholder": "Placeholder text shown in the dropdown",
+  "type": "selectbox"
 }
 ```
 
-Supported field types include `selectbox` for dropdown selection and `text` for free text input. Setting `required` to `false` makes the field optional, which is recommended for test definitions so testers are not forced to pre-define expectations.
+The `required` property is set directly on the field object and only needs to be included when set to `true`. Supported field types include `selectbox` for dropdown selection and `text` for free text input.
 
 Example for a classification pipeline:
 
 ```json
 {
-  "fields": [
-    {
-      "key": "expected_intent",
-      "type": "selectbox",
-      "label": "Expected Intent",
-      "placeholder": "Select which intent this test is EXPECTED to classify",
-      "options": [
-        "ACTIVATE CARD",
-        "BLOCK CARD",
-        "MAKE TRANSFER",
-        "OUT OF CONTEXT"
-      ],
-      "validators": {
-        "required": false
-      }
-    }
-  ]
-}
-```
-
-### Step 4 — Define the Closing Question Schema
-
-The **Closing Question Schema** controls what fields appear in the End the Session modal. Use it to capture the tester's final assessment of the pipeline's predictions.
-
-![Portal settings — Closing Question Form Schema](portal-settings-closing-question-schema.png)
-
-A key feature of closing questions is the `{Predicted X}` placeholder syntax. When used in a label, it is automatically replaced with the actual value predicted by the pipeline, so testers see the real output in context as they evaluate it.
-
-Example for a classification pipeline:
-
-```json
-{
-  "fields": [
+  "closingQuestions": [
     {
       "key": "is_predicted_intent_correct",
-      "type": "selectbox",
-      "label": "Do you agree with the predicted intent ({Predicted Intent}) ?",
+      "label": "Do you agree with the predicted intent ({Predicted Intent})?",
       "options": ["Yes", "No"],
-      "validators": {
-        "required": true
-      }
+      "required": true,
+      "type": "selectbox"
     },
     {
       "key": "correct_intent",
-      "type": "selectbox",
-      "label": "If the above is No, What is the correct intent ?",
+      "label": "If the above is No, what is the correct intent?",
       "options": [
         "ACTIVATE CARD",
+        "APPLY FOR LOAN",
         "BLOCK CARD",
-        "MAKE TRANSFER",
-        "OUT OF CONTEXT"
+        "CANCEL LOAN",
+        "CANCEL TRANSFER",
+        "CARD DETAILS"
       ],
-      "validators": {
-        "required": false
-      }
+      "type": "selectbox"
     },
     {
       "key": "additional_comments",
-      "type": "text",
-      "label": "Any additional comments on why the classification was incorrect or could be improved ?",
+      "label": "Any additional comments on why the classification was incorrect or could be improved?",
       "placeholder": "e.g. The message could also be interpreted as BLOCK CARD due to similar phrasing",
-      "validators": {
-        "required": false
-      }
+      "type": "text"
+    }
+  ],
+  "testDefinition": [
+    {
+      "key": "expected_intent",
+      "label": "Expected Intent",
+      "options": [
+        "ACTIVATE CARD",
+        "APPLY FOR LOAN",
+        "BLOCK CARD",
+        "CANCEL LOAN",
+        "CANCEL TRANSFER",
+        "CARD DETAILS"
+      ],
+      "placeholder": "Select which intent this test is EXPECTED to classify",
+      "type": "selectbox"
     }
   ]
 }
 ```
+
+A key feature of closing questions is the `{Predicted X}` placeholder syntax. When used in a label, it is automatically replaced with the actual value predicted by the pipeline, so testers see the real output in context as they evaluate it.
 
 Supported field types for closing questions also include `qna`, which renders an interactive question-and-answer widget where testers can add multiple question-answer pairs. This is useful for conversational pipelines where testers want to record follow-up questions they would have asked.
 
@@ -236,23 +225,22 @@ The pipeline processes your message and returns its response in the chat view.
 
 ![Active chat session showing user message and pipeline response](session-chat-interface.png)
 
-You can rate individual responses using the thumbs up or thumbs down buttons. Continue the conversation if the pipeline is multi-turn, or move to closing if it is single-turn. When you are ready to finish, click **End Session**.
+You can rate individual responses using the thumbs up or thumbs down buttons. Continue the conversation if the pipeline is multi-turn, or move to closing if it is single-turn. When you are ready to finish, click the **End Session** link that appears below the last response.
 
 ### Ending the Session
 
 Clicking **End Session** opens the **Review Session** modal.
 
-![Review Session modal — Feedback Summary and Closing Questions](session-review-modal.png)
+![Review Session modal — Feedback Summary, Testing Notes, and Closing Questions](session-review-modal.png)
 
 The modal shows:
 
-- **Feedback Summary** — a count of any thumbs down ratings from the session
+- **Feedback Summary** — a collapsible section summarising any thumbs down ratings from the session
 - **Testing Notes** — a free text field to document your overall observations
-- **Closing Questions** — the structured questions defined in the Closing Question Schema, with the pipeline's actual predictions shown inline in the question labels
+- **Closing Questions** — a collapsible section with the structured questions defined in the Advanced Configs, with the pipeline's actual predictions shown inline in the question labels
+- **Mark all unmarked responses as 👍** — a checkbox to bulk-approve all responses that have not yet been rated
 
-Fill in your notes and answer the closing questions, then click **End Session** to submit.
-
-![Review Session modal with Testing Notes and closing answer filled in](session-review-modal-filled.png)
+Fill in your notes, answer the closing questions, and click **End Session** to submit.
 
 ---
 
@@ -262,11 +250,9 @@ Fill in your notes and answer the closing questions, then click **End Session** 
 
 All completed sessions are listed in the portal's results table. Each row represents one session and shows the session name, rating summary, status, testing notes, and the date it was created.
 
-![Portal sessions list with one completed and one ongoing session](portal-sessions-list.png)
+![Portal sessions list showing sessions from multiple contributors with status and testing notes](portal-sessions-list.png)
 
-Once a session is submitted, its status changes from **Ongoing** to **Completed** and the testing notes appear inline in the table.
-
-![Portal sessions list showing a completed session with testing notes](portal-sessions-completed.png)
+Once a session is submitted, its status changes from **Ongoing** to **Completed** and the testing notes appear inline in the table. The **Created By** column shows which team member ran each session, allowing multiple contributors to provide feedback in parallel.
 
 Use the **Filter by status** dropdown to narrow the view to completed or ongoing sessions.
 
@@ -294,39 +280,26 @@ Shows which Test Definition values have been exercised and which have not. A war
 
 #### Performance
 
-Shows overall test session performance over time, color-coded by outcome: all likes (green), contains dislikes (red), or no feedback (grey). Below the chart, a per-intent breakdown lets you drill into how performance varies across different expected values.
+Shows overall test session performance over time, color-coded by outcome: all likes (green), containing dislikes (red), or no feedback (grey). Below the chart, a per-intent breakdown lets you drill into how performance varies across different expected values.
 
-![Insights — Performance tab showing overall performance over time](insights-performance.png)
-
-Hovering over a bar in the per-intent chart shows a tooltip with the exact test count and intent label for that segment.
-
-![Insights — Performance detail showing Expected Intent tooltip](insights-performance-detail.png)
-
----
-
-## Schema Field Type Reference
-
-| Type | Description | Use Case |
-|---|---|---|
-| `selectbox` | Dropdown with predefined options | Classification labels, dispositions, protocols |
-| `text` | Free text input | Comments, observations, notes |
-| `qna` | Interactive question-answer pairs | Follow-up questions a human expert would ask |
+![Insights — Performance tab showing overall performance over time and per-intent breakdown](insights-performance.png)
 
 ---
 
 ## Tips for Portal Designers
 
-- Keep the Test Definition optional (`required: false`) so testers are not blocked from starting a session.
+- Keep test definition fields optional (omit the `required` property) so testers are not blocked from starting a session.
 - Use the `{Predicted X}` placeholder in closing question labels so testers see the actual pipeline output inline without having to scroll back.
 - Use `collected_fields` to surface any performance metrics your pipeline tracks — latency, cost, and token counts are especially valuable for benchmarking.
 - Write feedback instructions in plain text without markdown formatting for the best display in the portal UI.
-- Design closing questions to mirror your Test Definition fields so expected vs actual comparisons are easy to make in the results table.
+- Design closing questions to mirror your test definition fields so expected vs actual comparisons are easy to make in the results table.
+- Write the User Impersonator instructions to match the persona of your real end users — this ensures simulated messages are representative of actual traffic.
 
 ---
 
 ## Example — Customer Intent Classification Portal
 
-The following is a complete example of a Feedback Portal configured for a banking customer intent classification pipeline that classifies messages into 26 predefined intents.
+The following is a complete example of a Feedback Portal configured for a banking customer intent classification pipeline that classifies messages into 6 predefined intents: ACTIVATE CARD, APPLY FOR LOAN, BLOCK CARD, CANCEL LOAN, CANCEL TRANSFER, and CARD DETAILS.
 
 ### Feedback Instructions
 
@@ -365,163 +338,54 @@ collected_fields["intent_tokens_per_second"] = ctx.get("intent_tokens_per_second
 return result
 ```
 
-### Test Definition Schema
+### Advanced Configs
 
 ```json
 {
-  "fields": [
-    {
-      "key": "expected_intent",
-      "type": "selectbox",
-      "label": "Expected Intent",
-      "placeholder": "Select which intent this test is EXPECTED to classify",
-      "options": [
-        "ACTIVATE CARD",
-        "ACTIVATE CARD INTERNATIONAL USAGE",
-        "APPLY FOR LOAN",
-        "APPLY FOR MORTGAGE",
-        "BLOCK CARD",
-        "CANCEL LOAN",
-        "CANCEL MORTGAGE",
-        "CANCEL TRANSFER",
-        "CARD DETAILS",
-        "CHECK CARD ANNUAL FEE"
-      ],
-      "validators": { "required": false }
-    }
-  ]
-}
-```
-
-### Closing Question Schema
-
-```json
-{
-  "fields": [
+  "closingQuestions": [
     {
       "key": "is_predicted_intent_correct",
-      "type": "selectbox",
-      "label": "Do you agree with the predicted intent ({Predicted Intent}) ?",
+      "label": "Do you agree with the predicted intent ({Predicted Intent})?",
       "options": ["Yes", "No"],
-      "validators": { "required": true }
+      "required": true,
+      "type": "selectbox"
     },
     {
       "key": "correct_intent",
-      "type": "selectbox",
-      "label": "If the above is No, What is the correct intent ?",
+      "label": "If the above is No, what is the correct intent?",
       "options": [
         "ACTIVATE CARD",
-        "ACTIVATE CARD INTERNATIONAL USAGE",
         "APPLY FOR LOAN",
-        "APPLY FOR MORTGAGE",
         "BLOCK CARD",
         "CANCEL LOAN",
-        "CANCEL MORTGAGE",
         "CANCEL TRANSFER",
-        "CARD DETAILS",
-        "CHECK CARD ANNUAL FEE"
+        "CARD DETAILS"
       ],
-      "validators": { "required": false }
+      "type": "selectbox"
     },
     {
       "key": "additional_comments",
-      "type": "text",
-      "label": "Any additional comments on why the classification was incorrect or could be improved ?",
+      "label": "Any additional comments on why the classification was incorrect or could be improved?",
       "placeholder": "e.g. The message could also be interpreted as BLOCK CARD due to similar phrasing",
-      "validators": { "required": false }
+      "type": "text"
+    }
+  ],
+  "testDefinition": [
+    {
+      "key": "expected_intent",
+      "label": "Expected Intent",
+      "options": [
+        "ACTIVATE CARD",
+        "APPLY FOR LOAN",
+        "BLOCK CARD",
+        "CANCEL LOAN",
+        "CANCEL TRANSFER",
+        "CARD DETAILS"
+      ],
+      "placeholder": "Select which intent this test is EXPECTED to classify",
+      "type": "selectbox"
     }
   ]
 }
 ```
 
----
-
-## Example — Clinical Triage Portal (ASK HOAG)
-
-The following is a complete example of a Feedback Portal configured for a clinical triage pipeline that assigns patients to protocols and dispositions.
-
-### Key Differences from a Classification Portal
-
-- The Test Definition captures two expected values — the expected protocol and the expected disposition — since the pipeline produces two outputs.
-- The Closing Questions mirror this with two agreement questions, each showing the predicted value inline.
-- An additional `qna` field allows nurses to record follow-up questions they would have asked the patient, capturing richer clinical feedback.
-- The processing logic is a direct pass-through since the pipeline handles all state and formatting internally.
-
-### Processing Logic
-
-```python
-return run_triage_agent(user_message, context)
-```
-
-### Test Definition Schema
-
-```json
-{
-  "fields": [
-    {
-      "key": "expected_protocol",
-      "type": "selectbox",
-      "label": "Expected Protocol",
-      "placeholder": "Select which protocol this test is EXPECTED to use",
-      "options": ["Head Injury", "Blood Pressure - High", "Chest Pain", "..."],
-      "validators": { "required": false }
-    },
-    {
-      "key": "expected_disposition",
-      "type": "selectbox",
-      "label": "Expected Disposition",
-      "placeholder": "Select how this case is EXPECTED to be handled",
-      "options": ["ASYNC", "VIRTUAL_VISIT", "SPECIALTY_CONSULT", "EMERGENCY", "911 SYMPTOMS"],
-      "validators": { "required": false }
-    }
-  ]
-}
-```
-
-### Closing Question Schema
-
-```json
-{
-  "fields": [
-    {
-      "key": "is_predicted_protocol_correct",
-      "type": "selectbox",
-      "label": "Do you agree with the predicted protocol ({Predicted Protocol}) ?",
-      "options": ["Yes", "No"],
-      "validators": { "required": true }
-    },
-    {
-      "key": "correct_protocol",
-      "type": "selectbox",
-      "label": "If the above is No, What is the correct protocol ?",
-      "options": ["Head Injury", "Blood Pressure - High", "Chest Pain", "..."],
-      "validators": { "required": false }
-    },
-    {
-      "key": "is_predicted_disposition_correct",
-      "type": "selectbox",
-      "label": "Do you agree with the predicted disposition ({Predicted Disposition}) ?",
-      "options": ["Yes", "No"],
-      "validators": { "required": true }
-    },
-    {
-      "key": "correct_disposition",
-      "type": "selectbox",
-      "label": "If the above is No, What is the correct disposition ?",
-      "options": ["ASYNC", "VIRTUAL_VISIT", "SPECIALTY_CONSULT", "EMERGENCY", "911 SYMPTOMS"],
-      "validators": { "required": false }
-    },
-    {
-      "key": "additional_questions",
-      "type": "qna",
-      "label": "Are there any other questions that you as a nurse would have asked the patient ?",
-      "qnaConfig": {
-        "questionPlaceholder": "Where is the pain located ?",
-        "answerPlaceholder": "Near my wrist",
-        "addButtonLabel": "Add Question"
-      },
-      "validators": { "required": false }
-    }
-  ]
-}
-```
