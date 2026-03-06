@@ -159,7 +159,7 @@ Example for a classification pipeline:
   "closingQuestions": [
     {
       "key": "is_predicted_intent_correct",
-      "label": "Do you agree with the predicted intent ({Predicted Intent})?",
+      "label": "Do you agree with the predicted intent?",
       "options": ["Yes", "No"],
       "required": true,
       "type": "selectbox"
@@ -203,8 +203,6 @@ Example for a classification pipeline:
 }
 ```
 
-A key feature of closing questions is the `{Predicted X}` placeholder syntax. When used in a label, it is automatically replaced with the actual value predicted by the pipeline, so testers see the real output in context as they evaluate it.
-
 Supported field types for closing questions also include `qna`, which renders an interactive question-and-answer widget where testers can add multiple question-answer pairs. This is useful for conversational pipelines where testers want to record follow-up questions they would have asked.
 
 ---
@@ -215,7 +213,7 @@ Supported field types for closing questions also include `qna`, which renders an
 
 Click **+ New Test** from the portal page to open a new session. The **Start a Conversation** screen will appear.
 
-![Start a Conversation screen with Test Definition and chat input](session-start-conversation.png)
+![Start a Conversation screen showing Test Definition, Pinned, Recently used, and Auto Chat tabs](session-start-conversation.png)
 
 If a Test Definition is configured, you can optionally select your expected values before typing your message. Use the **Pinned** and **Recently used** tabs to quickly reuse common test definitions. Then type your message in the chat input and press send to begin.
 
@@ -241,6 +239,18 @@ The modal shows:
 - **Mark all unmarked responses as 👍** — a checkbox to bulk-approve all responses that have not yet been rated
 
 Fill in your notes, answer the closing questions, and click **End Session** to submit.
+
+### Auto Chat
+
+If the portal has **Instructions for User Impersonator** configured, you can use the **Auto Chat** tab to let an AI automatically generate and send user messages on your behalf.
+
+![Auto Chat tab showing Max Turns and Instructions for User Impersonator](session-auto-chat-classification.png)
+
+Select the **Auto Chat** tab, set the **Max Turns**, and click **Start Auto Chat**. The AI will use the impersonator instructions as its prompt to generate realistic user messages and send them to the pipeline automatically. This is useful for quickly generating test sessions without manually typing each message.
+
+Once complete, a confirmation banner shows how many turns were run. The AI-generated messages appear in the chat view alongside the pipeline's responses, and you can proceed to end the session and fill in the closing questions as normal.
+
+![Auto Chat completed — AI-generated message and pipeline response](session-auto-chat.png)
 
 ---
 
@@ -289,7 +299,6 @@ Shows overall test session performance over time, color-coded by outcome: all li
 ## Tips for Portal Designers
 
 - Keep test definition fields optional (omit the `required` property) so testers are not blocked from starting a session.
-- Use the `{Predicted X}` placeholder in closing question labels so testers see the actual pipeline output inline without having to scroll back.
 - Use `collected_fields` to surface any performance metrics your pipeline tracks — latency, cost, and token counts are especially valuable for benchmarking.
 - Write feedback instructions in plain text without markdown formatting for the best display in the portal UI.
 - Design closing questions to mirror your test definition fields so expected vs actual comparisons are easy to make in the results table.
@@ -300,6 +309,18 @@ Shows overall test session performance over time, color-coded by outcome: all li
 ## Example — Customer Intent Classification Portal
 
 The following is a complete example of a Feedback Portal configured for a banking customer intent classification pipeline that classifies messages into 6 predefined intents: ACTIVATE CARD, APPLY FOR LOAN, BLOCK CARD, CANCEL LOAN, CANCEL TRANSFER, and CARD DETAILS.
+
+### Instructions for User Impersonator
+
+```
+You are generating a message on behalf of a banking customer. Your task is to produce a single, realistic customer query that represents one of the following intents: ACTIVATE CARD, APPLY FOR LOAN, BLOCK CARD, CANCEL LOAN, CANCEL TRANSFER, or CARD DETAILS.
+
+The message must:
+1. Be a natural, standalone customer query — not a continuation of a conversation
+2. Clearly correspond to one specific intent without ambiguity
+3. Be phrased the way an actual banking customer would write it
+4. Not include any meta-commentary or explanations
+```
 
 ### Feedback Instructions
 
@@ -338,6 +359,12 @@ collected_fields["intent_tokens_per_second"] = ctx.get("intent_tokens_per_second
 return result
 ```
 
+### Auto Chat
+
+Since this pipeline classifies each message independently in a single turn, set **Max Turns** to **1** when using Auto Chat. This ensures the AI generates one realistic customer query per session, which the pipeline then classifies.
+
+![Auto Chat configured with Max Turns set to 1 for single-turn classification](session-auto-chat-classification.png)
+
 ### Advanced Configs
 
 ```json
@@ -345,7 +372,7 @@ return result
   "closingQuestions": [
     {
       "key": "is_predicted_intent_correct",
-      "label": "Do you agree with the predicted intent ({Predicted Intent})?",
+      "label": "Do you agree with the predicted intent?",
       "options": ["Yes", "No"],
       "required": true,
       "type": "selectbox"
