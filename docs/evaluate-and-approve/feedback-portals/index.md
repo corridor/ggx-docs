@@ -86,7 +86,7 @@ Scroll down to the **Pipeline** section and select the pipeline you want to eval
 At a minimum, the processing logic looks like this:
 
 ```python
-return my_pipeline(user_message, history=history)
+return my_pipeline(user_message, history=history, context=context)
 ```
 
 If your pipeline returns useful metrics in the context (such as latency, token counts, or cost), you can surface them as tracked statistics using `collected_fields`:
@@ -94,7 +94,7 @@ If your pipeline returns useful metrics in the context (such as latency, token c
 ```python
 import json
 
-result = my_pipeline(user_message, history=history)
+result = my_pipeline(user_message, history=history, context=context)
 ctx = json.loads(result["context"])
 
 collected_fields["latency_ms"] = ctx.get("latency_ms", "0")
@@ -258,7 +258,7 @@ Once complete, a confirmation banner shows how many turns were run. The AI-gener
 
 ### Sessions Table
 
-All completed sessions are listed in the portal's results table. Each row represents one session and shows the session name, rating summary, status, testing notes, and the date it was created.
+All completed sessions are listed in the portal's results table. Each row represents one session and shows the session name, rating summary, status, testing notes, the date it was created, and any fields populated via `collected_fields`.
 
 ![Portal sessions list showing sessions from multiple contributors with status and testing notes](portal-sessions-list.png)
 
@@ -298,7 +298,6 @@ Shows overall test session performance over time, color-coded by outcome: all li
 
 ## Tips for Portal Designers
 
-- Keep test definition fields optional (omit the `required` property) so testers are not blocked from starting a session.
 - Use `collected_fields` to surface any performance metrics your pipeline tracks — latency, cost, and token counts are especially valuable for benchmarking.
 - Write feedback instructions in plain text without markdown formatting for the best display in the portal UI.
 - Design closing questions to mirror your test definition fields so expected vs actual comparisons are easy to make in the results table.
