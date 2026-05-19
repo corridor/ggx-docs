@@ -130,34 +130,32 @@ markdown_extensions:
   - tables
   - fenced_code
   - admonition
+  - attr_list
+  - abbr
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.inlinehilite
-  - abbr
-  - admonition
-  - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - def_list
-  - footnotes
-  - md_in_html
-  - tables
   - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.critic
-  - pymdownx.details
   - pymdownx.keys
   - pymdownx.smartsymbols
   - pymdownx.snippets
