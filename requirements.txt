@@ -1,14 +1,6 @@
-# For mkdocs site
-mkdocs
-mkdocs-material
-mkdocs-awesome-nav
-mkdocs-with-pdf
-weasyprint
-mkdocs-htmlproofer-plugin
-mkdocs-unused-files
-mkdocs-glightbox
-mkdocs-git-revision-date-plugin 
-mkdocs-git-authors-plugin
+# Python tooling for the corridor_docs package.
+# The documentation site itself is built with Astro Starlight - see package.json.
+# Runtime deps (click, flask, requests) are declared in pyproject.toml.
 
 ruff  # Linter + formatter for python files
 pyright  # Typing checks for python files
