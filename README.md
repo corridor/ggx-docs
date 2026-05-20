@@ -1,39 +1,67 @@
 # Corridor Documentation
 
-## Pre-requisites
+Documentation site for Corridor GenGuardX ("GGX"), built with [Astro Starlight](https://starlight.astro.build/).
 
-- Python 3.10+
-- Weasyprint: <https://weasyprint.readthedocs.io/en/stable/install.html>
-    - In Mac: `brew install cairo pango gdk-pixbuf libffi`
-    - In Ubuntu: `sudo apt-get install build-essential libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info`
+## Prerequisites
 
-## Setup Summary
+- Node.js 20+ (22 recommended)
+- Python 3.10+ — only needed to build and serve the offline `corridor-docs` package
 
-To run a mkdocs server, run:
+## Local development
 
-    # Install python deps
+Install dependencies and start the dev server with live reload:
+
+    npm install
+    npm run dev
+
+The site is served at <http://localhost:4321>.
+
+## Building the site
+
+    npm run build
+
+This outputs the static site to `corridor_docs/site/`. By default it is built for the
+site root (`/`), which is what the offline Flask package expects.
+
+To build for the GitHub Pages project path instead, set `DOCS_BASE`:
+
+    DOCS_BASE=/ggx-docs/ npm run build
+
+## Serving the offline (Flask) package
+
+The built site is packaged into the `corridor_docs` Python package and can be served
+offline (e.g. for self-hosted / air-gapped installs):
+
+    # 1. build the site (base must be '/')
+    npm run build
+
+    # 2. install and serve
     uv venv venv --python 3.11 --seed
-    uv pip install -r requirements.txt --python venv
-
-    # Install JS deps -- for prettier formatting
-    npm install -g pnpm@9
-    pnpm i
-
-After installation, you can serve mkdocs directly with:
-
-    # Serve mkdocs directly
-    venv/bin/mkdocs serve
-
-and then access the docs at <http://localhost:8000>
-
-Or you can also run corridor-docs directly:
-
-    # Run corridor-docs locally
+    uv pip install -e . --python venv
     venv/bin/corridor-docs run
 
-## Guidelines on Writing
+The docs are then served at <http://localhost:5005>.
 
-- Avoid using "the platform" and instead use "Corridor" so readers are clear on what is being said
-- Run grammarly on the content to fix any grammar issues and typos
-    - Grammarly changes whitespaces to a different ascii space. So, need to do a find replace to bring back spaces correctly, otherwise markdown renderers don't work
-    - Grammarly messes up the formatting for admonitions like `!!!note`
+## Deployment
+
+Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
+which builds the site with `DOCS_BASE=/ggx-docs/` and publishes it to GitHub Pages.
+
+> The repository's **Settings → Pages → Source** must be set to **GitHub Actions**.
+
+## Authoring content
+
+- Content lives in `src/content/docs/` as Markdown (`.md`) or MDX (`.mdx`).
+- Navigation/sidebar order is configured in [`astro.config.mjs`](astro.config.mjs).
+- Every page needs a `title` in its frontmatter.
+- Use Starlight asides for callouts: `:::note`, `:::tip`, `:::caution`, `:::danger`.
+- For richer layouts (tabs, card grids) use MDX with Starlight components such as
+  `<Tabs>`, `<TabItem>`, `<CardGrid>`, and `<Card>`.
+- Co-locate images next to the page that uses them and reference them with relative
+  paths so Astro can optimize them.
+
+### Writing guidelines
+
+- Avoid using "the platform" and instead use "Corridor" so readers are clear on what
+  is being said.
+- Run a grammar/spell check on the content to fix any grammar issues and typos.

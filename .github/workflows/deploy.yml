@@ -7,27 +7,50 @@ on:
 
   workflow_dispatch:
 
+# Allow the workflow to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment, don't cancel in-progress runs
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  publish-docs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup uv
-        uses: astral-sh/setup-uv@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          enable-cache: true
-      
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: "pyproject.toml"
+          node-version: 22
+          cache: npm
 
-      - name: Install requirements
-        run: uv pip install -r requirements.txt
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
         env:
-          UV_SYSTEM_PYTHON: 1
+          # GitHub Pages serves this project site under /ggx-docs/
+          DOCS_BASE: /ggx-docs/
 
-      - run: mkdocs gh-deploy
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: corridor_docs/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

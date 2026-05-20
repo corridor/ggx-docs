@@ -32,6 +32,11 @@ MANIFEST
 # Ruff stuff:
 .ruff_cache/
 
+# Node / Astro
+node_modules/
+.astro/
+*.tsbuildinfo
+
 # PyPI configuration file
 .pypirc
 
