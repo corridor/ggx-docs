@@ -1,43 +1,42 @@
 ---
 title: Pipelines
+description: How pipelines work in Corridor GGX — compose Models, RAGs, Prompts and Guardrails with orchestration logic. Covers pipeline types, anatomy, registration steps, testing, and risk assessment.
 ---
 
-import { Tabs, TabItem, Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Badge, Card, CardGrid, LinkCard, LinkButton, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 <helper-panel object='Pipeline' location='list'>
 
-## What is a Pipeline?
+## What is a pipeline?
 
-A **pipeline** is a combination of reusable components (Models, RAGs, Prompts, Guardrails, and other sub-pipelines) wired together by a piece of code called orchestration logic. It takes an input, runs it through that logical sequence of components, and returns a generated or predicted output.
+A **pipeline** is how you turn individual building blocks into a working GenAI application in Corridor. It wires reusable components — Models, RAGs, Prompts, Guardrails, and even other pipelines — together with a piece of orchestration code, then takes an input, runs it through that logic, and returns a generated or predicted output.
 
 :::tip[A simple way to picture it]
 Think of a pipeline as a **recipe**: the registered components are the ingredients, and the **orchestration logic** is the set of instructions that decides how they combine.
 :::
 
-### Example: an IVR assistant pipeline
+## A worked example: an IVR assistant
 
-Consider an **IVR (Interactive Voice Response) pipeline** that automates customer support calls. Rather than building it as one large block of logic, you compose it from two smaller, reusable sub-pipelines.
+Consider an **IVR (Interactive Voice Response)** assistant that automates customer support calls. Rather than building it as one large block of logic, you compose it from two smaller, reusable sub-pipelines.
 
-<CardGrid>
-<Card title="Intent Classification">
-Reads what the caller said and labels their intent — for example `Check Balance`, `Report Lost Card`, or `Speak to Agent`.
-Pairs an **LLM** with a **Prompt** that instructs the model to extract a single intent from the caller's message.
-</Card>
-<Card title="Response Generation">
-Takes the detected intent and produces the reply.
-Uses an **LLM**, a **Prompt**, and a **RAG** component to pull live customer data — account details, support policies — so the answer is accurate and personalized.
-</Card>
-</CardGrid>
+<figure class="ggx-figure">
 
-The IVR pipeline simply orchestrates the two in sequence:
+![Flow of an IVR pipeline: a caller message passes through Intent Classification then Response Generation to produce a spoken reply.](./ivr-pipeline-flow.svg)
 
-| Step | What happens |
-|:----:|--------------|
-| 1 | The caller's message arrives. |
-| 2 | Intent Classification labels the intent. |
-| 3 | Response Generation uses that intent to produce the final reply. |
+<figcaption>The IVR pipeline orchestrates two reusable sub-pipelines in sequence.</figcaption>
+</figure>
 
-Because each sub-pipeline is registered on its own, you can reuse it elsewhere — the same Intent Classification sub-pipeline could power a chat widget or an email triage tool.
+The IVR pipeline simply orchestrates the two in order:
+
+<Steps>
+
+1. The caller's message arrives.
+2. **Intent Classification** labels the intent.
+3. **Response Generation** uses that intent to produce the final reply.
+
+</Steps>
+
+Because each sub-pipeline is registered on its own, you can reuse it elsewhere — the same Intent Classification sub-pipeline could power a chat widget or an email-triage tool.
 
 :::note[End-to-end flow]
 1. Caller says: *"I lost my credit card."*
@@ -45,145 +44,109 @@ Because each sub-pipeline is registered on its own, you can reuse it elsewhere �
 3. Response Generation (LLM + Prompt + RAG) replies: *"I'm sorry to hear that. I've blocked your card. Would you like a replacement?"*
 :::
 
----
+## The three pipeline types
 
-## Pipeline Types
+Every pipeline in GGX is one of three types. Choosing the right one is the first real decision you make when registering — it determines how the pipeline handles memory and what shape its output takes.
 
-Every pipeline in GGX is one of three types. Choosing the right one is the first real decision you make when registering.
+<Tabs>
+<TabItem label="Chat-Based">
 
-<CardGrid>
-<Card title="Chat-Based">
-**Best for:** conversations, assistants, multi-turn support.
+<Badge text="Stateful" variant="tip" /> **Best for** conversations, assistants, and multi-turn support.
 
 - Keeps `history` and `context` across turns
 - Stays aware of an ongoing conversation
-- Output fixed: `{"output": ..., "context": ...}`
+- Output is fixed: `{"output": ..., "context": ...}`
 
-> *Example:* a support chatbot that recalls earlier messages.
-</Card>
-<Card title="Free-Flow">
-**Best for:** one-shot generative tasks — summarization, drafting, extraction.
+*Example:* a support chatbot that recalls earlier messages.
+
+</TabItem>
+<TabItem label="Free-Flow">
+
+<Badge text="Stateless" variant="note" /> **Best for** one-shot generative tasks — summarization, drafting, extraction.
 
 - No memory — each input is independent
 - Processes one input and is done
 - Output shape is whatever you define
 
-> *Example:* a pipeline that summarizes a document in one pass.
-</Card>
-<Card title="Classification">
-**Best for:** sorting an input into a known category — sentiment, intent, routing.
+*Example:* a pipeline that summarizes a document in a single pass.
+
+</TabItem>
+<TabItem label="Classification">
+
+<Badge text="Fixed labels" variant="success" /> **Best for** sorting an input into a known category — sentiment, intent, routing.
 
 - Returns one label from a set you predefine
 - Can run single-turn, or take prior `context`
 - Output is a fixed label, e.g. `positive`
 
-> *Example:* a pipeline that labels a review as `positive` or `negative`.
-</Card>
-</CardGrid>
+*Example:* a pipeline that labels a review as `positive` or `negative`.
+
+</TabItem>
+</Tabs>
 
 :::tip[Which should I choose?]
 Pick **Chat-Based** for a back-and-forth conversation, **Classification** when the answer must be one of a fixed set of labels, and **Free-Flow** for any other one-shot task.
 :::
 
-## Anatomy of a Pipeline
+## Anatomy of a pipeline
 
 Regardless of type, every pipeline has the same three-part shape: it receives **inputs**, runs **scoring logic** that draws on **registered resources**, and returns an **output**.
 
-![Anatomy of a Pipeline](./anatomy-of-pipeline.excalidraw.svg)
+<figure class="ggx-figure">
 
-<CardGrid>
-<Card title="Resources">
-The registered building blocks the logic can call: Models, RAGs, Prompts, Guardrails, and other pipelines.
-</Card>
-<Card title="Scoring Logic">
-The code that applies those resources to the input to generate or predict a result.
-</Card>
-</CardGrid>
+![Pipeline anatomy: an input flows into scoring logic, which draws on registered resources, and returns an output.](./pipeline-anatomy.svg)
+
+<figcaption>Inputs flow into scoring logic, which calls on registered resources to produce an output.</figcaption>
+</figure>
 
 :::note
 For chat pipelines, the returned `context` is fed back in on the next turn — that is how the pipeline stays aware of an ongoing conversation.
 :::
 
----
+## Adding a pipeline to the registry
 
-## Managing Pipelines in the Pipeline Registry
-
-The **Pipeline Registry** is the central place where all registered pipelines live, organized into customizable groups. From here you can track, monitor, test, and create pipelines.
-
-There are two ways to add a pipeline to the Registry:
+The **Pipeline Registry** is the central place where all registered pipelines live, organized into customizable groups. From here you can track, monitor, test, and create pipelines. There are two ways to add one:
 
 <CardGrid>
-<Card title="Create from scratch">
-Build the pipeline logic directly within GGX using the Python Function Editor. This provides a more transparent, white-box approach where all components are registered within the GGX environment and seamlessly stitched together to form a pipeline. Each component can then be independently tested, validated, and debugged within the framework.
+<Card title="Create from scratch" icon="add-document">
+Build the logic directly in GGX with the Python Function Editor. A transparent, white-box approach: every component is registered inside GGX and stitched together, so each can be independently tested, validated, and debugged.
 </Card>
-<Card title="Connect an external agent">
-Integrate a pipeline that is already running in an external environment through its API. This follows a more black-box approach, where the internal workings of the agent are abstracted away, and the interaction is limited to invoking the pipeline and consuming its outputs.
+<Card title="Connect an external agent" icon="comment-alt">
+Integrate a pipeline already running elsewhere through its API. A black-box approach where the agent's internals are abstracted away and interaction is limited to invoking it and consuming its outputs.
 </Card>
 </CardGrid>
 
----
+## Registering a pipeline from scratch
 
-## Registering a Pipeline from Scratch
+Click **Create** on the Pipeline Registry page, then work through the registration form:
 
-You register a pipeline by clicking on the **Create** button on the Pipeline Registry page.
+<Steps>
 
-:::note[Step 1 — Name and Description]
-Give the pipeline a clear **Name**, then write a **Description** explaining what it does, when to use it, and when not to.
+1. **Name and description.** Give the pipeline a clear name, then a plain-English description of what it does, when to use it, and when not to — it is what teammates read when deciding whether to reuse it. Under **Add Additional Details**, set the **Group**, **Permissible Purpose**, and metadata like **Usecase Type** and **Task Type**.
 
-The description is plain English — it is what teammates read when deciding whether to reuse your pipeline, so it is worth a sentence or two of care.
+2. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name other pipelines use to refer to this one — lowercase with underscores, no spaces. For our running example: `card_assistant`.
 
-Under **Add Additional Details**, set the **Group**, **Permissible Purpose** and other metadata like **Usecase Type**, **Task Type** etc.
-:::
+3. **Input type.** Choose how the logic is supplied:
+   - **Python Function** — write the logic in the Scoring Logic editor on this page.
+   - **External Agent** — connect to an agent built elsewhere.
 
-:::note[Step 2 — Alias]
-The **Alias** is a variable name that other pipelines use to refer to this one in their code. It is **required**.
+4. **Pipeline, interaction, and context type.** These three move together:
+   - **Pipeline Type** — pick **Chat-Based**, **Free-Flow**, or **Classification**.
+   - **Interaction Type** — set automatically from Pipeline Type; for chat it is `TypedDict[{'role': str, 'content': str}]`.
+   - **Context Type** — required for chat pipelines; the data type of the `context` carried between turns, e.g. `dict[str, str]`.
 
-Use a short, descriptive, code-safe name — lowercase with underscores, no spaces. For our running example: `card_assistant`.
-:::
+5. **Config, resources, and model file.** Attach what the logic needs:
+   - **Add Config** — input arguments or configuration values, each with a type and default.
+   - **Add Resources** — registered Models, Prompts, RAGs, Global Functions, Guardrails, or pipelines.
+   - **Add Pipeline Model File** — a custom model or supporting file, if required.
 
-:::note[Step 3 — Input Type]
-Choose how the pipeline's logic is supplied:
+6. **Write the scoring logic.** In the editor, write the Python that ties everything together and returns the result. Use **Format Code** to tidy it and **Test Code** to run it against sample input before saving.
 
-- **Python Function** — you write the logic in the Scoring Logic editor on this page.
-- **External Agent** — you connect to an agent built elsewhere (see *Connecting an External Agent* below).
-:::
+7. **Finish registration.** Optionally add starting examples for human-in-the-loop testing and notes under **Additional Information**, then click **Create**. The pipeline is saved as a **Draft** until promoted.
 
-:::note[Step 4 — Pipeline Type, Interaction Type, and Context Type]
-These three fields move together and define how the pipeline handles data.
+</Steps>
 
-| Field | What to do |
-|-------|------------|
-| **Pipeline Type** | Pick **Chat Based**, **Free-Flow**, or **Classification** (see the comparison above). |
-| **Interaction Type** | Set automatically from Pipeline Type — for chat pipelines it is `TypedDict[{'role': str, 'content': str}]`. No action needed. |
-| **Context Type** | Required for chat pipelines. Defines the data type of the `context` carried between turns — for example `dict[str, str]`. |
-:::
-
-:::note[Step 5 — Add Config, Resources, and Model File]
-Three buttons let you attach what the scoring logic needs:
-
-- **Add Config** — define input arguments or configuration values, each with a type and default. These become variables in your code.
-- **Add Resources** — select registered components: Models, Prompts, RAGs, Global Functions, Guardrails, or other pipelines.
-- **Add Pipeline Model File** — upload a custom model or supporting file if your logic depends on one.
-:::
-
-:::note[Step 6 — Write the Scoring Logic]
-In the **Scoring Logic** editor, write the Python code that ties everything together and returns the result. The resources from Step 5 are available as variables, alongside the default variables described below.
-
-Use the editor's built-in actions while you work:
-
-- **Format Code** — tidies indentation and spacing.
-- **Test Code** — runs the logic against sample input so you can confirm it works before saving.
-:::
-
-:::note[Step 7 — Finish Registration]
-Optionally configure starting examples for human-in-the-loop testing, and add notes or attach documentation under **Additional Information**.
-
-Then click **Create** to validate and register the pipeline. It is saved as a **Draft** until promoted.
-:::
-
----
-
-## Variables Available in Scoring Logic
+## Variables available in scoring logic
 
 When you write scoring logic for a **chat pipeline**, several variables are provided automatically — you do not need to declare them.
 
@@ -192,76 +155,69 @@ When you write scoring logic for a **chat pipeline**, several variables are prov
 | `user_message` | `str` | The current message from the user. |
 | `history` | `list[TypedDict[{'role': str, 'content': str}]]` | All previous messages, in standard OpenAI format. |
 | `context` | your **Context Type** | Information carried over from earlier turns. |
-| `cache` | any | A store for intermediate, reusable objects, so expensive work is not repeated. One cache per pipeline, shared across all execution. |
+| `cache` | `dict` | A store for intermediate, reusable objects so expensive work is not repeated. One cache per pipeline, shared across all executions. |
 
 :::note[About the output]
-The output of a chat pipeline is fixed as a dictionary — `{"output": string, "context": custom type}`. The `output` is the reply shown to the user; the `context` is whatever you want available on the next turn. The context's data type is the **Context Type** you set in Step 4.
+The output of a chat pipeline is fixed as a dictionary — `{"output": string, "context": custom type}`. The `output` is the reply shown to the user; the `context` is whatever you want available on the next turn, typed by the **Context Type** from Step 4.
 :::
 
----
+## Testing your pipeline
 
-## Testing Your Pipeline
+Once a pipeline is created, validate its behaviour before relying on it. There are three ways to test, in increasing order of thoroughness.
 
-Once a pipeline is created, validate its behaviour before relying on it. There are three ways to test, in increasing order of thoroughness — from a quick check on a single input to a full run over an entire dataset.
+<figure class="ggx-figure">
 
-<CardGrid>
-<Card title="1 · Quick Test">
-Check the scoring logic on a single input.
-</Card>
-<Card title="2 · Interactive Test">
-Run a saved pipeline live and step through a real conversation.
-</Card>
-<Card title="3 · Bulk Simulation">
-Execute the pipeline over a full dataset to validate it at scale.
-</Card>
-</CardGrid>
+![Three escalating test levels: Quick Test, Interactive Test, and Bulk Simulation, in increasing order of thoroughness.](./pipeline-testing-levels.svg)
 
-### 1 — Quick Test (during creation or editing)
+<figcaption>From a quick sanity check on one input to a full run over an entire dataset.</figcaption>
+</figure>
 
-Use this for a fast sanity check while you are still writing the logic. It runs the code without saving the pipeline.
+### Quick Test — during development
 
-:::note[Steps]
+A fast sanity check while you are still writing the logic; it runs the code without saving.
+
+<Steps>
+
 1. While creating or editing the pipeline, scroll to the **Code** section.
 2. Click **Test Code** in the bottom-right corner of the editor.
-3. Enter sample inputs to verify the logic runs and returns what you expect.
-:::
+3. Enter sample inputs and confirm the logic returns what you expect.
 
-### 2 — Interactive Test (after saving)
+</Steps>
 
-Once the pipeline is saved, test it the way an end user would experience it.
+### Interactive Test — feedbacks after initial version is created 
 
-:::note[Steps]
+Once saved, test the pipeline the way an end user would experience it.
+
+<Steps>
+
 1. Navigate to your saved pipeline.
 2. Click **Run → Chat Session** in the top-right corner.
 3. Enter sample messages to walk through the full conversation flow.
 4. Confirm the outputs match the expected behaviour.
-:::
+
+</Steps>
 
 :::note[Chat Session is for chat-based pipelines]
-**Chat Session** is available only for **chat-based** pipelines. For **free-flow** and **classification** pipelines, use the **Test Code** button instead — call the pipeline function with sample inputs to check the output.
+**Chat Session** is available only for **chat-based** pipelines. For **free-flow** and **classification** pipelines, use **Test Code** instead — call the function with sample inputs to check the output.
 :::
 
-### 3 — Bulk Simulation (validation at scale)
+### Bulk Simulation — validation at scale before for approvals
 
-A single test input tells you the pipeline *works*; a **bulk simulation** tells you how it behaves across many real cases. It takes a full dataset and runs every row through the pipeline, producing one output per record so you can review results in bulk rather than one at a time.
+A single input tells you the pipeline *works*; a **bulk simulation** tells you how it behaves across many real cases. It runs every row of a dataset through the pipeline, producing one output per record. Use it to:
 
-Use a bulk simulation to:
-
-- Spot edge cases and inconsistent outputs that a single quick test would miss.
-- Measure quality across a representative dataset before promoting the pipeline.
+- Spot edge cases and inconsistent outputs a single test would miss.
+- Measure quality across a representative dataset before promoting.
 - Attach the run as evidence in the pipeline's **Risk Assessment** tab.
 
 :::tip[When to use which]
-Reach for **Quick Test** while writing the logic, **Interactive Test** to feel the end-user experience, and a **Bulk Simulation** before promoting the pipeline to production — it is the most thorough check of the three.
+Reach for **Quick Test** while writing the logic, **Interactive Test** to feel the end-user experience, and a **Bulk Simulation** before promoting to production — the most thorough check of the three.
 :::
 
----
-
-## Example: A Card Replacement Assistant
+## A complete example: a card replacement assistant
 
 This example fills in every field for a realistic **chat-based pipeline** that helps customers replace a lost card.
 
-<details>
+<details class="ggx-details">
 <summary>Page fields for <code>card_assistant</code></summary>
 
 | Field | Value |
@@ -278,7 +234,7 @@ This example fills in every field for a realistic **chat-based pipeline** that h
 <Tabs>
 <TabItem label="Chat-Based scoring logic">
 
-```python
+```python title="card_assistant — scoring logic"
 # Retrieve relevant card-policy passages for the user's message
 docs = kb.search(user_message, top_k=3)  # (1)!
 
@@ -309,7 +265,7 @@ return {"output": reply, "context": updated_context}  # (3)!
 
 A **Free-Flow** pipeline is simpler — no history, no context, and you define the output shape. For example, scoring the urgency of a support ticket:
 
-```python
+```python title="urgency_scorer — scoring logic"
 # `ticket_text` is a Config argument defined via Add Config
 filled_prompt = urgency_prompt(ticket=ticket_text)
 score = chat_model(filled_prompt)
@@ -322,7 +278,7 @@ return {"urgency": score}
 
 A **Classification** pipeline returns one label from a set you predefine at registration. For example, routing an incoming support message to the right team:
 
-```python
+```python title="support_router — scoring logic"
 # Allowed labels are predefined when the pipeline is registered
 filled_prompt = routing_prompt(message=user_message)
 label = chat_model(filled_prompt)  # one of: billing, technical, general
@@ -333,74 +289,44 @@ return label
 </TabItem>
 </Tabs>
 
----
+## Connecting an external agent
 
-## Connecting an External Agent
+If a pipeline already runs in another environment, connect it to GGX instead of rebuilding it. On the New Pipeline page, set **Input Type** to **External Agent** and provide the agent's API connection.
 
-If a pipeline already runs in another environment, you can connect it to GGX instead of rebuilding it. On the New Pipeline page, set **Input Type** to **External Agent** and provide the agent's API connection.
-
-For example, an agent built in **Vertex AI Agent Playbooks** can be connected through the Vertex AI Agent Playbooks API. Integrations for common providers — **Vertex AI Agent Playbooks, AgentForce, Microsoft Copilot Studio, Vapi AI**, and others — are available and configured in the **Integration Module**. New providers can be added by extending the existing integration framework.
+For example, an agent built in **Vertex AI Agent Playbooks** can be connected through its API. Integrations for common providers — **Vertex AI Agent Playbooks, AgentForce, Microsoft Copilot Studio, Vapi AI**, and others — are configured in the Integration Module, and new providers can be added by extending the framework.
 
 :::note
 Once connected, an external agent is tracked, tested, and monitored exactly like a pipeline built from scratch.
 :::
 
-:::note[Where pipelines go next]
-Registered pipelines can be evaluated in the **Pipeline Registry** or through **Human Integrated Testing**, and used inside **downstream pipelines**. Live monitoring is handled by the **Monitoring Module** and **Annotation Queues**.
-:::
+<LinkButton href={`${import.meta.env.BASE_URL}integrations/`} variant="secondary" icon="right-arrow" iconPlacement="end">Browse available integrations</LinkButton>
 
 </helper-panel>
 
-## Pipeline Risk Assessment
+## Pipeline risk assessment
 
-Each pipeline has a dedicated **Risk Assessment** tab for documenting its assumptions, risks, and mitigations.
+Each pipeline has a dedicated **Risk Assessment** tab for documenting its assumptions, risks, and mitigations. Risks are recorded across several dimensions, and you can attach simulations as evidence of the testing performed.
 
-Risks can be recorded across several dimensions, and you can attach simulations as evidence of the testing performed:
+These are example dimensions — the set is configurable and can be auto-detected from a pipeline's configuration:
 
-Note: These are some of the example risk dimensions, but this is configurable and can be auto-detected based on pipeline configurations.
+| Dimension | What it captures |
+|-----------|------------------|
+| **Accuracy** | How reliably the pipeline produces correct results. |
+| **Stability** | How consistently it behaves across inputs and over time. |
+| **Ethics** | Fairness, bias, and responsible-use considerations. |
+| **Vulnerability** | Exposure to misuse, adversarial input, or failure modes. |
 
-<CardGrid>
-<Card title="Accuracy">
-How reliably the pipeline produces correct results.
-</Card>
-<Card title="Stability">
-How consistently it behaves across inputs and over time.
-</Card>
-<Card title="Ethics">
-Fairness, bias, and responsible-use considerations.
-</Card>
-<Card title="Vulnerability">
-Exposure to misuse, adversarial input, or failure modes.
-</Card>
-</CardGrid>
+## Capabilities unlocked by registration
 
----
+Registering a pipeline — rather than running a loose script — is what turns it into a governed, reusable asset:
 
-## Capabilities Enabled Through Registration
-
-<CardGrid>
-<Card title="Change tracking">
-Automatic recording of modifications, with efficient version upgrades.
-</Card>
-<Card title="Purpose enforcement">
-Automatic detection of Permissible Purpose violations.
-</Card>
-<Card title="Testing & comparison">
-Evaluate against other pipelines using custom and standardized validation kits.
-</Card>
-<Card title="Reusability">
-Reuse across downstream applications, with visibility through Lineage Tracking.
-</Card>
-<Card title="Auditable path to production">
-A transparent, fully auditable journey, with easier production monitoring.
-</Card>
-<Card title="Human Integrated Testing">
-Feedback logging and human-in-the-loop testing for chat-based pipelines.
-</Card>
-<Card title="Executable artifacts">
-Extract ready-to-productionize artifacts straight from the Registry.
-</Card>
-<Card title="Better collaboration">
-A shared base for continuous development and testing.
-</Card>
-</CardGrid>
+| Capability | What you get |
+|------------|--------------|
+| **Change tracking** | Automatic recording of modifications, with efficient version upgrades. |
+| **Purpose enforcement** | Automatic detection of Permissible Purpose violations. |
+| **Testing & comparison** | Evaluate against other pipelines using custom and standardized validation kits. |
+| **Reusability** | Reuse across downstream applications, with visibility through Lineage Tracking. |
+| **Auditable path to production** | A transparent, fully auditable journey with easier production monitoring. |
+| **Human Integrated Testing** | Feedback logging and human-in-the-loop testing for chat-based pipelines. |
+| **Executable artifacts** | Extract ready-to-productionize artifacts straight from the Registry. |
+| **Better collaboration** | A shared base for continuous development and testing. |

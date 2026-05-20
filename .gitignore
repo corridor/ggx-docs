@@ -37,6 +37,9 @@ node_modules/
 .astro/
 *.tsbuildinfo
 
+# Claude Code local settings
+.claude/settings.local.json
+
 # PyPI configuration file
 .pypirc
 
