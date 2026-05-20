@@ -23,7 +23,15 @@ export default defineConfig({
         alt: 'Corridor GenGuardX',
       },
       favicon: '/favicon.ico',
-      customCss: ['./src/styles/custom.css'],
+      customCss: [
+        '@fontsource/dm-sans/400.css',
+        '@fontsource/dm-sans/500.css',
+        '@fontsource/dm-sans/600.css',
+        '@fontsource/dm-sans/700.css',
+        '@fontsource/dm-mono/400.css',
+        '@fontsource/dm-mono/500.css',
+        './src/styles/custom.css',
+      ],
       lastUpdated: true,
       editLink: {
         baseUrl: 'https://github.com/corridor/ggx-docs/edit/main/',
