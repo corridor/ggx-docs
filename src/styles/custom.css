@@ -1,0 +1,128 @@
+/* Corridor GGX brand theme for Starlight.
+ * Brand navy: #293147 · Fonts: DM Sans (text) / DM Mono (code)
+ * Clean, light, enterprise look matching ggx.corridorplatforms.com.
+ */
+
+:root {
+  --sl-font: 'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sl-font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', 'Consolas', monospace;
+
+  /* Brand accent ramp (used in dark theme by default) */
+  --sl-color-accent-low: #1b2236;
+  --sl-color-accent: #5b6a96;
+  --sl-color-accent-high: #c8d0e4;
+}
+
+/* Light theme */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d7dcec;
+  --sl-color-accent: #2f3a57;
+  --sl-color-accent-high: #1a1f30;
+}
+
+/* Headings: tighter, more confident */
+:where(h1, h2, h3, h4) {
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+/* Slightly larger header logo, matching the previous site */
+.site-title img {
+  height: 1.75rem;
+  width: auto;
+}
+
+/* ---- Figures / diagrams ------------------------------------------------ */
+/* Center diagrams, cap their width, and give them a soft branded frame so
+ * they read consistently in both light and dark mode. */
+.sl-markdown-content img[src$='.svg'],
+.sl-markdown-content figure img {
+  display: block;
+  margin-inline: auto;
+}
+
+.ggx-figure {
+  margin: 1.75rem auto;
+  max-width: 46rem;
+}
+
+.ggx-figure img {
+  width: 100%;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+.ggx-figure figcaption {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-3);
+}
+
+/* ---- Cards: subtle lift on hover -------------------------------------- */
+.sl-markdown-content .card {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.sl-markdown-content .card:hover {
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 6px 20px -12px rgba(41, 49, 71, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ---- Asides: a touch more presence ----------------------------------- */
+.sl-markdown-content .starlight-aside {
+  border-inline-start-width: 3px;
+  border-radius: 0.375rem;
+}
+
+/* ---- Collapsible <details>: make it obviously expandable -------------- */
+.sl-markdown-content details.ggx-details {
+  margin: 1.25rem 0;
+  border: 1px solid var(--sl-color-accent);
+  border-inline-start-width: 3px;
+  border-radius: 0.5rem;
+  background: var(--sl-color-accent-low);
+  padding: 0 1rem;
+}
+
+.sl-markdown-content details.ggx-details > summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  padding: 0.7rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sl-markdown-content details.ggx-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* +/− toggle so the expand/collapse affordance is unmistakable */
+.sl-markdown-content details.ggx-details > summary::before {
+  content: '+';
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 0.25rem;
+  color: var(--sl-color-accent);
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.sl-markdown-content details.ggx-details[open] > summary::before {
+  content: '−';
+}
+
+.sl-markdown-content details.ggx-details[open] {
+  padding-bottom: 0.5rem;
+}

@@ -32,6 +32,14 @@ MANIFEST
 # Ruff stuff:
 .ruff_cache/
 
+# Node / Astro
+node_modules/
+.astro/
+*.tsbuildinfo
+
+# Claude Code local settings
+.claude/settings.local.json
+
 # PyPI configuration file
 .pypirc
 
