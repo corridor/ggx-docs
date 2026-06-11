@@ -92,7 +92,7 @@ On the platform, users have the flexibility to create custom alerts tailored to 
   - **Send Email**: Users can configure the system to send email notifications to external users when an alert is triggered. The custom field associated with the objects should contain a string of comma-separated email addresses for users who should receive these emails.
 
 :::note
-Multiple actions can be triggered based on an alert.
+Multiple actions can be triggered based on an alert. Where a messaging integration (such as **Slack**) is configured, alerts can also be delivered to a channel — useful for surfacing urgent issues like a runaway spike in token usage or cost.
 :::
 
 - **Conditions**: Define the conditions that need to be met for an alert to be generated. These conditions are specified using rules based on the columns available in the Monitoring Dashboard Data. By utilizing data from the dashboard, users can set up criteria that trigger the alert when specific thresholds or patterns are detected.

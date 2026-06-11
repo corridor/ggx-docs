@@ -26,3 +26,7 @@ All simulation tasks are systematically recorded on the platform and displayed o
 
 > **Note:** The platform allows customizing reports and dashboards specifically for simulation tasks.
 > **Note:** Corridor allows running jobs in parallel and multiple threads at a time within a job to expedite the evaluation process.
+
+## Validating an evaluator
+
+Simulation is also how you check that an *evaluator* can be trusted. An LLM-as-a-judge is itself a registered model, so you can run it over a **ground-truth dataset** and compare its verdicts against the known answers — computing classification metrics just as you would for any model. The same applies to a whole report: run it on labelled data with expected outputs and confirm the numbers and visuals come out as intended before relying on it in monitoring. These runs can then be attached to the object's [Approval Workflow](../approval-workflows/) as validation evidence.

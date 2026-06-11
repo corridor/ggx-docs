@@ -183,6 +183,16 @@ output_text = reply["response"]
 
 <LinkCard title="Full Gemini 2.0 Flash walkthrough" description="The complete registration guide with screenshots for every field." href={`${import.meta.env.BASE_URL}register-and-refine/examples/model/`} />
 
+## Models as evaluators (LLM-as-a-judge)
+
+A registered model is not only the thing being tested — it can also be the thing that *does* the testing. An **LLM-as-a-judge** is simply a model whose scoring logic pairs an LLM with a **Prompt** to score another system's output against criteria, returning a structured score (for example, answer relevancy on a `0–4` scale) and a reason.
+
+Because a judge is a registered model, it is **reusable** across any [Report](../../../evaluate-and-approve/reporting/) and pre/post-production evaluation, and it can itself be **validated**: run it over a ground-truth dataset with [Bulk Simulation](../../../evaluate-and-approve/simulation/) and compare its verdicts to the known answers before you trust it. Refine its prompt — including via [Prompt Optimization](../../prompt-optimization/) — to adapt a generic judge to your use case.
+
+:::tip[Heuristics first, judges for nuance]
+Pair judges with cheap, deterministic checks. Rule-based heuristics (token, length, and cost thresholds; staleness; keyword failures; library-based PII detection) triage the obvious cases instantly; reserve LLM judges for the quality questions rules cannot answer.
+:::
+
 ## Capabilities unlocked by registration
 
 Registering a model — rather than calling it from a one-off script — is what turns it into a governed, reusable asset:

@@ -24,6 +24,17 @@ By default, the baseview contains examples of monitoring reports that can help b
 
 Explore these pre-configured views and customize them further to cater to specific monitoring needs and gain deeper insights into the platform's governance.
 
+### Role-Based and Multi-Level Dashboards
+
+Different stakeholders need the same information at different altitudes. Custom views and dashboards can be tailored to an audience and surfaced based on a user's role — for example:
+
+- An **executive** view summarising activity, cost, and the most problematic objects across the entire environment.
+- A **team or domain** view scoped to one product area or object group.
+- A **customer or tenant** view filtered to a single customer's objects.
+- An **object-level** view for the developers responsible for a specific pipeline or agent.
+
+Because views are configurable and visibility is governed by [roles](../../register-and-refine/collaboration/#access-management), each audience sees the dashboard relevant to them when they log in, rather than one undifferentiated view.
+
 ### Data View
 
 This view presents the complete data for the selected object type in a tabular format. Users can easily navigate to specific objects by clicking on the rows. Additionally, they can apply filters or sort rows based on any specified column.
