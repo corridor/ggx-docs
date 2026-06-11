@@ -12,6 +12,8 @@ The table can be registered using one of the following methods:
 
 - **Table Upload:** Datasets with fewer rows can be uploaded directly in CSV or Excel format.
 
+> **Note:** Large or production-scale datasets should be registered through the **Data Lake connection** rather than uploaded through the browser. The data is then read directly from its source location (for example a cloud bucket or a PySpark/Parquet file), avoiding slow uploads while remaining viewable as a table.
+
 ## Managing Tables on the Platform
 
 The **Table Registry** organizes all the registered tables into customized groups at this centralized location and allows easier tracking, monitoring, and creating new ones.

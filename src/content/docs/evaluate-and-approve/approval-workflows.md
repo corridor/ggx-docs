@@ -35,6 +35,12 @@ Once registered the Approval Workflow can be chosen while registering any object
 
 </helper-panel>
 
+## Attaching validation evidence
+
+Approval is where testing meets governance. Before an object — a pipeline, model, judge, or report — is approved, the results of [Simulation](../simulation/) and [Comparison](../comparison/) runs over representative or **ground-truth** datasets can be attached as evidence, so reviewers see exactly how it performed and on what data. Re-running this regression set on every change is what keeps an evaluation asset trustworthy as it evolves.
+
+External CI can participate too: the **external tools** responsibility lets a third-party application — for example a Git/CI pipeline that runs additional checks on the object's exported code — act as an approver, blocking promotion until its status checks pass.
+
 ## Keeping track of Findings/Limitations
 
 Once an object is approved, it is locked. No further changes can be made to it. But sometimes, reviews are done with findings or limitations on the usage and need follow-ups.

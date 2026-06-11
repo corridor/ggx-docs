@@ -118,6 +118,7 @@ export default defineConfig({
             { label: 'Annotation Queues', slug: 'deploy-and-monitor/annotation-queues' },
           ],
         },
+        { label: 'FAQ', slug: 'faq' },
         {
           label: 'Integrations',
           items: [

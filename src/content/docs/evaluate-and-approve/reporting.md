@@ -102,3 +102,32 @@ This can use the computed results from the report computation and allow building
 Once the report registration is completed, it can be used while running jobs on the platform. The Dashboard would be created once the job is completed.
 
 </helper-panel>
+
+## Evaluation metrics in monitoring reports
+
+When a report is used to evaluate a GenAI application — in pre-production testing or post-production monitoring — its computation logic usually produces a mix of the following metrics:
+
+| Metric | What it measures |
+|--------|------------------|
+| **Answer relevancy** | How relevant the response is to the user's message. |
+| **Factual accuracy / faithfulness** | Whether facts stated in the response are grounded in the context provided to the model. |
+| **Groundedness / context relevancy** | Whether the retrieved context supports the answer, and whether it was the right context to fetch in the first place. |
+| **Completeness** | Whether the response fully addresses what was asked. |
+| **Toxicity** | Presence of unsafe, offensive, or otherwise undesirable content. |
+| **PII detection** | Presence of personal or sensitive data, typically detected with rule-based or NLP libraries. |
+| **Tool-selection / tool-call accuracy** | Whether an agent chose and invoked the correct tool for the request. |
+| **Operational metrics** | Latency, cost, token counts, response length, and similar signals derived directly from the data. |
+
+LLM-based metrics are computed with an [LLM-as-a-judge](../../register-and-refine/inventory-management/model-catalog/#models-as-evaluators-llm-as-a-judge) — a registered model the report calls as a resource — while deterministic ones use rule-based logic or NLP libraries. Because each is a reusable asset, the same judge or utility can power many reports.
+
+:::tip[Heuristics first, judges second]
+A cost-effective pattern is a two-step scan: run cheap **rule-based heuristics** first (thresholds on tokens, length, or cost; staleness; duplicate or empty rows; keyword-based failures), then send only the records that pass to the more expensive **LLM judges**. Exposing this as a report parameter lets the user choose whether judges run on every record or only the heuristic-filtered ones — and the patterns the judges surface can later be folded back into the heuristic layer.
+:::
+
+## Reusing reports across agents
+
+Because a report is written against the columns it expects (for example *user message*, *response*, and *context*), a single generic report can run across many agents or tables, while more specific reports capture bespoke metrics for one agent pattern — single-turn, multi-turn, RAG, and so on. A common layout is an HTML **executive summary** at the top, per-metric **deep-dive** figures, and a **raw assessment** table that stakeholders can export for further analysis.
+
+:::note[Out-of-the-box reports]
+You do not have to start from a blank page. GGX ships with a library of ready-made reports and metrics — covering common needs such as response accuracy, intent accuracy, stability, and vulnerability — that you can run as-is or copy and adapt. Domain starter kits bundle the reports and metrics most relevant to sectors like financial services and healthcare.
+:::

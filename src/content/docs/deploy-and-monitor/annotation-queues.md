@@ -51,3 +51,7 @@ All users onboarded on the platform with access to the Annotation Queues module 
 - **Enhanced Collaboration** with other reviewers.
 - **Automated Performance and Progress** tracking.
 - Smart algorithms to **expedite the labeling process**.
+
+:::note[From labels to better evaluation]
+Labelled and ground-truth data is the raw material for continuous improvement. Recurring failure categories surfaced during annotation can be codified into new judges and [reports](../../evaluate-and-approve/reporting/), which then run across all agents — turning human insight into automated checks over time. The same labelled data also serves as the ground truth for [validating those evaluators](../../evaluate-and-approve/simulation/#validating-an-evaluator).
+:::
