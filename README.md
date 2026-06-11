@@ -20,12 +20,7 @@ The site is served at <http://localhost:4321>.
 
     npm run build
 
-This outputs the static site to `corridor_docs/site/`. By default it is built for the
-site root (`/`), which is what the offline Flask package expects.
-
-To build for the GitHub Pages project path instead, set `DOCS_BASE`:
-
-    DOCS_BASE=/ggx-docs/ npm run build
+This outputs the static site to `corridor_docs/site/` with the site root (`/`).
 
 ## Serving the offline (Flask) package
 
@@ -45,7 +40,7 @@ The docs are then served at <http://localhost:5005>.
 ## Deployment
 
 Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
-which builds the site with `DOCS_BASE=/ggx-docs/` and publishes it to GitHub Pages.
+which builds the site with base URL `/` and publishes it to GitHub Pages.
 
 > The repository's **Settings → Pages → Source** must be set to **GitHub Actions**.
 

@@ -3,9 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
 
-// Base path is environment-driven so the same source builds for two targets:
-//  - default '/'          -> local dev + the Python/Flask offline package (corridor_docs/site)
-//  - '/ggx-docs/'         -> GitHub Pages project site (set DOCS_BASE in CI)
+// Base path defaults to '/' for local dev, published docs, and the Python/Flask offline package.
 const base = process.env.DOCS_BASE ?? '/';
 
 const GA_ID = 'G-SMFMDV1JW7';
