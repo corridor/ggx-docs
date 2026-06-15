@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightImageZoom from "starlight-image-zoom";
 import starlightSidebarTopics from "starlight-sidebar-topics";
+import { llmsIntegration } from "./src/integrations/llms.mjs";
 
 // Base path defaults to '/' for local dev, published docs, and the Python/Flask offline package.
 const base = process.env.DOCS_BASE ?? "/";
@@ -10,10 +11,11 @@ const base = process.env.DOCS_BASE ?? "/";
 const GA_ID = "G-SMFMDV1JW7";
 
 export default defineConfig({
-  site: "https://corridor.github.io",
+  site: "https://ggx-docs.corridorplatforms.com",
   base,
   outDir: "./dist",
   integrations: [
+    llmsIntegration({ site: "https://ggx-docs.corridorplatforms.com", base }),
     starlight({
       title: "Corridor GGX Documentation",
       logo: {
@@ -34,6 +36,9 @@ export default defineConfig({
       lastUpdated: true,
       editLink: {
         baseUrl: "https://github.com/corridor/ggx-docs/edit/main/",
+      },
+      components: {
+        PageTitle: "./src/components/PageTitle.astro",
       },
       social: [
         {

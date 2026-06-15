@@ -126,3 +126,122 @@
 .sl-markdown-content details.ggx-details[open] {
   padding-bottom: 0.5rem;
 }
+
+/* ---- Page-level LLM actions ------------------------------------------ */
+.ggx-page-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ggx-page-title-row h1 {
+  min-width: 0;
+  margin-top: 0;
+}
+
+.ggx-ai-menu {
+  position: relative;
+  flex: none;
+  margin-top: 0.15rem;
+  z-index: 5;
+}
+
+.ggx-ai-menu summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.25rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.375rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--sl-color-bg-nav);
+  color: var(--sl-color-gray-2);
+  font-size: var(--sl-text-sm);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ggx-ai-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.ggx-ai-menu summary::marker {
+  content: '';
+}
+
+.ggx-ai-menu summary:hover,
+.ggx-ai-menu[open] summary {
+  border-color: var(--sl-color-accent);
+  color: var(--sl-color-white);
+}
+
+.ggx-ai-menu summary svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ggx-ai-menu summary svg:last-child {
+  transition: transform 0.15s ease;
+}
+
+.ggx-ai-menu[open] summary svg:last-child {
+  transform: rotate(180deg);
+}
+
+.ggx-ai-menu__panel {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  display: grid;
+  min-width: 13.5rem;
+  overflow: hidden;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
+  background: var(--sl-color-bg);
+  box-shadow: 0 16px 32px -22px rgba(0, 0, 0, 0.8);
+}
+
+.ggx-ai-menu__panel a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 0.75rem;
+  color: var(--sl-color-gray-2);
+  font-size: var(--sl-text-sm);
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ggx-ai-menu__panel a:hover,
+.ggx-ai-menu__panel a:focus-visible {
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
+}
+
+.ggx-ai-menu__panel svg {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  color: var(--sl-color-accent);
+}
+
+@media (max-width: 42rem) {
+  .ggx-page-title-row {
+    display: block;
+  }
+
+  .ggx-ai-menu {
+    margin-top: 0.75rem;
+  }
+
+  .ggx-ai-menu__panel {
+    left: 0;
+    right: auto;
+    width: min(18rem, calc(100vw - 2rem));
+  }
+}
