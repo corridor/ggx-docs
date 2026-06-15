@@ -9,15 +9,9 @@ const path = Astro.url.pathname.endsWith("/")
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
 const site = Astro.site ?? new URL("https://ggx-docs.corridorplatforms.com");
-const pageUrl = new URL(path, site).href;
 const markdownPath = path === "/" ? "/index.md" : `${path}index.md`;
 const markdownUrl = new URL(markdownPath, site).href;
 const resourceBase = base.endsWith("/") ? base : `${base}/`;
-const llmsUrl = new URL(`${resourceBase}llms.txt`.replace(/^\//, ""), site).href;
-const llmsFullUrl = new URL(
-  `${resourceBase}llms-full.txt`.replace(/^\//, ""),
-  site,
-).href;
 const prompt = `Use this Corridor GGX documentation page as context and help answer questions about it: ${markdownUrl}`;
 const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`;
 const claudeUrl = `https://claude.ai/new?q=${encodeURIComponent(prompt)}`;
@@ -48,18 +42,6 @@ const perplexityUrl = `https://www.perplexity.ai/search/new?q=${encodeURICompone
       <a href={markdownUrl}>
         <Icon name="document" />
         <span>View Markdown</span>
-      </a>
-      <a href={llmsUrl}>
-        <Icon name="list-format" />
-        <span>LLMs index</span>
-      </a>
-      <a href={llmsFullUrl}>
-        <Icon name="open-book" />
-        <span>Full docs text</span>
-      </a>
-      <a href={pageUrl}>
-        <Icon name="right-arrow" />
-        <span>Canonical page</span>
       </a>
     </div>
   </details>
