@@ -25,10 +25,6 @@ MANIFEST
 /venv
 /.python-version
 
-# mkdocs documentation
-/site
-/corridor_docs/site
-
 # Ruff stuff:
 .ruff_cache/
 

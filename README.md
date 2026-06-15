@@ -20,22 +20,7 @@ The site is served at <http://localhost:4321>.
 
     npm run build
 
-This outputs the static site to `corridor_docs/site/` with the site root (`/`).
-
-## Serving the offline (Flask) package
-
-The built site is packaged into the `corridor_docs` Python package and can be served
-offline (e.g. for self-hosted / air-gapped installs):
-
-    # 1. build the site (base must be '/')
-    npm run build
-
-    # 2. install and serve
-    uv venv venv --python 3.11 --seed
-    uv pip install -e . --python venv
-    venv/bin/corridor-docs run
-
-The docs are then served at <http://localhost:5005>.
+This outputs the static site to `dist/` with the site root (`/`).
 
 ## Deployment
 

@@ -12,7 +12,7 @@ const GA_ID = "G-SMFMDV1JW7";
 export default defineConfig({
   site: "https://corridor.github.io",
   base,
-  outDir: "./corridor_docs/site",
+  outDir: "./dist",
   integrations: [
     starlight({
       title: "Corridor GGX Documentation",
