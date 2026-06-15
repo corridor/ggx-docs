@@ -53,7 +53,6 @@ The components are divided into:
 - **Jupyter Notebook**: The Jupyter Notebook server for free-form analytical use
 - **File Management**: The file management server to manage files
 - **Metadata Database (SQL RDBMS)**: The database with all metadata provided in the Web Application
-- **Messaging Queue (Redis)**: The messaging queue to orchestrate worker tasks
 - **Authentication Provider**: The identity and auth provider for access and permissions
 - **Proxy / Load Balancers**: Load Balancers / Proxies to simplify the install
 

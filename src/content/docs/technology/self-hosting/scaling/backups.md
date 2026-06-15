@@ -11,8 +11,6 @@ Data that the platform writes and the systems used for persistent storage are:
 - Data Lake
 - Settings
 
-Other than this, Redis also contains some information - but should be considered as temporary storage and not persistent.
-
 ## Backing up the systems
 
 ### Metadata Database

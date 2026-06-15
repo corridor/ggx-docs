@@ -29,7 +29,7 @@ Keep `terraform.tfvars` and state files out of source control unless your organi
 The AWS module runs Corridor on ECS Fargate. It provisions or configures:
 
 - One ECS service on an ECS cluster.
-- A Fargate task definition with `corridor-migration`, `redis`, `corridor-app`, `corridor-worker`, and `corridor-jupyter`.
+- A Fargate task definition with `corridor-migration`, `corridor-app`, `corridor-worker`, and `corridor-jupyter`.
 - Application Load Balancer routing `/` to the app container and `/jupyter` to Jupyter.
 - EFS file system, mount targets, and access points for shared persistent state.
 - IAM task execution and task roles.
@@ -50,7 +50,7 @@ See the [AWS](../aws/) page for AWS service and permission guidance.
 
 The Azure module deploys Corridor on Azure Container Apps. It provisions or configures:
 
-- Container Apps for the app, worker, Jupyter, Redis, PostgreSQL-facing configuration, and Nginx routing.
+- Container Apps for the app, worker, Jupyter, PostgreSQL-facing configuration, and Nginx routing.
 - Azure Files for shared storage.
 - Optional dedicated workload profiles when the default consumption profile is not enough.
 - Resource group, Container App Environment, storage account, and database-related outputs.
@@ -77,7 +77,6 @@ The Google Cloud module runs Corridor on Cloud Run and maps the Kubernetes appli
 - `corridor-migration` as a Cloud Run Job.
 - `corridor-app`, `corridor-worker`, and `corridor-jupyter` as Cloud Run services.
 - Cloud SQL for PostgreSQL.
-- Memorystore for Redis.
 - Cloud Storage for shared file-backed state.
 - Direct VPC egress for private service connectivity.
 - External HTTPS load balancer with serverless NEGs so `/` routes to the app and `/jupyter` routes to Jupyter.

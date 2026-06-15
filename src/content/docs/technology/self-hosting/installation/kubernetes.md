@@ -15,8 +15,7 @@ Kubernetes cluster
 ├── ggx namespace
 │   ├── corridor-app
 │   ├── corridor-worker
-│   ├── corridor-jupyter
-│   └── redis
+│   └── corridor-jupyter
 ├── persistent volumes for data, uploads, notebooks, state, and backups
 └── ingress routing / to corridor-app and /jupyter to corridor-jupyter
 ```
@@ -70,7 +69,7 @@ Before applying the overlay, configure the deployment for your environment:
 
 - Set the Corridor image tag in `overlays/example/kustomization.yaml`.
 - Set the public hostname in `overlays/example/kustomization.yaml`.
-- Set database, Redis, authentication, and application settings in `overlays/example/configs/api_config.py`.
+- Set database, authentication, and application settings in `overlays/example/configs/api_config.py`.
 - Update persistent volume claim patches if your cluster uses a different read-write-many storage class.
 - Configure TLS secrets, ingress annotations, and timeout or gzip settings in the ingress manifest.
 - Tune CPU and memory requests and limits in the service manifests.

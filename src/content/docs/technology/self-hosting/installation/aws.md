@@ -70,7 +70,7 @@ The [`corridor/terraform-aws-ggx`](https://github.com/corridor/terraform-aws-ggx
 
 The Fargate deployment uses:
 
-- A single ECS service with a task definition containing `corridor-migration`, `redis`, `corridor-app`, `corridor-worker`, and `corridor-jupyter`.
+- A single ECS service with a task definition containing `corridor-migration`, `corridor-app`, `corridor-worker`, and `corridor-jupyter`.
 - Application Load Balancer routing `/` to `corridor-app` on port `5002`.
 - Application Load Balancer routing `/jupyter` to `corridor-jupyter` on port `5003`.
 - EFS for shared persistent storage.
@@ -99,7 +99,7 @@ An EC2 deployment follows the [Manual](../manual/) path. The EC2 installation pa
 
 1. Launch an EC2 instance sized from the [minimum requirements](../minimum-requirements/), commonly `t3.2xlarge` or larger for all-in-one deployments.
 2. Create an RDS PostgreSQL database.
-3. Install system dependencies such as Python 3.11, Java 8 for Spark, Redis, Nginx, and unzip.
+3. Install system dependencies such as Python 3.11, Java 8 for Spark, Nginx, and unzip.
 4. Extract the Corridor installation bundle.
 5. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
 6. Configure `/opt/corridor/instances/default/config/api_config.py`.

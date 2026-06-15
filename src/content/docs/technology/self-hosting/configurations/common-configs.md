@@ -41,8 +41,6 @@ Some of the commonly used configurations are:
 - `API_KEYS`: The API keys to accept requests from
 - `SQLALCHEMY_DATABASE_URI`: The Database URI to connect to for the Metadata Database
 - `FS_URI`: The FileSystem URI to connect to for File Management
-- `CELERY_BROKER_URL`: The URL of the Celery Broker (The Redis server for task queue management)
-- `CELERY_RESULT_BACKEND`: The URL of the Celery Backend (The Redis server for task queue management)
 
 ## Web Application
 

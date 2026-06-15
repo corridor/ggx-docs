@@ -68,7 +68,7 @@ The [`corridor/terraform-azurerm-ggx`](https://github.com/corridor/terraform-azu
 
 The module provisions or configures:
 
-- Container Apps for the Corridor app, worker, Jupyter, Redis, PostgreSQL-facing configuration, and Nginx routing.
+- Container Apps for the Corridor app, worker, Jupyter, PostgreSQL-facing configuration, and Nginx routing.
 - Azure Files for shared state.
 - Optional dedicated workload profiles when higher memory or predictable capacity is required.
 - Outputs for the app URL, Jupyter URL, Container App Environment, storage account, and database details.
@@ -88,7 +88,7 @@ An Azure VM deployment follows the [Manual](../manual/) path. The Azure VM insta
 1. Create a resource group and Azure VM, commonly `Standard_D8s_v3` or larger for an all-in-one deployment.
 2. Attach and mount a data disk for `/opt/corridor` and application state.
 3. Create Azure Database for PostgreSQL.
-4. Install Python 3.11, Java 8 for Spark, Redis, Nginx, and unzip.
+4. Install Python 3.11, Java 8 for Spark, Nginx, and unzip.
 5. Extract the Corridor installation bundle.
 6. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
 7. Configure database and application settings.

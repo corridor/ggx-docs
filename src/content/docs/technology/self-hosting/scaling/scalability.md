@@ -31,7 +31,7 @@ The simulations and other jobs like Comparison, Validation, etc. Use the Celery 
 - Number of parallel jobs to run
 - Cluster nodes available for use per job
 
-If the number of parallel jobs is a concern, due to a large job blocking the queue of later jobs, etc. - this can be handled by adding more "Spark - Celery Workers" as needed. The Celery Workers are stateless and all state is maintained in the Task Messaging queue (Redis) and removing/adding more is seamless. Note that adding too many Spark - Celery workers could cause resource contention between the workers themselves and may require an increase in cluster nodes.
+If the number of parallel jobs is a concern, due to a large job blocking later jobs, etc. - this can be handled by adding more "Spark - Celery Workers" as needed. Note that adding too many Spark - Celery workers could cause resource contention between the workers themselves and may require an increase in cluster nodes.
 
 If the spark jobs themselves are slow - then the issue is more likely the cluster nodes available per job. i.e. the number of Spark workers or YARN containers that are allocated per job. To make this faster, more spark nodes need to be provided to make Spark jobs run faster.
 

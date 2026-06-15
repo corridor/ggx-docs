@@ -16,7 +16,6 @@ You also need:
 - Linux host access with privilege to install packages and create services.
 - Python 3.11 or later.
 - Java 8 or later for Spark worker functionality.
-- Redis 4 or later.
 - Metadata database: PostgreSQL 11.7 or later, Oracle 19 or later, or SQL Server 2016 or later.
 - Persistent file storage.
 - Nginx, Apache, or another production reverse proxy.
@@ -76,7 +75,7 @@ Update the API configuration, usually at:
 INSTALL_DIR/instances/INSTANCE_NAME/config/api_config.py
 ```
 
-Configure the database connection string, Redis connection, file storage, authentication, email, and other platform settings required by your environment.
+Configure the database connection string, file storage, authentication, email, and other platform settings required by your environment.
 
 Run database migrations:
 
@@ -129,7 +128,7 @@ Use systemd, Supervisor, or your standard process manager. A typical systemd ser
 ```ini
 [Unit]
 Description=Corridor API Server
-After=network.target redis.service
+After=network.target
 
 [Service]
 Type=simple

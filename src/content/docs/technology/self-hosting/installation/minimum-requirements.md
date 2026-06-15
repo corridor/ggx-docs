@@ -11,7 +11,6 @@ Broadly, the components involved are:
 - Jupyter Notebook
 - File Management
 - Metadata Database (SQL RDBMS)
-- Redis - Messaging Queue
 
 For very simple installations, all of these could be installed on the same machine, we recommend
 keeping them separate to simplify scalability needs.
@@ -103,14 +102,3 @@ This serves as an internal RDBMS to store the state of the application and vario
     - Oracle 19+
     - MSSQL 2016+
     - Postgres 11.7+
-
-## Redis - Messaging Queue
-
-A low-latency task queue to send and receive information about the asynchronous tasks.
-
-### Requirements
-
-- RAM: 1 GB
-- Processor: 1 CPU
-- DB Snapshots storage space: 10 GB
-- Redis 4+

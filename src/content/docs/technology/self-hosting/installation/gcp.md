@@ -76,7 +76,6 @@ The module provisions or configures:
 - `corridor-worker` as an internal Cloud Run service with minimum instances.
 - `corridor-jupyter` as a public Cloud Run service.
 - Cloud SQL for PostgreSQL.
-- Memorystore for Redis.
 - Cloud Storage for shared file-backed state.
 - Direct VPC egress from Cloud Run to private services.
 - External HTTPS load balancer with serverless NEGs so `/` routes to the app and `/jupyter` routes to Jupyter.
@@ -97,7 +96,7 @@ A Compute Engine deployment follows the [Manual](../manual/) path. The Compute E
 
 1. Create a Compute Engine VM, commonly `n2-standard-8` or similar for all-in-one deployments.
 2. Create Cloud SQL for PostgreSQL.
-3. Install Python 3.11, Java 8 for Spark, Redis, Nginx, and unzip.
+3. Install Python 3.11, Java 8 for Spark, Nginx, and unzip.
 4. Extract the Corridor installation bundle.
 5. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
 6. Configure database and application settings.

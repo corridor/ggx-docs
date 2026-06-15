@@ -12,7 +12,6 @@ Corridor saves data in the following locations:
 - Data Lake
 - File Management System
 - Metadata Database
-- Redis (only short-term storage)
 - Jupyter Content Manager (For notebooks)
 
 Any data stored in them should be encrypted and backups should be maintained as needed.
@@ -24,7 +23,6 @@ The following network connections are created in Corridor, and should be secured
 - **Web Application ↔︎ API Server**: HTTPS connection
 - **API Server / API - Celery ↔︎ File Management**: FTPS connection (if using FTP)
 - **API Server / API - Celery ↔︎ Metadata Database**: SSL connections to Database
-- **API Server / API - Celery / Spark - Celery ↔︎ Redis**: TLS authenticated Redis connection
 - **Spark - Celery / Jupyter ↔︎ Spark**: Kerberos
 - **Corridor Package ↔︎ API Server**: HTTPS connection
 - **Jupyter ↔︎ Web Application**: HTTPS connection
@@ -83,16 +81,6 @@ For FTP: Ensure the FTPS protocol is being used and the underlying data is encry
   available to the RDBMS.
 - Ensure that the Database is encrypted.
 - Ensure the standard security practices for the RDBS are followed as described in its documentation.
-
-### Messaging Queue (Redis)
-
-For Redis:
-
-- Use a secure protocol like TLS (if using Redis) when accessing the queue
-- Limit the incoming connections by whitelisting the IPs of the Redis clients
-- Enable the authentication feature in Redis is enabled
-- Ensure the standard security practices for Redis are followed as described in the
-  [Redis - Security](https://redis.io/topics/security) documentation.
 
 ### Authentication Provider
 
