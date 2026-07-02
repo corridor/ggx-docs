@@ -1,8 +1,8 @@
 ---
-title: "Multiple Corridor Workers"
+title: "Multiple GGX Workers"
 ---
 
-Corridor provides an option to run multiple workers on the same server, without the workers interfering with
+GGX provides an option to run multiple workers on the same server, without the workers interfering with
 each other. The user needs to provide a name for each worker and worker-specific configuration in
 api_config.py, where each configuration is tied to the worker's name.
 

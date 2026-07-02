@@ -1,9 +1,9 @@
 ---
 title: "Databricks AI Gateway"
-description: "Compare Databricks Unity AI Gateway with Corridor GGX for GenAI governance, automated compliance testing, approval evidence, production monitoring, and risk management."
+description: "Compare Databricks Unity AI Gateway with GGX for GenAI governance, automated compliance testing, approval evidence, production monitoring, and risk management."
 ---
 
-Databricks Unity AI Gateway and Corridor GGX solve adjacent governance problems.
+Databricks Unity AI Gateway and GGX solve adjacent governance problems.
 
 Databricks focuses on governing AI service access and runtime traffic inside the Databricks ecosystem. GGX focuses on the end-to-end Responsible AI lifecycle: registering GenAI assets, testing risk and business performance, producing approval evidence, monitoring production behavior, and feeding findings back into refinement.
 

@@ -11,7 +11,7 @@ const base = process.env.DOCS_BASE ?? "/";
 const GA_ID = "G-SMFMDV1JW7";
 
 export default defineConfig({
-  site: "https://ggx-docs.corridorplatforms.com",
+  site: "https://docs.genguardx.ai",
   base,
   outDir: "./dist",
   // Astro 6.4.x was causing issues with the table rendering.
@@ -21,13 +21,13 @@ export default defineConfig({
     gfm: true,
   },
   integrations: [
-    llmsIntegration({ site: "https://ggx-docs.corridorplatforms.com", base }),
+    llmsIntegration({ site: "https://docs.genguardx.ai", base }),
     starlight({
-      title: "Corridor GGX Documentation",
+      title: "GenGuardX Documentation",
       logo: {
         light: "./src/assets/ggx-blue.png",
         dark: "./src/assets/ggx-white.png",
-        alt: "Corridor GenGuardX",
+        alt: "GenGuardX",
       },
       favicon: "/favicon.ico",
       customCss: [
@@ -123,8 +123,8 @@ export default defineConfig({
                 slug: "register-and-refine/prompt-optimization",
               },
               {
-                label: "Corridor Sync",
-                slug: "register-and-refine/corridor_sync",
+                label: "GGX Sync",
+                slug: "register-and-refine/sync",
               },
               {
                 label: "Asset Registration Examples",

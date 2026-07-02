@@ -32,7 +32,7 @@ Navigate to **New Model** to begin registration. The registration form connects 
 
 ### Code Configuration
 
-**Alias**: A unique identifier for your model (e.g., `azure_gpt4_analyzer`, `corridor_gpt4`). This becomes the variable name you'll use in code.
+**Alias**: A unique identifier for your model (e.g., `azure_gpt4_analyzer`, `ggx_gpt4`). This becomes the variable name you'll use in code.
 
 **Output Type**: Define the return format:
 - `Map[String, String]` - Key-value pairs for structured responses
@@ -72,7 +72,7 @@ from openai import AzureOpenAI
 
 # Direct initialization
 client = AzureOpenAI(
-    azure_endpoint="https://corridor-genai-demo.openai.azure.com/",
+    azure_endpoint="https://example-openai-resource.openai.azure.com/",
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),
     api_version="2024-12-01-preview",
 )

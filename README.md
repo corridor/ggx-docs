@@ -1,11 +1,10 @@
-# Corridor Documentation
+# GenGuardX Documentation
 
-Documentation site for Corridor GenGuardX ("GGX"), built with [Astro Starlight](https://starlight.astro.build/).
+Documentation site for GenGuardX ("GGX"), built with [Astro Starlight](https://starlight.astro.build/).
 
 ## Prerequisites
 
 - Node.js 20+ (22 recommended)
-- Python 3.10+ — only needed to build and serve the offline `corridor-docs` package
 
 ## Local development
 
@@ -42,6 +41,6 @@ which builds the site with base URL `/` and publishes it to GitHub Pages.
 
 ### Writing guidelines
 
-- Avoid using "the platform" and instead use "Corridor" so readers are clear on what
+- Avoid using "the platform" and instead use "GenGuardX" so readers are clear on what
   is being said.
 - Run a grammar/spell check on the content to fix any grammar issues and typos.

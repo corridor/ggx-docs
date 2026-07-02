@@ -6,7 +6,7 @@ title: "Approval Workflows"
 
 ## What is Approval Workflow?
 
-After the development of GenAI pipelines, it is important to have a set of review processes to ensure various committees can collectively review and approve the pipeline. In Corridor, workflows that comprise multiple responsibilities can be created - and every responsibility is comprised of one or more reviewers. An object goes through the approval process from each of the responsibilities and reviewers.
+After the development of GenAI pipelines, it is important to have a set of review processes to ensure various committees can collectively review and approve the pipeline. In GGX, workflows that comprise multiple responsibilities can be created - and every responsibility is comprised of one or more reviewers. An object goes through the approval process from each of the responsibilities and reviewers.
 
 ## Why it is important?
 
@@ -45,7 +45,7 @@ External CI can participate too: the **external tools** responsibility lets a th
 
 Once an object is approved, it is locked. No further changes can be made to it. But sometimes, reviews are done with findings or limitations on the usage and need follow-ups.
 
-Corridor provides a flagging capability that can be used to Flag an Object (Even Post Approval) and can be created by anyone with Write access to Settings.
+GGX provides a flagging capability that can be used to Flag an Object (Even Post Approval) and can be created by anyone with Write access to Settings.
 An object can be flagged for any reason (e.g. `NeedShadowResultsFor2Months` or `NeedRetrainIn6Months`) by any member of any Workflow that oversees objects of the same type. Similarly, a flag can be dropped (i.e., deactivated) by anyone with the authority to add the flag.
 
 Once the flag is activated, a warning flag appears beside the object's name on the details page, indicating that the object and its assigned flags should be carefully reviewed before being used in downstream applications.

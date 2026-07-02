@@ -2,7 +2,7 @@
 title: "AWS"
 ---
 
-Use this page to choose and configure an AWS deployment path for Corridor.
+Use this page to choose and configure an AWS deployment path for GGX.
 
 ## Recommended AWS Paths
 
@@ -14,12 +14,12 @@ Use this page to choose and configure an AWS deployment path for Corridor.
 
 ## EKS-Specific Configuration
 
-EKS uses the shared [`corridor/kubernetes-ggx`](https://github.com/corridor/kubernetes-ggx) manifests. Start with the [Kubernetes](../kubernetes/) page, then apply the AWS-specific requirements below.
+EKS uses the shared [GGX Kubernetes manifests](https://github.com/corridor/kubernetes-ggx). Start with the [Kubernetes](../kubernetes/) page, then apply the AWS-specific requirements below.
 
 ### Required AWS Services
 
 - **Amazon EKS** for the managed Kubernetes cluster.
-- **Amazon RDS for PostgreSQL** for Corridor metadata.
+- **Amazon RDS for PostgreSQL** for GGX metadata.
 - **Amazon EFS** for read-write-many persistent volumes.
 - **Application Load Balancer** through AWS Load Balancer Controller.
 - **Amazon VPC** with private subnets for workloads and controlled public ingress.
@@ -47,7 +47,7 @@ The deploying role or CI identity needs permission to manage:
 
 ### Cluster Add-ons
 
-Install or enable these before applying the Corridor overlay:
+Install or enable these before applying the GGX overlay:
 
 - AWS Load Balancer Controller for ALB-backed ingress.
 - EFS CSI Driver for persistent volumes.
@@ -59,14 +59,14 @@ Install or enable these before applying the Corridor overlay:
 
 Production EKS deployments should normally use private worker nodes with outbound internet access through NAT. Security groups must allow:
 
-- ALB to reach the Corridor app and Jupyter services.
-- Corridor pods to reach RDS PostgreSQL.
-- Corridor pods to reach EFS mount targets.
-- Pods to pull Corridor images from the configured registry.
+- ALB to reach the GGX app and Jupyter services.
+- GGX pods to reach RDS PostgreSQL.
+- GGX pods to reach EFS mount targets.
+- Pods to pull GGX images from the configured registry.
 
 ## ECS Fargate With Terraform
 
-The [`corridor/terraform-aws-ggx`](https://github.com/corridor/terraform-aws-ggx) module deploys Corridor on ECS Fargate. This is the main non-Kubernetes AWS path.
+The [GGX AWS Terraform module](https://github.com/corridor/terraform-aws-ggx) deploys GGX on ECS Fargate. This is the main non-Kubernetes AWS path.
 
 The Fargate deployment uses:
 
@@ -77,7 +77,7 @@ The Fargate deployment uses:
 - CloudWatch logs.
 - IAM task execution and task roles.
 
-Configure the module with the Corridor image, hostname, ACM certificate ARN, database URL, and license key. Then run:
+Configure the module with the GGX image, hostname, ACM certificate ARN, database URL, and license key. Then run:
 
 ```bash
 terraform init
@@ -100,7 +100,7 @@ An EC2 deployment follows the [Manual](../manual/) path. The EC2 installation pa
 1. Launch an EC2 instance sized from the [minimum requirements](../minimum-requirements/), commonly `t3.2xlarge` or larger for all-in-one deployments.
 2. Create an RDS PostgreSQL database.
 3. Install system dependencies such as Python 3.11, Java 8 for Spark, Nginx, and unzip.
-4. Extract the Corridor installation bundle.
+4. Extract the GGX installation bundle.
 5. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
 6. Configure `/opt/corridor/instances/default/config/api_config.py`.
 7. Run `corridor-api db upgrade`.

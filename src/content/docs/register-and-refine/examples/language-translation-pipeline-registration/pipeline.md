@@ -2,7 +2,7 @@
 title: "Pipeline Registration Guide: English to French Translation"
 ---
 
-This guide walks you through registering an **English to French Translation Pipeline** on the Corridor platform. This pipeline automatically detects English text and provides high-quality French translations using Gemini 2.0 Flash.
+This guide walks you through registering an **English to French Translation Pipeline** on the GGX. This pipeline automatically detects English text and provides high-quality French translations using Gemini 2.0 Flash.
 
 **What This Pipeline Does:**
 

@@ -25,7 +25,7 @@ A Simulation task typically involves:
 All simulation tasks are systematically recorded on the platform and displayed on the Jobs page of an object in a structured format. They can also be exported as part of the automated documentation process.
 
 > **Note:** The platform allows customizing reports and dashboards specifically for simulation tasks.
-> **Note:** Corridor allows running jobs in parallel and multiple threads at a time within a job to expedite the evaluation process.
+> **Note:** GGX allows running jobs in parallel and multiple threads at a time within a job to expedite the evaluation process.
 
 ## Validating an evaluator
 

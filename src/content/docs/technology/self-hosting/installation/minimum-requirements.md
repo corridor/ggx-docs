@@ -2,7 +2,7 @@
 title: "Minimum Requirements"
 ---
 
-This section describes the minimum requirements that are needed for a Corridor Installation.
+This section describes the minimum requirements that are needed for a GGX installation.
 
 Broadly, the components involved are:
 

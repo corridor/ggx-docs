@@ -2,7 +2,7 @@
 title: "GGX Integrations"
 ---
 
-Corridor GGX is built with extensibility in mind and supports a wide range of integrations that allow you to seamlessly plug into existing workflows and tools.
+GGX is built with extensibility in mind and supports a wide range of integrations that allow you to seamlessly plug into existing workflows and tools.
 
 These integrations are organized into the following categories:
 

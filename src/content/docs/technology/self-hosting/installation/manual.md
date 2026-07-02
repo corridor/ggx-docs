@@ -2,7 +2,7 @@
 title: "Manual"
 ---
 
-Use a manual installation when you are deploying Corridor directly on VMs, bare metal, or cloud instances and want direct control over the operating system, process manager, web server, database, and storage.
+Use a manual installation when you are deploying GGX directly on VMs, bare metal, or cloud instances and want direct control over the operating system, process manager, web server, database, and storage.
 
 This path applies to on-premises servers and VM-based cloud deployments such as EC2, Azure VMs, and Compute Engine.
 
@@ -12,7 +12,7 @@ Before starting, ensure the [minimum requirements](../minimum-requirements/) are
 
 You also need:
 
-- Corridor installation bundle.
+- GGX installation bundle.
 - Linux host access with privilege to install packages and create services.
 - Python 3.11 or later.
 - Java 8 or later for Spark worker functionality.
@@ -60,7 +60,7 @@ optional arguments:
   -e EXTRAS [EXTRAS ...], --extras EXTRAS [EXTRAS ...]
                         The extra packages to install
   -i INSTALL_DIR, --install-dir INSTALL_DIR
-                        The location to install the corridor package. Default
+                        The location to install the GGX package. Default
                         value: /opt/corridor
   --overwrite           Whether to overwrite the configs if already present.
                         Default behavior is to create config files only if
@@ -127,7 +127,7 @@ Use systemd, Supervisor, or your standard process manager. A typical systemd ser
 
 ```ini
 [Unit]
-Description=Corridor API Server
+Description=GGX API Server
 After=network.target
 
 [Service]

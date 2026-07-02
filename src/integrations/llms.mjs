@@ -3,9 +3,9 @@ import path from "node:path";
 
 const DOCS_DIR = path.join(process.cwd(), "src/content/docs");
 const DOC_EXTENSIONS = new Set([".md", ".mdx"]);
-const SITE_TITLE = "Corridor GGX Documentation";
+const SITE_TITLE = "GGX Documentation";
 const SITE_DESCRIPTION =
-  "Documentation for Corridor GenGuardX, a Responsible AI governance platform for testing, approving, monitoring, and governing GenAI systems.";
+  "Documentation for GenGuardX, a Responsible AI governance platform for testing, approving, monitoring, and governing GenAI systems.";
 
 export function llmsIntegration({ site, base = "/" }) {
   return {

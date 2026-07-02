@@ -2,13 +2,13 @@
 title: "Kubernetes"
 ---
 
-Use Kubernetes when you want a cloud-native Corridor deployment with managed rollout, namespace isolation, persistent volumes, and standard cluster operations.
+Use Kubernetes when you want a cloud-native GGX deployment with managed rollout, namespace isolation, persistent volumes, and standard cluster operations.
 
-Corridor provides cloud-agnostic Kubernetes manifests in [`corridor/kubernetes-ggx`](https://github.com/corridor/kubernetes-ggx). The manifests use Kustomize and can run on managed Kubernetes services including Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE), and Amazon Elastic Kubernetes Service (EKS).
+GGX provides cloud-agnostic [GGX Kubernetes manifests](https://github.com/corridor/kubernetes-ggx). The manifests use Kustomize and can run on managed Kubernetes services including Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE), and Amazon Elastic Kubernetes Service (EKS).
 
 ## Deployment Shape
 
-The Kubernetes deployment keeps the same Corridor service split used by the other installation paths:
+The Kubernetes deployment keeps the same GGX service split used by the other installation paths:
 
 ```text
 Kubernetes cluster
@@ -26,7 +26,7 @@ The `kubernetes-ggx` repository contains reusable manifests in `base/` and a dep
 
 - A Kubernetes cluster with enough CPU, memory, and persistent storage for the [minimum requirements](../minimum-requirements/).
 - `kubectl` access with permission to create namespaces, secrets, config maps, deployments, services, ingress resources, and persistent volume claims.
-- Corridor container registry credentials from Corridor support.
+- GGX container registry credentials from GGX support.
 - PostgreSQL metadata database connectivity.
 - Persistent storage that supports the access pattern used by your deployment.
 - DNS name and TLS certificate strategy for the public application endpoint.
@@ -39,7 +39,7 @@ Create the namespace before creating namespace-scoped objects:
 kubectl create namespace ggx
 ```
 
-Create the image pull secret using the registry credential JSON provided by Corridor:
+Create the image pull secret using the registry credential JSON provided by GGX:
 
 ```bash
 kubectl create secret docker-registry corridor-registry-secret \
@@ -67,7 +67,7 @@ kubectl get ingress -n ggx
 
 Before applying the overlay, configure the deployment for your environment:
 
-- Set the Corridor image tag in `overlays/example/kustomization.yaml`.
+- Set the GGX image tag in `overlays/example/kustomization.yaml`.
 - Set the public hostname in `overlays/example/kustomization.yaml`.
 - Set database, authentication, and application settings in `overlays/example/configs/api_config.py`.
 - Update persistent volume claim patches if your cluster uses a different read-write-many storage class.

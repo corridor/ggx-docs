@@ -2,7 +2,7 @@
 title: "Azure"
 ---
 
-Use this page to choose and configure an Azure deployment path for Corridor.
+Use this page to choose and configure an Azure deployment path for GGX.
 
 ## Recommended Azure Paths
 
@@ -14,12 +14,12 @@ Use this page to choose and configure an Azure deployment path for Corridor.
 
 ## AKS-Specific Configuration
 
-AKS uses the shared [`corridor/kubernetes-ggx`](https://github.com/corridor/kubernetes-ggx) manifests. Start with the [Kubernetes](../kubernetes/) page, then apply the Azure-specific requirements below.
+AKS uses the shared [GGX Kubernetes manifests](https://github.com/corridor/kubernetes-ggx). Start with the [Kubernetes](../kubernetes/) page, then apply the Azure-specific requirements below.
 
 ### Required Azure Services
 
 - **Azure Kubernetes Service** for the managed Kubernetes cluster.
-- **Azure Database for PostgreSQL** for Corridor metadata.
+- **Azure Database for PostgreSQL** for GGX metadata.
 - **Azure Files Premium** or another approved read-write-many storage provider.
 - **Azure Virtual Network** for private networking.
 - **Azure DNS** or another DNS provider.
@@ -45,7 +45,7 @@ The deploying identity needs permission to manage:
 
 ### Cluster Add-ons
 
-Install or enable these before applying the Corridor overlay:
+Install or enable these before applying the GGX overlay:
 
 - Azure Files CSI Driver.
 - NGINX Ingress Controller or Application Gateway Ingress Controller.
@@ -58,22 +58,22 @@ Install or enable these before applying the Corridor overlay:
 Production AKS deployments should normally use controlled ingress and private connectivity to PostgreSQL and storage. Network security groups and database firewall rules must allow:
 
 - Ingress controller to reach `corridor-app` and `corridor-jupyter`.
-- Corridor pods to reach Azure Database for PostgreSQL.
-- Corridor pods to mount Azure Files.
-- Pods to pull Corridor images from the configured registry.
+- GGX pods to reach Azure Database for PostgreSQL.
+- GGX pods to mount Azure Files.
+- Pods to pull GGX images from the configured registry.
 
 ## Azure Container Apps With Terraform
 
-The [`corridor/terraform-azurerm-ggx`](https://github.com/corridor/terraform-azurerm-ggx) module deploys Corridor on Azure Container Apps. This is the main non-Kubernetes Azure container path.
+The [GGX Azure Terraform module](https://github.com/corridor/terraform-azurerm-ggx) deploys GGX on Azure Container Apps. This is the main non-Kubernetes Azure container path.
 
 The module provisions or configures:
 
-- Container Apps for the Corridor app, worker, Jupyter, PostgreSQL-facing configuration, and Nginx routing.
+- Container Apps for the GGX app, worker, Jupyter, PostgreSQL-facing configuration, and Nginx routing.
 - Azure Files for shared state.
 - Optional dedicated workload profiles when higher memory or predictable capacity is required.
 - Outputs for the app URL, Jupyter URL, Container App Environment, storage account, and database details.
 
-Important inputs include the Azure region, ACR login server, ACR service principal credentials, image name, image version, Corridor license key, database admin password, and optional workload profile.
+Important inputs include the Azure region, ACR login server, ACR service principal credentials, image name, image version, GGX license key, database admin password, and optional workload profile.
 
 ```bash
 terraform init
@@ -89,7 +89,7 @@ An Azure VM deployment follows the [Manual](../manual/) path. The Azure VM insta
 2. Attach and mount a data disk for `/opt/corridor` and application state.
 3. Create Azure Database for PostgreSQL.
 4. Install Python 3.11, Java 8 for Spark, Nginx, and unzip.
-5. Extract the Corridor installation bundle.
+5. Extract the GGX installation bundle.
 6. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
 7. Configure database and application settings.
 8. Run database migrations.

@@ -67,7 +67,7 @@ The **Report Registry** organizes all reports in a customized manner at a centra
 The computation logic can use two default variables (`job` and `data`):
 
 ```plaintext
-job: A Corridor Job object containing metadata.
+job: A GGX Job object containing metadata.
 
 job.current - Access to the current object.
 job.challengers - Dictionary of challengers where the key is object name and value is object (only available when running Comparison jobs).

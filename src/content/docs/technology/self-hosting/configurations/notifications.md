@@ -2,7 +2,7 @@
 title: "Email Notifications"
 ---
 
-Corridor provides an option to send email notifications to the user on their registered email id when
+GGX provides an option to send email notifications to the user on their registered email id when
 an event occurs on the platform (e.g. completion of simulation, approval request for an object).
 
 The different events for which notifications are triggered on the Platform:

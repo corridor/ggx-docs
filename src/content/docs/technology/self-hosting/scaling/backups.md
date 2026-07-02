@@ -15,15 +15,15 @@ Data that the platform writes and the systems used for persistent storage are:
 
 ### Metadata Database
 
-The entire database used for Corridor needs to be backed up.
+The entire database used for GGX needs to be backed up.
 There are 2 ways to run the backup:
 
 - Use the standard backup manager as recommended/preferred for your RDBMS. For example: `expdp` for Oracle.
-- Use the `corridor-API db export` command in Corridor to save your database into an SQLite file
+- Use the `corridor-API db export` command in GGX to save your database into an SQLite file
 
 The `corridor-api db export` command will create an SQLite file which is a copy of your database.
 It includes various referential guarantees that databases provide like unique constraints, foreign keys, etc.
-It can be directly used as an embedded database with Corridor or can be used to import back into your RDBMS of choice.
+It can be directly used as an embedded database with GGX or can be used to import back into your RDBMS of choice.
 This also supports converting from 1 RBMS system to another.
 
 ### File Management
@@ -40,10 +40,10 @@ The recommended approach to copy files for your data lake should be used.
 
 ### Settings
 
-The instance folder of the configurations folder for Corridor should be backed up. This does not contain
+The instance folder of the configurations folder for GGX should be backed up. This does not contain
 any user data, and can be reconfigured later if needed.
 
-This should be done for all the components that are running for Corridor - API, App worker, Workers, Jupyter, etc.
+This should be done for all the components that are running for GGX - API, App worker, Workers, Jupyter, etc.
 
 ## Restoring the systems
 
@@ -56,7 +56,7 @@ can be used to import back the SQLite file into the system where the restore is 
 
 ### File Management
 
-The files copied should be kept in the same structure and the user running the corridor process should have
+The files copied should be kept in the same structure and the user running the GGX process should have
 permissions to the files on the file management system.
 
 ### Data Lake
@@ -67,4 +67,4 @@ Ideally, the data files should be copied to the same path as the original server
 
 The setting files can be restored directly and permissions can be set as required.
 
-This should be done for all the components that are running for Corridor - API, App worker, Workers, Jupyter, etc.
+This should be done for all the components that are running for GGX - API, App worker, Workers, Jupyter, etc.

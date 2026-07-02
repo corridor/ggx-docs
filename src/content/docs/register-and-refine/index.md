@@ -49,7 +49,7 @@ Once the pipeline is validated, it is deployed into production environments wher
 
 Continuous monitoring is crucial to maintaining performance and mitigating issues such as response drift and biases. Implementing monitoring tools ensures sustained accuracy and compliance with business and regulatory requirements.
 
-## How does Corridor help with GenAI Lifecycle Management?
+## How does GGX help with GenAI Lifecycle Management?
 
 - **Data Integration:** Supports validation and testing data registration by integrating with production data lakes and in-house storage solutions.
 - **Component Inventory:** Maintains a registry of essential GenAI pipeline components, including models, RAGs, prompts, and use-case-specific pipelines to enhance reusability and develop smaller building blocks.

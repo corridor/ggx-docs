@@ -1,16 +1,16 @@
 ---
-title: "Corridor Sync"
+title: "GGX Sync"
 ---
 
 ## Overview
 
-The GenGuardX Corridor Sync system enables you to programmatically manage and version-control your AI assets (Prompts, Models, RAGs, Pipelines, Global Functions, and Reports) directly from your development environment. Using Python decorators and a simple sync command, you can declare and synchronize your components to the GenGuardX platform.
+The GGX Sync system enables you to programmatically manage and version-control your AI assets (Prompts, Models, RAGs, Pipelines, Global Functions, and Reports) directly from your development environment. Using Python decorators and a simple sync command, you can declare and synchronize your components to the GenGuardX platform.
 
 ---
 
 ## What Can Be Synced?
 
-GenGuardX Corridor Sync supports six core component types:
+GGX Sync supports six core component types:
 
 | Component | Purpose | Example Use Case |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ import genguardx as ggx
 
 # Initialize connection to your GenGuardX instance
 ggx.init(
-    api_url="https://devaisandbox.corridorplatforms.com",  # Change for your instance
+    api_url="https://your-ggx-instance.example.com",  # Change for your instance
     api_key="your-api-key-here",
 )
 
@@ -448,7 +448,7 @@ import typing as t
 
 # Step 1: Initialize
 ggx.init(
-    api_url="https://devaisandbox.corridorplatforms.com",
+    api_url="https://your-ggx-instance.example.com",
     api_key="your-api-key-here",
 )
 
@@ -567,9 +567,9 @@ def my_prompt(*, cache: dict = {}, prompt: str = "Hello"):
 
 ---
 
-### "Skipping X - not declared as a Corridor object" Warning
+### "Skipping X - not declared as a GGX object" Warning
 
-**Problem**: Warning message: `[WARN] Skipping "function_name" - as it is not declared as a Corridor object`
+**Problem**: Warning message: `[WARN] Skipping "function_name" - as it is not declared as a GGX object`
 
 **Cause**: Your pipeline references a function that doesn't have a `@declare()` decorator.
 

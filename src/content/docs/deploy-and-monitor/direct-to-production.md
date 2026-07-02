@@ -4,11 +4,11 @@ title: "CICD & Direct to Production"
 
 Typically, production execution environments are kept separate and managed to ensure 100% uptime as these are mission-critical systems for organizations.
 
-To tackle the air gap that these systems require - all analytics registered on the platform can be exported out from the system to be put into a Production Execution Environment. These production artifacts are locked to ensure they are not tampered with when they are promoted to production. And there is **NO extra dependency** required on the production side from Corridor - i.e. there is no requirement for a license key or a corridor installation in production!
+To tackle the air gap that these systems require - all analytics registered on the platform can be exported out from the system to be put into a Production Execution Environment. These production artifacts are locked to ensure they are not tampered with when they are promoted to production. And there is **NO extra dependency** required on the production side from GGX - i.e. there is no requirement for a license key or a GGX installation in production!
 
 The production artifact aims to:
 
-- Extract the logic/items registered in Corridor - to then use it outside Corridor
+- Extract the logic/items registered in GGX - to then use it outside GGX
 - Self-sufficient with all information encapsulated in the artifact
 - Have minimal dependencies on the runtime-environment where the artifact is run later
 
@@ -55,7 +55,7 @@ The API can also be deployed using application management solutions (server-base
 
 Not all production systems support running direct Python scripts or calling APIs - and some require providing specific GenAI components in a custom interface. To handle cases like this, while Robotic Process Automation (RPA) could be used - many times it is not worth the trouble that RPA brings with it.
 
-Because of the transparency that Corridor's Inventory management provides, each part of the pipeline can be deployed independently.
+Because of the transparency that GGX's Inventory management provides, each part of the pipeline can be deployed independently.
 For example:
 
 - All the LLM configurations like `seed`, `temperature`, `top_k`, etc. can be extracted from the pipeline
@@ -108,9 +108,3 @@ To run the artifact, simply call the `main()` function in the artifact with the 
 The `python_dict/__init__.py` contains a `main()` function into which data can be sent - in the form of a  
 python-dict for low-latency execution. A dataset in the dictionary format is described as a dict  
 with type/values
-
-## Using `corridor-runtime`
-
-`corridor-runtime` is a utility package created by Corridor, which can help us in doing the above-mentioned tasks
-in a very easy manner, without having to worry about extracting the artifact bundle (`bundle.tar.gz`) or the files
-inside the bundle.

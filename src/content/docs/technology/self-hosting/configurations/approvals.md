@@ -5,12 +5,12 @@ title: "CI CD Integrations"
 There are scenarios when approval of an object is not confined to the reviewers registered on the platform.
 The client may have an external application, where other stakeholders are already onboarded and would want to
 review objects on the platform.
-Corridor provides the ability to interact with such 3rd party applications, using API calls, and integrating their review.
-This can be accomplished by defining a custom handler that uses the base approval handler class exposed by Corridor.
+GGX provides the ability to interact with such 3rd party applications, using API calls, and integrating their review.
+This can be accomplished by defining a custom handler that uses the base approval handler class exposed by GGX.
 
 ## Handler class
 
-The user would need to define a `CustomApprovalHandler` which would inherit Corridor's base approval handler class:
+The user would need to define a `CustomApprovalHandler` which would inherit GGX's base approval handler class:
 `corridor_api.config.handlers.ApprovalHandler`
 
 The logic for approval would be defined by the following method(s) inside `CustomApprovalHandler`.
@@ -44,7 +44,7 @@ class CustomApprovalHandler(ApprovalHandler):
  '''
  url = 'http://externaltool.example.com/cp_review/'  # assuming the 3rd party app is running on PORT: 7006
  review_id = review.id
- object_ = review.object  # `corridor` object
+ object_ = review.object  # GGX object
 
         from corridor import Model
 

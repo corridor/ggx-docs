@@ -1,12 +1,12 @@
 ---
-title: "Self-Hosted Corridor"
+title: "Self-Hosted GGX"
 ---
 
 :::note[Pipeline Hosting]
-For guides on how the analytics and pipelines written in Corridor can be deployed to Production - refer to the [Direct to Production](../../deploy-and-monitor/direct-to-production/) guide.
+For guides on how the analytics and pipelines written in GGX can be deployed to Production - refer to the [Direct to Production](../../deploy-and-monitor/direct-to-production/) guide.
 :::
 
-Guides that cover the installation, configuration, and scaling of Self-Hosted Corridor instances for analytical use.
+Guides that cover the installation, configuration, and scaling of Self-Hosted GGX instances for analytical use.
 
 - [Minimum Requirements](installation/minimum-requirements/)
 - Installing on your own infrastructure
@@ -19,7 +19,7 @@ Guides that cover the installation, configuration, and scaling of Self-Hosted Co
     - [Docker-based](installation/docker-based/)
     - [Manual](installation/manual/)
 
-- Configurations: How to configure your self-hosted instance of Corridor
+- Configurations: How to configure your self-hosted instance of GGX
 
     - [SSO Integration - Microsoft AD, Okta, Google Workspace, etc.](configurations/saml/)
     - [RDBMS - Oracle, MS SQL Server, Postgres, etc.](configurations/database/)
@@ -36,13 +36,13 @@ Guides that cover the installation, configuration, and scaling of Self-Hosted Co
     - [Scaling to number of users](scaling/scalability/)
     - [Backup Management](scaling/backups/)
 
-- [Hardening your Corridor instance](hardening/)
+- [Hardening your GGX instance](hardening/)
 
 ## Architectural Overview
 
-The Analytical layer of Corridor for analysts to test and validate their logic and get the required approvals and compliance checks. The production layer is NOT described here as Corridor is isolated from the Production side.
+The GGX analytical layer lets analysts test and validate their logic and get the required approvals and compliance checks. The production layer is NOT described here because GGX is isolated from the production side.
 
-Corridor is divided into various components to keep it modular and enable easy scaling for cloud-based deployments and also to manage high loads without much change. Each of the components can be installed on separate machines or any subset can be installed in the same machine.
+GGX is divided into various components to keep it modular and enable easy scaling for cloud-based deployments and also to manage high loads without much change. Each of the components can be installed on separate machines or any subset can be installed in the same machine.
 
 The components are divided into:
 

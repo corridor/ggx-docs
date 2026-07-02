@@ -2,16 +2,16 @@
 title: "Docker-based"
 ---
 
-Use a Docker-based deployment when you already operate Docker hosts or Docker Compose and want a containerized Corridor installation without adopting Kubernetes.
+Use a Docker-based deployment when you already operate Docker hosts or Docker Compose and want a containerized GGX installation without adopting Kubernetes.
 
-Corridor provides production-ready Dockerfile templates with the installation bundle. Because Docker networking, storage, reverse proxies, and secret management vary significantly by organization, work with Corridor support to align the final compose or runtime configuration with your environment.
+GGX provides production-ready Dockerfile templates with the installation bundle. Because Docker networking, storage, reverse proxies, and secret management vary significantly by organization, work with GGX support to align the final compose or runtime configuration with your environment.
 
 ## Components
 
 | Component | Implementation options |
 |---|---|
-| Web application | Corridor app container behind a reverse proxy |
-| API and workers | Corridor worker containers for API and Spark queues |
+| Web application | GGX app container behind a reverse proxy |
+| API and workers | GGX worker containers for API and Spark queues |
 | Jupyter | Jupyter container or integration with an existing notebook service |
 | File management | Host mount, Docker volume, or network-attached persistent storage |
 | Metadata database | External PostgreSQL, Oracle, SQL Server, or managed database service |
@@ -30,7 +30,7 @@ Corridor provides production-ready Dockerfile templates with the installation bu
 ## Deployment Flow
 
 1. Prepare the host, Docker runtime, persistent storage, database, DNS, and TLS certificate.
-2. Build or pull the Corridor images provided for your release.
+2. Build or pull the GGX images provided for your release.
 3. Configure shared volumes for data, notebooks, uploads, Jupyter state, and backups.
 4. Configure application settings through mounted config files or environment variables.
 5. Start the app, worker, Jupyter, and supporting containers.

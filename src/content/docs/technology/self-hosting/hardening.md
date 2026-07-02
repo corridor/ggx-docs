@@ -2,12 +2,12 @@
 title: "Hardening - Security"
 ---
 
-This section describes additional setup that would be needed to make Corridor secure. All the below
+This section describes additional setup that would be needed to make GGX secure. All the below
 are recommended but optional, and can be configured as needed.
 
 ## Data Storage Security
 
-Corridor saves data in the following locations:
+GGX saves data in the following locations:
 
 - Data Lake
 - File Management System
@@ -18,19 +18,19 @@ Any data stored in them should be encrypted and backups should be maintained as 
 
 ## Network Security
 
-The following network connections are created in Corridor, and should be secured:
+The following network connections are created in GGX, and should be secured:
 
 - **Web Application ↔︎ API Server**: HTTPS connection
 - **API Server / API - Celery ↔︎ File Management**: FTPS connection (if using FTP)
 - **API Server / API - Celery ↔︎ Metadata Database**: SSL connections to Database
 - **Spark - Celery / Jupyter ↔︎ Spark**: Kerberos
-- **Corridor Package ↔︎ API Server**: HTTPS connection
+- **GGX package ↔︎ API Server**: HTTPS connection
 - **Jupyter ↔︎ Web Application**: HTTPS connection
 - **End User ↔︎ Web Application / Jupyter**: HTTPS / WSS connection
 
 ## Securing each component
 
-This section describes the steps to follow for each of the Corridor components to ensure it can be accessed securely.
+This section describes the steps to follow for each of the GGX components to ensure it can be accessed securely.
 
 ### Common
 

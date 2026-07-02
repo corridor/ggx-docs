@@ -2,7 +2,7 @@
 title: "Datalake Integration"
 ---
 
-Corridor provides the ability to connect to different kinds of data lakes which could have data saved as `parquet`, `orc`,
+GGX provides the ability to connect to different kinds of data lakes which could have data saved as `parquet`, `orc`,
 `avro`, `hive tables` or any in any other format.
 
 The user could define a custom file handler that would have the logic to read/write to/from the data lake.

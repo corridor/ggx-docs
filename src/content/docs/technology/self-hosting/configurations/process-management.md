@@ -13,12 +13,12 @@ To simplify the installation, Supervisor can also be used, which provides applic
 management that is independent of the host setup.
 
 The tools available for process management require `sudo` access which might not be an option in some situations.
-Corridor has its own process manager for each of the components, which uses daemonisation to handle long-running,
+GGX has its own process manager for each of the components, which uses daemonisation to handle long-running,
 background processes.
 
 ## Daemon Mode
 
-No additional configurations are required when running Corridor processes using Corridor-Daemons.
+No additional configurations are required when running GGX processes using GGX-Daemons.
 We can use the below set of commands to start/stop/check_status.
 The logfile and pidfile for each process can be saved at custom locations by using the parameters:
 
@@ -58,7 +58,7 @@ INSTALL_DIR/venv-jupyter/corridor-jupyter daemon status
 
 ## Supervisor
 
-To use corridor with Supervisor, some useful configurations are:
+To use GGX with Supervisor, some useful configurations are:
 
 - `command`: The command to execute. Note, if 2 commands need to be executed, use `bash -c "command1; command2"`
 - `stdout_logfile`: Log file location for the stdout logs (`%(program_name)s` and `%(process_num)01d` can be used as variables)
@@ -67,7 +67,7 @@ To use corridor with Supervisor, some useful configurations are:
 - `environment`: The environment variables to be set before the process is run
 - `numprocs`: The number of processes to run
 
-Here are some example configuration files for the Corridor components:
+Here are some example configuration files for the GGX components:
 
 **Web Application server:**
 
@@ -132,13 +132,13 @@ Many Linux OS like RHEL have systemd pre-installed. To use systemd, the followin
 - To start service: `sudo systemctl start corridor`  
   And to run the service on startup: `sudo systemctl enable corridor`
 
-Here are some example configuration files for the Corridor components:
+Here are some example configuration files for the GGX components:
 
 **Web Application server:**
 
 ```ini
 [Unit]
-Description=Corridor Web Application
+Description=GGX Web Application
 After=syslog.target network.target
 
 [Service]
@@ -155,7 +155,7 @@ WantedBy=multi-user.target
 
 ```ini
 [Unit]
-Description=Corridor API
+Description=GGX API
 After=syslog.target network.target
 
 [Service]
@@ -172,7 +172,7 @@ WantedBy=multi-user.target
 
 ```ini
 [Unit]
-Description=Corridor Worker API
+Description=GGX Worker API
 After=syslog.target network.target
 
 [Service]
@@ -189,7 +189,7 @@ WantedBy=multi-user.target
 
 ```ini
 [Unit]
-Description=Corridor Worker Spark
+Description=GGX Worker Spark
 After=syslog.target network.target
 
 [Service]
@@ -206,7 +206,7 @@ WantedBy=multi-user.target
 
 ```ini
 [Unit]
-Description=Corridor Jupyter
+Description=GGX Jupyter
 After=syslog.target network.target
 
 [Service]

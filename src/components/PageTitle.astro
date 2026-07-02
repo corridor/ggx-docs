@@ -49,7 +49,7 @@ const markdownPath = path === "/" ? "/index.md" : `${path}index.md`;
     : `${window.location.pathname}/`;
   const markdownPath = pagePath === "/" ? "/index.md" : `${pagePath}index.md`;
   const markdownUrl = new URL(markdownPath, window.location.origin).href;
-  const prompt = `Use this Corridor GGX documentation page as context and help answer questions about it: ${markdownUrl}`;
+  const prompt = `Use this GenGuardX (GGX) documentation page as context and help answer questions about it: ${markdownUrl}`;
   const encodedPrompt = encodeURIComponent(prompt);
   const aiTargets = {
     chatgpt: `https://chatgpt.com/?q=${encodedPrompt}`,

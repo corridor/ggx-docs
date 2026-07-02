@@ -2,7 +2,7 @@
 title: "GCP"
 ---
 
-Use this page to choose and configure a Google Cloud deployment path for Corridor.
+Use this page to choose and configure a Google Cloud deployment path for GGX.
 
 ## Recommended GCP Paths
 
@@ -14,12 +14,12 @@ Use this page to choose and configure a Google Cloud deployment path for Corrido
 
 ## GKE-Specific Configuration
 
-GKE uses the shared [`corridor/kubernetes-ggx`](https://github.com/corridor/kubernetes-ggx) manifests. Start with the [Kubernetes](../kubernetes/) page, then apply the GCP-specific requirements below.
+GKE uses the shared [GGX Kubernetes manifests](https://github.com/corridor/kubernetes-ggx). Start with the [Kubernetes](../kubernetes/) page, then apply the GCP-specific requirements below.
 
 ### Required GCP Services
 
 - **Google Kubernetes Engine** for the managed Kubernetes cluster.
-- **Cloud SQL for PostgreSQL** for Corridor metadata.
+- **Cloud SQL for PostgreSQL** for GGX metadata.
 - **Filestore** or another approved read-write-many storage provider.
 - **VPC** with private networking for cluster, database, and storage connectivity.
 - **Cloud NAT** when private nodes need outbound internet access.
@@ -48,7 +48,7 @@ Enable the required APIs before deployment, including Kubernetes Engine, Compute
 
 ### Cluster Add-ons
 
-Install or enable these before applying the Corridor overlay:
+Install or enable these before applying the GGX overlay:
 
 - Ingress controller appropriate for your load balancer strategy.
 - cert-manager if TLS is issued from the cluster.
@@ -61,13 +61,13 @@ Install or enable these before applying the Corridor overlay:
 Production GKE deployments should normally use private nodes with outbound internet through Cloud NAT. Firewall rules must allow:
 
 - Ingress load balancer to reach `corridor-app` and `corridor-jupyter`.
-- Corridor pods to reach Cloud SQL.
-- Corridor pods to mount Filestore or the selected storage provider.
-- Pods to pull Corridor images from the configured registry.
+- GGX pods to reach Cloud SQL.
+- GGX pods to mount Filestore or the selected storage provider.
+- Pods to pull GGX images from the configured registry.
 
 ## Cloud Run With Terraform
 
-The [`corridor/terraform-google-ggx`](https://github.com/corridor/terraform-google-ggx) module deploys Corridor on Cloud Run. This is the main non-Kubernetes GCP container path.
+The [GGX Google Cloud Terraform module](https://github.com/corridor/terraform-google-ggx) deploys GGX on Cloud Run. This is the main non-Kubernetes GCP container path.
 
 The module provisions or configures:
 
@@ -97,7 +97,7 @@ A Compute Engine deployment follows the [Manual](../manual/) path. The Compute E
 1. Create a Compute Engine VM, commonly `n2-standard-8` or similar for all-in-one deployments.
 2. Create Cloud SQL for PostgreSQL.
 3. Install Python 3.11, Java 8 for Spark, Nginx, and unzip.
-4. Extract the Corridor installation bundle.
+4. Extract the GGX installation bundle.
 5. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
 6. Configure database and application settings.
 7. Run database migrations.

@@ -1,6 +1,6 @@
 ---
 title: "Collaboration"
-description: How teams collaborate in Corridor GGX — sharing and requesting object access, role-based access management, external sync, groups, workspaces, and monitoring dashboards.
+description: How teams collaborate in GGX — sharing and requesting object access, role-based access management, external sync, groups, workspaces, and monitoring dashboards.
 ---
 
 import { Badge, Card, CardGrid, LinkCard, Steps } from '@astrojs/starlight/components';
@@ -34,7 +34,7 @@ If you add new objects to something already shared with full lineage, you must *
 | **Read can't re-share** | A non-owner with **Read** only cannot share the object onward. |
 | **Notifications** | When an object is shared, the receiver gets a notification that it is now available to them. |
 | **Revocable** | Shared access can be changed or revoked at any time by the **owner** or anyone with **Write** access. |
-| **Notebook sharing** | Access can also be shared from a **Jupyter Notebook** via the Corridor package. |
+| **Notebook sharing** | Access can also be shared from a **Jupyter Notebook** via the GGX package. |
 
 ## Access management
 
@@ -65,9 +65,9 @@ A role can also carry standalone permissions such as **Allow Data Upload**, whic
 
 ## Integrating external updates
 
-A registered object's definition can be **exported**, modified outside the platform, and **re-synced** using Corridor commands. GGX automatically tracks and records every external change, keeping the history clear and consistent.
+A registered object's definition can be **exported**, modified outside the platform, and **re-synced** using GGX commands. GGX automatically tracks and records every external change, keeping the history clear and consistent.
 
-<LinkCard title="Sync with the Corridor package" description="Export, edit, and re-sync registered objects from your own environment." href={`${import.meta.env.BASE_URL}register-and-refine/corridor_sync/`} />
+<LinkCard title="Sync with the GGX package" description="Export, edit, and re-sync registered objects from your own environment." href={`${import.meta.env.BASE_URL}register-and-refine/sync/`} />
 
 ## Organizing work across teams
 

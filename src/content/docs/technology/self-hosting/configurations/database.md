@@ -24,7 +24,7 @@ To use postgresql, use the following configurations:
 
 Supported versions: sqlite 3+
 
-Sqlite is an easy to setup database which is file-based. To use sqlite with Corridor, set the following configuration:
+Sqlite is an easy to setup database which is file-based. To use sqlite with GGX, set the following configuration:
 
     SQLALCHEMY_DATABASE_URI = 'sqlite:///<filepath>
 

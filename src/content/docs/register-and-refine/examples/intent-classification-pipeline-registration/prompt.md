@@ -2,7 +2,7 @@
 title: "Prompt Registration Guide"
 ---
 
-This guide covers how to register prompts on the Corridor platform, using an **Intent Classification Prompt** as a working example.
+This guide covers how to register prompts on the GGX, using an **Intent Classification Prompt** as a working example.
 
 If you are new to Prompts, then this doc might help you understanding what they are and how do they work -> [Prompts](../../../inventory-management/prompts/)
 

@@ -2,7 +2,7 @@
 title: "Additional Libraries"
 ---
 
-Corridor provides an option to allow the users to be able to use additional libraries which are not available
+GGX provides an option to allow the users to be able to use additional libraries which are not available
 out of the box.
 
 ## Configuration

@@ -2,11 +2,11 @@
 title: "Terraform"
 ---
 
-Use Terraform when you want Corridor infrastructure provisioned as code on a supported cloud. Corridor maintains cloud-specific Terraform repositories for managed container deployments:
+Use Terraform when you want GGX infrastructure provisioned as code on a supported cloud. GGX maintains cloud-specific Terraform repositories for managed container deployments:
 
-- [`corridor/terraform-aws-ggx`](https://github.com/corridor/terraform-aws-ggx) for AWS ECS Fargate.
-- [`corridor/terraform-azurerm-ggx`](https://github.com/corridor/terraform-azurerm-ggx) for Azure Container Apps.
-- [`corridor/terraform-google-ggx`](https://github.com/corridor/terraform-google-ggx) for Google Cloud Run.
+- [GGX AWS Terraform module](https://github.com/corridor/terraform-aws-ggx) for AWS ECS Fargate.
+- [GGX Azure Terraform module](https://github.com/corridor/terraform-azurerm-ggx) for Azure Container Apps.
+- [GGX Google Cloud Terraform module](https://github.com/corridor/terraform-google-ggx) for Google Cloud Run.
 
 These modules are separate from the [Kubernetes](../kubernetes/) manifests. Use Kubernetes for AKS, GKE, or EKS clusters. Use Terraform when you want cloud-managed container services and the surrounding cloud infrastructure created through IaC.
 
@@ -26,7 +26,7 @@ Keep `terraform.tfvars` and state files out of source control unless your organi
 
 ## AWS Module
 
-The AWS module runs Corridor on ECS Fargate. It provisions or configures:
+The AWS module runs GGX on ECS Fargate. It provisions or configures:
 
 - One ECS service on an ECS cluster.
 - A Fargate task definition with `corridor-migration`, `corridor-app`, `corridor-worker`, and `corridor-jupyter`.
@@ -48,7 +48,7 @@ See the [AWS](../aws/) page for AWS service and permission guidance.
 
 ## Azure Module
 
-The Azure module deploys Corridor on Azure Container Apps. It provisions or configures:
+The Azure module deploys GGX on Azure Container Apps. It provisions or configures:
 
 - Container Apps for the app, worker, Jupyter, PostgreSQL-facing configuration, and Nginx routing.
 - Azure Files for shared storage.
@@ -72,7 +72,7 @@ See the [Azure](../azure/) page for Azure service and permission guidance.
 
 ## Google Cloud Module
 
-The Google Cloud module runs Corridor on Cloud Run and maps the Kubernetes application shape to managed Google Cloud services. It provisions or configures:
+The Google Cloud module runs GGX on Cloud Run and maps the Kubernetes application shape to managed Google Cloud services. It provisions or configures:
 
 - `corridor-migration` as a Cloud Run Job.
 - `corridor-app`, `corridor-worker`, and `corridor-jupyter` as Cloud Run services.

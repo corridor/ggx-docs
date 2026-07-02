@@ -32,15 +32,15 @@ Gen AI pipelines can introduce significant risks, making a robust evaluation fra
 | **Compare with Challengers**                 | - Establish alternative components and pipelines for comparison.                                                                                                                             |
 
 By following these steps, teams can systematically evaluate their Gen AI pipelines, mitigate risks, and enhance performance with data-driven insights.  
-Corridor provides the ability to **run evaluation jobs** for registered GenAI components.
+GGX provides the ability to **run evaluation jobs** for registered GenAI components.
 
 ## Introduction to Jobs
 
-Corridor provides the ability to perform evaluations by running jobs on the registered objects and generating standardised and customized reports/metrics. Evaluations are controlled by Corridor and run in a dedicated locked environment to ensure reproducibility of results.
+GGX provides the ability to perform evaluations by running jobs on the registered objects and generating standardised and customized reports/metrics. Evaluations are controlled by GGX and run in a dedicated locked environment to ensure reproducibility of results.
 
-The platform supports batch evaluation of objects through **simulation jobs** or **comparisons with similar objects** on given datasets. Reports and metrics for these evaluations can be customized within Corridor under **Resources → Reports Section**. For more details, refer to the [Reporting](reporting/) section.
+The platform supports batch evaluation of objects through **simulation jobs** or **comparisons with similar objects** on given datasets. Reports and metrics for these evaluations can be customized within GGX under **Resources → Reports Section**. For more details, refer to the [Reporting](reporting/) section.
 
-Once the job is completed, Corridor records all the details about the specific steps of the jobs, logs resource usages and publishes the dashboard containing all the selected reports which can be shared across the team on Corridor for feedback and approval process. The results can be exported outside Corridor or used for automated documentation.
+Once the job is completed, GGX records all the details about the specific steps of the jobs, logs resource usages and publishes the dashboard containing all the selected reports which can be shared across the team on GGX for feedback and approval process. The results can be exported outside GGX or used for automated documentation.
 
 ## Approvals post Evaluations
 
@@ -50,7 +50,7 @@ Once approved, the object is locked, preventing any modifications within the sys
 
 ## Standardized GGX Reports
 
-Apart from the ability to create customized reports, Corridor already has a suite of tests registered for evaluation and validation of different components of Corridor. GGX Reports are crafted by a team of generative AI risk experts following thorough research and analysis. The list of reports is expanding with all the latest developments in the GenAI industry. All these reports can be used if applicable and can be maintained or forked for a specific use case.
+Apart from the ability to create customized reports, GGX already has a suite of tests registered for evaluation and validation of different components of GGX. GGX Reports are crafted by a team of generative AI risk experts following thorough research and analysis. The list of reports is expanding with all the latest developments in the GenAI industry. All these reports can be used if applicable and can be maintained or forked for a specific use case.
 
 | **Component** | **Test Name**                      | **Risk Attribute**                               | **Description**                                                                                                                                              | **Type**           | **Classification** | **Response** |
 | ------------- | ---------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | ------------------ | ------------ |

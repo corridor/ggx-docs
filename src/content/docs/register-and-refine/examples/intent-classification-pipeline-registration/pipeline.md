@@ -2,7 +2,7 @@
 title: "Pipeline Registration Guide"
 ---
 
-A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Pipelines](../../../inventory-management/pipelines/) to understand more about what they are and how they work. This guide covers how to register pipelines on the Corridor platform, using an **Intent Classification Pipeline** as a working example.
+A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Pipelines](../../../inventory-management/pipelines/) to understand more about what they are and how they work. This guide covers how to register pipelines on the GGX, using an **Intent Classification Pipeline** as a working example.
 
 ## Prerequisites
 

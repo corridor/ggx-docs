@@ -37,7 +37,7 @@ The API Configurations help in controlling how the API Server and Celery workers
 
 Some of the commonly used configurations are:
 
-- `LICENSE_KEY`: The corridor license-key to use to enable the application
+- `LICENSE_KEY`: The GGX license key to use to enable the application
 - `API_KEYS`: The API keys to accept requests from
 - `SQLALCHEMY_DATABASE_URI`: The Database URI to connect to for the Metadata Database
 - `FS_URI`: The FileSystem URI to connect to for File Management
@@ -59,16 +59,16 @@ The Jupyter configurations are divided into 2 sections: jupyterhub and jupyter-n
 
 ## JupyterHub Configurations
 
-The configurations used by the Corridor Platform are the same as the standard [Jupyter Hub configurations](https://jupyter-notebook.readthedocs.io/en/stable/configuring/config_overview.html).
+The configurations used by the GGX are the same as the standard [Jupyter Hub configurations](https://jupyter-notebook.readthedocs.io/en/stable/configuring/config_overview.html).
 
 Some of the commonly used configurations are:
 
 - `c.JupyterHub.bind_url`: The URL to host JupyterHub on
-- `c.Authenticator.auth_api_url`: The Corridor Web Application Server (When using the Corridor Authentication)
+- `c.Authenticator.auth_api_url`: The GGX Web Application Server (When using the GGX Authentication)
 - `c.Spawner.env_keep`: And environment variables to be kept when spawning the user jupyter-notebooks
 - `c.Authenticator.auth_api_url`: The API for the Authentication. The URL of the Web Application Server.
 
-There are also additional env variables needed by the `corridor` Python Package:
+There are also additional env variables needed by the GGX Python package:
 
-- `os.environ['CORRIDOR_API_URL']`: The Corridor API Server URL
-- `os.environ['CORRIDOR_API_KEY']`: The Corridor API Key to use (if set)
+- `os.environ['CORRIDOR_API_URL']`: The GGX API Server URL
+- `os.environ['CORRIDOR_API_KEY']`: The GGX API Key to use (if set)

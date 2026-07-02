@@ -2,7 +2,7 @@
 title: "SAML"
 ---
 
-While an internal authentication is available for simple and quick installations. It is recommended to use an enterprise-grade Identity Provider (IDP) to follow the infosec requirements for your organization. Corridor can integrate into IDPs and seamlessly be a tool in your organization.
+While an internal authentication is available for simple and quick installations. It is recommended to use an enterprise-grade Identity Provider (IDP) to follow the infosec requirements for your organization. GGX can integrate into IDPs and seamlessly be a tool in your organization.
 
 This section describes the use of SAML (Security Assertion Markup Language) for authentication. By using SAML, it is easy to ensure that the Platform is available only to users who are authorized to use it. It makes having a centralized Identity Provider hassle-free and ensures that the standard security practices like Single Sign-On, 2-factor Authentication, etc. are consistently applied to all the organization's applications.
 
@@ -19,13 +19,13 @@ From the IDP:
 - Name ID: Unique ID to identify each user
 - Certificate: The X509 certificate to used to ensure any messages sent/received are trusted
 
-From Corridor (Service Provider):
+From GGX (Service Provider):
 
 - ACS URL: `http://<sp_domain>/api/v1/saml/acs`
 - Entity ID: `http://<sp_domain>/api/v1/saml/metadata`
 - Start URL: `http://<sp_domain>/api/v1/users/saml/sso`
 
-On completing the Sign On flow on the IDP side, the information returned to Corridor should contain:
+On completing the Sign On flow on the IDP side, the information returned to GGXhould contain:
 
 - The Name ID
 - The following attributes:
