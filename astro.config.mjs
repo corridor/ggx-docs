@@ -14,9 +14,9 @@ export default defineConfig({
   site: "https://ggx-docs.corridorplatforms.com",
   base,
   outDir: "./dist",
-  // Astro 6.4.x was causing issues with the table rendering. 
+  // Astro 6.4.x was causing issues with the table rendering.
   // REF: https://github.com/withastro/starlight/issues/3934
-  // REF: https://github.com/withastro/astro/issues/16971 
+  // REF: https://github.com/withastro/astro/issues/16971
   markdown: {
     gfm: true,
   },
@@ -250,6 +250,15 @@ export default defineConfig({
                   {
                     label: "Cleanlab",
                     slug: "integrations/evaluation-providers/cleanlab",
+                  },
+                ],
+              },
+              {
+                label: "AI Governance",
+                items: [
+                  {
+                    label: "Databricks AI Gateway",
+                    slug: "integrations/ai-governance/databricks-ai-gateway",
                   },
                 ],
               },
