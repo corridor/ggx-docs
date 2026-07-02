@@ -70,6 +70,7 @@ return {
 - [Portkey](portkey/)
 - [OpenRouter](openrouter/)
 - [Cloudflare AI Gateway](cloudflare-ai-gateway/)
+- [Databricks AI Gateway](databricks-ai-gateway/)
 
 ## What GGX adds on top of an LLM gateway
 

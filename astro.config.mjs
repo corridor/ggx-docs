@@ -267,6 +267,10 @@ export default defineConfig({
                     label: "Cloudflare AI Gateway",
                     slug: "integrations/llm-gateways/cloudflare-ai-gateway",
                   },
+                  {
+                    label: "Databricks AI Gateway",
+                    slug: "integrations/llm-gateways/databricks-ai-gateway",
+                  },
                 ],
               },
               {
@@ -275,15 +279,6 @@ export default defineConfig({
                   {
                     label: "Cleanlab",
                     slug: "integrations/evaluation-providers/cleanlab",
-                  },
-                ],
-              },
-              {
-                label: "AI Governance",
-                items: [
-                  {
-                    label: "Databricks AI Gateway",
-                    slug: "integrations/ai-governance/databricks-ai-gateway",
                   },
                 ],
               },

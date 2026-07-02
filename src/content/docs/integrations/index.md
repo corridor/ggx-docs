@@ -12,7 +12,7 @@ These integrations are organized into the following categories:
 
 2. **LLM Gateways:**  
    Register an LLM gateway in the GGX Model Registry, then route GGX prompts, RAGs, pipelines, simulations, and monitoring jobs to any LLM the gateway has access to.  
-   Examples: [LiteLLM](llm-gateways/litellm/), [Portkey](llm-gateways/portkey/), [OpenRouter](llm-gateways/openrouter/), [Cloudflare AI Gateway](llm-gateways/cloudflare-ai-gateway/)
+   Examples: [LiteLLM](llm-gateways/litellm/), [Portkey](llm-gateways/portkey/), [OpenRouter](llm-gateways/openrouter/), [Cloudflare AI Gateway](llm-gateways/cloudflare-ai-gateway/), [Databricks AI Gateway](llm-gateways/databricks-ai-gateway/)
 
 3. **Agent Providers & Frameworks:**  
    Leverage pre-built agent providers or bring your own orchestration frameworks to create and manage intelligent, multi-step agent workflows with minimal setup.  
