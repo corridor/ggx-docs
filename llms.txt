@@ -1,0 +1,149 @@
+# GGX Documentation
+
+> Documentation for GenGuardX, a Responsible AI governance platform for testing, approving, monitoring, and governing GenAI systems.
+
+## LLM resources
+
+- [Full documentation](./llms-full.txt): Complete docs content in one Markdown-oriented text file.
+- [Structured index](./llms.json): Machine-readable list of docs pages and Markdown URLs.
+
+## Documentation pages
+
+- [GenGuardX (GGX)](https://docs.genguardx.ai/): GenGuardX is a Responsible AI governance platform that helps enterprises test, approve, monitor, and govern customer-facing GenAI from pilot to production.
+  - Markdown: https://docs.genguardx.ai/index.md
+- [Deployment and Monitoring](https://docs.genguardx.ai/deploy-and-monitor/)
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/index.md
+- [Annotation Queues](https://docs.genguardx.ai/deploy-and-monitor/annotation-queues/)
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/annotation-queues/index.md
+- [CICD & Direct to Production](https://docs.genguardx.ai/deploy-and-monitor/direct-to-production/)
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/direct-to-production/index.md
+- [Governance Oversight](https://docs.genguardx.ai/deploy-and-monitor/oversight/)
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/oversight/index.md
+- [Performance Tracking](https://docs.genguardx.ai/deploy-and-monitor/performance/)
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/performance/index.md
+- [Evaluations and Approval](https://docs.genguardx.ai/evaluate-and-approve/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/index.md
+- [Approval Workflows](https://docs.genguardx.ai/evaluate-and-approve/approval-workflows/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/approval-workflows/index.md
+- [Comparisons](https://docs.genguardx.ai/evaluate-and-approve/comparison/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/comparison/index.md
+- [Document Generation](https://docs.genguardx.ai/evaluate-and-approve/document-generation/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/document-generation/index.md
+- [Feedback Portals](https://docs.genguardx.ai/evaluate-and-approve/feedback-portals/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/feedback-portals/index.md
+- [Human Integrated Testing](https://docs.genguardx.ai/evaluate-and-approve/human-testing/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/human-testing/index.md
+- [Reporting](https://docs.genguardx.ai/evaluate-and-approve/reporting/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/reporting/index.md
+- [Simulation](https://docs.genguardx.ai/evaluate-and-approve/simulation/)
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/simulation/index.md
+- [Frequently Asked Questions](https://docs.genguardx.ai/faq/): Common questions about evaluating and monitoring GenAI applications in GGX — production monitoring, reports and dashboards, LLM-as-a-judge metrics, reusable assets, data and integrations, governance and testing, versioning, and human feedback.
+  - Markdown: https://docs.genguardx.ai/faq/index.md
+- [GGX Integrations](https://docs.genguardx.ai/integrations/)
+  - Markdown: https://docs.genguardx.ai/integrations/index.md
+- [Cleanlab](https://docs.genguardx.ai/integrations/evaluation-providers/cleanlab/)
+  - Markdown: https://docs.genguardx.ai/integrations/evaluation-providers/cleanlab/index.md
+- [LLM Gateways](https://docs.genguardx.ai/integrations/llm-gateways/): Use LLM gateways with GGX by registering gateway-backed models in the Model Registry and routing requests to any LLM the gateway can access.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/index.md
+- [Cloudflare AI Gateway](https://docs.genguardx.ai/integrations/llm-gateways/cloudflare-ai-gateway/): Register Cloudflare AI Gateway as a GGX Model Registry model and route GGX requests to providers available through your Cloudflare gateway.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/cloudflare-ai-gateway/index.md
+- [Databricks AI Gateway](https://docs.genguardx.ai/integrations/llm-gateways/databricks-ai-gateway/): Compare Databricks Unity AI Gateway with GGX for GenAI governance, automated compliance testing, approval evidence, production monitoring, and risk management.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/databricks-ai-gateway/index.md
+- [LiteLLM Gateway](https://docs.genguardx.ai/integrations/llm-gateways/litellm/): Register LiteLLM as a GGX Model Registry model and route GGX requests to any LLM provider configured behind LiteLLM.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/litellm/index.md
+- [OpenRouter Gateway](https://docs.genguardx.ai/integrations/llm-gateways/openrouter/): Register OpenRouter as a GGX Model Registry model and route GGX requests to OpenRouter-supported models through a unified API.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/openrouter/index.md
+- [Portkey Gateway](https://docs.genguardx.ai/integrations/llm-gateways/portkey/): Register Portkey as a GGX Model Registry model and use Portkey provider routing with GGX evaluations, pipelines, approvals, and monitoring.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/portkey/index.md
+- [Setting up Integrations](https://docs.genguardx.ai/integrations/llm-providers/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/index.md
+- [Anthropic Integration](https://docs.genguardx.ai/integrations/llm-providers/anthropic/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/anthropic/index.md
+- [AWS Bedrock Integration](https://docs.genguardx.ai/integrations/llm-providers/aws-bedrock/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/aws-bedrock/index.md
+- [Azure AI Integration](https://docs.genguardx.ai/integrations/llm-providers/azureai/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/azureai/index.md
+- [Google Cloud Vertex AI Integration](https://docs.genguardx.ai/integrations/llm-providers/gcp-vertexai/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/gcp-vertexai/index.md
+- [Hugging Face Integration](https://docs.genguardx.ai/integrations/llm-providers/huggingface/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/huggingface/index.md
+- [OpenAI Integration](https://docs.genguardx.ai/integrations/llm-providers/openai/)
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/openai/index.md
+- [GenerativeAI Lifecycle Management](https://docs.genguardx.ai/register-and-refine/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/index.md
+- [Collaboration](https://docs.genguardx.ai/register-and-refine/collaboration/): How teams collaborate in GGX — sharing and requesting object access, role-based access management, external sync, groups, workspaces, and monitoring dashboards.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/collaboration/index.md
+- [Pipeline Registration Guide](https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/index.md
+- [Prompt Registration Guide](https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/prompt/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/prompt/index.md
+- [Pipeline Registration Guide: English to French Translation](https://docs.genguardx.ai/register-and-refine/examples/language-translation-pipeline-registration/pipeline/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/language-translation-pipeline-registration/pipeline/index.md
+- [Model Registration: Gemini 2.0 Flash](https://docs.genguardx.ai/register-and-refine/examples/model/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/model/index.md
+- [Inventory Management](https://docs.genguardx.ai/register-and-refine/inventory-management/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/index.md
+- [Global Functions](https://docs.genguardx.ai/register-and-refine/inventory-management/global-functions/): How Global Functions work in GGX — reusable analytical logic with inputs and outputs of any type, registered once and called across pipelines, RAGs, models, reports, and simulations.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/global-functions/index.md
+- [Model Catalog](https://docs.genguardx.ai/register-and-refine/inventory-management/model-catalog/): How models work in GGX — API-based, Python-based, and custom-uploaded models, how to register one, the supported providers, how to test a model, and a worked example.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/model-catalog/index.md
+- [Pipelines](https://docs.genguardx.ai/register-and-refine/inventory-management/pipelines/): How pipelines work in GGX — compose Models, RAGs, Prompts and Guardrails with orchestration logic. Covers pipeline types, anatomy, registration steps, testing, and risk assessment.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/pipelines/index.md
+- [Prompt Registry](https://docs.genguardx.ai/register-and-refine/inventory-management/prompts/): How prompts work in GGX — the template, input arguments, and creation logic that make up a registered prompt, how to register one, how to test and improve it, and a worked example.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/prompts/index.md
+- [RAGs](https://docs.genguardx.ai/register-and-refine/inventory-management/rags/): How RAGs work in GGX — the knowledge source and retrieval logic that make up a registered RAG, how to register one, and what registering it unlocks.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/rags/index.md
+- [Data Assets](https://docs.genguardx.ai/register-and-refine/inventory-management/table-registry/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/table-registry/index.md
+- [Lineage Tracking](https://docs.genguardx.ai/register-and-refine/lineage-tracking/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/lineage-tracking/index.md
+- [Prompt Optimization](https://docs.genguardx.ai/register-and-refine/prompt-optimization/): How GGX automates prompt optimization with Hill Climbing — iteratively refining a prompt, keeping only changes that improve a fixed evaluation, with full logs and one-click sync back to the pipeline.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/prompt-optimization/index.md
+- [GGX Sync](https://docs.genguardx.ai/register-and-refine/sync/)
+  - Markdown: https://docs.genguardx.ai/register-and-refine/sync/index.md
+- [Version Management](https://docs.genguardx.ai/register-and-refine/version-management/): How GGX versions objects — the Draft → Approved → Clone lifecycle, snapshot-based Change History, reverting to any point, and how versions propagate downstream.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/version-management/index.md
+- [Self-Hosted GGX](https://docs.genguardx.ai/technology/self-hosting/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/index.md
+- [CI CD Integrations](https://docs.genguardx.ai/technology/self-hosting/configurations/approvals/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/approvals/index.md
+- [Common Configs](https://docs.genguardx.ai/technology/self-hosting/configurations/common-configs/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/common-configs/index.md
+- [Metadata: Database Setup](https://docs.genguardx.ai/technology/self-hosting/configurations/database/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/database/index.md
+- [Datalake Integration](https://docs.genguardx.ai/technology/self-hosting/configurations/datalake/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/datalake/index.md
+- [Email Notifications](https://docs.genguardx.ai/technology/self-hosting/configurations/notifications/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/notifications/index.md
+- [Additional Libraries](https://docs.genguardx.ai/technology/self-hosting/configurations/packages/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/packages/index.md
+- [Process Management](https://docs.genguardx.ai/technology/self-hosting/configurations/process-management/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/process-management/index.md
+- [SAML](https://docs.genguardx.ai/technology/self-hosting/configurations/saml/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/saml/index.md
+- [Web Server Setup](https://docs.genguardx.ai/technology/self-hosting/configurations/web-servers/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/web-servers/index.md
+- [Hardening - Security](https://docs.genguardx.ai/technology/self-hosting/hardening/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/hardening/index.md
+- [AWS](https://docs.genguardx.ai/technology/self-hosting/installation/aws/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/aws/index.md
+- [Azure](https://docs.genguardx.ai/technology/self-hosting/installation/azure/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/azure/index.md
+- [Docker-based](https://docs.genguardx.ai/technology/self-hosting/installation/docker-based/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/docker-based/index.md
+- [GCP](https://docs.genguardx.ai/technology/self-hosting/installation/gcp/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/gcp/index.md
+- [Kubernetes](https://docs.genguardx.ai/technology/self-hosting/installation/kubernetes/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/kubernetes/index.md
+- [Manual](https://docs.genguardx.ai/technology/self-hosting/installation/manual/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/manual/index.md
+- [Minimum Requirements](https://docs.genguardx.ai/technology/self-hosting/installation/minimum-requirements/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/minimum-requirements/index.md
+- [Terraform](https://docs.genguardx.ai/technology/self-hosting/installation/terraform/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/terraform/index.md
+- [Backups & Restore](https://docs.genguardx.ai/technology/self-hosting/scaling/backups/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/scaling/backups/index.md
+- [Multiple GGX Workers](https://docs.genguardx.ai/technology/self-hosting/scaling/concurrency/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/scaling/concurrency/index.md
+- [Scalability and Sizing](https://docs.genguardx.ai/technology/self-hosting/scaling/scalability/)
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/scaling/scalability/index.md

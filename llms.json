@@ -1,0 +1,558 @@
+{
+  "title": "GGX Documentation",
+  "description": "Documentation for GenGuardX, a Responsible AI governance platform for testing, approving, monitoring, and governing GenAI systems.",
+  "pages": [
+    {
+      "title": "GenGuardX (GGX)",
+      "description": "GenGuardX is a Responsible AI governance platform that helps enterprises test, approve, monitor, and govern customer-facing GenAI from pilot to production.",
+      "route": "/",
+      "url": "https://docs.genguardx.ai/",
+      "markdown_url": "https://docs.genguardx.ai/index.md",
+      "source_path": "src/content/docs/index.mdx"
+    },
+    {
+      "title": "Deployment and Monitoring",
+      "description": "",
+      "route": "/deploy-and-monitor/",
+      "url": "https://docs.genguardx.ai/deploy-and-monitor/",
+      "markdown_url": "https://docs.genguardx.ai/deploy-and-monitor/index.md",
+      "source_path": "src/content/docs/deploy-and-monitor/index.md"
+    },
+    {
+      "title": "Annotation Queues",
+      "description": "",
+      "route": "/deploy-and-monitor/annotation-queues/",
+      "url": "https://docs.genguardx.ai/deploy-and-monitor/annotation-queues/",
+      "markdown_url": "https://docs.genguardx.ai/deploy-and-monitor/annotation-queues/index.md",
+      "source_path": "src/content/docs/deploy-and-monitor/annotation-queues.md"
+    },
+    {
+      "title": "CICD & Direct to Production",
+      "description": "",
+      "route": "/deploy-and-monitor/direct-to-production/",
+      "url": "https://docs.genguardx.ai/deploy-and-monitor/direct-to-production/",
+      "markdown_url": "https://docs.genguardx.ai/deploy-and-monitor/direct-to-production/index.md",
+      "source_path": "src/content/docs/deploy-and-monitor/direct-to-production.md"
+    },
+    {
+      "title": "Governance Oversight",
+      "description": "",
+      "route": "/deploy-and-monitor/oversight/",
+      "url": "https://docs.genguardx.ai/deploy-and-monitor/oversight/",
+      "markdown_url": "https://docs.genguardx.ai/deploy-and-monitor/oversight/index.md",
+      "source_path": "src/content/docs/deploy-and-monitor/oversight.md"
+    },
+    {
+      "title": "Performance Tracking",
+      "description": "",
+      "route": "/deploy-and-monitor/performance/",
+      "url": "https://docs.genguardx.ai/deploy-and-monitor/performance/",
+      "markdown_url": "https://docs.genguardx.ai/deploy-and-monitor/performance/index.md",
+      "source_path": "src/content/docs/deploy-and-monitor/performance.md"
+    },
+    {
+      "title": "Evaluations and Approval",
+      "description": "",
+      "route": "/evaluate-and-approve/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/index.md"
+    },
+    {
+      "title": "Approval Workflows",
+      "description": "",
+      "route": "/evaluate-and-approve/approval-workflows/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/approval-workflows/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/approval-workflows/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/approval-workflows.md"
+    },
+    {
+      "title": "Comparisons",
+      "description": "",
+      "route": "/evaluate-and-approve/comparison/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/comparison/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/comparison/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/comparison.md"
+    },
+    {
+      "title": "Document Generation",
+      "description": "",
+      "route": "/evaluate-and-approve/document-generation/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/document-generation/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/document-generation/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/document-generation.md"
+    },
+    {
+      "title": "Feedback Portals",
+      "description": "",
+      "route": "/evaluate-and-approve/feedback-portals/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/feedback-portals/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/feedback-portals/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/feedback-portals/index.md"
+    },
+    {
+      "title": "Human Integrated Testing",
+      "description": "",
+      "route": "/evaluate-and-approve/human-testing/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/human-testing/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/human-testing/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/human-testing.md"
+    },
+    {
+      "title": "Reporting",
+      "description": "",
+      "route": "/evaluate-and-approve/reporting/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/reporting/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/reporting/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/reporting.md"
+    },
+    {
+      "title": "Simulation",
+      "description": "",
+      "route": "/evaluate-and-approve/simulation/",
+      "url": "https://docs.genguardx.ai/evaluate-and-approve/simulation/",
+      "markdown_url": "https://docs.genguardx.ai/evaluate-and-approve/simulation/index.md",
+      "source_path": "src/content/docs/evaluate-and-approve/simulation.md"
+    },
+    {
+      "title": "Frequently Asked Questions",
+      "description": "Common questions about evaluating and monitoring GenAI applications in GGX — production monitoring, reports and dashboards, LLM-as-a-judge metrics, reusable assets, data and integrations, governance and testing, versioning, and human feedback.",
+      "route": "/faq/",
+      "url": "https://docs.genguardx.ai/faq/",
+      "markdown_url": "https://docs.genguardx.ai/faq/index.md",
+      "source_path": "src/content/docs/faq.mdx"
+    },
+    {
+      "title": "GGX Integrations",
+      "description": "",
+      "route": "/integrations/",
+      "url": "https://docs.genguardx.ai/integrations/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/index.md",
+      "source_path": "src/content/docs/integrations/index.md"
+    },
+    {
+      "title": "Cleanlab",
+      "description": "",
+      "route": "/integrations/evaluation-providers/cleanlab/",
+      "url": "https://docs.genguardx.ai/integrations/evaluation-providers/cleanlab/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/evaluation-providers/cleanlab/index.md",
+      "source_path": "src/content/docs/integrations/evaluation-providers/cleanlab.md"
+    },
+    {
+      "title": "LLM Gateways",
+      "description": "Use LLM gateways with GGX by registering gateway-backed models in the Model Registry and routing requests to any LLM the gateway can access.",
+      "route": "/integrations/llm-gateways/",
+      "url": "https://docs.genguardx.ai/integrations/llm-gateways/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-gateways/index.md",
+      "source_path": "src/content/docs/integrations/llm-gateways/index.md"
+    },
+    {
+      "title": "Cloudflare AI Gateway",
+      "description": "Register Cloudflare AI Gateway as a GGX Model Registry model and route GGX requests to providers available through your Cloudflare gateway.",
+      "route": "/integrations/llm-gateways/cloudflare-ai-gateway/",
+      "url": "https://docs.genguardx.ai/integrations/llm-gateways/cloudflare-ai-gateway/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-gateways/cloudflare-ai-gateway/index.md",
+      "source_path": "src/content/docs/integrations/llm-gateways/cloudflare-ai-gateway.md"
+    },
+    {
+      "title": "Databricks AI Gateway",
+      "description": "Compare Databricks Unity AI Gateway with GGX for GenAI governance, automated compliance testing, approval evidence, production monitoring, and risk management.",
+      "route": "/integrations/llm-gateways/databricks-ai-gateway/",
+      "url": "https://docs.genguardx.ai/integrations/llm-gateways/databricks-ai-gateway/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-gateways/databricks-ai-gateway/index.md",
+      "source_path": "src/content/docs/integrations/llm-gateways/databricks-ai-gateway.md"
+    },
+    {
+      "title": "LiteLLM Gateway",
+      "description": "Register LiteLLM as a GGX Model Registry model and route GGX requests to any LLM provider configured behind LiteLLM.",
+      "route": "/integrations/llm-gateways/litellm/",
+      "url": "https://docs.genguardx.ai/integrations/llm-gateways/litellm/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-gateways/litellm/index.md",
+      "source_path": "src/content/docs/integrations/llm-gateways/litellm.md"
+    },
+    {
+      "title": "OpenRouter Gateway",
+      "description": "Register OpenRouter as a GGX Model Registry model and route GGX requests to OpenRouter-supported models through a unified API.",
+      "route": "/integrations/llm-gateways/openrouter/",
+      "url": "https://docs.genguardx.ai/integrations/llm-gateways/openrouter/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-gateways/openrouter/index.md",
+      "source_path": "src/content/docs/integrations/llm-gateways/openrouter.md"
+    },
+    {
+      "title": "Portkey Gateway",
+      "description": "Register Portkey as a GGX Model Registry model and use Portkey provider routing with GGX evaluations, pipelines, approvals, and monitoring.",
+      "route": "/integrations/llm-gateways/portkey/",
+      "url": "https://docs.genguardx.ai/integrations/llm-gateways/portkey/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-gateways/portkey/index.md",
+      "source_path": "src/content/docs/integrations/llm-gateways/portkey.md"
+    },
+    {
+      "title": "Setting up Integrations",
+      "description": "",
+      "route": "/integrations/llm-providers/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/index.md"
+    },
+    {
+      "title": "Anthropic Integration",
+      "description": "",
+      "route": "/integrations/llm-providers/anthropic/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/anthropic/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/anthropic/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/anthropic.md"
+    },
+    {
+      "title": "AWS Bedrock Integration",
+      "description": "",
+      "route": "/integrations/llm-providers/aws-bedrock/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/aws-bedrock/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/aws-bedrock/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/aws-bedrock.md"
+    },
+    {
+      "title": "Azure AI Integration",
+      "description": "",
+      "route": "/integrations/llm-providers/azureai/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/azureai/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/azureai/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/azureai.md"
+    },
+    {
+      "title": "Google Cloud Vertex AI Integration",
+      "description": "",
+      "route": "/integrations/llm-providers/gcp-vertexai/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/gcp-vertexai/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/gcp-vertexai/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/gcp-vertexai.md"
+    },
+    {
+      "title": "Hugging Face Integration",
+      "description": "",
+      "route": "/integrations/llm-providers/huggingface/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/huggingface/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/huggingface/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/huggingface.md"
+    },
+    {
+      "title": "OpenAI Integration",
+      "description": "",
+      "route": "/integrations/llm-providers/openai/",
+      "url": "https://docs.genguardx.ai/integrations/llm-providers/openai/",
+      "markdown_url": "https://docs.genguardx.ai/integrations/llm-providers/openai/index.md",
+      "source_path": "src/content/docs/integrations/llm-providers/openai.md"
+    },
+    {
+      "title": "GenerativeAI Lifecycle Management",
+      "description": "",
+      "route": "/register-and-refine/",
+      "url": "https://docs.genguardx.ai/register-and-refine/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/index.md",
+      "source_path": "src/content/docs/register-and-refine/index.md"
+    },
+    {
+      "title": "Collaboration",
+      "description": "How teams collaborate in GGX — sharing and requesting object access, role-based access management, external sync, groups, workspaces, and monitoring dashboards.",
+      "route": "/register-and-refine/collaboration/",
+      "url": "https://docs.genguardx.ai/register-and-refine/collaboration/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/collaboration/index.md",
+      "source_path": "src/content/docs/register-and-refine/collaboration/index.mdx"
+    },
+    {
+      "title": "Pipeline Registration Guide",
+      "description": "",
+      "route": "/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/",
+      "url": "https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/index.md",
+      "source_path": "src/content/docs/register-and-refine/examples/intent-classification-pipeline-registration/pipeline.md"
+    },
+    {
+      "title": "Prompt Registration Guide",
+      "description": "",
+      "route": "/register-and-refine/examples/intent-classification-pipeline-registration/prompt/",
+      "url": "https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/prompt/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/prompt/index.md",
+      "source_path": "src/content/docs/register-and-refine/examples/intent-classification-pipeline-registration/prompt.md"
+    },
+    {
+      "title": "Pipeline Registration Guide: English to French Translation",
+      "description": "",
+      "route": "/register-and-refine/examples/language-translation-pipeline-registration/pipeline/",
+      "url": "https://docs.genguardx.ai/register-and-refine/examples/language-translation-pipeline-registration/pipeline/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/examples/language-translation-pipeline-registration/pipeline/index.md",
+      "source_path": "src/content/docs/register-and-refine/examples/language-translation-pipeline-registration/pipeline.md"
+    },
+    {
+      "title": "Model Registration: Gemini 2.0 Flash",
+      "description": "",
+      "route": "/register-and-refine/examples/model/",
+      "url": "https://docs.genguardx.ai/register-and-refine/examples/model/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/examples/model/index.md",
+      "source_path": "src/content/docs/register-and-refine/examples/model.md"
+    },
+    {
+      "title": "Inventory Management",
+      "description": "",
+      "route": "/register-and-refine/inventory-management/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/index.md"
+    },
+    {
+      "title": "Global Functions",
+      "description": "How Global Functions work in GGX — reusable analytical logic with inputs and outputs of any type, registered once and called across pipelines, RAGs, models, reports, and simulations.",
+      "route": "/register-and-refine/inventory-management/global-functions/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/global-functions/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/global-functions/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/global-functions/index.mdx"
+    },
+    {
+      "title": "Model Catalog",
+      "description": "How models work in GGX — API-based, Python-based, and custom-uploaded models, how to register one, the supported providers, how to test a model, and a worked example.",
+      "route": "/register-and-refine/inventory-management/model-catalog/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/model-catalog/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/model-catalog/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/model-catalog/index.mdx"
+    },
+    {
+      "title": "Pipelines",
+      "description": "How pipelines work in GGX — compose Models, RAGs, Prompts and Guardrails with orchestration logic. Covers pipeline types, anatomy, registration steps, testing, and risk assessment.",
+      "route": "/register-and-refine/inventory-management/pipelines/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/pipelines/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/pipelines/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/pipelines/index.mdx"
+    },
+    {
+      "title": "Prompt Registry",
+      "description": "How prompts work in GGX — the template, input arguments, and creation logic that make up a registered prompt, how to register one, how to test and improve it, and a worked example.",
+      "route": "/register-and-refine/inventory-management/prompts/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/prompts/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/prompts/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/prompts/index.mdx"
+    },
+    {
+      "title": "RAGs",
+      "description": "How RAGs work in GGX — the knowledge source and retrieval logic that make up a registered RAG, how to register one, and what registering it unlocks.",
+      "route": "/register-and-refine/inventory-management/rags/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/rags/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/rags/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/rags/index.mdx"
+    },
+    {
+      "title": "Data Assets",
+      "description": "",
+      "route": "/register-and-refine/inventory-management/table-registry/",
+      "url": "https://docs.genguardx.ai/register-and-refine/inventory-management/table-registry/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/inventory-management/table-registry/index.md",
+      "source_path": "src/content/docs/register-and-refine/inventory-management/table-registry/index.md"
+    },
+    {
+      "title": "Lineage Tracking",
+      "description": "",
+      "route": "/register-and-refine/lineage-tracking/",
+      "url": "https://docs.genguardx.ai/register-and-refine/lineage-tracking/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/lineage-tracking/index.md",
+      "source_path": "src/content/docs/register-and-refine/lineage-tracking.md"
+    },
+    {
+      "title": "Prompt Optimization",
+      "description": "How GGX automates prompt optimization with Hill Climbing — iteratively refining a prompt, keeping only changes that improve a fixed evaluation, with full logs and one-click sync back to the pipeline.",
+      "route": "/register-and-refine/prompt-optimization/",
+      "url": "https://docs.genguardx.ai/register-and-refine/prompt-optimization/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/prompt-optimization/index.md",
+      "source_path": "src/content/docs/register-and-refine/prompt-optimization/index.mdx"
+    },
+    {
+      "title": "GGX Sync",
+      "description": "",
+      "route": "/register-and-refine/sync/",
+      "url": "https://docs.genguardx.ai/register-and-refine/sync/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/sync/index.md",
+      "source_path": "src/content/docs/register-and-refine/sync.md"
+    },
+    {
+      "title": "Version Management",
+      "description": "How GGX versions objects — the Draft → Approved → Clone lifecycle, snapshot-based Change History, reverting to any point, and how versions propagate downstream.",
+      "route": "/register-and-refine/version-management/",
+      "url": "https://docs.genguardx.ai/register-and-refine/version-management/",
+      "markdown_url": "https://docs.genguardx.ai/register-and-refine/version-management/index.md",
+      "source_path": "src/content/docs/register-and-refine/version-management/index.mdx"
+    },
+    {
+      "title": "Self-Hosted GGX",
+      "description": "",
+      "route": "/technology/self-hosting/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/index.md"
+    },
+    {
+      "title": "CI CD Integrations",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/approvals/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/approvals/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/approvals/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/approvals.md"
+    },
+    {
+      "title": "Common Configs",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/common-configs/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/common-configs/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/common-configs/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/common-configs.md"
+    },
+    {
+      "title": "Metadata: Database Setup",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/database/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/database/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/database/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/database.md"
+    },
+    {
+      "title": "Datalake Integration",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/datalake/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/datalake/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/datalake/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/datalake.md"
+    },
+    {
+      "title": "Email Notifications",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/notifications/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/notifications/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/notifications/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/notifications.md"
+    },
+    {
+      "title": "Additional Libraries",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/packages/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/packages/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/packages/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/packages.md"
+    },
+    {
+      "title": "Process Management",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/process-management/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/process-management/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/process-management/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/process-management.md"
+    },
+    {
+      "title": "SAML",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/saml/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/saml/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/saml/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/saml.md"
+    },
+    {
+      "title": "Web Server Setup",
+      "description": "",
+      "route": "/technology/self-hosting/configurations/web-servers/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/configurations/web-servers/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/configurations/web-servers/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/configurations/web-servers.md"
+    },
+    {
+      "title": "Hardening - Security",
+      "description": "",
+      "route": "/technology/self-hosting/hardening/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/hardening/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/hardening/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/hardening.md"
+    },
+    {
+      "title": "AWS",
+      "description": "",
+      "route": "/technology/self-hosting/installation/aws/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/aws/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/aws/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/aws.md"
+    },
+    {
+      "title": "Azure",
+      "description": "",
+      "route": "/technology/self-hosting/installation/azure/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/azure/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/azure/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/azure.md"
+    },
+    {
+      "title": "Docker-based",
+      "description": "",
+      "route": "/technology/self-hosting/installation/docker-based/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/docker-based/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/docker-based/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/docker-based.md"
+    },
+    {
+      "title": "GCP",
+      "description": "",
+      "route": "/technology/self-hosting/installation/gcp/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/gcp/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/gcp/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/gcp.md"
+    },
+    {
+      "title": "Kubernetes",
+      "description": "",
+      "route": "/technology/self-hosting/installation/kubernetes/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/kubernetes/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/kubernetes/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/kubernetes.md"
+    },
+    {
+      "title": "Manual",
+      "description": "",
+      "route": "/technology/self-hosting/installation/manual/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/manual/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/manual/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/manual.md"
+    },
+    {
+      "title": "Minimum Requirements",
+      "description": "",
+      "route": "/technology/self-hosting/installation/minimum-requirements/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/minimum-requirements/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/minimum-requirements/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/minimum-requirements.md"
+    },
+    {
+      "title": "Terraform",
+      "description": "",
+      "route": "/technology/self-hosting/installation/terraform/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/installation/terraform/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/installation/terraform/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/installation/terraform.md"
+    },
+    {
+      "title": "Backups & Restore",
+      "description": "",
+      "route": "/technology/self-hosting/scaling/backups/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/scaling/backups/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/scaling/backups/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/scaling/backups.md"
+    },
+    {
+      "title": "Multiple GGX Workers",
+      "description": "",
+      "route": "/technology/self-hosting/scaling/concurrency/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/scaling/concurrency/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/scaling/concurrency/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/scaling/concurrency.md"
+    },
+    {
+      "title": "Scalability and Sizing",
+      "description": "",
+      "route": "/technology/self-hosting/scaling/scalability/",
+      "url": "https://docs.genguardx.ai/technology/self-hosting/scaling/scalability/",
+      "markdown_url": "https://docs.genguardx.ai/technology/self-hosting/scaling/scalability/index.md",
+      "source_path": "src/content/docs/technology/self-hosting/scaling/scalability.md"
+    }
+  ]
+}

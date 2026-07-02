@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Hill climbing as a rising performance curve: starting from an initial prompt at a low score, each small prompt edit that improves the score is kept, stepping up the curve. Edits that lower the score are rejected and the baseline is kept. The climb continues to the peak — the best prompt, ready to sync back to the pipeline.">
+  <defs>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe5f3"/>
+      <stop offset="1" stop-color="#f6f8fc"/>
+    </linearGradient>
+    <marker id="ah-hc" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="32" font-size="13" letter-spacing="1.4" font-weight="600" fill="#6b7280">HILL CLIMBING — KEEP EVERY EDIT THAT RAISES THE SCORE</text>
+
+  <!-- axes -->
+  <line x1="92" y1="64" x2="92" y2="322" stroke="#c3cbe0" stroke-width="1.5"/>
+  <line x1="92" y1="322" x2="852" y2="322" stroke="#c3cbe0" stroke-width="1.5"/>
+  <text x="60" y="200" font-size="12" fill="#6b7280" transform="rotate(-90 60 200)" text-anchor="middle">Performance</text>
+  <text x="472" y="352" font-size="12" fill="#6b7280" text-anchor="middle">Iterations &#183; prompt edits</text>
+
+  <!-- hill fill -->
+  <path d="M120 322 L120 300 C 220 300, 250 200, 360 180 S 560 120, 770 96 L 770 322 Z" fill="url(#hill)"/>
+  <!-- hill curve -->
+  <path d="M120 300 C 220 300, 250 200, 360 180 S 560 120, 770 96" fill="none" stroke="#5b6a96" stroke-width="2.5"/>
+
+  <!-- climb step markers -->
+  <circle cx="120" cy="300" r="6.5" fill="#ffffff" stroke="#293147" stroke-width="2"/>
+  <circle cx="250" cy="232" r="6.5" fill="#ffffff" stroke="#293147" stroke-width="2"/>
+  <circle cx="360" cy="180" r="6.5" fill="#ffffff" stroke="#293147" stroke-width="2"/>
+  <circle cx="520" cy="138" r="6.5" fill="#ffffff" stroke="#293147" stroke-width="2"/>
+  <circle cx="650" cy="112" r="6.5" fill="#ffffff" stroke="#293147" stroke-width="2"/>
+  <circle cx="770" cy="96" r="8" fill="#293147"/>
+
+  <!-- small "edit" step arrows -->
+  <line x1="135" y1="286" x2="150" y2="272" stroke="#9aa6c0" stroke-width="2" marker-end="url(#ah-hc)"/>
+  <line x1="375" y1="166" x2="392" y2="156" stroke="#9aa6c0" stroke-width="2" marker-end="url(#ah-hc)"/>
+
+  <!-- rejected branch -->
+  <path d="M360 180 L 432 214" fill="none" stroke="#c98b7a" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="438" cy="218" r="6" fill="#fdeee9" stroke="#c98b7a" stroke-width="2"/>
+  <path d="M434 214 l8 8 M442 214 l-8 8" stroke="#a8472f" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="452" y="222" font-size="11.5" fill="#a8472f">edit rejected — score dropped, keep baseline</text>
+
+  <!-- start label -->
+  <rect x="96" y="248" width="150" height="40" rx="9" fill="#ffffff" stroke="#d7dcec"/>
+  <text x="171" y="266" text-anchor="middle" font-size="12" font-weight="700" fill="#2f3a57">Initial prompt</text>
+  <text x="171" y="281" text-anchor="middle" font-size="11" fill="#6b7280">baseline score</text>
+
+  <!-- peak flag -->
+  <line x1="770" y1="96" x2="770" y2="56" stroke="#293147" stroke-width="2"/>
+  <path d="M770 58 L 800 66 L 770 74 Z" fill="#256b5e"/>
+  <rect x="650" y="28" width="208" height="22" rx="7" fill="#293147"/>
+  <text x="754" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Best prompt &#8594; sync to pipeline</text>
+</svg>
