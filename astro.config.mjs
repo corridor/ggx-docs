@@ -245,6 +245,31 @@ export default defineConfig({
                 ],
               },
               {
+                label: "LLM Gateways",
+                items: [
+                  {
+                    label: "Overview",
+                    slug: "integrations/llm-gateways",
+                  },
+                  {
+                    label: "LiteLLM",
+                    slug: "integrations/llm-gateways/litellm",
+                  },
+                  {
+                    label: "Portkey",
+                    slug: "integrations/llm-gateways/portkey",
+                  },
+                  {
+                    label: "OpenRouter",
+                    slug: "integrations/llm-gateways/openrouter",
+                  },
+                  {
+                    label: "Cloudflare AI Gateway",
+                    slug: "integrations/llm-gateways/cloudflare-ai-gateway",
+                  },
+                ],
+              },
+              {
                 label: "Evaluation Providers",
                 items: [
                   {
