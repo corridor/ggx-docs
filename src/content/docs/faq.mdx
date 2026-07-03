@@ -42,7 +42,7 @@ Yes. The monitoring job has a pre-processing step between the raw table and the 
 
 ### What goes into a report?
 
-A report has three parts: a **data source**, **computation logic** (filtering, transformations, and metric calculations), and **visualization logic**. The job's data arrives as a dictionary of DataFrames, and you can compute in Pandas or PySpark.
+A report is made of five building blocks: **metadata** (name, object type, risk/task classification, evaluation methodology), a **data schema** (the columns it reads), a **parameter schema** (run-time inputs), **computation logic** (filtering, transformations, and metric calculations), and **visualization logic**. The job's data arrives as a dictionary of DuckDB DataFrames that you can compute over in Pandas.
 
 ### What kinds of visualizations can a report produce?
 
