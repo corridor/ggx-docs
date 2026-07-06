@@ -1,0 +1,201 @@
+---
+/**
+ * Build-time data loader + fully static render of the LLM Judges gallery.
+ *
+ * Reads every judge from `src/data/llm-judges/<id>/` (meta.json + judge.py +
+ * prompt.txt), renders the toolbar and every card at build time, and wires the
+ * search / category / expand / tab / copy interactions with a single delegated
+ * client script. No framework runtime — the gallery works fully offline.
+ */
+import type { Judge } from "./llm-judges/types";
+import JudgeCard from "./llm-judges/JudgeCard.astro";
+import styles from "./llm-judges/LlmJudges.module.css";
+
+const metaModules = import.meta.glob("/src/data/llm-judges/*/meta.json", {
+  eager: true,
+});
+const codeModules = import.meta.glob("/src/data/llm-judges/*/judge.py", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+const promptModules = import.meta.glob("/src/data/llm-judges/*/prompt.txt", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+
+const dirOf = (path: string) => path.split("/").slice(0, -1).join("/");
+
+const judges: Judge[] = Object.entries(metaModules)
+  .map(([path, mod]: [string, any]) => {
+    const dir = dirOf(path);
+    const meta = mod.default ?? mod;
+    return {
+      ...meta,
+      code: codeModules[`${dir}/${meta.module ?? "judge.py"}`] ?? "",
+      prompt: promptModules[`${dir}/${meta.promptFile ?? "prompt.txt"}`] ?? "",
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const categories = [...new Set(judges.map((j) => j.category))].sort();
+const ALL = "__all__";
+
+// Hashed CSS-module class names the client script toggles at runtime.
+const cx = {
+  chipActive: styles.chipActive,
+  tabActive: styles.tabActive,
+  cardExpanded: styles.cardExpanded,
+};
+---
+
+<section class={styles.app} data-judges>
+  <div class={styles.toolbar}>
+    <div class={styles.search}>
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7Z"
+        />
+      </svg>
+      <input
+        type="search"
+        placeholder="Search judges by name, tag, or description…"
+        autocomplete="off"
+        data-search
+      />
+    </div>
+    <div class={styles.categories} role="tablist" aria-label="Categories">
+      <button
+        type="button"
+        class={`${styles.chip} ${styles.chipActive}`}
+        data-category={ALL}
+      >
+        All
+      </button>
+      {
+        categories.map((cat) => (
+          <button type="button" class={styles.chip} data-category={cat}>
+            {cat}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class={styles.count} data-count>
+    {judges.length} judge{judges.length === 1 ? "" : "s"}
+  </p>
+
+  <div class={styles.grid} data-grid>
+    {judges.map((judge) => <JudgeCard judge={judge} />)}
+  </div>
+
+  <p class={styles.empty} data-empty hidden>No judges match your search.</p>
+</section>
+
+<script is:inline define:vars={{ cx, ALL }}>
+  document.querySelectorAll("[data-judges]").forEach((root) => {
+    const search = root.querySelector("[data-search]");
+    const chips = [...root.querySelectorAll("[data-category]")];
+    const cards = [...root.querySelectorAll("[data-card]")];
+    const count = root.querySelector("[data-count]");
+    const grid = root.querySelector("[data-grid]");
+    const empty = root.querySelector("[data-empty]");
+
+    let query = "";
+    let category = ALL;
+
+    function applyFilter() {
+      const q = query.trim().toLowerCase();
+      let visible = 0;
+      for (const card of cards) {
+        const matchesCat =
+          category === ALL || card.dataset.category === category;
+        const matchesQ = !q || card.dataset.haystack.includes(q);
+        const show = matchesCat && matchesQ;
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
+      count.textContent = `${visible} judge${visible === 1 ? "" : "s"}`;
+      grid.hidden = visible === 0;
+      empty.hidden = visible !== 0;
+    }
+
+    search?.addEventListener("input", (e) => {
+      query = e.target.value;
+      applyFilter();
+    });
+
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        category = chip.dataset.category;
+        for (const c of chips) c.classList.toggle(cx.chipActive, c === chip);
+        applyFilter();
+      });
+    }
+
+    // One delegated handler for all in-card controls.
+    root.addEventListener("click", (e) => {
+      const toggle = e.target.closest("[data-toggle]");
+      if (toggle) {
+        const card = toggle.closest("[data-card]");
+        const expanded = card.classList.toggle(cx.cardExpanded);
+        toggle.setAttribute("aria-expanded", String(expanded));
+        toggle.textContent = expanded
+          ? "Hide prompt & code"
+          : "View prompt & code";
+        return;
+      }
+
+      const tab = e.target.closest("[data-tab]");
+      if (tab) {
+        const card = tab.closest("[data-card]");
+        const name = tab.dataset.tab;
+        for (const t of card.querySelectorAll("[data-tab]")) {
+          const active = t === tab;
+          t.classList.toggle(cx.tabActive, active);
+          t.setAttribute("aria-selected", String(active));
+        }
+        for (const p of card.querySelectorAll("[data-panel]")) {
+          p.hidden = p.dataset.panel !== name;
+        }
+        resetCopy(card);
+        return;
+      }
+
+      const copy = e.target.closest("[data-copy]");
+      if (copy) {
+        const card = copy.closest("[data-card]");
+        const panel = card.querySelector("[data-panel]:not([hidden])");
+        navigator.clipboard
+          ?.writeText(panel?.textContent ?? "")
+          .then(() => {
+            setCopy(copy, true);
+            clearTimeout(copy._t);
+            copy._t = setTimeout(() => setCopy(copy, false), 1500);
+          })
+          .catch(() => {
+            /* clipboard unavailable (e.g. insecure context) — no-op */
+          });
+      }
+    });
+
+    function setCopy(btn, done) {
+      btn.querySelector("[data-copy-idle]").hidden = done;
+      btn.querySelector("[data-copy-done]").hidden = !done;
+      btn.querySelector("[data-copy-label]").textContent = done
+        ? "Copied"
+        : "Copy";
+    }
+
+    function resetCopy(card) {
+      const btn = card.querySelector("[data-copy]");
+      if (btn) {
+        clearTimeout(btn._t);
+        setCopy(btn, false);
+      }
+    }
+  });
+</script>

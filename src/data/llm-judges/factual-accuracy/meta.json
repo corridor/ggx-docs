@@ -1,0 +1,9 @@
+{
+  "id": "factual-accuracy",
+  "name": "Factual Accuracy",
+  "category": "Faithfulness",
+  "summary": "Scores how well a response's factual claims are supported by the provided context on a 0–4 scale, independent of relevancy.",
+  "description": "A generic LLM-as-a-Judge that measures factual accuracy (faithfulness / groundedness). Given a user message, a response, and a context treated as the single source of truth, it checks whether each factual claim in the response is supported, contradicted, or fabricated, and returns an integer score (0 = completely inaccurate, 4 = fully accurate) with a short reasoning. Contradictions and hallucinations both lower the score; answer relevancy, style, and safety are deliberately ignored.",
+  "tags": ["faithfulness", "groundedness", "hallucination", "llm-as-judge", "rag"],
+  "scoreRange": "0–4 (integer)"
+}

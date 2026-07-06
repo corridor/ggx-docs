@@ -1,0 +1,9 @@
+{
+  "id": "response-coherence",
+  "name": "Response Coherence",
+  "category": "Response Quality",
+  "summary": "Evaluates a full multi-turn conversation across 5 dialogue dimensions on a 1–5 scale (coherence, fluency, tone, naturalness, relational acuity).",
+  "description": "An LLM-as-a-Judge dialogue analyst that evaluates an entire multi-turn user/assistant conversation — not isolated turns — across five dimensions on a 1–5 integer scale: relevance & coherence, fluency & quality, tonal & stylistic alignment, naturalness & phrasing, and social & relational acuity. It weights turns by their impact on user need fulfillment, safety, and conversational flow, and returns a dict of dimension-to-score.",
+  "tags": ["coherence", "conversation", "multi-turn", "dialogue", "llm-as-judge"],
+  "scoreRange": "1–5 per dimension (5 dimensions)"
+}

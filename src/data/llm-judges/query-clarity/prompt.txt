@@ -1,0 +1,36 @@
+# Instruction
+You are an expert evaluator. Rate the quality of the user QUERY based on its clarity, specificity, and coherence.
+
+Use the following 5-point rating scale:
+
+- very poor (score 1): The QUERY is unclear, vague, or incoherent. It lacks essential information and context.
+- poor (score 2): The QUERY is somewhat unclear or lacks important details. It requires significant clarification.
+- average (score 3): The QUERY is moderately clear and specific. It may require some additional information for a complete understanding.
+- good (score 4): The QUERY is clear, specific, and mostly well-formed. It provides sufficient context for understanding the user's intent.
+- excellent (score 5): The QUERY is very clear, specific, and well-articulated. It contains all the necessary information and context for providing a comprehensive response.
+
+## Input
+QUERY: {query}
+
+## Output Format Specification
+First assess the QUERY, highlighting its strengths and/or weaknesses. Then assign a rating from the scale above.
+
+Return the result as a single **valid JSON object** in plaintext only, with exactly these three keys:
+
+{{
+  "score": an integer from 1 to 5,
+  "rating": one of "very poor", "poor", "average", "good", "excellent",
+  "reasoning": "Concise assessment highlighting the strengths and/or weaknesses of the QUERY that justify the rating."
+}}
+
+Rules:
+- "score" MUST be an integer between 1 and 5, and MUST correspond to "rating" (very poor = 1, poor = 2, average = 3, good = 4, excellent = 5).
+- "rating" MUST be exactly one of the five labels above.
+- "reasoning" MUST be a concise string.
+- Do NOT wrap the JSON in quotes or code fences, and do NOT use escape characters (no '\n', '\t').
+- Do NOT add any commentary, explanation, or text before or after the JSON object.
+
+## Current task
+Evaluate the clarity, specificity, and coherence of the QUERY above.
+
+Output only the JSON object described above, in plaintext, and nothing else.

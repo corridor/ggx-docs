@@ -1,0 +1,9 @@
+{
+  "id": "summary-quality",
+  "name": "Summary Quality",
+  "category": "Response Quality",
+  "summary": "Rates a summary against its source on 5 independent aspects (coherence, consistency, fluency, informativeness, relevance) on a 1–5 scale, one call per aspect.",
+  "description": "An LLM-as-a-Judge for summarization. Given a source text and a summary of it, it scores the summary across five independent aspects on a 1–5 scale — coherence, consistency (faithfulness to the source), fluency, informativeness, and relevance — making one LLM call per aspect using a single, aspect-agnostic prompt whose placeholders are filled per aspect. It returns a 'score' dict and a 'reasoning' dict, each keyed by aspect. Each aspect is scored independently with no aggregate score. Adapted from HypoEval (Li, Li & Tan, 2025, arXiv:2504.07174), without the per-hypothesis loop.",
+  "tags": ["summarization", "coherence", "faithfulness", "relevance", "llm-as-judge"],
+  "scoreRange": "1–5 per aspect (5 aspects)"
+}

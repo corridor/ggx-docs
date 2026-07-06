@@ -1,0 +1,9 @@
+{
+  "id": "tool-call-accuracy",
+  "name": "Tool Call Accuracy",
+  "category": "Agent",
+  "summary": "Judges whether an agent's tool calls satisfy a query given the tool definitions and intended pipeline use, returning a binary verdict plus a failure category.",
+  "description": "A reference-free LLM-as-a-Judge for agent tool use. Given the user query, the available tool definitions, a description of the intended pipeline use, and the tool calls the agent actually made, it decides whether the calls are fully correct — right tools, right arguments, right order, no missing or spurious or hallucinated calls. It returns a binary accuracy verdict (1 = fully correct, 0 = not), a short reasoning, and — on failure — a single category (e.g. Wrong Arguments, Missing Required Tool Calls, Hallucinated Tool).",
+  "tags": ["tool-use", "agent", "function-calling", "llm-as-judge"],
+  "scoreRange": "0 or 1 (binary accuracy)"
+}

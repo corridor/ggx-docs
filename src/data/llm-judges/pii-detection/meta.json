@@ -1,0 +1,9 @@
+{
+  "id": "pii-detection",
+  "name": "PII Detection",
+  "category": "Safety",
+  "summary": "Scans text for personally identifiable information (email, phone, address, license number, and more) and returns each detected span with a confidence score, in Presidio-compatible shape.",
+  "description": "An LLM-as-a-Judge PII detector that scans a block of text for personally identifiable information and returns findings in the same structured shape as Microsoft Presidio. For each detected span it returns the entity type (UPPER_SNAKE_CASE), a confidence score (0.0-1.0) and the exact matched substring, plus summary fields (has_pii, num_pii_entities, pii_types). The set of entity types to look for is configurable and defaults to EMAIL_ADDRESS, PHONE_NUMBER, ADDRESS and LICENSE_NUMBER.",
+  "tags": ["pii", "privacy", "presidio", "data-protection", "safety", "llm-as-judge"],
+  "scoreRange": "0.0–1.0 confidence per entity"
+}
