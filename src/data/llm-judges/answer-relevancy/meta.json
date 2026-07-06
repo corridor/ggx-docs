@@ -1,0 +1,9 @@
+{
+  "id": "answer-relevancy",
+  "name": "Answer Relevancy",
+  "category": "Response Quality",
+  "summary": "Scores how well a response addresses the user's question or intent on a 0–4 scale, independent of factual correctness.",
+  "description": "A generic LLM-as-a-Judge that measures answer relevancy. Given a user message and a response, it judges how directly and completely the response addresses the user's intent and returns an integer score (0 = completely irrelevant, 4 = fully relevant) with a short reasoning. It is domain-agnostic and works across factual, how-to, open-ended, multi-part, and instruction-following exchanges.",
+  "tags": ["relevancy", "llm-as-judge", "classification", "response-quality"],
+  "scoreRange": "0–4 (integer)"
+}

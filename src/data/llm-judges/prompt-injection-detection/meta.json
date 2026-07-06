@@ -1,0 +1,9 @@
+{
+  "id": "prompt-injection-detection",
+  "name": "Prompt Injection Detection",
+  "category": "Safety",
+  "summary": "Screens a user input for prompt-injection and jailbreak indicators, returning a 1 (safe) / 0 (attack detected) verdict with reasoning.",
+  "description": "An LLM-as-a-Judge security classifier that analyzes a single user input for adversarial prompt attacks — prompt injection and jailbreaking. It checks for alignment manipulation (persona hijacking, instruction overriding, goal hijacking), content obfuscation and evasion (euphemism, Base64 / ROT13 / leetspeak encoding, semantic fragmentation), and structural / processing exploitation (injected instructions, delimiter abuse, resource overloading). It returns a dict with an integer 'safe' flag (1 = safe, 0 = attack detected) and a short reason.",
+  "tags": ["prompt-injection", "jailbreak", "input-guardrail", "safety", "llm-as-judge"],
+  "scoreRange": "1 safe / 0 attack detected"
+}

@@ -1,0 +1,118 @@
+---
+/**
+ * A single judge card, rendered fully at build time. All interactivity
+ * (expand, prompt/code tabs, copy) is wired by the delegated script in
+ * `LlmJudges.astro`; this component only emits static markup + data hooks.
+ */
+import type { Judge } from "./types";
+import styles from "./LlmJudges.module.css";
+
+interface Props {
+  judge: Judge;
+}
+
+const { judge } = Astro.props;
+
+// Lowercased search haystack, baked in so the client filter is a plain
+// substring test with no per-keystroke string building.
+const haystack = [
+  judge.name,
+  judge.category,
+  judge.summary ?? "",
+  (judge.tags ?? []).join(" "),
+]
+  .join(" ")
+  .toLowerCase();
+---
+
+<article
+  class={styles.card}
+  data-card
+  data-category={judge.category}
+  data-haystack={haystack}
+>
+  <div class={styles.cardHead}>
+    <span class={styles.badge}>{judge.category}</span>
+  </div>
+
+  <h3 class={styles.title}>{judge.name}</h3>
+  {judge.summary && <p class={styles.summary}>{judge.summary}</p>}
+  {
+    judge.scoreRange && (
+      <p class={styles.meta}>
+        <strong>Score:</strong> {judge.scoreRange}
+      </p>
+    )
+  }
+
+  <div class={styles.actions}>
+    <button
+      type="button"
+      class={`${styles.btn} ${styles.btnPrimary}`}
+      data-toggle
+      aria-expanded="false"
+    >
+      View prompt &amp; code
+    </button>
+  </div>
+
+  <div class={styles.detail}>
+    {judge.description && <p class={styles.detailDesc}>{judge.description}</p>}
+    {
+      judge.tags && judge.tags.length > 0 && (
+        <ul class={styles.tags}>
+          {judge.tags.map((t) => (
+            <li>#{t}</li>
+          ))}
+        </ul>
+      )
+    }
+    <div class={styles.codeBar}>
+      <div class={styles.tabs} role="tablist">
+        <button
+          type="button"
+          role="tab"
+          data-tab="prompt"
+          aria-selected="true"
+          class={`${styles.tab} ${styles.tabActive}`}
+        >
+          Prompt
+        </button>
+        <button
+          type="button"
+          role="tab"
+          data-tab="code"
+          aria-selected="false"
+          class={styles.tab}
+        >
+          Code
+        </button>
+      </div>
+      <button type="button" class={styles.copyBtn} data-copy aria-label="Copy prompt">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" data-copy-idle>
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 9h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z M6 15H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v1"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" data-copy-done hidden>
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m5 13 4 4L19 7"
+          />
+        </svg>
+        <span data-copy-label>Copy</span>
+      </button>
+    </div>
+    <pre class={styles.codeBlock} data-panel="prompt">{judge.prompt}</pre>
+    <pre class={styles.codeBlock} data-panel="code" hidden>{judge.code}</pre>
+  </div>
+</article>

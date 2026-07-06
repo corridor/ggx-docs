@@ -1,0 +1,9 @@
+{
+  "id": "query-clarity",
+  "name": "Query Clarity",
+  "category": "Query Quality",
+  "summary": "Rates a user query's clarity, specificity, and coherence on a 5-point Likert scale (very poor → excellent), with a matching label and reasoning.",
+  "description": "An LLM-as-a-Judge that scores the quality of a user query — not the response — on its clarity, specificity, and coherence, using a 5-point Likert scale from very poor to excellent. It returns an integer score (1–5), the corresponding rating label, and a short reasoning highlighting the query's strengths and weaknesses. Adapted from the Magpie query-quality judge (Xu et al., 2024, arXiv:2406.08464).",
+  "tags": ["query-quality", "clarity", "likert", "data-quality", "llm-as-judge"],
+  "scoreRange": "1–5 (very poor → excellent)"
+}

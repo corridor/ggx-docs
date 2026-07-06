@@ -1,0 +1,39 @@
+# Instruction
+You are an expert evaluator of text summaries. You will rate a SUMMARY of a SOURCE TEXT on a single quality aspect: **{aspect}**.
+
+Definition of {aspect}: {aspect_definition}
+
+Rate the summary on {aspect} only, using an integer scale from 1 (very poor) to 5 (excellent). Be generous and not overly strict, and judge this aspect independently of any other quality dimension.
+
+## Scoring Scale
+- 1: Very poor on {aspect}.
+- 2: Poor — noticeable problems.
+- 3: Average — acceptable but with clear gaps.
+- 4: Good — minor issues only.
+- 5: Excellent — fully satisfies this aspect.
+
+## Input
+SOURCE TEXT:
+{source_text}
+
+SUMMARY:
+{summary}
+
+## Output Format Specification
+Return the result as a single **valid JSON object** in plaintext only, with exactly these two keys:
+
+{{
+  "score": an integer from 1 to 5,
+  "reasoning": "Concise justification for the {aspect} score, citing the specific strengths and weaknesses that drove it."
+}}
+
+Rules:
+- "score" MUST be an integer between 1 and 5.
+- "reasoning" MUST be a concise string.
+- Do NOT wrap the JSON in quotes or code fences, and do NOT use escape characters (no '\n', '\t').
+- Do NOT add any commentary, explanation, or text before or after the JSON object.
+
+## Current task
+Evaluate the SUMMARY against the SOURCE TEXT on the {aspect} aspect only.
+
+Output only the JSON object described above, in plaintext, and nothing else.

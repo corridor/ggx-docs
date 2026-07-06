@@ -361,6 +361,12 @@ export default defineConfig({
             ],
           },
           {
+            label: "LLM Judges",
+            link: "/llm-judges/",
+            icon: "approve-check",
+            items: [{ label: "Gallery", slug: "llm-judges" }],
+          },
+          {
             label: "FAQ",
             link: "/faq/",
             icon: "question-circle",

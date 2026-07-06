@@ -1,0 +1,9 @@
+{
+  "id": "toxicity-detection",
+  "name": "Toxicity Detection",
+  "category": "Safety",
+  "summary": "Classifies a message across 7 harmful-content categories (prohibited words, toxicity, obscenity, identity attack, insult, threat, sarcasm) on a 0–4 scale.",
+  "description": "An LLM-as-a-Judge content-moderation classifier. Given a single user message, it scores seven dimensions of potentially harmful content — Contains Prohibited Words, Toxicity, Obscenity, Identity Attack, Insult, Threat, and Sarcasm — each on a 0–4 scale, and returns a dict of category-to-score. A score of 1 or above in any category marks the message as harmful for downstream filtering.",
+  "tags": ["toxicity", "content-moderation", "harmful-content", "safety"],
+  "scoreRange": "0–4 per category (7 categories)"
+}
