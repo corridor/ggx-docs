@@ -23,7 +23,7 @@ export default defineConfig({
   integrations: [
     llmsIntegration({ site: "https://docs.genguardx.ai", base }),
     starlight({
-      title: "GenGuardX Documentation",
+      title: "Documentation",
       logo: {
         light: "./src/assets/ggx-blue.png",
         dark: "./src/assets/ggx-white.png",

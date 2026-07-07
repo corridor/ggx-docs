@@ -26,12 +26,6 @@
   letter-spacing: -0.012em;
 }
 
-/* Slightly larger header logo, matching the previous site */
-.site-title img {
-  height: 1.75rem;
-  width: auto;
-}
-
 /* ---- Figures / diagrams ------------------------------------------------ */
 /* Center diagrams, cap their width, and give them a soft branded frame so
  * they read consistently in both light and dark mode. */
