@@ -274,6 +274,35 @@ export default defineConfig({
                 ],
               },
               {
+                label: "Observability",
+                items: [
+                  {
+                    label: "Overview",
+                    slug: "integrations/observability",
+                  },
+                  {
+                    label: "LangSmith",
+                    slug: "integrations/observability/langsmith",
+                  },
+                  {
+                    label: "Arize Phoenix",
+                    slug: "integrations/observability/arize-phoenix",
+                  },
+                  {
+                    label: "Langfuse",
+                    slug: "integrations/observability/langfuse",
+                  },
+                  {
+                    label: "Humanloop",
+                    slug: "integrations/observability/humanloop",
+                  },
+                  {
+                    label: "Datadog",
+                    slug: "integrations/observability/datadog",
+                  },
+                ],
+              },
+              {
                 label: "Evaluation Providers",
                 items: [
                   {
