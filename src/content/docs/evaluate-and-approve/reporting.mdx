@@ -112,7 +112,7 @@ If a parameter is **not** required, the computation may receive it as empty or m
 The computation is where the report does its work. The platform hands it two values:
 
 - **`data`** — the job output as a **DuckDB DataFrame**. It always holds the object's **input columns** plus its **output**. What the output looks like depends on the object: a chat/LLM object, for instance, emits an `output` string and any `context` the author chose to surface (`{"output": str, "context": ...}`).
-- **`job`** — a handle to the run and its context: `job.parameters` (the values from the Parameter Schema), `job.current` (the object under test), and `job.current.name` (its name). For **comparison** jobs, `job.challengers` exposes the challenger objects.
+- **`job`** — a handle to the run and its context: `job.parameters` (the values from the Parameter Schema), `job.current` (the object under test), and `job.current.name` (its name).
 
 You can operate on `data` with DuckDB directly, or call `data.df()` to convert it to a **pandas DataFrame** and work in pandas — the logic below is written the same way either way.
 
@@ -136,10 +136,6 @@ summary = (
 raw_output = {"scores": scored, "summary": summary}
 ```
 
-:::note[ID column for comparisons]
-Keep an **ID column** in your data so challenger results can be merged back onto the current object's rows. Comparison and validation jobs render challenger and benchmark names dynamically, so read them from `job.challengers` rather than hard-coding.
-:::
-
 ### 5. Visualization
 
 Each visualization runs on the output of the computation, available as **`raw_output`**. A report can have several outputs — add more with the **Add Output** button — and each returns one of:
@@ -161,7 +157,7 @@ fig = px.bar(
 fig  # returning a Plotly figure renders it as a chart
 ```
 
-A metric-style output simply returns a value keyed by role, e.g. `{"current": accuracy_value}`, so it lines up next to challengers in comparison jobs.
+A metric-style output simply returns a numeric value.
 
 <figure class="ggx-figure">
 
