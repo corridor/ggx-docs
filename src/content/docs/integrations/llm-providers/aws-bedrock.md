@@ -1,5 +1,6 @@
 ---
 title: "AWS Bedrock Integration"
+description: "Configure AWS Bedrock in GGX and register Bedrock-backed foundation models with AWS credentials, provider settings, model arguments, and scoring logic."
 ---
 
 The AWS Bedrock integration provides access to foundation models from multiple AI providers through a unified interface. Configure once, use everywhere with enterprise-grade security, scalability, and comprehensive model selection from leading AI companies.

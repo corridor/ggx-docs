@@ -1,5 +1,6 @@
 ---
 title: "Comparisons"
+description: "Compare GGX objects against challengers using shared datasets, selected metrics, automated reports, and side-by-side results for model and pipeline evaluation."
 ---
 
 Platform provides the ability to compare the registered objects for a specific task using standard and customized metrics. Using this comparison capability one can quickly evaluate a list of candidates to select the best one.

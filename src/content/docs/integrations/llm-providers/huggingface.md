@@ -1,5 +1,6 @@
 ---
 title: "Hugging Face Integration"
+description: "Register Hugging Face models in GGX using Hub models, optional tokens, model metadata, input arguments, and custom Python scoring logic."
 ---
 
 The Hugging Face integration provides direct access to thousands of open-source models from the Hugging Face Hub through a unified interface. Load once, cache efficiently, and use enterprise-grade model management with full governance and tracking.

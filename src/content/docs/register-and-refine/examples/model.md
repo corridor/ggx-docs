@@ -1,5 +1,6 @@
 ---
 title: "Model Registration: Gemini 2.0 Flash"
+description: "Register Gemini 2.0 Flash in the GGX Model Catalog with provider settings, input arguments, scoring logic, model metadata, and test examples."
 ---
 
 This guide covers registering the Gemini 2.0 Flash model on the platform. 

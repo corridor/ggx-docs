@@ -1,5 +1,6 @@
 ---
 title: "Metadata: Database Setup"
+description: "Configure GGX metadata database connections for PostgreSQL, Oracle, SQL Server, and related self-hosted database settings, migrations, and operational requirements."
 ---
 
 This section describes the different database options available for the Metadata Database. Choosing

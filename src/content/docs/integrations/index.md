@@ -1,5 +1,6 @@
 ---
 title: "GGX Integrations"
+description: "Connect GGX with LLM providers, LLM gateways, observability tools, agent frameworks, report providers, voice providers, and SSO systems across the AI lifecycle."
 ---
 
 GGX is built with extensibility in mind and supports a wide range of integrations that allow you to seamlessly plug into existing workflows and tools.

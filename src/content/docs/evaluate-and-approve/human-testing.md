@@ -1,5 +1,6 @@
 ---
 title: "Human Integrated Testing"
+description: "Run human-integrated GGX tests where reviewers evaluate pipeline behavior, capture qualitative feedback, validate outcomes, and support approval decisions."
 ---
 
 The Human Integrated Testing module enables comprehensive testing of GenAI pipelines both before approval (Pre-Approval) and after deployment (Post-Approval/Post-Deployment), involving humans in the loop.

@@ -1,5 +1,6 @@
 ---
 title: "Additional Libraries"
+description: "Install and manage additional Python libraries for self-hosted GGX components, notebooks, workers, and analytical workloads."
 ---
 
 GGX provides an option to allow the users to be able to use additional libraries which are not available

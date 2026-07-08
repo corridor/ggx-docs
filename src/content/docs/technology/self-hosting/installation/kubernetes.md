@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes"
+description: "Deploy self-hosted GGX on Kubernetes using Kustomize manifests, namespaces, persistent volumes, ingress, secrets, and provider-specific cluster settings."
 ---
 
 Use Kubernetes when you want a cloud-native GGX deployment with managed rollout, namespace isolation, persistent volumes, and standard cluster operations.

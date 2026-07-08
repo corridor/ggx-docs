@@ -1,5 +1,6 @@
 ---
 title: "Simulation"
+description: "Run GGX simulation jobs on datasets to evaluate objects, generate reports, inspect metrics, validate evaluators, and compare results before approval."
 ---
 
 The most common type of execution is a **Simulation** - used to execute analytics contained in the definition of an object that has been registered in the platform. And additionally, run dashboards and reports on that output.

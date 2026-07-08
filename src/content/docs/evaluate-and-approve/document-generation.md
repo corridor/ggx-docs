@@ -1,5 +1,6 @@
 ---
 title: "Document Generation"
+description: "Generate governance and approval documentation from GGX evaluation results, metadata, reports, object details, and review evidence for downstream stakeholders."
 ---
 
 As GGX starts to understand the kind of pipeline being created, what models, prompts, etc. it is using and also starts to understand the evaluations being run on the pipeline. It becomes a great central knowledge base of all work done throughout the GenAI lifecycle.

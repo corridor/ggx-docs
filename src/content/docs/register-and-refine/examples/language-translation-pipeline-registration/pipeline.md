@@ -1,5 +1,6 @@
 ---
 title: "Pipeline Registration Guide: English to French Translation"
+description: "Register an English-to-French translation pipeline in GGX using Gemini 2.0 Flash, custom translation logic, pipeline metadata, and usage tracking."
 ---
 
 This guide walks you through registering an **English to French Translation Pipeline** on the GGX. This pipeline automatically detects English text and provides high-quality French translations using Gemini 2.0 Flash.

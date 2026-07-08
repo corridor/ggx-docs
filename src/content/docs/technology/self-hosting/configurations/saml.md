@@ -1,5 +1,6 @@
 ---
 title: "SAML"
+description: "Configure SAML single sign-on for self-hosted GGX with enterprise identity providers, authentication settings, and user access requirements."
 ---
 
 While an internal authentication is available for simple and quick installations. It is recommended to use an enterprise-grade Identity Provider (IDP) to follow the infosec requirements for your organization. GGX can integrate into IDPs and seamlessly be a tool in your organization.

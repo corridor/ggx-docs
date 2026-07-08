@@ -1,5 +1,6 @@
 ---
 title: "Feedback Portals"
+description: "Create GGX Feedback Portals that let testers and domain experts interact with pipelines, define expected outputs, collect session feedback, and review structured quality signals."
 ---
 
 The Feedback Portal is a platform feature designed to help teams evaluate, test, and improve AI pipelines by collecting structured feedback from domain experts and testers. It bridges the gap between raw pipeline outputs and real-world quality assessment by letting subject matter experts interact with a pipeline directly and provide detailed evaluations of every session.

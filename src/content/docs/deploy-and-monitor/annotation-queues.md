@@ -1,5 +1,6 @@
 ---
 title: "Annotation Queues"
+description: "Use GGX Annotation Queues to bring human review into production monitoring, label live data, track ground truth, and turn reviewer feedback into auditable metrics."
 ---
 
 It is important to add a Human element when monitoring activity in Production as not all trends can be caught in an automated way. New trends are not always caught using programmatic approaches, but programmatic approaches are useful for repetitive tasks. Bringing a balance of both evaluation methods is key to maintaining a good healthy production system.

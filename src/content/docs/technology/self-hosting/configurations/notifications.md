@@ -1,5 +1,6 @@
 ---
 title: "Email Notifications"
+description: "Configure email notification settings for self-hosted GGX so approvals, alerts, reviews, and system events can reach the right users."
 ---
 
 GGX provides an option to send email notifications to the user on their registered email id when

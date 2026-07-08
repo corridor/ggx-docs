@@ -1,5 +1,6 @@
 ---
 title: "CICD & Direct to Production"
+description: "Export approved GGX artifacts into production runtimes, APIs, containers, serverless services, or CI/CD systems without requiring GGX in the production environment."
 ---
 
 Typically, production execution environments are kept separate and managed to ensure 100% uptime as these are mission-critical systems for organizations.

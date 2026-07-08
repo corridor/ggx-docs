@@ -1,5 +1,6 @@
 ---
 title: "Azure AI Integration"
+description: "Configure Azure AI in GGX and register Azure-hosted OpenAI models with API credentials, model provider settings, arguments, and scoring logic."
 ---
 
 The Azure AI integration provides access to OpenAI models hosted on Microsoft Azure through a unified interface. Configure once, use everywhere with enterprise-grade security and compliance.

@@ -1,5 +1,6 @@
 ---
 title: "Backups & Restore"
+description: "Back up and restore self-hosted GGX metadata databases, file management storage, data lake outputs, settings, and component configuration files."
 ---
 
 To perform backups, it is important to understand the data that the platform uses/saves.

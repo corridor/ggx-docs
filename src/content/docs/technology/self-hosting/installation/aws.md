@@ -1,5 +1,6 @@
 ---
 title: "AWS"
+description: "Deploy self-hosted GGX on AWS using ECS Fargate, EFS, load balancers, networking, IAM, database services, and container registry configuration."
 ---
 
 Use this page to choose and configure an AWS deployment path for GGX.

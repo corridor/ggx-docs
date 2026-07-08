@@ -1,5 +1,6 @@
 ---
 title: "Pipeline Registration Guide"
+description: "Register an intent classification pipeline in GGX by connecting a model and prompt, configuring pipeline metadata, adding resources, and testing outputs."
 ---
 
 A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Pipelines](../../../inventory-management/pipelines/) to understand more about what they are and how they work. This guide covers how to register pipelines on the GGX, using an **Intent Classification Pipeline** as a working example.

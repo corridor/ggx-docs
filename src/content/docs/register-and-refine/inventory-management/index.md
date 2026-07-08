@@ -1,5 +1,6 @@
 ---
 title: "Inventory Management"
+description: "Register, organize, govern, share, version, and monitor GGX data and GenAI assets including tables, models, prompts, RAGs, and end-to-end pipelines."
 ---
 
 ## Overview
