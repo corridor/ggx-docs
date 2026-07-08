@@ -1,5 +1,6 @@
 ---
 title: "Multiple GGX Workers"
+description: "Run multiple named GGX workers with separate queues, process files, logs, state databases, and worker-specific configuration in self-hosted environments."
 ---
 
 GGX provides an option to run multiple workers on the same server, without the workers interfering with

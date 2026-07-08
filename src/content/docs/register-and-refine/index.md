@@ -1,5 +1,6 @@
 ---
 title: "GenerativeAI Lifecycle Management"
+description: "Use GGX to manage the GenAI lifecycle from use case definition and data collection through pipeline development, evaluation, approval, deployment, and production monitoring."
 ---
 
 ## Generative AI Lifecycle:

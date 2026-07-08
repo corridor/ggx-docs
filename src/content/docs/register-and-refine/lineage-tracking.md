@@ -1,5 +1,6 @@
 ---
 title: "Lineage Tracking"
+description: "Use GGX lineage tracking to visualize object dependencies, identify upstream and downstream impact, support traceability, and understand how registered assets are used."
 ---
 
 Lineage tracking records and visualizes the complete lifecycle of an object and depicts the flow of execution, showing how objects interact, are transformed and executed. It captures its origins, building blocks used, transformations, and usages across the organization.

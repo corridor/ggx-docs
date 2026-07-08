@@ -1,5 +1,6 @@
 ---
 title: "Terraform"
+description: "Provision self-hosted GGX infrastructure as code with Terraform modules for AWS, Azure, and Google Cloud managed container deployments."
 ---
 
 Use Terraform when you want GGX infrastructure provisioned as code on a supported cloud. GGX maintains cloud-specific Terraform repositories for managed container deployments:

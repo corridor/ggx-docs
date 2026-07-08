@@ -1,5 +1,6 @@
 ---
 title: "GGX Sync"
+description: "Use GGX Sync to declare, version, and synchronize prompts, models, RAGs, pipelines, global functions, and reports from Python code into GenGuardX."
 ---
 
 ## Overview

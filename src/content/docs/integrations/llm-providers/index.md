@@ -1,5 +1,6 @@
 ---
 title: "Setting up Integrations"
+description: "Configure LLM provider integrations in GGX by adding API keys, testing connections, and exposing secure environment variables for model registration and model code."
 ---
 
 Setup integrations to services that provide LLMs as an API. Configure your API keys once to access multiple AI providers across the platform.

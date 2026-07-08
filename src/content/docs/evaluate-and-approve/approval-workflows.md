@@ -1,5 +1,6 @@
 ---
 title: "Approval Workflows"
+description: "Create GGX approval workflows with responsibilities, reviewers, review actions, comments, notifications, and audit trails for governed GenAI release decisions."
 ---
 
 <helper-panel object='ApprovalWorkflow' location='list'>

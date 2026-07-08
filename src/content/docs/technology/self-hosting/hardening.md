@@ -1,5 +1,6 @@
 ---
 title: "Hardening - Security"
+description: "Harden self-hosted GGX deployments with security controls for network access, secrets, authentication, infrastructure, data storage, and operational practices."
 ---
 
 This section describes additional setup that would be needed to make GGX secure. All the below

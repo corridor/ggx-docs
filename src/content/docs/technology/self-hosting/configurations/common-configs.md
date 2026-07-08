@@ -1,5 +1,6 @@
 ---
 title: "Common Configs"
+description: "Configure common self-hosted GGX settings for application services, API behavior, storage, authentication, workers, notebooks, logging, and deployment environments."
 ---
 
 After the installation, there are some configurations that need to be configured for each of the

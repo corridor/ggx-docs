@@ -1,5 +1,6 @@
 ---
 title: "Web Server Setup"
+description: "Configure Nginx, Apache, or other reverse proxies for self-hosted GGX, including routing, TLS, timeouts, compression, and application endpoints."
 ---
 
 ## Nginx Configurations

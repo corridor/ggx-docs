@@ -1,5 +1,6 @@
 ---
 title: "Scalability and Sizing"
+description: "Plan self-hosted GGX scalability for production throughput, simulation jobs, user analytics, application services, databases, APIs, and worker capacity."
 ---
 
 If the platform seems to be slow, there may be an infrastructure constraint in terms of resources

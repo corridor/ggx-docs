@@ -1,5 +1,6 @@
 ---
 title: "Google Cloud Vertex AI Integration"
+description: "Configure Google Cloud Vertex AI in GGX and register Gemini models with service credentials, provider settings, input arguments, and scoring logic."
 ---
 
 The Google Cloud Vertex AI integration provides access to Gemini models and AI agents through a unified interface. Configure once, use everywhere with enterprise-grade security and scalability.

@@ -1,5 +1,6 @@
 ---
 title: "Performance Tracking"
+description: "Track approved GGX object performance with recurring jobs, metrics dashboards, thresholds, alerts, and data views that surface production and evaluation trends."
 ---
 
 ## Overview

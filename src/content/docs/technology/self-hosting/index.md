@@ -1,5 +1,6 @@
 ---
 title: "Self-Hosted GGX"
+description: "Install, configure, scale, back up, harden, and operate self-hosted GGX instances across Kubernetes, Terraform, cloud, Docker, and manual deployment options."
 ---
 
 :::note[Pipeline Hosting]

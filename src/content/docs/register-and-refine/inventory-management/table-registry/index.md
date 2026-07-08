@@ -1,5 +1,6 @@
 ---
 title: "Data Assets"
+description: "Register data tables and quality checks in GGX so teams can track source data, fetch schemas, run data quality reports, audit changes, and reuse validation datasets."
 ---
 
 <helper-panel object='DataTable' location='list'>

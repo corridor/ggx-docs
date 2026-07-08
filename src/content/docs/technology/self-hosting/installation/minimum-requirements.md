@@ -1,5 +1,6 @@
 ---
 title: "Minimum Requirements"
+description: "Review the minimum CPU, memory, storage, database, Spark, Python, Java, web server, and process management requirements for self-hosted GGX components."
 ---
 
 This section describes the minimum requirements that are needed for a GGX installation.

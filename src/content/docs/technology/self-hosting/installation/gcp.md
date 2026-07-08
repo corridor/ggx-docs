@@ -1,5 +1,6 @@
 ---
 title: "GCP"
+description: "Deploy self-hosted GGX on Google Cloud using Cloud Run, GKE, Cloud SQL, Cloud Storage, networking, service accounts, and Terraform modules."
 ---
 
 Use this page to choose and configure a Google Cloud deployment path for GGX.

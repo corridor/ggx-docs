@@ -1,5 +1,6 @@
 ---
 title: "OpenAI Integration"
+description: "Configure OpenAI in GGX and register OpenAI-backed models with API credentials, model settings, arguments, and governed scoring logic."
 ---
 
 The OpenAI integration provides direct access to OpenAI models through a unified interface. Configure once, use everywhere with enterprise-grade performance and the latest AI capabilities from OpenAI.

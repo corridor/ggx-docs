@@ -1,5 +1,6 @@
 ---
 title: "Process Management"
+description: "Run self-hosted GGX services under process managers such as systemd or Supervisor to manage startup, restarts, logs, and long-running components."
 ---
 
 For ease of maintenance and monitoring, it is recommended to use a process management tool to ensure

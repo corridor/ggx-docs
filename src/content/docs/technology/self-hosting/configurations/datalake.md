@@ -1,5 +1,6 @@
 ---
 title: "Datalake Integration"
+description: "Configure GGX data lake access for self-hosted deployments so jobs, reports, and analytics can read and write approved data locations."
 ---
 
 GGX provides the ability to connect to different kinds of data lakes which could have data saved as `parquet`, `orc`,

@@ -1,5 +1,6 @@
 ---
 title: "CI CD Integrations"
+description: "Integrate GGX approval workflows with external CI/CD and review systems by implementing custom approval handlers and exchanging review actions through APIs."
 ---
 
 There are scenarios when approval of an object is not confined to the reviewers registered on the platform.

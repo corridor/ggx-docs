@@ -1,5 +1,6 @@
 ---
 title: "Cleanlab"
+description: "Connect Cleanlab with GGX to use external data quality and evaluation signals in model, RAG, pipeline, and dataset assessment workflows."
 ---
 
 ![alt text](cleanlab_logo.png)

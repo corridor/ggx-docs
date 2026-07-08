@@ -1,5 +1,6 @@
 ---
 title: "Anthropic Integration"
+description: "Configure Anthropic in GGX and register Claude-backed models with provider credentials, model arguments, scoring logic, and governed model metadata."
 ---
 
 The Anthropic integration provides access to Claude models through a unified interface. Configure once, use everywhere with enterprise-grade safety features and constitutional AI principles built into every interaction.

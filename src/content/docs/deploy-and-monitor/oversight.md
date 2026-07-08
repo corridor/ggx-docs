@@ -1,5 +1,6 @@
 ---
 title: "Governance Oversight"
+description: "Monitor GGX governance activity with dashboards, object views, custom alerts, role-based views, and review signals across registered models, prompts, RAGs, and pipelines."
 ---
 
 The Monitoring Dashboard provides users with a comprehensive overview of all registered objects on the platform which helps in providing a clear Oversight of all activities happening. It offers an interface that enables users to access snapshots and trend statistics related to various objects, jobs, and users. The dashboard provides various metadata information such as properties, attributes, and statuses of the registered objects.

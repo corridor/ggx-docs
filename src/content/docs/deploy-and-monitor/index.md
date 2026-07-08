@@ -1,5 +1,6 @@
 ---
 title: "Deployment and Monitoring"
+description: "Deploy approved GGX pipeline artifacts to production and monitor reliability, performance, accuracy, alerts, and human annotation queues for live GenAI systems."
 ---
 
 Once a pipeline is registered on the GGX platform, it can be [evaluated and approved](../evaluate-and-approve/) within the system. After approval, the locked pipeline artifact can be [exported directly to production](direct-to-production/).

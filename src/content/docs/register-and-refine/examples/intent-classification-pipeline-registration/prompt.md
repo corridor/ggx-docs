@@ -1,5 +1,6 @@
 ---
 title: "Prompt Registration Guide"
+description: "Register an intent classification prompt in GGX by defining prompt metadata, template variables, structured instructions, examples, and test cases."
 ---
 
 This guide covers how to register prompts on the GGX, using an **Intent Classification Prompt** as a working example.
