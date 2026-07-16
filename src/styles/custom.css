@@ -4,238 +4,394 @@
  */
 
 :root {
-  --sl-font: 'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --sl-font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', 'Consolas', monospace;
+    --sl-font:
+        "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+        sans-serif;
+    --sl-font-mono:
+        "DM Mono", ui-monospace, "SFMono-Regular", "Consolas", monospace;
 
-  /* Brand accent ramp (used in dark theme by default) */
-  --sl-color-accent-low: #1b2236;
-  --sl-color-accent: #5b6a96;
-  --sl-color-accent-high: #c8d0e4;
+    /* Brand accent ramp (used in dark theme by default) */
+    --sl-color-accent-low: #1b2236;
+    --sl-color-accent: #5b6a96;
+    --sl-color-accent-high: #c8d0e4;
 }
 
 /* Light theme */
-:root[data-theme='light'] {
-  --sl-color-accent-low: #d7dcec;
-  --sl-color-accent: #2f3a57;
-  --sl-color-accent-high: #1a1f30;
+:root[data-theme="light"] {
+    --sl-color-accent-low: #d7dcec;
+    --sl-color-accent: #2f3a57;
+    --sl-color-accent-high: #1a1f30;
 }
 
 /* Headings: tighter, more confident */
 :where(h1, h2, h3, h4) {
-  font-weight: 700;
-  letter-spacing: -0.012em;
+    font-weight: 700;
+    letter-spacing: -0.012em;
 }
 
 /* ---- Figures / diagrams ------------------------------------------------ */
 /* Center diagrams, cap their width, and give them a soft branded frame so
  * they read consistently in both light and dark mode. */
-.sl-markdown-content img[src$='.svg'],
+.sl-markdown-content img[src$=".svg"],
 .sl-markdown-content figure img {
-  display: block;
-  margin-inline: auto;
+    display: block;
+    margin-inline: auto;
 }
 
 .ggx-figure {
-  margin: 1.75rem auto;
-  max-width: 46rem;
+    margin: 1.75rem auto;
+    max-width: 46rem;
+}
+
+.ggx-figure--wide {
+    max-width: 58rem;
 }
 
 .ggx-figure img {
-  width: 100%;
-  border: 1px solid var(--sl-color-gray-5);
-  border-radius: 0.75rem;
-  background: #ffffff;
-  padding: 0.5rem;
+    width: 100%;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    background: #ffffff;
+    padding: 0.5rem;
 }
 
 .ggx-figure figcaption {
-  margin-top: 0.6rem;
-  text-align: center;
-  font-size: var(--sl-text-sm);
-  color: var(--sl-color-gray-3);
+    margin-top: 0.6rem;
+    text-align: center;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+}
+
+/* ---- Benchmark summaries --------------------------------------------- */
+.ggx-benchmark-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.ggx-benchmark-kpi {
+    min-width: 0;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    background: var(--sl-color-bg-nav);
+    padding: 1rem;
+    margin: 0;
+}
+
+.ggx-benchmark-kpi strong {
+    display: block;
+    color: var(--sl-color-accent-high);
+    font-family: var(--sl-font-mono);
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+}
+
+.ggx-benchmark-kpi span {
+    display: block;
+    margin-top: 0.55rem;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    line-height: 1.35;
+}
+
+.ggx-benchmark-formula {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--sl-color-accent);
+    border-radius: 0.75rem;
+    background: var(--sl-color-accent-low);
+    padding: 1rem;
+    color: var(--sl-color-accent-high);
+    font-family: var(--sl-font-mono);
+    font-size: var(--sl-text-sm);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.ggx-benchmark-formula__lhs {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ggx-benchmark-formula__lhs strong {
+    color: var(--sl-color-accent);
+    font-size: 1.15rem;
+}
+
+.ggx-benchmark-formula__fraction {
+    display: inline-grid;
+    flex: 1 1 30rem;
+    grid-template-rows: auto auto;
+    min-width: 0;
+}
+
+.ggx-benchmark-formula__numerator,
+.ggx-benchmark-formula__denominator {
+    padding: 0.45rem 0.75rem;
+}
+
+.ggx-benchmark-formula__numerator {
+    border-bottom: 2px solid var(--sl-color-accent);
+}
+
+@media (max-width: 54rem) {
+    .ggx-benchmark-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 30rem) {
+    .ggx-benchmark-kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .ggx-benchmark-formula {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .ggx-benchmark-formula__lhs {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 42rem) {
+    .ggx-monitoring-loop {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.25rem;
+    }
+
+    .ggx-monitoring-loop__connector {
+        min-width: 0;
+        height: 2rem;
+    }
+
+    .ggx-monitoring-loop__connector::before {
+        top: 0;
+        right: auto;
+        bottom: 0.35rem;
+        left: 50%;
+        border-top: 0;
+        border-left: 2px solid var(--sl-color-accent);
+    }
+
+    .ggx-monitoring-loop__connector::after {
+        top: auto;
+        right: auto;
+        bottom: 0.2rem;
+        left: calc(50% - 0.3rem);
+        transform: rotate(135deg);
+    }
 }
 
 /* ---- Cards: subtle lift on hover -------------------------------------- */
 .sl-markdown-content .card {
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
 }
 
 .sl-markdown-content .card:hover {
-  border-color: var(--sl-color-accent);
-  box-shadow: 0 6px 20px -12px rgba(41, 49, 71, 0.5);
-  transform: translateY(-2px);
+    border-color: var(--sl-color-accent);
+    box-shadow: 0 6px 20px -12px rgba(41, 49, 71, 0.5);
+    transform: translateY(-2px);
 }
 
 /* ---- Asides: a touch more presence ----------------------------------- */
 .sl-markdown-content .starlight-aside {
-  border-inline-start-width: 3px;
-  border-radius: 0.375rem;
+    border-inline-start-width: 3px;
+    border-radius: 0.375rem;
 }
 
 /* ---- Collapsible <details>: make it obviously expandable -------------- */
 .sl-markdown-content details.ggx-details {
-  margin: 1.25rem 0;
-  border: 1px solid var(--sl-color-accent);
-  border-inline-start-width: 3px;
-  border-radius: 0.5rem;
-  background: var(--sl-color-accent-low);
-  padding: 0 1rem;
+    margin: 1.25rem 0;
+    border: 1px solid var(--sl-color-accent);
+    border-inline-start-width: 3px;
+    border-radius: 0.5rem;
+    background: var(--sl-color-accent-low);
+    padding: 0 1rem;
 }
 
 .sl-markdown-content details.ggx-details > summary {
-  cursor: pointer;
-  list-style: none;
-  font-weight: 600;
-  padding: 0.7rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    padding: 0.7rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
 }
 
 .sl-markdown-content details.ggx-details > summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
 
 /* +/− toggle so the expand/collapse affordance is unmistakable */
 .sl-markdown-content details.ggx-details > summary::before {
-  content: '+';
-  flex: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--sl-color-accent);
-  border-radius: 0.25rem;
-  color: var(--sl-color-accent);
-  font-size: 1rem;
-  line-height: 1;
-  font-weight: 700;
+    content: "+";
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--sl-color-accent);
+    border-radius: 0.25rem;
+    color: var(--sl-color-accent);
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
 }
 
 .sl-markdown-content details.ggx-details[open] > summary::before {
-  content: '−';
+    content: "−";
 }
 
 .sl-markdown-content details.ggx-details[open] {
-  padding-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 /* ---- Page-level LLM actions ------------------------------------------ */
 .ggx-page-title-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .ggx-page-title-row h1 {
-  min-width: 0;
-  margin-top: 0;
+    min-width: 0;
+    margin-top: 0;
 }
 
 .ggx-ai-menu {
-  position: relative;
-  flex: none;
-  margin-top: 0.15rem;
-  z-index: 5;
+    position: relative;
+    flex: none;
+    margin-top: 0.15rem;
+    z-index: 5;
 }
 
 .ggx-ai-menu summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  min-height: 2.25rem;
-  border: 1px solid var(--sl-color-gray-5);
-  border-radius: 0.375rem;
-  padding: 0.35rem 0.65rem;
-  background: var(--sl-color-bg-nav);
-  color: var(--sl-color-gray-2);
-  font-size: var(--sl-text-sm);
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
-  user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    padding: 0.35rem 0.65rem;
+    background: var(--sl-color-bg-nav);
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
 }
 
 .ggx-ai-menu summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
 
 .ggx-ai-menu summary::marker {
-  content: '';
+    content: "";
 }
 
 .ggx-ai-menu summary:hover,
 .ggx-ai-menu[open] summary {
-  border-color: var(--sl-color-accent);
-  color: var(--sl-color-white);
+    border-color: var(--sl-color-accent);
+    color: var(--sl-color-white);
 }
 
 .ggx-ai-menu summary svg {
-  width: 1rem;
-  height: 1rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .ggx-ai-menu summary svg:last-child {
-  transition: transform 0.15s ease;
+    transition: transform 0.15s ease;
 }
 
 .ggx-ai-menu[open] summary svg:last-child {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .ggx-ai-menu__panel {
-  position: absolute;
-  top: calc(100% + 0.35rem);
-  right: 0;
-  display: grid;
-  min-width: 13.5rem;
-  overflow: hidden;
-  border: 1px solid var(--sl-color-gray-5);
-  border-radius: 0.5rem;
-  background: var(--sl-color-bg);
-  box-shadow: 0 16px 32px -22px rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    right: 0;
+    display: grid;
+    min-width: 13.5rem;
+    overflow: hidden;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-bg);
+    box-shadow: 0 16px 32px -22px rgba(0, 0, 0, 0.8);
 }
 
 .ggx-ai-menu__panel a {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.65rem 0.75rem;
-  color: var(--sl-color-gray-2);
-  font-size: var(--sl-text-sm);
-  line-height: 1.2;
-  text-decoration: none;
-  white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 0.75rem;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .ggx-ai-menu__panel a:hover,
 .ggx-ai-menu__panel a:focus-visible {
-  background: var(--sl-color-gray-6);
-  color: var(--sl-color-white);
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-white);
 }
 
 .ggx-ai-menu__panel svg {
-  flex: none;
-  width: 1rem;
-  height: 1rem;
-  color: var(--sl-color-accent);
+    flex: none;
+    width: 1rem;
+    height: 1rem;
+    color: var(--sl-color-accent);
+}
+
+.ggx-monitoring-stage-table :is(th, td):nth-child(-n + 2) {
+  white-space: nowrap;
+}
+
+.ggx-benchmark-results-table table {
+  font-family: var(--sl-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.ggx-assignment-card-grid .card-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.ggx-assignment-card-grid .card {
+    padding: 1rem 1.25rem;
 }
 
 @media (max-width: 42rem) {
-  .ggx-page-title-row {
-    display: block;
-  }
+    .ggx-page-title-row {
+        display: block;
+    }
 
-  .ggx-ai-menu {
-    margin-top: 0.75rem;
-  }
+    .ggx-ai-menu {
+        margin-top: 0.75rem;
+    }
 
-  .ggx-ai-menu__panel {
-    left: 0;
-    right: auto;
-    width: min(18rem, calc(100vw - 2rem));
-  }
+    .ggx-ai-menu__panel {
+        left: 0;
+        right: auto;
+        width: min(18rem, calc(100vw - 2rem));
+    }
 }

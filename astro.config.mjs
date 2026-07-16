@@ -387,6 +387,15 @@ export default defineConfig({
                   },
                 ],
               },
+              {
+                label: "Benchmarks",
+                items: [
+                  {
+                    label: "Monitoring - Multi Agents",
+                    slug: "technology/benchmarks/monitoring",
+                  },
+                ],
+              },
             ],
           },
           {

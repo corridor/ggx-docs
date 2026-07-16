@@ -1,0 +1,172 @@
+---
+interface ChartSeries {
+  key: string;
+  label: string;
+}
+
+interface ChartDatum {
+  label: string;
+  values: Record<string, number>;
+  display?: Record<string, string>;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  series: ChartSeries[];
+  data: ChartDatum[];
+  max?: number;
+}
+
+const { title, description, series, data, max: suppliedMax } = Astro.props;
+const maxValue = suppliedMax ?? Math.max(...data.flatMap((datum) => Object.values(datum.values)));
+---
+
+<figure class="benchmark-bar-chart">
+  <figcaption>
+    <strong>{title}</strong>
+    <span>{description}</span>
+  </figcaption>
+
+  <div class="plot" role="list">
+    {data.map((datum) => (
+      <div class="group" role="listitem">
+        <strong class="category">{datum.label}</strong>
+        <div class="series-list">
+          {series.map((item, index) => {
+            const value = datum.values[item.key];
+            const displayValue = datum.display?.[item.key] ?? String(value);
+            const width = maxValue > 0 ? Math.max((value / maxValue) * 100, value > 0 ? 0.8 : 0) : 0;
+
+            return (
+              <div
+                class:list={['series-row', { 'series-row--muted': series.length > 1 && index === 0 }]}
+                role="group"
+                aria-label={`${datum.label}, ${item.label}: ${displayValue}`}
+              >
+                <span class="series-label">{item.label}</span>
+                <span class="track" aria-hidden="true">
+                  <span class="bar" style={`--bar-width: ${width}%`}></span>
+                </span>
+                <strong class="value">{displayValue}</strong>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .benchmark-bar-chart {
+    overflow: hidden;
+    margin: 1.5rem 0;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    background: var(--sl-color-bg-nav);
+  }
+
+  figcaption {
+    display: grid;
+    gap: 0.3rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+    padding: 1rem 1.1rem;
+  }
+
+  figcaption strong {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-lg);
+  }
+
+  figcaption span {
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-sm);
+    line-height: 1.45;
+  }
+
+  .plot {
+    display: grid;
+    gap: 1rem;
+    padding: 1.1rem;
+  }
+
+  .group {
+    display: grid;
+    grid-template-columns: minmax(7rem, 9rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .category {
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    line-height: 1.3;
+  }
+
+  .series-list {
+    display: grid;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .series-row {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, auto) minmax(0, 1fr) minmax(4.75rem, auto);
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .series-label,
+  .value {
+    font-size: var(--sl-text-xs);
+    line-height: 1.2;
+  }
+
+  .series-label {
+    color: var(--sl-color-gray-3);
+  }
+
+  .value {
+    color: var(--sl-color-white);
+    font-family: var(--sl-font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .track {
+    overflow: hidden;
+    height: 0.7rem;
+    border-radius: 999px;
+    background: var(--sl-color-gray-6);
+  }
+
+  .bar {
+    display: block;
+    width: var(--bar-width);
+    height: 100%;
+    border-radius: inherit;
+    background: var(--sl-color-accent);
+  }
+
+  .series-row--muted .bar {
+    background: var(--sl-color-gray-3);
+  }
+
+  @media (max-width: 38rem) {
+    .group {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.5rem;
+    }
+
+    .series-row {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.4rem 0.65rem;
+    }
+
+    .series-label {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
