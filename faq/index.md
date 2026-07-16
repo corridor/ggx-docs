@@ -1,0 +1,197 @@
+# Frequently Asked Questions
+Source: https://docs.genguardx.ai/faq/
+Markdown: https://docs.genguardx.ai/faq/index.md
+Description: Common questions about evaluating and monitoring GenAI applications in GGX — production monitoring, reports and dashboards, LLM-as-a-judge metrics, reusable assets, data and integrations, governance and testing, versioning, and human feedback.
+This page answers the questions teams ask most often when they start evaluating and monitoring GenAI applications on GGX. Each answer links to the reference page that covers it in depth.
+
+## Production monitoring
+
+### How do I monitor a GenAI agent running in production?
+
+Three building blocks, in order:
+
+1. Bring your production interaction data into a registered **Data Table** (upload a file, or connect to a database, cloud bucket, or data lake).
+2. Build one or more **Reports** that compute the evaluation metrics you care about.
+3. Create a **monitoring Simulation** that runs those reports over the table and publishes a **Dashboard**.
+
+The dashboard is the end result — an executive summary plus deep-dive sections you can drill into.
+
+### What is the difference between pre-production and post-production evaluation?
+
+**Pre-production** tests a registered object (a Pipeline, Model, RAG, or Prompt) on curated test data *before* approval. **Post-production** monitors *live* data after deployment. The same reports and metrics can serve both — a report's **Object Types** let you mark it eligible for pipelines (pre-prod) and for monitoring (post-prod), so you write the logic once.
+
+### How do I keep a monitoring view continuously up to date?
+
+Set the job up as a **recurring simulation** and select its first iteration for the **Metrics Dashboard**. The dashboard then tracks the latest completed run, and the platform can notify you as iterations near completion.
+
+### Can I filter or reshape data before it reaches a report?
+
+Yes. The monitoring job has a pre-processing step between the raw table and the report where you can filter rows, rename columns, sample, or group records — reusing registered **Global Functions** so you do not rewrite the logic per agent. Filtering can also live inside the report's computation logic.
+
+<CardGrid>
+<LinkCard title="Simulation" href={`${import.meta.env.BASE_URL}evaluate-and-approve/simulation/`} />
+<LinkCard title="Performance Tracking" href={`${import.meta.env.BASE_URL}deploy-and-monitor/performance/`} />
+<LinkCard title="Governance Oversight" href={`${import.meta.env.BASE_URL}deploy-and-monitor/oversight/`} />
+<LinkCard title="Table Registry" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/table-registry/`} />
+</CardGrid>
+
+## Reports and dashboards
+
+### What goes into a report?
+
+A report is made of five building blocks: **metadata** (name, object type, risk/task classification, evaluation methodology), a **data schema** (the columns it reads), a **parameter schema** (run-time inputs), **computation logic** (filtering, transformations, and metric calculations), and **visualization logic**. The job's data arrives as a dictionary of DuckDB DataFrames that you can compute over in Pandas.
+
+### What kinds of visualizations can a report produce?
+
+Markdown/HTML for narrative summaries, and **Plotly, Seaborn, or Matplotlib** for charts. A returned Pandas DataFrame renders automatically as a sortable, filterable grid table. A common pattern is an HTML **executive summary** at the top, followed by per-metric deep-dive figures and a raw assessment table you can export.
+
+### Can one report be reused across many agents?
+
+Yes — that is the point of registering it. Write a report generically against the columns it expects (for example, *user message*, *response*, and *context*) and it runs on any table or agent that provides them. You can also build agent-specific reports when a use case needs bespoke metrics.
+
+### Do I need to define metrics separately for every agent?
+
+No — you generalise by **agent pattern**, not per agent. Conversational (single-turn), multi-turn, and RAG agents each have their own natural set of metrics, so you build one report per pattern and run it across every agent of that type, adding agent-specific metrics only where a use case truly needs them.
+
+### Does GGX come with ready-made reports and metrics?
+
+Yes. A library of out-of-the-box reports and metrics ships with the platform — covering common needs such as response accuracy, intent accuracy, stability, and vulnerability — and domain starter kits bundle reports relevant to sectors like financial services and healthcare. You can run them as-is or copy and adapt them.
+
+### Can different stakeholders each see their own dashboard?
+
+Yes. Dashboards and custom views can be tailored to an audience and surfaced by **role** — an environment-wide executive summary, a team or product-domain view, a per-customer/tenant view, or an object-level view for the developers of a single agent.
+
+### How do I build a full dashboard?
+
+Group several reports together — each contributing its own metrics and visuals — into a use-case dashboard that is published when the job completes.
+
+<CardGrid>
+<LinkCard title="Reporting" href={`${import.meta.env.BASE_URL}evaluate-and-approve/reporting/`} />
+<LinkCard title="Role-based dashboards" href={`${import.meta.env.BASE_URL}deploy-and-monitor/oversight/#role-based-and-multi-level-dashboards`} />
+<LinkCard title="Out-of-the-box reports" href={`${import.meta.env.BASE_URL}evaluate-and-approve/reporting/#reusing-reports-across-agents`} />
+<LinkCard title="Access &amp; roles" href={`${import.meta.env.BASE_URL}register-and-refine/collaboration/#access-management`} />
+</CardGrid>
+
+## Evaluation metrics and LLM-as-a-judge
+
+### What is an LLM-as-a-judge?
+
+It is an LLM registered as a **Model** in the Model Catalog whose job is to *score* another model's output against criteria defined in a **Prompt** — for example, rating answer relevancy on a 0–4 scale. Because it is a registered asset, the same judge is reusable as a resource across any report.
+
+### Which evaluation metrics can I capture?
+
+Common ones include **answer relevancy**, **factual accuracy / faithfulness**, **groundedness**, **context relevancy**, **completeness**, **toxicity**, **PII detection**, and **tool-selection / tool-call accuracy** — alongside operational metrics like **latency, cost, and token counts**. You can mix LLM judges, rule-based checks, and NLP libraries to compute them.
+
+### How do I know I can trust a judge?
+
+Test the judge the same way you test any model: run it over a **ground-truth dataset** and compute classification metrics to see how well it agrees with known answers, then refine its prompt (including via <a href={`${import.meta.env.BASE_URL}register-and-refine/prompt-optimization/`}>Prompt Optimization</a>) to fit your use case before relying on it.
+
+### When should I use a heuristic check instead of an LLM judge?
+
+Use cheap, deterministic **heuristics** first — thresholds on tokens, length, or cost; staleness checks; keyword-based failure detection; PII detection via libraries. They are instant and free, and they triage the obvious cases. Reserve LLM judges for the nuanced quality questions that rules cannot answer.
+
+### How is PII detected — does it always need an LLM?
+
+No. PII is usually caught with **deterministic rule-based / NLP libraries** rather than an LLM — fast and inexpensive — and the same tools can redact the detected values. LLM-based checks are reserved for nuanced, context-dependent cases, such as distinguishing data the user explicitly asked for from a genuine leak.
+
+### Can I replay production prompts to choose a better model?
+
+Yes — that is a **Comparison** job. Register challenger versions (swap in a different model, prompt, or component), run them against a common dataset, and compare the metrics side by side to select the best candidate.
+
+<CardGrid>
+<LinkCard title="LLM-as-a-judge" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/model-catalog/#models-as-evaluators-llm-as-a-judge`} />
+<LinkCard title="Evaluation metrics in reports" href={`${import.meta.env.BASE_URL}evaluate-and-approve/reporting/#evaluation-metrics-in-monitoring-reports`} />
+<LinkCard title="Validating an evaluator" href={`${import.meta.env.BASE_URL}evaluate-and-approve/simulation/#validating-an-evaluator`} />
+<LinkCard title="Comparison" href={`${import.meta.env.BASE_URL}evaluate-and-approve/comparison/`} />
+<LinkCard title="Approval Workflows" href={`${import.meta.env.BASE_URL}evaluate-and-approve/approval-workflows/`} />
+</CardGrid>
+
+## Reusable assets
+
+### How does GGX avoid rewriting the same evaluation logic everywhere?
+
+Everything is a reusable, governed asset: **Models** (including judges), **Prompts** (templates), and **Global Functions** (utilities). You compose these resources into a report rather than copy-pasting code, and registration brings change tracking, approvals, and lineage with it.
+
+### How do I add a utility like cosine similarity, deduplication, or PII redaction?
+
+Register it as a **Global Function**. It is then callable both inside a report's computation logic and in the monitoring pre-processing step — write it once, reuse it everywhere.
+
+### Can I author assets in my own IDE?
+
+Yes. Use the GGX Sync package to develop in your editor and push assets into the platform, keeping source control and review in your normal workflow.
+
+<CardGrid>
+<LinkCard title="Global Functions" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/global-functions/`} />
+<LinkCard title="Prompts" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/prompts/`} />
+<LinkCard title="GGX Sync" href={`${import.meta.env.BASE_URL}register-and-refine/sync/`} />
+</CardGrid>
+
+## Data and integrations
+
+### My production export is huge — do I have to upload a CSV?
+
+No. For large datasets, connect GGX to a **database, cloud bucket, or data lake** (for example, a Parquet source) instead of uploading through the UI. The data is then fetched server-side and still viewable as a table.
+
+### How do I connect an LLM provider or API key?
+
+Go to **Settings → Platform Integrations**, pick the provider, add its credentials, and use **Test Connection** to confirm. The **Advanced** tab lets you define environment variables available across the platform, and you can request models that are not yet in your inventory.
+
+### Can I swap an embedding or judge model later?
+
+Yes — assets are plug-and-play. You can start with an open-source embedding model and switch to a hosted provider with no change to the surrounding logic, because the function simply expects text in and an embedding (or score) out. To choose between candidates, run them over a labelled dataset and compare.
+
+### What data can I run a report or simulation on?
+
+Several sources: a **registered table** (uploaded, or connected from a data lake/bucket), a **custom file** uploaded for the run, **AI-generated** data when you need to synthesize cases you do not have, or **human-labelled** data promoted from an Annotation Queue for ground-truth runs.
+
+<CardGrid>
+<LinkCard title="Platform Integrations" href={`${import.meta.env.BASE_URL}integrations/`} />
+<LinkCard title="LLM Providers" href={`${import.meta.env.BASE_URL}integrations/llm-providers/`} />
+<LinkCard title="Table Registry" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/table-registry/`} />
+</CardGrid>
+
+## Governance, testing, and versioning
+
+### Do I still need Git to manage this evaluation code?
+
+For governance, the platform replaces what teams usually bolt onto Git: every change to a report, judge, or function is snapshotted with author and reason, and promotion runs through an approval workflow that non-developers can read. You can still develop in your own editor and sync the code in — but you do not need Git to get change history, approvals, or an audit trail.
+
+### How do I test changes before they are approved?
+
+Several ways: use **Test Code** while editing to run logic against sample inputs; run a **Simulation** or **Comparison** over test or ground-truth data; or export the code and test it in your own environment. As part of approval, a **regression suite** can be re-run automatically and external **CI** checks can be required before promotion.
+
+### Can I see which version of a report produced a past dashboard?
+
+Yes. Every object keeps a full **Change History** of snapshots, so from a dashboard you can open the exact version of the report that generated it at that point in time — and restore or compare versions as needed.
+
+<CardGrid>
+<LinkCard title="Version Management" href={`${import.meta.env.BASE_URL}register-and-refine/version-management/`} />
+<LinkCard title="Approval Workflows" href={`${import.meta.env.BASE_URL}evaluate-and-approve/approval-workflows/`} />
+<LinkCard title="GGX Sync" href={`${import.meta.env.BASE_URL}register-and-refine/sync/`} />
+<LinkCard title="Collaboration" href={`${import.meta.env.BASE_URL}register-and-refine/collaboration/`} />
+</CardGrid>
+
+## Human feedback and continuous improvement
+
+### How do subject-matter experts give feedback on agent quality?
+
+Through **Feedback Portals** — an SME interacts with the pipeline directly, rates individual responses, and answers structured closing questions. The portal aggregates this into insights on coverage and performance.
+
+### How do I label production data or build ground truth?
+
+Use **Annotation Queues** to label live production outcomes (Is Accurate, Notes, Ground Truth) in an auditable, deduplicated workflow — a major improvement over spreadsheets.
+
+### How do I turn recurring feedback into new evaluations?
+
+This is the loop that makes evaluation scale: collect SME feedback and labels, identify the recurring failure categories, codify each category as a new **judge / report**, then run it across *all* your agents on a recurring schedule. New problems become new automated checks over time.
+
+### How do I get alerted when something goes wrong?
+
+Configure **Automated Alerts** on your dashboard data — conditions and thresholds with a severity level. A triggered alert can send notifications, **email or Slack** messages, raise a flag, or open a review on the responsible object. This is how you catch runaway behaviour early — for example, an agent burning an abnormal number of tokens.
+
+<CardGrid>
+<LinkCard title="Feedback Portals" href={`${import.meta.env.BASE_URL}evaluate-and-approve/feedback-portals/`} />
+<LinkCard title="Annotation Queues" href={`${import.meta.env.BASE_URL}deploy-and-monitor/annotation-queues/`} />
+<LinkCard title="Human Integrated Testing" href={`${import.meta.env.BASE_URL}evaluate-and-approve/human-testing/`} />
+<LinkCard title="Performance Tracking" href={`${import.meta.env.BASE_URL}deploy-and-monitor/performance/`} />
+</CardGrid>
