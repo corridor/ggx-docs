@@ -86,6 +86,96 @@ The Parameter Schema lists the **inputs a user supplies at run time** — thresh
 | `selectbox` | Dropdown | One choice from a longer list (`options`). |
 | `selectbutton` | Button group | One choice from a short set of `options`. |
 
+The following examples show common parameter schema patterns you can adapt for reports.
+
+<details class="ggx-details">
+<summary>Prompt inputs</summary>
+
+Two common report parameters for collecting user input before generating a report.
+
+```json
+[
+  {
+    "key": "department",
+    "type": "selectbox",
+    "label": "Department",
+    "placeholder": "Choose a department",
+    "options": [
+      "Sales",
+      "Support",
+      "Finance"
+    ],
+    "required": true
+  },
+  {
+    "key": "reporting_period",
+    "type": "textbox",
+    "label": "Reporting period",
+    "placeholder": "e.g. 2026-Q2",
+    "required": true
+  }
+]
+```
+
+</details>
+
+<details class="ggx-details">
+<summary>Numeric threshold</summary>
+
+A numeric parameter for reports that need a score cutoff, confidence floor, or pass/fail boundary.
+
+```json
+[
+  {
+    "key": "minimum_confidence",
+    "type": "numberbox",
+    "label": "Minimum confidence",
+    "placeholder": "0.8",
+    "description": "Rows below this confidence score are flagged for review.",
+    "defaultValue": "0.8",
+    "required": true
+  }
+]
+```
+
+</details>
+
+<details class="ggx-details">
+<summary>Choice controls</summary>
+
+Use `selectbox` for a longer list and `selectbutton` when the user should pick from a short, visible set of options.
+
+```json
+[
+  {
+    "key": "risk_category",
+    "type": "selectbox",
+    "label": "Risk category",
+    "placeholder": "Choose a risk category",
+    "options": [
+      "Accuracy",
+      "Bias",
+      "Toxicity",
+      "Security"
+    ],
+    "required": true
+  },
+  {
+    "key": "review_mode",
+    "type": "selectbutton",
+    "label": "Review mode",
+    "defaultValue": "Summary",
+    "options": [
+      "Summary",
+      "Detailed"
+    ],
+    "required": true
+  }
+]
+```
+
+</details>
+
 For example, a single pass/fail threshold:
 
 ```json
