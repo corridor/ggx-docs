@@ -1,0 +1,86 @@
+# Collaboration
+Source: https://docs.genguardx.ai/register-and-refine/collaboration/
+Markdown: https://docs.genguardx.ai/register-and-refine/collaboration/index.md
+Description: How teams collaborate in GGX — sharing and requesting object access, role-based access management, external sync, groups, workspaces, and monitoring dashboards.
+GGX is built to help teams **develop, test, and monitor** GenAI pipelines together. Assets from different workstreams live in one central place, so developers, reviewers, and testers can build, iterate, and reuse each other's work instead of starting from scratch.
+
+## Sharing and requesting access
+
+Any registered object in **Draft** or **Pending Approval** status can be shared with other users — or a user can raise a request for it. Access comes in two levels:
+
+<CardGrid>
+<Card title="Read" icon="open-book">
+View the object, run evaluations, download its documentation and artifacts, and **reuse** it inside another object.
+</Card>
+<Card title="Write" icon="pencil">
+Everything Read allows, plus **edit, delete, send for approval, and share** the object with others.
+</Card>
+</CardGrid>
+
+When requesting access, you choose the **scope**: the object on its own, or the object **together with its lineage** — every upstream component it depends on.
+
+:::note[Re-share when lineage changes]
+If you add new objects to something already shared with full lineage, you must **re-share** it so collaborators keep access to the complete dependency chain.
+:::
+
+### Rules worth knowing
+
+| Rule | Detail |
+|------|--------|
+| **Eligibility** | You can only request access to objects your **user role** (set in Settings) makes you eligible for. |
+| **Read can't re-share** | A non-owner with **Read** only cannot share the object onward. |
+| **Notifications** | When an object is shared, the receiver gets a notification that it is now available to them. |
+| **Revocable** | Shared access can be changed or revoked at any time by the **owner** or anyone with **Write** access. |
+| **Notebook sharing** | Access can also be shared from a **Jupyter Notebook** via the GGX package. |
+
+## Access management
+
+**Role-Based Access Management** governs what each user can do. Every onboarded user is assigned a **role**, configured under **Settings → Roles**. A role is built from three nested controls — you set how much of the platform a user sees, then exactly what they can do with the objects inside it.
+
+<figure class="ggx-figure">
+
+![Role-based access as three nested controls: Module Access (Enable, Disable, Hidden) contains Pages Access (Enable, Disable, Hidden), which contains Object-Level Authority (Read, Write, Approve) — elevated with Superuser, scoped to a Collection, or refined with Additional Specifications rules.](./access-scope.svg)
+
+<figcaption>A role nests from whole-module visibility down to per-object authority on a single collection.</figcaption>
+</figure>
+
+| Control | What you set | Options |
+|---------|--------------|---------|
+| **Module Access** | Visibility of each module — Data & AI Assets, Human Integrated Testing, Risk & Compliance, Monitor & Track, Settings. | **Enable** · **Disable** · **Hidden** |
+| **Specific Pages Access** | Visibility of each page within an enabled module — Table Registry, Projects, Model Catalog, Prompt Registry, RAG Registry, Pipeline Registry, Global Functions, Reports. | **Enable** · **Disable** · **Hidden** |
+| **Object-Level Authority** | What the role can do with each object type — Data Table, Project, Model, Prompt, and so on. | **Read** · **Write** · **Approve** |
+
+Object-Level Authority can then be **elevated** and **scoped** per object type:
+
+- **Superuser** — elevate any authority to full control of that object type.
+- **Collection** — restrict the authority to a named **collection** of objects rather than all of them.
+- **Additional Specifications** — refine access with custom rules built from **LHS → Operator → RHS** conditions on an object's properties (for example, only objects whose Group equals a given value).
+
+:::note[Allow Data Upload]
+A role can also carry standalone permissions such as **Allow Data Upload**, which lets its users supply custom data in simulations.
+:::
+
+## Integrating external updates
+
+A registered object's definition can be **exported**, modified outside the platform, and **re-synced** using GGX commands. GGX automatically tracks and records every external change, keeping the history clear and consistent.
+
+<LinkCard title="Sync with the GGX package" description="Export, edit, and re-sync registered objects from your own environment." href={`${import.meta.env.BASE_URL}register-and-refine/sync/`} />
+
+## Organizing work across teams
+
+Three mechanisms keep many teams working in the same platform without stepping on each other:
+
+<CardGrid>
+<Card title="Groups" icon="list-format">
+Classify objects for **control and display**. Groups are object-type-specific: teams create custom groups visible only to their members, and registries display objects by group so they're easy to find. Administrators can also use groups to assign access when defining roles.
+</Card>
+<Card title="Workspaces" icon="window">
+Create **multiple independent workspaces** so teams can work in isolation, without visibility into each other's in-progress work.
+</Card>
+</CardGrid>
+
+## Monitoring and alerting
+
+Build **customized dashboards** for key stakeholders and leadership — a bird's-eye view of activity across teams and across every stage of the application lifecycle, with alerting on the metrics that matter.
+
+<LinkCard title="Monitoring &amp; performance" description="Track live pipelines and configure alerts after deployment." href={`${import.meta.env.BASE_URL}deploy-and-monitor/performance/`} />

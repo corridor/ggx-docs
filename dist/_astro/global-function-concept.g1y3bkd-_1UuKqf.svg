@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="A registered Global Function: inputs of any type flow into reusable logic that runs your analytical operations and returns an output of any type. The same function is reused across the platform — GenAI Studio, Reports, Simulation Data Sources, and other Global Functions.">
+  <defs>
+    <marker id="ah-gf" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">A REGISTERED GLOBAL FUNCTION — WRITE ONCE, REUSE EVERYWHERE</text>
+
+  <!-- inputs -->
+  <rect x="24" y="120" width="156" height="80" rx="16" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="102" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#293147">Inputs</text>
+  <text x="102" y="174" text-anchor="middle" font-size="12" fill="#6b7280">DataFrame · dict · str · any</text>
+  <line x1="182" y1="160" x2="294" y2="160" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-gf)"/>
+
+  <!-- function logic -->
+  <rect x="298" y="88" width="304" height="156" rx="16" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <rect x="298" y="88" width="304" height="40" rx="16" fill="#293147"/>
+  <rect x="298" y="112" width="304" height="16" fill="#293147"/>
+  <text x="450" y="114" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Global Function</text>
+  <text x="450" y="156" text-anchor="middle" font-size="13" fill="#374151">Runs your analytical operations</text>
+  <text x="450" y="176" text-anchor="middle" font-size="13" fill="#374151">once, callable with different</text>
+  <text x="450" y="196" text-anchor="middle" font-size="13" fill="#374151">objects as inputs.</text>
+
+  <line x1="604" y1="160" x2="716" y2="160" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-gf)"/>
+
+  <!-- output -->
+  <rect x="720" y="120" width="156" height="80" rx="16" fill="#293147"/>
+  <text x="798" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Output</text>
+  <text x="798" y="174" text-anchor="middle" font-size="12" fill="#c8d0e4">any type — optional</text>
+
+  <!-- reuse band -->
+  <line x1="450" y1="246" x2="450" y2="288" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-gf)"/>
+  <rect x="170" y="290" width="560" height="52" rx="12" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="450" y="312" text-anchor="middle" font-size="13" font-weight="700" fill="#2f3a57">Reused across the platform</text>
+  <text x="450" y="330" text-anchor="middle" font-size="12" fill="#6b7280">GenAI Studio · Reports · Simulation Data Sources · other Global Functions</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="RAG anatomy: a query flows into retrieval logic, which draws on a knowledge source — uploaded file, vector database, knowledge graph, or document store — and returns the retrieved information.">
+  <defs>
+    <marker id="ah-r" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">A REGISTERED RAG — QUERY + RETRIEVAL LOGIC → RELEVANT CONTEXT</text>
+
+  <!-- query input -->
+  <rect x="24" y="148" width="156" height="80" rx="16" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="102" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#293147">Query</text>
+  <text x="102" y="202" text-anchor="middle" font-size="12" fill="#6b7280">+ top_k · filters</text>
+  <line x1="182" y1="188" x2="294" y2="188" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-r)"/>
+
+  <!-- retrieval logic -->
+  <rect x="298" y="116" width="304" height="156" rx="16" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <rect x="298" y="116" width="304" height="40" rx="16" fill="#293147"/>
+  <rect x="298" y="140" width="304" height="16" fill="#293147"/>
+  <text x="450" y="142" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Retrieval Logic</text>
+  <text x="450" y="184" text-anchor="middle" font-size="13" fill="#374151">Embeds the query, looks up</text>
+  <text x="450" y="204" text-anchor="middle" font-size="13" fill="#374151">relevant chunks in the</text>
+  <text x="450" y="224" text-anchor="middle" font-size="13" fill="#374151">knowledge source, returns them.</text>
+
+  <line x1="604" y1="188" x2="716" y2="188" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-r)"/>
+
+  <!-- retrieved info -->
+  <rect x="720" y="148" width="156" height="80" rx="16" fill="#293147"/>
+  <text x="798" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Retrieved Information</text>
+  <text x="798" y="202" text-anchor="middle" font-size="12" fill="#c8d0e4">top-K relevant chunks</text>
+
+  <!-- knowledge source feeding into retrieval logic -->
+  <rect x="220" y="304" width="460" height="50" rx="12" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="450" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#2f3a57">Knowledge Source</text>
+  <text x="450" y="343" text-anchor="middle" font-size="12" fill="#6b7280">Uploaded file · Vector DB · Knowledge graph · Document store</text>
+  <line x1="450" y1="302" x2="450" y2="276" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-r)"/>
+</svg>

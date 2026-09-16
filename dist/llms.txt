@@ -1,0 +1,165 @@
+# GGX Documentation
+
+> Documentation for GenGuardX, a Responsible AI governance platform for testing, approving, monitoring, and governing GenAI systems.
+
+## LLM resources
+
+- [Full documentation](./llms-full.txt): Complete docs content in one Markdown-oriented text file.
+- [Structured index](./llms.json): Machine-readable list of docs pages and Markdown URLs.
+
+## Documentation pages
+
+- [GenGuardX (GGX)](https://docs.genguardx.ai/): GenGuardX is a Responsible AI governance platform that helps enterprises test, approve, monitor, and govern customer-facing GenAI from pilot to production.
+  - Markdown: https://docs.genguardx.ai/index.md
+- [Deployment and Monitoring](https://docs.genguardx.ai/deploy-and-monitor/): Deploy approved GGX pipeline artifacts to production and monitor reliability, performance, accuracy, alerts, and human annotation queues for live GenAI systems.
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/index.md
+- [Annotation Queues](https://docs.genguardx.ai/deploy-and-monitor/annotation-queues/): Use GGX Annotation Queues to bring human review into production monitoring, label live data, track ground truth, and turn reviewer feedback into auditable metrics.
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/annotation-queues/index.md
+- [CICD & Direct to Production](https://docs.genguardx.ai/deploy-and-monitor/direct-to-production/): Export approved GGX artifacts into production runtimes, APIs, containers, serverless services, or CI/CD systems without requiring GGX in the production environment.
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/direct-to-production/index.md
+- [Governance Oversight](https://docs.genguardx.ai/deploy-and-monitor/oversight/): Monitor GGX governance activity with dashboards, object views, custom alerts, role-based views, and review signals across registered models, prompts, RAGs, and pipelines.
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/oversight/index.md
+- [Performance Tracking](https://docs.genguardx.ai/deploy-and-monitor/performance/): Track approved GGX object performance with recurring jobs, metrics dashboards, thresholds, alerts, and data views that surface production and evaluation trends.
+  - Markdown: https://docs.genguardx.ai/deploy-and-monitor/performance/index.md
+- [Evaluations and Approval](https://docs.genguardx.ai/evaluate-and-approve/): Evaluate GGX pipelines and components with automated jobs, human annotations, standardized reports, comparison workflows, and structured approval processes before production release.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/index.md
+- [Approval Workflows](https://docs.genguardx.ai/evaluate-and-approve/approval-workflows/): Create GGX approval workflows with responsibilities, reviewers, review actions, comments, notifications, and audit trails for governed GenAI release decisions.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/approval-workflows/index.md
+- [Comparisons](https://docs.genguardx.ai/evaluate-and-approve/comparison/): Compare GGX objects against challengers using shared datasets, selected metrics, automated reports, and side-by-side results for model and pipeline evaluation.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/comparison/index.md
+- [Document Generation](https://docs.genguardx.ai/evaluate-and-approve/document-generation/): Generate governance and approval documentation from GGX evaluation results, metadata, reports, object details, and review evidence for downstream stakeholders.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/document-generation/index.md
+- [Feedback Portals](https://docs.genguardx.ai/evaluate-and-approve/feedback-portals/): Create GGX Feedback Portals that let testers and domain experts interact with pipelines, define expected outputs, collect session feedback, and review structured quality signals.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/feedback-portals/index.md
+- [Human Integrated Testing](https://docs.genguardx.ai/evaluate-and-approve/human-testing/): Run human-integrated GGX tests where reviewers evaluate pipeline behavior, capture qualitative feedback, validate outcomes, and support approval decisions.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/human-testing/index.md
+- [Reporting](https://docs.genguardx.ai/evaluate-and-approve/reporting/): How reports are built in GGX — metadata, data schema, parameter schema, computation, and visualization — plus how to register, test, and reuse them.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/reporting/index.md
+- [Simulation](https://docs.genguardx.ai/evaluate-and-approve/simulation/): Run GGX simulation jobs on datasets to evaluate objects, generate reports, inspect metrics, validate evaluators, and compare results before approval.
+  - Markdown: https://docs.genguardx.ai/evaluate-and-approve/simulation/index.md
+- [Frequently Asked Questions](https://docs.genguardx.ai/faq/): Common questions about evaluating and monitoring GenAI applications in GGX — production monitoring, reports and dashboards, LLM-as-a-judge metrics, reusable assets, data and integrations, governance and testing, versioning, and human feedback.
+  - Markdown: https://docs.genguardx.ai/faq/index.md
+- [GGX Integrations](https://docs.genguardx.ai/integrations/): Connect GGX with LLM providers, LLM gateways, observability tools, agent frameworks, report providers, voice providers, and SSO systems across the AI lifecycle.
+  - Markdown: https://docs.genguardx.ai/integrations/index.md
+- [Cleanlab](https://docs.genguardx.ai/integrations/evaluation-providers/cleanlab/): Connect Cleanlab with GGX to use external data quality and evaluation signals in model, RAG, pipeline, and dataset assessment workflows.
+  - Markdown: https://docs.genguardx.ai/integrations/evaluation-providers/cleanlab/index.md
+- [LLM Gateways](https://docs.genguardx.ai/integrations/llm-gateways/): Use LLM gateways with GGX by registering gateway-backed models in the Model Registry and routing requests to any LLM the gateway can access.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/index.md
+- [Cloudflare AI Gateway](https://docs.genguardx.ai/integrations/llm-gateways/cloudflare-ai-gateway/): Register Cloudflare AI Gateway as a GGX Model Registry model and route GGX requests to providers available through your Cloudflare gateway.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/cloudflare-ai-gateway/index.md
+- [Databricks AI Gateway](https://docs.genguardx.ai/integrations/llm-gateways/databricks-ai-gateway/): Compare Databricks Unity AI Gateway with GGX for GenAI governance, automated compliance testing, approval evidence, production monitoring, and risk management.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/databricks-ai-gateway/index.md
+- [LiteLLM Gateway](https://docs.genguardx.ai/integrations/llm-gateways/litellm/): Register LiteLLM as a GGX Model Registry model and route GGX requests to any LLM provider configured behind LiteLLM.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/litellm/index.md
+- [OpenRouter Gateway](https://docs.genguardx.ai/integrations/llm-gateways/openrouter/): Register OpenRouter as a GGX Model Registry model and route GGX requests to OpenRouter-supported models through a unified API.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/openrouter/index.md
+- [Portkey Gateway](https://docs.genguardx.ai/integrations/llm-gateways/portkey/): Register Portkey as a GGX Model Registry model and use Portkey provider routing with GGX evaluations, pipelines, approvals, and monitoring.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-gateways/portkey/index.md
+- [Setting up Integrations](https://docs.genguardx.ai/integrations/llm-providers/): Configure LLM provider integrations in GGX by adding API keys, testing connections, and exposing secure environment variables for model registration and model code.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/index.md
+- [Anthropic Integration](https://docs.genguardx.ai/integrations/llm-providers/anthropic/): Configure Anthropic in GGX and register Claude-backed models with provider credentials, model arguments, scoring logic, and governed model metadata.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/anthropic/index.md
+- [AWS Bedrock Integration](https://docs.genguardx.ai/integrations/llm-providers/aws-bedrock/): Configure AWS Bedrock in GGX and register Bedrock-backed foundation models with AWS credentials, provider settings, model arguments, and scoring logic.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/aws-bedrock/index.md
+- [Azure AI Integration](https://docs.genguardx.ai/integrations/llm-providers/azureai/): Configure Azure AI in GGX and register Azure-hosted OpenAI models with API credentials, model provider settings, arguments, and scoring logic.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/azureai/index.md
+- [Google Cloud Vertex AI Integration](https://docs.genguardx.ai/integrations/llm-providers/gcp-vertexai/): Configure Google Cloud Vertex AI in GGX and register Gemini models with service credentials, provider settings, input arguments, and scoring logic.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/gcp-vertexai/index.md
+- [Hugging Face Integration](https://docs.genguardx.ai/integrations/llm-providers/huggingface/): Register Hugging Face models in GGX using Hub models, optional tokens, model metadata, input arguments, and custom Python scoring logic.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/huggingface/index.md
+- [OpenAI Integration](https://docs.genguardx.ai/integrations/llm-providers/openai/): Configure OpenAI in GGX and register OpenAI-backed models with API credentials, model settings, arguments, and governed scoring logic.
+  - Markdown: https://docs.genguardx.ai/integrations/llm-providers/openai/index.md
+- [Observability](https://docs.genguardx.ai/integrations/observability/): Connect AI observability traces from LangSmith, Arize Phoenix, Langfuse, Humanloop, Datadog, and other tools to GGX for judges, human review, ground truth, bug categorization, and closed-loop AI lifecycle governance.
+  - Markdown: https://docs.genguardx.ai/integrations/observability/index.md
+- [Arize Phoenix](https://docs.genguardx.ai/integrations/observability/arize-phoenix/): Connect Arize Phoenix traces, evaluations, datasets, and human annotations to GGX for governed monitoring, review, bug categorization, and AI lifecycle improvement.
+  - Markdown: https://docs.genguardx.ai/integrations/observability/arize-phoenix/index.md
+- [Datadog](https://docs.genguardx.ai/integrations/observability/datadog/): Connect Datadog LLM Observability traces and incidents to GGX for AI judges, human review, ground truth creation, bug categorization, and lifecycle governance.
+  - Markdown: https://docs.genguardx.ai/integrations/observability/datadog/index.md
+- [Humanloop](https://docs.genguardx.ai/integrations/observability/humanloop/): Connect Humanloop logs, evaluations, prompt management, and human feedback workflows to GGX for closed-loop AI lifecycle governance.
+  - Markdown: https://docs.genguardx.ai/integrations/observability/humanloop/index.md
+- [Langfuse](https://docs.genguardx.ai/integrations/observability/langfuse/): Use Langfuse traces, scores, datasets, and annotation queues with GGX to close the monitoring loop across judges, human review, ground truth, bugs, and approvals.
+  - Markdown: https://docs.genguardx.ai/integrations/observability/langfuse/index.md
+- [LangSmith](https://docs.genguardx.ai/integrations/observability/langsmith/): Use LangSmith traces with GGX to run judges, human reviews, ground truth promotion, bug tracking, and closed-loop AI monitoring.
+  - Markdown: https://docs.genguardx.ai/integrations/observability/langsmith/index.md
+- [LLM Judges](https://docs.genguardx.ai/llm-judges/): A gallery of ready-to-use LLM-as-a-Judge evaluators for GenGuardX. Browse by category and inspect each judge's prompt and code.
+  - Markdown: https://docs.genguardx.ai/llm-judges/index.md
+- [GenerativeAI Lifecycle Management](https://docs.genguardx.ai/register-and-refine/): Use GGX to manage the GenAI lifecycle from use case definition and data collection through pipeline development, evaluation, approval, deployment, and production monitoring.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/index.md
+- [Collaboration](https://docs.genguardx.ai/register-and-refine/collaboration/): How teams collaborate in GGX — sharing and requesting object access, role-based access management, external sync, groups, workspaces, and monitoring dashboards.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/collaboration/index.md
+- [Pipeline Registration Guide](https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/): Register an intent classification pipeline in GGX by connecting a model and prompt, configuring pipeline metadata, adding resources, and testing outputs.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/pipeline/index.md
+- [Prompt Registration Guide](https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/prompt/): Register an intent classification prompt in GGX by defining prompt metadata, template variables, structured instructions, examples, and test cases.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/intent-classification-pipeline-registration/prompt/index.md
+- [Pipeline Registration Guide: English to French Translation](https://docs.genguardx.ai/register-and-refine/examples/language-translation-pipeline-registration/pipeline/): Register an English-to-French translation pipeline in GGX using Gemini 2.0 Flash, custom translation logic, pipeline metadata, and usage tracking.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/language-translation-pipeline-registration/pipeline/index.md
+- [Model Registration: Gemini 2.0 Flash](https://docs.genguardx.ai/register-and-refine/examples/model/): Register Gemini 2.0 Flash in the GGX Model Catalog with provider settings, input arguments, scoring logic, model metadata, and test examples.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/examples/model/index.md
+- [Inventory Management](https://docs.genguardx.ai/register-and-refine/inventory-management/): Register, organize, govern, share, version, and monitor GGX data and GenAI assets including tables, models, prompts, RAGs, and end-to-end pipelines.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/index.md
+- [Global Functions](https://docs.genguardx.ai/register-and-refine/inventory-management/global-functions/): How Global Functions work in GGX — reusable analytical logic with inputs and outputs of any type, registered once and called across pipelines, RAGs, models, reports, and simulations.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/global-functions/index.md
+- [Model Catalog](https://docs.genguardx.ai/register-and-refine/inventory-management/model-catalog/): How models work in GGX — API-based, Python-based, and custom-uploaded models, how to register one, the supported providers, how to test a model, and a worked example.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/model-catalog/index.md
+- [Pipelines](https://docs.genguardx.ai/register-and-refine/inventory-management/pipelines/): How pipelines work in GGX — compose Models, RAGs, Prompts and Guardrails with orchestration logic. Covers pipeline types, anatomy, registration steps, testing, and risk assessment.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/pipelines/index.md
+- [Prompt Registry](https://docs.genguardx.ai/register-and-refine/inventory-management/prompts/): How prompts work in GGX — the template, input arguments, and creation logic that make up a registered prompt, how to register one, how to test and improve it, and a worked example.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/prompts/index.md
+- [RAGs](https://docs.genguardx.ai/register-and-refine/inventory-management/rags/): How RAGs work in GGX — the knowledge source and retrieval logic that make up a registered RAG, how to register one, and what registering it unlocks.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/rags/index.md
+- [Data Assets](https://docs.genguardx.ai/register-and-refine/inventory-management/table-registry/): Register data tables and quality checks in GGX so teams can track source data, fetch schemas, run data quality reports, audit changes, and reuse validation datasets.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/inventory-management/table-registry/index.md
+- [Lineage Tracking](https://docs.genguardx.ai/register-and-refine/lineage-tracking/): Use GGX lineage tracking to visualize object dependencies, identify upstream and downstream impact, support traceability, and understand how registered assets are used.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/lineage-tracking/index.md
+- [Prompt Optimization](https://docs.genguardx.ai/register-and-refine/prompt-optimization/): How GGX automates prompt optimization with Hill Climbing — iteratively refining a prompt, keeping only changes that improve a fixed evaluation, with full logs and one-click sync back to the pipeline.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/prompt-optimization/index.md
+- [GGX Sync](https://docs.genguardx.ai/register-and-refine/sync/): Use GGX Sync to declare, version, and synchronize prompts, models, RAGs, pipelines, global functions, and reports from Python code into GenGuardX.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/sync/index.md
+- [Version Management](https://docs.genguardx.ai/register-and-refine/version-management/): How GGX versions objects — the Draft → Approved → Clone lifecycle, snapshot-based Change History, reverting to any point, and how versions propagate downstream.
+  - Markdown: https://docs.genguardx.ai/register-and-refine/version-management/index.md
+- [GGX Monitoring Benchmarks](https://docs.genguardx.ai/technology/benchmarks/monitoring/): Benchmark GGX monitoring at scale across observability ingestion, heuristic triage, parallel LLM judges, automated routing, and targeted human review.
+  - Markdown: https://docs.genguardx.ai/technology/benchmarks/monitoring/index.md
+- [Self-Hosted GGX](https://docs.genguardx.ai/technology/self-hosting/): Install, configure, scale, back up, harden, and operate self-hosted GGX instances across Kubernetes, Terraform, cloud, Docker, and manual deployment options.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/index.md
+- [CI CD Integrations](https://docs.genguardx.ai/technology/self-hosting/configurations/approvals/): Integrate GGX approval workflows with external CI/CD and review systems by implementing custom approval handlers and exchanging review actions through APIs.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/approvals/index.md
+- [Common Configs](https://docs.genguardx.ai/technology/self-hosting/configurations/common-configs/): Configure common self-hosted GGX settings for application services, API behavior, storage, authentication, workers, notebooks, logging, and deployment environments.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/common-configs/index.md
+- [Metadata: Database Setup](https://docs.genguardx.ai/technology/self-hosting/configurations/database/): Configure GGX metadata database connections for PostgreSQL, Oracle, SQL Server, and related self-hosted database settings, migrations, and operational requirements.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/database/index.md
+- [Datalake Integration](https://docs.genguardx.ai/technology/self-hosting/configurations/datalake/): Configure GGX data lake access for self-hosted deployments so jobs, reports, and analytics can read and write approved data locations.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/datalake/index.md
+- [Email Notifications](https://docs.genguardx.ai/technology/self-hosting/configurations/notifications/): Configure email notification settings for self-hosted GGX so approvals, alerts, reviews, and system events can reach the right users.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/notifications/index.md
+- [Additional Libraries](https://docs.genguardx.ai/technology/self-hosting/configurations/packages/): Install and manage additional Python libraries for self-hosted GGX components, notebooks, workers, and analytical workloads.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/packages/index.md
+- [Process Management](https://docs.genguardx.ai/technology/self-hosting/configurations/process-management/): Run self-hosted GGX services under process managers such as systemd or Supervisor to manage startup, restarts, logs, and long-running components.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/process-management/index.md
+- [SAML](https://docs.genguardx.ai/technology/self-hosting/configurations/saml/): Configure SAML single sign-on for self-hosted GGX with enterprise identity providers, authentication settings, and user access requirements.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/saml/index.md
+- [Web Server Setup](https://docs.genguardx.ai/technology/self-hosting/configurations/web-servers/): Configure Nginx, Apache, or other reverse proxies for self-hosted GGX, including routing, TLS, timeouts, compression, and application endpoints.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/configurations/web-servers/index.md
+- [Hardening - Security](https://docs.genguardx.ai/technology/self-hosting/hardening/): Harden self-hosted GGX deployments with security controls for network access, secrets, authentication, infrastructure, data storage, and operational practices.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/hardening/index.md
+- [AWS](https://docs.genguardx.ai/technology/self-hosting/installation/aws/): Deploy self-hosted GGX on AWS using ECS Fargate, EFS, load balancers, networking, IAM, database services, and container registry configuration.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/aws/index.md
+- [Azure](https://docs.genguardx.ai/technology/self-hosting/installation/azure/): Deploy self-hosted GGX on Azure using Container Apps, Azure Files, managed networking, database services, container registry, and Terraform-based infrastructure.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/azure/index.md
+- [Docker-based](https://docs.genguardx.ai/technology/self-hosting/installation/docker-based/): Run self-hosted GGX with Docker-based deployments for local, staging, or controlled environments using containers, volumes, configuration, and service orchestration.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/docker-based/index.md
+- [GCP](https://docs.genguardx.ai/technology/self-hosting/installation/gcp/): Deploy self-hosted GGX on Google Cloud using Cloud Run, GKE, Cloud SQL, Cloud Storage, networking, service accounts, and Terraform modules.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/gcp/index.md
+- [Kubernetes](https://docs.genguardx.ai/technology/self-hosting/installation/kubernetes/): Deploy self-hosted GGX on Kubernetes using Kustomize manifests, namespaces, persistent volumes, ingress, secrets, and provider-specific cluster settings.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/kubernetes/index.md
+- [Manual](https://docs.genguardx.ai/technology/self-hosting/installation/manual/): Install self-hosted GGX manually on VMs, bare metal, or cloud instances with direct control over services, databases, storage, web servers, and process managers.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/manual/index.md
+- [Minimum Requirements](https://docs.genguardx.ai/technology/self-hosting/installation/minimum-requirements/): Review the minimum CPU, memory, storage, database, Spark, Python, Java, web server, and process management requirements for self-hosted GGX components.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/minimum-requirements/index.md
+- [Terraform](https://docs.genguardx.ai/technology/self-hosting/installation/terraform/): Provision self-hosted GGX infrastructure as code with Terraform modules for AWS, Azure, and Google Cloud managed container deployments.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/installation/terraform/index.md
+- [Backups & Restore](https://docs.genguardx.ai/technology/self-hosting/scaling/backups/): Back up and restore self-hosted GGX metadata databases, file management storage, data lake outputs, settings, and component configuration files.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/scaling/backups/index.md
+- [Multiple GGX Workers](https://docs.genguardx.ai/technology/self-hosting/scaling/concurrency/): Run multiple named GGX workers with separate queues, process files, logs, state databases, and worker-specific configuration in self-hosted environments.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/scaling/concurrency/index.md
+- [Scalability and Sizing](https://docs.genguardx.ai/technology/self-hosting/scaling/scalability/): Plan self-hosted GGX scalability for production throughput, simulation jobs, user analytics, application services, databases, APIs, and worker capacity.
+  - Markdown: https://docs.genguardx.ai/technology/self-hosting/scaling/scalability/index.md

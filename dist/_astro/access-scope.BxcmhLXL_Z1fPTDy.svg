@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 372" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Role-based access is three nested controls: Module Access (Enable, Disable, or Hidden) contains Pages Access (Enable, Disable, or Hidden), which contains Object-Level Authority (Read, Write, Approve). Object authority can be elevated to Superuser, scoped to a Collection, or refined with Additional Specifications rules.">
+  <text x="40" y="30" font-size="13" letter-spacing="1.4" font-weight="600" fill="#6b7280">ROLE-BASED ACCESS — THREE NESTED CONTROLS</text>
+
+  <!-- Module -->
+  <rect x="40" y="50" width="540" height="296" rx="16" fill="#fbfcfe" stroke="#293147" stroke-width="1.5"/>
+  <text x="62" y="80" font-size="15" font-weight="700" fill="#293147">Module Access</text>
+  <text x="62" y="98" font-size="11.5" fill="#6b7280">e.g. GenAI Studio &#183; Enable / Disable / Hidden</text>
+
+  <!-- Page -->
+  <rect x="72" y="110" width="476" height="226" rx="13" fill="#ffffff" stroke="#d7dcec"/>
+  <text x="94" y="138" font-size="14" font-weight="700" fill="#2f3a57">Pages Access</text>
+  <text x="94" y="156" font-size="11.5" fill="#6b7280">e.g. Prompt Registry &#183; Enable / Disable / Hidden</text>
+
+  <!-- Object -->
+  <rect x="104" y="168" width="412" height="156" rx="11" fill="#eef1f6" stroke="#5b6a96"/>
+  <text x="126" y="196" font-size="14" font-weight="700" fill="#2f3a57">Object-Level Authority</text>
+  <text x="126" y="214" font-size="11.5" fill="#6b7280">e.g. a Pipeline &#183; Read / Write / Approve</text>
+
+  <!-- Properties -->
+  <rect x="136" y="226" width="348" height="84" rx="9" fill="#ffffff" stroke="#c3cbe0"/>
+  <text x="158" y="254" font-size="13" font-weight="700" fill="#2f3a57">Properties &amp; Attributes</text>
+  <text x="158" y="274" font-size="11.5" fill="#6b7280">Group · Permissible Purpose · Owner</text>
+  <text x="158" y="292" font-size="11.5" fill="#6b7280">— the target of custom rules</text>
+
+  <!-- Right column -->
+  <text x="624" y="74" font-size="12" letter-spacing="1.2" font-weight="600" fill="#6b7280">PER-OBJECT AUTHORITY</text>
+
+  <rect x="624" y="86" width="248" height="34" rx="8" fill="#eaf2ff" stroke="#bcd3f2"/>
+  <text x="642" y="108" font-size="13" font-weight="700" fill="#1f4d7a">Read</text>
+  <text x="700" y="108" font-size="11.5" fill="#5a6b86">view · run · reuse</text>
+
+  <rect x="624" y="126" width="248" height="34" rx="8" fill="#eef1f6" stroke="#c3cbe0"/>
+  <text x="642" y="148" font-size="13" font-weight="700" fill="#2f3a57">Write</text>
+  <text x="700" y="148" font-size="11.5" fill="#5a6b86">edit · delete · share</text>
+
+  <rect x="624" y="166" width="248" height="34" rx="8" fill="#e8f5ee" stroke="#bfe0cc"/>
+  <text x="642" y="188" font-size="13" font-weight="700" fill="#1f6a4d">Approve</text>
+  <text x="700" y="188" font-size="11.5" fill="#5a6b86">promote to production</text>
+
+  <text x="624" y="232" font-size="12" letter-spacing="1.2" font-weight="600" fill="#6b7280">ELEVATE &amp; SCOPE</text>
+  <text x="624" y="256" font-size="12" fill="#374151"><tspan font-weight="700" fill="#9a432a">Superuser</tspan> — full control of the type</text>
+  <text x="624" y="278" font-size="12" fill="#374151"><tspan font-weight="700" fill="#2f3a57">Collection</tspan> — limit to a named set</text>
+  <text x="624" y="300" font-size="12" fill="#374151"><tspan font-weight="700" fill="#2f3a57">Add'l Specs</tspan> — LHS · operator · RHS</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Three ways to test a pipeline with increasing coverage and confidence: Quick Test on a single input, Interactive Test on a live conversation, and Bulk Simulation across an entire dataset.">
+  <defs>
+    <linearGradient id="prog" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dbe0ee"/>
+      <stop offset="1" stop-color="#293147"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card 1: Quick Test -->
+  <rect x="20" y="24" width="280" height="200" rx="16" fill="#ffffff" stroke="#d7dcec"/>
+  <circle cx="48" cy="52" r="15" fill="#293147"/>
+  <text x="48" y="57" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">1</text>
+  <text x="72" y="57" font-size="16" font-weight="700" fill="#293147">Quick Test</text>
+  <rect x="136" y="84" width="48" height="58" rx="6" fill="#eef1f6" stroke="#5b6a96"/>
+  <line x1="146" y1="98" x2="174" y2="98" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round"/>
+  <line x1="146" y1="110" x2="174" y2="110" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round"/>
+  <line x1="146" y1="122" x2="164" y2="122" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="182" cy="140" r="11" fill="#256b5e"/>
+  <path d="M177 140l3.2 3.2 6-6.4" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="160" y="184" text-anchor="middle" font-size="12.5" fill="#6b7280">One input, while you</text>
+  <text x="160" y="201" text-anchor="middle" font-size="12.5" fill="#6b7280">are still writing code.</text>
+
+  <!-- Card 2: Interactive Test -->
+  <rect x="320" y="24" width="280" height="200" rx="16" fill="#ffffff" stroke="#d7dcec"/>
+  <circle cx="348" cy="52" r="15" fill="#293147"/>
+  <text x="348" y="57" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">2</text>
+  <text x="372" y="57" font-size="16" font-weight="700" fill="#293147">Interactive Test</text>
+  <rect x="386" y="88" width="132" height="30" rx="10" fill="#eef1f6"/>
+  <text x="399" y="108" font-size="12" fill="#3a4256">Hi, I lost my card…</text>
+  <rect x="402" y="126" width="132" height="30" rx="10" fill="#293147"/>
+  <text x="415" y="146" font-size="12" fill="#ffffff">Sure — let's fix that.</text>
+  <text x="460" y="184" text-anchor="middle" font-size="12.5" fill="#6b7280">One live conversation,</text>
+  <text x="460" y="201" text-anchor="middle" font-size="12.5" fill="#6b7280">as a user would have it.</text>
+
+  <!-- Card 3: Bulk Simulation -->
+  <rect x="620" y="24" width="280" height="200" rx="16" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <circle cx="648" cy="52" r="15" fill="#293147"/>
+  <text x="648" y="57" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">3</text>
+  <text x="672" y="57" font-size="16" font-weight="700" fill="#293147">Bulk Simulation</text>
+  <g>
+    <rect x="716" y="90" width="16" height="16" rx="3" fill="#293147"/>
+    <rect x="740" y="90" width="16" height="16" rx="3" fill="#c3cbe0"/>
+    <rect x="764" y="90" width="16" height="16" rx="3" fill="#293147"/>
+    <rect x="788" y="90" width="16" height="16" rx="3" fill="#c3cbe0"/>
+    <rect x="716" y="114" width="16" height="16" rx="3" fill="#c3cbe0"/>
+    <rect x="740" y="114" width="16" height="16" rx="3" fill="#293147"/>
+    <rect x="764" y="114" width="16" height="16" rx="3" fill="#c3cbe0"/>
+    <rect x="788" y="114" width="16" height="16" rx="3" fill="#293147"/>
+    <rect x="716" y="138" width="16" height="16" rx="3" fill="#293147"/>
+    <rect x="740" y="138" width="16" height="16" rx="3" fill="#c3cbe0"/>
+    <rect x="764" y="138" width="16" height="16" rx="3" fill="#293147"/>
+    <rect x="788" y="138" width="16" height="16" rx="3" fill="#c3cbe0"/>
+  </g>
+  <text x="760" y="184" text-anchor="middle" font-size="12.5" fill="#6b7280">An entire dataset,</text>
+  <text x="760" y="201" text-anchor="middle" font-size="12.5" fill="#6b7280">one output per record.</text>
+
+  <!-- progression bar -->
+  <rect x="20" y="252" width="858" height="16" rx="8" fill="url(#prog)"/>
+  <path d="M874 246 L900 260 L874 274 Z" fill="#293147"/>
+  <text x="20" y="294" font-size="12" letter-spacing="1.2" font-weight="600" fill="#6b7280">INCREASING COVERAGE &amp; CONFIDENCE</text>
+</svg>
