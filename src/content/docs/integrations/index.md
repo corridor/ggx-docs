@@ -15,23 +15,27 @@ These integrations are organized into the following categories:
    Register an LLM gateway in the GGX Model Registry, then route GGX prompts, RAGs, pipelines, simulations, and monitoring jobs to any LLM the gateway has access to.  
    Examples: [LiteLLM](llm-gateways/litellm/), [Portkey](llm-gateways/portkey/), [OpenRouter](llm-gateways/openrouter/), [Cloudflare AI Gateway](llm-gateways/cloudflare-ai-gateway/), [Databricks AI Gateway](llm-gateways/databricks-ai-gateway/)
 
-3. **Observability:**  
+3. **Data Warehouses:**  
+   Connect governed enterprise data to GGX for evaluation datasets, retrieval sources, monitoring evidence, and auditable AI lifecycle workflows.  
+   Examples: [Databricks Unity Catalog](data-warehouses/databricks-unity-catalog/)
+
+4. **Observability:**  
    Connect AI traces, logs, scores, alerts, and review signals to GGX so monitoring feeds judges, human review, ground truth, bug categorization, and lifecycle governance.  
    Examples: [LangSmith](observability/langsmith/), [Arize Phoenix](observability/arize-phoenix/), [Langfuse](observability/langfuse/), [Humanloop](observability/humanloop/), [Datadog](observability/datadog/)
 
-4. **Agent Providers & Frameworks:**  
+5. **Agent Providers & Frameworks:**  
    Leverage pre-built agent providers or bring your own orchestration frameworks to create and manage intelligent, multi-step agent workflows with minimal setup.  
    Examples: [Vertex AI Agent Playbooks](https://cloud.google.com/dialogflow/cx/docs/concept/playbook), [AgentForce (Salesforce)](https://www.salesforce.com/in/agentforce/), [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio), [Vapi AI](https://vapi.ai/),[GitHub Copilot](https://github.com/features/copilot), [Amazon Lex](https://aws.amazon.com/lex/), [CustomGPT](https://customgpt.ai/)
 
-5. **Report Providers:**  
+6. **Report Providers:**  
    Plug in evaluation tools to assess your data, RAGs, pipelines, agents, etc. effectively.  
    Examples: [CleanLabs](https://cleanlabs.ai/), [Perspective API](https://perspectiveapi.com/)
 
-6. **Voice Providers:**
+7. **Voice Providers:**
    Setup integrations to services that provide speech-to-text, text-to-speech, Voice Agents
    Examples: [Deepgram](https://deepgram.com/)
 
-7. **Single Sign-On (SSO) Integrations:**
+8. **Single Sign-On (SSO) Integrations:**
    Setup integrations to services for seamless Authentication and Authorization
    Examples: [Google Workspace](https://workspace.google.com/), [Auth0 (by Okta)](https://auth0.com/), [WorkOS](https://workos.com/), [OneLogin](https://www.onelogin.com/)
 

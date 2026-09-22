@@ -274,6 +274,19 @@ export default defineConfig({
                 ],
               },
               {
+                label: "Data Warehouses",
+                items: [
+                  {
+                    label: "Overview",
+                    slug: "integrations/data-warehouses",
+                  },
+                  {
+                    label: "Databricks Unity Catalog",
+                    slug: "integrations/data-warehouses/databricks-unity-catalog",
+                  },
+                ],
+              },
+              {
                 label: "Observability",
                 items: [
                   {
