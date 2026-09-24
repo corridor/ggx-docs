@@ -1,0 +1,184 @@
+---
+title: "Connect GGX with MCP"
+description: "Connect a GGX instance to Codex, Claude Code, Gemini CLI, OpenCode, VS Code, or Zed through the Model Context Protocol (MCP)."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Connect your AI coding client to GGX through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). The client can then use your GGX permissions to find platform objects, consult GGX documentation, author assets, run pipelines, and start simulations.
+
+## Before you begin
+
+You need a GGX account and an instance URL that your coding client can reach. The MCP endpoint is your GGX instance URL followed by `/mcp`.
+
+```text
+https://YOUR-GGX-INSTANCE/mcp
+```
+
+When you first use the server, your client opens a browser window so you can sign in to GGX and approve access. The server only exposes data and actions that your GGX account is authorized to use.
+
+:::caution
+GGX MCP includes tools that can create, update, and permanently delete GGX objects, as well as run pipelines and simulations. Keep tool approvals enabled, review write actions before approving them, and connect only to GGX instances you trust.
+:::
+
+## Connect your client
+
+<Tabs>
+<TabItem label="Codex">
+
+Add GGX from the project where you use Codex:
+
+```sh
+codex mcp add ggx --url https://YOUR-GGX-INSTANCE/mcp
+```
+
+If the browser sign-in flow does not open automatically, run `codex mcp login ggx`. Confirm the server is available with `codex mcp list`.
+
+The Codex CLI and IDE extension share this MCP configuration.
+
+</TabItem>
+<TabItem label="Claude Code">
+
+Choose where to save the server configuration:
+
+<Tabs>
+<TabItem label="This project">
+
+```sh
+claude mcp add --transport http ggx https://YOUR-GGX-INSTANCE/mcp
+```
+
+</TabItem>
+<TabItem label="All projects">
+
+```sh
+claude mcp add --transport http --scope user ggx https://YOUR-GGX-INSTANCE/mcp
+```
+
+</TabItem>
+</Tabs>
+
+Run `claude mcp list` to verify the server. In Claude Code, run `/mcp` and complete the browser sign-in if prompted.
+
+</TabItem>
+<TabItem label="Gemini CLI">
+
+Choose where to save the server configuration:
+
+<Tabs>
+<TabItem label="This project">
+
+```sh
+gemini mcp add --transport http ggx https://YOUR-GGX-INSTANCE/mcp
+```
+
+</TabItem>
+<TabItem label="All projects">
+
+```sh
+gemini mcp add --scope user --transport http ggx https://YOUR-GGX-INSTANCE/mcp
+```
+
+</TabItem>
+</Tabs>
+
+Run `gemini mcp list` to verify the server. If sign-in is required, open Gemini CLI and run `/mcp auth ggx`.
+
+</TabItem>
+<TabItem label="OpenCode">
+
+Choose where to save the server configuration:
+
+<Tabs>
+<TabItem label="This project">
+
+```sh
+opencode mcp add ggx --url https://YOUR-GGX-INSTANCE/mcp
+```
+
+</TabItem>
+<TabItem label="All projects">
+
+```sh
+opencode mcp add ggx --global --url https://YOUR-GGX-INSTANCE/mcp
+```
+
+</TabItem>
+</Tabs>
+
+Run `opencode mcp auth ggx` to complete sign-in, then confirm the connection with `opencode mcp list`. You can also manage the server from the `/mcps` view.
+
+</TabItem>
+<TabItem label="VS Code">
+
+<Tabs>
+<TabItem label="Guided setup">
+
+Open the Command Palette and run **MCP: Add Server**. Choose **HTTP**, enter `https://YOUR-GGX-INSTANCE/mcp`, name the server `ggx`, and select either workspace or user-profile storage.
+
+</TabItem>
+<TabItem label="Workspace config">
+
+Create `.vscode/mcp.json` in the project root:
+
+```json
+{
+  "servers": {
+    "ggx": {
+      "type": "http",
+      "url": "https://YOUR-GGX-INSTANCE/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Open Copilot Chat in Agent mode and enable GGX in the tools picker. Complete the GGX browser sign-in when prompted. Use **MCP: List Servers** to check the connection or view its output log.
+
+</TabItem>
+<TabItem label="Zed">
+
+<Tabs>
+<TabItem label="Guided setup">
+
+Open **Settings → AI → MCP Servers**, select **Add Server**, then select **Add Remote Server**. Name the server `ggx` and enter `https://YOUR-GGX-INSTANCE/mcp`.
+
+</TabItem>
+<TabItem label="Settings JSON">
+
+Add the GGX server to your Zed settings file:
+
+```json
+{
+  "context_servers": {
+    "ggx": {
+      "url": "https://YOUR-GGX-INSTANCE/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Complete the GGX browser sign-in when Zed prompts you. Return to **Settings → AI → MCP Servers** and confirm that GGX has a green active status, then enable its tools in an Agent Panel thread.
+
+</TabItem>
+</Tabs>
+
+## Verify the connection
+
+After connecting, ask your client a read-only question first:
+
+> List the GGX projects and pipelines I can access.
+
+For guidance on GGX concepts or configuration, ask the client to search GGX documentation before making changes. Before any authoring action, it should inspect the object schema and current object details. Review any proposed create, update, delete, pipeline-run, or simulation action before you approve it.
+
+## Troubleshooting
+
+- Verify that the endpoint ends in `/mcp` and that the client can reach your GGX instance over the network.
+- Complete the browser sign-in with the GGX account that has access to the target instance.
+- Check the client’s MCP status view or command: `codex mcp list`, `claude mcp list`, `gemini mcp list`, `opencode mcp list`, **MCP: List Servers** in VS Code, or the MCP Servers settings page in Zed.
+- If you use a self-hosted GGX instance behind a proxy, allow the client to reach the instance and preserve the OAuth redirect flow.

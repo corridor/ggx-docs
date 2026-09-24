@@ -211,6 +211,7 @@ export default defineConfig({
             icon: "puzzle",
             items: [
               { label: "Overview", slug: "integrations" },
+              { label: "Connect GGX with MCP", slug: "integrations/mcp" },
               {
                 label: "LLM Providers",
                 items: [
