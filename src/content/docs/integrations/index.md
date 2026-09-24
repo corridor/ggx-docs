@@ -39,6 +39,10 @@ These integrations are organized into the following categories:
    Setup integrations to services for seamless Authentication and Authorization
    Examples: [Google Workspace](https://workspace.google.com/), [Auth0 (by Okta)](https://auth0.com/), [WorkOS](https://workos.com/), [OneLogin](https://www.onelogin.com/)
 
+9. **AI Coding Clients:**
+   Connect a supported coding client to your GGX instance through the Model Context Protocol (MCP) to search documentation, work with GGX objects, and run evaluations under your existing GGX permissions.
+   Supported clients: [Codex, Claude Code, Gemini CLI, OpenCode, VS Code, and Zed](mcp/)
+
 ## Observability and closed-loop monitoring
 
 AI observability platforms are valuable because they collect production traces, scores, feedback, and alerts. GGX makes those signals operational across the AI lifecycle.
