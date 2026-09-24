@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" font-family="'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-labelledby="volume-title volume-desc">
+  <title id="volume-title">Daily GGX monitoring workload</title>
+  <desc id="volume-desc">Ten AI agents each produce one thousand conversations per day, creating ten thousand conversations and around fifty thousand turns for GGX to monitor.</desc>
+  <defs>
+    <marker id="volume-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M1 1L7 4.5L1 8" fill="none" stroke="#5b6a96" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="300" rx="18" fill="#ffffff"/>
+
+  <text x="480" y="32" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1.4" fill="#6b7280">DAILY PRODUCTION VOLUME</text>
+
+  <g>
+    <rect x="30" y="60" width="205" height="170" rx="16" fill="#eef1f6" stroke="#c3ccdf"/>
+    <g transform="translate(66 89)" fill="none" stroke="#293147" stroke-width="2">
+      <rect x="0" y="0" width="32" height="32" rx="7"/>
+      <rect x="42" y="0" width="32" height="32" rx="7"/>
+      <rect x="84" y="0" width="32" height="32" rx="7"/>
+      <circle cx="10" cy="15" r="2" fill="#5b6a96" stroke="none"/>
+      <circle cx="22" cy="15" r="2" fill="#5b6a96" stroke="none"/>
+      <path d="M9 23h14M52 11h12M52 18h12M52 25h8M93 11h14M93 18h10M93 25h14" stroke-linecap="round"/>
+    </g>
+    <text x="132.5" y="152" text-anchor="middle" font-size="30" font-weight="700" fill="#293147">10</text>
+    <text x="132.5" y="176" text-anchor="middle" font-size="15" font-weight="600" fill="#293147">AI agents</text>
+    <text x="132.5" y="202" text-anchor="middle" font-size="12.5" fill="#6b7280">internal + external use cases</text>
+  </g>
+
+  <line x1="247" y1="145" x2="285" y2="145" stroke="#5b6a96" stroke-width="2" marker-end="url(#volume-arrow)"/>
+  <text x="266" y="130" text-anchor="middle" font-size="11.5" fill="#6b7280">× 1,000</text>
+  <text x="266" y="171" text-anchor="middle" font-size="11.5" fill="#6b7280">each day</text>
+
+  <g>
+    <rect x="300" y="60" width="270" height="170" rx="16" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+    <g transform="translate(393 78)">
+      <path d="M0 0h84a10 10 0 0 1 10 10v40a10 10 0 0 1-10 10H35L18 74V60H10A10 10 0 0 1 0 50Z" fill="#eef1f6" stroke="#5b6a96"/>
+      <line x1="18" y1="20" x2="76" y2="20" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round"/>
+      <line x1="18" y1="32" x2="68" y2="32" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round"/>
+      <line x1="18" y1="44" x2="54" y2="44" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="435" y="180" text-anchor="middle" font-size="30" font-weight="700" fill="#293147">10,000</text>
+    <text x="435" y="204" text-anchor="middle" font-size="15" font-weight="600" fill="#293147">conversations / day</text>
+  </g>
+
+  <line x1="582" y1="145" x2="620" y2="145" stroke="#5b6a96" stroke-width="2" marker-end="url(#volume-arrow)"/>
+  <text x="601" y="130" text-anchor="middle" font-size="11.5" fill="#6b7280">× ~5</text>
+  <text x="601" y="171" text-anchor="middle" font-size="11.5" fill="#6b7280">turns/chat</text>
+
+  <g>
+    <rect x="635" y="60" width="295" height="170" rx="16" fill="#293147" stroke="#1b2236"/>
+    <g transform="translate(680 92)" fill="none" stroke="#c8d0e4" stroke-width="2">
+      <path d="M0 10h70M0 30h94M0 50h54" stroke-linecap="round"/>
+      <circle cx="110" cy="10" r="6" fill="#c8d0e4" stroke="none"/>
+      <circle cx="110" cy="30" r="6" fill="#9aa6c0" stroke="none"/>
+      <circle cx="110" cy="50" r="6" fill="#c8d0e4" stroke="none"/>
+    </g>
+    <text x="782.5" y="180" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">~50K</text>
+    <text x="782.5" y="204" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">turns monitored / day</text>
+  </g>
+
+</svg>
