@@ -118,6 +118,19 @@
         );
     }
 
+    /* Sidebar-less (splash) pages: span the same band as the header instead of
+       a narrower column centred in an unevenly padded frame. */
+    :root:not([data-has-sidebar]) {
+        --sl-content-inline-start: var(--ggx-gutter);
+        --sl-content-width: calc(
+            var(--ggx-page-max) - 2 * var(--sl-content-pad-x)
+        );
+    }
+
+    :root:not([data-has-sidebar]) .sl-markdown-content > :is(p, ul, ol) {
+        max-width: 67.5rem;
+    }
+
     .page > .header {
         padding-block: 0;
         padding-inline: calc(var(--sl-nav-pad-x) + var(--ggx-gutter));
