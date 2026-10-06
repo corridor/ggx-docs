@@ -40,6 +40,11 @@ The production workflow runs in the `production` environment, which must define 
 | `PROD_SSH_HOST` | Address of the production server |
 | `PROD_SSH_PRIVATE_KEY` | Private key of a deploy user that can run `sudo rsync` |
 | `PROD_SSH_KNOWN_HOSTS` | The server's `known_hosts` line, from `ssh-keyscan <host>` |
+| `PROD_AWS_ROLE_ARN` | IAM role the workflow assumes through GitHub OIDC |
+| `PROD_SECURITY_GROUP_ID` | Empty security group attached only to the production server |
+
+The server does not accept SSH from GitHub's runners, so the workflow uses the IAM role to
+allow the runner's IP on port 22 for the length of the sync and removes the rule afterwards.
 
 Add required reviewers to the `production` environment to require approval before each
 production deployment.

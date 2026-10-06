@@ -9,6 +9,8 @@ on:
 
 permissions:
   contents: read
+  # Lets the job exchange its GitHub identity for short-lived AWS credentials.
+  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -21,6 +23,7 @@ env:
   DEPLOY_USER: ec2-user
   # nginx serves the site from this directory. It is synced with --delete, so keep it pointed at the docs root only.
   DEPLOY_PATH: /opt/ggx-docs/dist
+  AWS_REGION: us-west-2
 
 jobs:
   deploy:
@@ -59,15 +62,56 @@ jobs:
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ secrets.PROD_AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      # The server does not accept SSH from GitHub's runners. PROD_SECURITY_GROUP_ID is a group
+      # attached only to the docs server and kept empty, so allow this runner's IP on it for the
+      # length of the sync and remove it afterwards.
+      - name: Allow SSH from this runner
+        id: allow-ssh
+        env:
+          SECURITY_GROUP_ID: ${{ secrets.PROD_SECURITY_GROUP_ID }}
+        run: |
+          # Clear any rule left behind by a cancelled run.
+          stale="$(aws ec2 describe-security-group-rules \
+            --filters "Name=group-id,Values=${SECURITY_GROUP_ID}" \
+            --query 'SecurityGroupRules[?!IsEgress].SecurityGroupRuleId' --output text)"
+          if [ -n "$stale" ]; then
+            aws ec2 revoke-security-group-ingress --group-id "$SECURITY_GROUP_ID" \
+              --security-group-rule-ids $stale > /dev/null
+          fi
+          runner_ip="$(curl --fail --silent --show-error --retry 3 https://checkip.amazonaws.com)"
+          aws ec2 authorize-security-group-ingress --group-id "$SECURITY_GROUP_ID" \
+            --protocol tcp --port 22 --cidr "${runner_ip}/32" > /dev/null
+          echo "cidr=${runner_ip}/32" >> "$GITHUB_OUTPUT"
       - name: Sync site to the production server
         env:
           SSH_HOST: ${{ secrets.PROD_SSH_HOST }}
         run: |
           # The docs root is owned by root, so rsync runs under sudo on the server.
-          rsync -rltz --delete --delay-updates --chmod=D755,F644 \
-            --rsync-path="sudo rsync" \
-            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
-            dist/ "${DEPLOY_USER}@${SSH_HOST}:${DEPLOY_PATH}/"
+          # Retry while the new security group rule takes effect.
+          for attempt in 1 2 3 4 5; do
+            if rsync -rltz --delete --delay-updates --chmod=D755,F644 \
+              --rsync-path="sudo rsync" \
+              -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=15" \
+              dist/ "${DEPLOY_USER}@${SSH_HOST}:${DEPLOY_PATH}/"; then
+              exit 0
+            fi
+            echo "Sync attempt ${attempt} failed"
+            sleep 5
+          done
+          exit 1
+      - name: Remove SSH access for this runner
+        if: always() && steps.allow-ssh.outputs.cidr != ''
+        env:
+          SECURITY_GROUP_ID: ${{ secrets.PROD_SECURITY_GROUP_ID }}
+          RUNNER_CIDR: ${{ steps.allow-ssh.outputs.cidr }}
+        run: |
+          aws ec2 revoke-security-group-ingress --group-id "$SECURITY_GROUP_ID" \
+            --protocol tcp --port 22 --cidr "$RUNNER_CIDR" > /dev/null
       - name: Verify production site
         run: |
           curl --fail --silent --show-error --retry 5 --retry-delay 5 --output /dev/null "${SITE_URL}/"
