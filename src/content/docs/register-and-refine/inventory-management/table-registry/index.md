@@ -5,7 +5,7 @@ description: "Register data tables and quality checks in GGX to track source dat
 
 <helper-panel object='DataTable' location='list'>
 
-The Table Registry records the location, content, and structure of source data tables used for analytics.
+The **Datasets** page (**Data & AI Assets → Datasets**) records the location, content, and structure of source data tables used for analytics.
 
 The table can be registered using one of the following methods:
 
@@ -17,11 +17,11 @@ The table can be registered using one of the following methods:
 
 ## Managing Tables on the Platform
 
-The **Table Registry** organizes all the registered tables into customized groups at this centralized location and allows easier tracking, monitoring, and creating new ones.
+The **Datasets** page organizes all the registered tables into customized groups at this centralized location and allows easier tracking, monitoring, and creating new ones.
 
 ### Registering a Table:
 
-- Click on **Create** button in Table Registry.
+- Click on **Create** button on the Datasets page.
 - Fill in important details like **Name**, and **Attributes** (Alias, Group, Input Type, Location, Description).
 - Select an Input Type (Data Lake or Upload Data) and provide a data link or upload files accordingly.
 - Finally, click on the **Save** button to complete the registration.
@@ -44,7 +44,7 @@ Once the table is registered, data quality can be evaluated through registered *
 
 ## What is a Quality Check?
 
-The Quality Check enables the analysis of data and the creation of standard or custom reports based on registered tables in the Table Registry. It supports the generation of profiling metrics, descriptive statistics, invalid entry detection, outlier analysis, and other custom reports and metrics to assess data quality effectively before using the data for downstream tasks like running jobs.
+The Quality Check enables the analysis of data and the creation of standard or custom reports based on tables registered under Datasets. It supports the generation of profiling metrics, descriptive statistics, invalid entry detection, outlier analysis, and other custom reports and metrics to assess data quality effectively before using the data for downstream tasks like running jobs.
 
 > **Note:** The Quality Check object currently supports linking only one table at a time, enabling the generation of multiple metrics and reports for a single table per analysis.
 

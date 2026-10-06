@@ -16,7 +16,7 @@ Databricks Unity Catalog can provide governed data sources for GGX workflows. Un
 
 1. Identify the Unity Catalog data asset and its accountable owner.
 2. Have a Databricks administrator provide GGX with an **external use schema** and the related Unity Catalog permissions needed for the approved data assets. Scope these permissions to the catalogs, schemas, tables, views, or volumes required by the integration.
-3. In GGX, configure the Databricks connection under **Org Settings > Integrations**. Enter only the connection details and credentials supplied for the dedicated GGX access path.
+3. In GGX, configure the Databricks connection under **Org Settings → Integrations**. Enter only the connection details and credentials supplied for the dedicated GGX access path.
 4. Register the dataset or retrieval source in GGX with its catalog, schema, object name, source owner, refresh schedule, and applicable data classifications. Prefer a curated view when source tables contain fields that GGX does not need.
 5. Capture a stable snapshot, version, or query definition before running an evaluation. This makes a GGX result reproducible when the underlying warehouse data changes.
 6. Run GGX evaluations, monitoring reports, or human review workflows against the approved data.

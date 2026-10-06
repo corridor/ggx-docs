@@ -17,8 +17,8 @@ Typically a robust Continuous Deployment system is recommended to ensure that Go
 
 - Jenkins
 - GitHub Actions
-- AWS Code Pipelines
-- Azure DevOps Pipelines
+- AWS Code Agents
+- Azure DevOps Agents
 - Gitlab CICD
 - CircleCI
 
@@ -56,10 +56,10 @@ The API can also be deployed using application management solutions (server-base
 
 Not all production systems support running direct Python scripts or calling APIs - and some require providing specific GenAI components in a custom interface. To handle cases like this, while Robotic Process Automation (RPA) could be used - many times it is not worth the trouble that RPA brings with it.
 
-Because of the transparency that GGX's Inventory management provides, each part of the pipeline can be deployed independently.
+Because of the transparency that GGX's Inventory management provides, each part of the agent can be deployed independently.
 For example:
 
-- All the LLM configurations like `seed`, `temperature`, `top_k`, etc. can be extracted from the pipeline
+- All the LLM configurations like `seed`, `temperature`, `top_k`, etc. can be extracted from the agent
 - The prompt templates can be extracted and provided to the production system directly
 - Knowledge files from RAGs can be locked and sent to production
 

@@ -99,7 +99,7 @@ return {"output": message.content[0].text, "context": None}
 
 Before registering models, configure your Anthropic credentials:
 
-1. Navigate to **Settings > Platform Integrations**
+1. Navigate to **Org Settings → Integrations**
 2. Click on **Anthropic**
 3. Enter your Anthropic API key
 4. Test the connection

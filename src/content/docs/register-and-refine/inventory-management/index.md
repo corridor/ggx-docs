@@ -1,11 +1,11 @@
 ---
 title: "Inventory Management"
-description: "Register, organize, govern, share, version, and monitor GGX data and GenAI assets including tables, models, prompts, RAGs, and end-to-end pipelines."
+description: "Register, organize, govern, share, version, and monitor GGX data and GenAI assets including tables, models, prompts, RAGs, and end-to-end agents."
 ---
 
 ## Overview
 
-The platform allows registering, tracking, and monitoring of Data and GenAI assets (like RAG, Models, LLMs and Pipelines) at a centralized location.
+The platform allows registering, tracking, and monitoring of Data and GenAI assets (like RAG, Models, LLMs and Agents) at a centralized location.
 
 ## Why Inventory Management is Helpful?
 
@@ -22,13 +22,13 @@ Read more on different registries below:
 - [LLMs and Models](model-catalog/)
 - [Prompts](prompts/)
 - [RAGs](rags/)
-- [End-to-End Pipeline Assets](pipelines/)
+- [End-to-End Agent Assets](pipelines/)
 
 ## How Platform Helps in Managing Inventories?
 
 The platform offers extensive capabilities to streamline onboarding and efficiently manage assets.
 
-- Multiple registries are available to centralize and manage smaller, reusable components of the pipeline.
+- Multiple registries are available to centralize and manage smaller, reusable components of the agent.
 - Customized groups for creating assets within a registry.
 - Permissible Purpose Tracking that enables automatic validation to ensure components are used only for authorized purposes.
 - Flexible and granular access management.

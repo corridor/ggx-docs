@@ -11,9 +11,9 @@ If you are new to Prompts, then this doc might help you understanding what they 
 
 ## Registration Steps
 
-### Step 1. Navigate to Prompt Registry
+### Step 1. Navigate to Skills / Prompts
 
-Go to **GenAI Studio → Prompt Registry** and click the **Create** button.
+Go to **Data & AI Assets → Skills / Prompts** and click the **Create** button.
 
 ### Step 2. Fill in Basic Information
 
@@ -36,7 +36,7 @@ Go to **GenAI Studio → Prompt Registry** and click the **Create** button.
 
 **Alias:** `customer_intent_classification_prompt`
 
-- A Python variable name to reference this prompt in pipelines
+- A Python variable name to reference this prompt in agents
 
 #### Example Prompt Template
 
@@ -257,12 +257,12 @@ Click **Create** to register the prompt.
 
 The prompt is now:
 
-- Available in the Prompt Registry
-- Usable in pipelines and other objects
+- Available under **Data & AI Assets → Skills / Prompts**
+- Usable in agents and other objects
 
 ### Analyze and Improve the Prompt using GGX Capability
 
-After saving the prompt, you can test and refine it directly within **GenAI Studio**:
+After saving the prompt, you can test and refine it directly on the prompt's page:
 
 - **🔍 Analyze Prompt:**  
   Click the **Analyze Prompt** button to evaluate how your prompt behaves with different inputs.  
@@ -274,7 +274,7 @@ After saving the prompt, you can test and refine it directly within **GenAI Stud
 
 ---
 
-## Using Prompts in Pipelines
+## Using Prompts in Agents
 
 Once registered, prompts can be used in downstream applications:
 
@@ -303,7 +303,7 @@ elif classified_intent == "BLOCK CARD":
 After registering your prompt:
 
 1. **Register a model** - If you haven't already, register the LLM to use with this prompt
-2. **Build a pipeline** - Combine your prompt with a model and other resources to create a use-case specific pipeline. 
+2. **Build an agent** - Combine your prompt with a model and other resources to create a use-case specific agent. 
 
 ---
 

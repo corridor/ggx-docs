@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Pipeline anatomy: inputs flow into scoring logic, which draws on registered resources, and returns an output.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Agent anatomy: inputs flow into scoring logic, which draws on registered resources, and returns an output.">
   <defs>
     <marker id="ah2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
     </marker>
   </defs>
 
-  <text x="450" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">EVERY PIPELINE HAS THE SAME THREE-PART SHAPE</text>
+  <text x="450" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">EVERY AGENT HAS THE SAME THREE-PART SHAPE</text>
 
   <!-- input -->
   <rect x="24" y="140" width="156" height="68" rx="16" fill="#eef1f6" stroke="#d7dcec"/>
@@ -32,6 +32,6 @@
   <!-- resources feeding up -->
   <rect x="298" y="288" width="304" height="50" rx="12" fill="#eef1f6" stroke="#d7dcec"/>
   <text x="450" y="309" text-anchor="middle" font-size="13" font-weight="700" fill="#2f3a57">Registered Resources</text>
-  <text x="450" y="327" text-anchor="middle" font-size="12" fill="#6b7280">Models · RAGs · Prompts · Guardrails · Sub-pipelines</text>
+  <text x="450" y="327" text-anchor="middle" font-size="12" fill="#6b7280">Models · RAGs · Prompts · Guardrails · Sub-agents</text>
   <line x1="450" y1="286" x2="450" y2="256" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah2)"/>
 </svg>

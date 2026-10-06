@@ -100,7 +100,7 @@ else:
 
 For private models, configure your Hugging Face credentials:
 
-1. Navigate to **Settings > Platform Integrations**
+1. Navigate to **Org Settings → Integrations**
 2. Click on **Hugging Face**
 3. Enter your Hugging Face API token
 4. Test the connection

@@ -21,7 +21,7 @@ The dashboard is the end result — an executive summary plus deep-dive sections
 
 ### What is the difference between pre-production and post-production evaluation?
 
-**Pre-production** tests a registered object (a Pipeline, Model, RAG, or Prompt) on curated test data *before* approval. **Post-production** monitors *live* data after deployment. The same reports and metrics can serve both — a report's **Object Types** let you mark it eligible for pipelines (pre-prod) and for monitoring (post-prod), so you write the logic once.
+**Pre-production** tests a registered object (an Agent, Model, RAG, or Prompt) on curated test data *before* approval. **Post-production** monitors *live* data after deployment. The same reports and metrics can serve both — a report's **Object Types** let you mark it eligible for agents (pre-prod) and for monitoring (post-prod), so you write the logic once.
 
 ### How do I keep a monitoring view continuously up to date?
 
@@ -35,7 +35,7 @@ Yes. The monitoring job has a pre-processing step between the raw table and the 
 <LinkCard title="Simulation" href={`${import.meta.env.BASE_URL}evaluate-and-approve/simulation/`} />
 <LinkCard title="Performance Tracking" href={`${import.meta.env.BASE_URL}deploy-and-monitor/performance/`} />
 <LinkCard title="Governance Oversight" href={`${import.meta.env.BASE_URL}deploy-and-monitor/oversight/`} />
-<LinkCard title="Table Registry" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/table-registry/`} />
+<LinkCard title="Datasets" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/table-registry/`} />
 </CardGrid>
 
 ## Reports and dashboards
@@ -79,7 +79,7 @@ Group several reports together — each contributing its own metrics and visuals
 
 ### What is an LLM-as-a-judge?
 
-It is an LLM registered as a **Model** in the Model Catalog whose job is to *score* another model's output against criteria defined in a **Prompt** — for example, rating answer relevancy on a 0–4 scale. Because it is a registered asset, the same judge is reusable as a resource across any report.
+It is an LLM registered as a **Model** under **Data & AI Assets → Models** whose job is to *score* another model's output against criteria defined in a **Prompt** — for example, rating answer relevancy on a 0–4 scale. Because it is a registered asset, the same judge is reusable as a resource across any report.
 
 ### Which evaluation metrics can I capture?
 
@@ -137,7 +137,7 @@ No. For large datasets, connect GGX to a **database, cloud bucket, or data lake*
 
 ### How do I connect an LLM provider or API key?
 
-Go to **Settings → Platform Integrations**, pick the provider, add its credentials, and use **Test Connection** to confirm. The **Advanced** tab lets you define environment variables available across the platform, and you can request models that are not yet in your inventory.
+Go to **Org Settings → Integrations**, pick the provider, add its credentials, and use **Test Connection** to confirm. The **Advanced** tab lets you define environment variables available across the platform, and you can request models that are not yet in your inventory.
 
 ### Can I swap an embedding or judge model later?
 
@@ -150,7 +150,7 @@ Several sources: a **registered table** (uploaded, or connected from a data lake
 <CardGrid>
 <LinkCard title="Platform Integrations" href={`${import.meta.env.BASE_URL}integrations/`} />
 <LinkCard title="LLM Providers" href={`${import.meta.env.BASE_URL}integrations/llm-providers/`} />
-<LinkCard title="Table Registry" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/table-registry/`} />
+<LinkCard title="Datasets" href={`${import.meta.env.BASE_URL}register-and-refine/inventory-management/table-registry/`} />
 </CardGrid>
 
 ## Governance, testing, and versioning
@@ -178,7 +178,7 @@ Yes. Every object keeps a full **Change History** of snapshots, so from a dashbo
 
 ### How do subject-matter experts give feedback on agent quality?
 
-Through **Feedback Portals** — an SME interacts with the pipeline directly, rates individual responses, and answers structured closing questions. The portal aggregates this into insights on coverage and performance.
+Through **Feedback Portals** — an SME interacts with the agent directly, rates individual responses, and answers structured closing questions. The portal aggregates this into insights on coverage and performance.
 
 ### How do I label production data or build ground truth?
 

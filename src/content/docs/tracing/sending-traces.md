@@ -7,7 +7,7 @@ There are four ways to get traces into GGX. They all go through the same intake,
 
 | Source | How it works |
 | --- | --- |
-| **GGX's own AI features** | The assistant, prompt analysis and pipeline chat trace themselves when your administrator turns platform tracing on. |
+| **GGX's own AI features** | The assistant, prompt analysis and agent chat trace themselves when your administrator turns platform tracing on. |
 | **The GGX Python SDK** | Two lines in your application. Model calls through OpenAI or Anthropic, and agents built with LangChain, LangGraph, LlamaIndex, CrewAI or the OpenAI Agents SDK, are captured automatically. |
 | **Any OpenTelemetry exporter** | Point an OTLP/HTTP exporter at `/api/v1/traces/otlp` with your API key. |
 | **Langfuse history** | Your administrator can import past traces, sessions and scores from a Langfuse instance. |
@@ -57,7 +57,7 @@ with tracing.trace_tool(name, args) as call:
 
 Each call then appears as a tool span with its arguments, its result or error, and its duration, next to the model calls. It counts towards the trace's tool calls, tool time and [agent flags](../agents-and-sessions/#trajectory-flags).
 
-This works the same in pipeline code running inside GGX and in your own application. Arguments and results are recorded only where content capture is on, and they are [masked](../data-masking/) like every other input and output.
+This works the same in agent code running inside GGX and in your own application. Arguments and results are recorded only where content capture is on, and they are [masked](../data-masking/) like every other input and output.
 
 An agent you wrote without a framework is marked the same way, with `@tracing.agent` or `tracing.trace_agent`. See [The agent graph](../agents-and-sessions/#the-agent-graph).
 
@@ -65,7 +65,7 @@ An agent you wrote without a framework is marked the same way, with `@tracing.ag
 
 Agent frameworks are traced one level above the model calls: each chain, graph node, agent, tool and retriever becomes a span, with the model calls it made beneath it.
 
-**Pipelines running inside GGX** need nothing. Pipeline code that builds its agent with LangChain or LangGraph is instrumented as soon as it imports LangChain, alongside the OpenAI, Anthropic, Bedrock and Gemini clients, and the run's trace holds every node and tool. A LangGraph graph's nodes appear on the trace's **Graph** view. As with the rest of platform tracing, inputs and outputs are recorded only when your administrator has turned content capture on.
+**Agents running inside GGX** need nothing. Agent code that builds its agent with LangChain or LangGraph is instrumented as soon as it imports LangChain, alongside the OpenAI, Anthropic, Bedrock and Gemini clients, and the run's trace holds every node and tool. A LangGraph graph's nodes appear on the trace's **Graph** view. As with the rest of platform tracing, inputs and outputs are recorded only when your administrator has turned content capture on.
 
 **Your own applications** install the extra for the framework they use. `tracing.init()` defaults to `instrument="auto"`: it turns on every instrumentation that is installed, for every framework and model library that is installed too. `instrument=False` turns none on, if you set instrumentation up yourself.
 

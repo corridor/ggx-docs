@@ -1,41 +1,41 @@
 ---
 title: "Feedback Portals"
-description: "Create GGX Feedback Portals where testers and domain experts interact with pipelines, define expected outputs, and leave structured session feedback."
+description: "Create GGX Feedback Portals where testers and domain experts interact with agents, define expected outputs, and leave structured session feedback."
 ---
 
-The Feedback Portal is a platform feature designed to help teams evaluate, test, and improve AI pipelines by collecting structured feedback from domain experts and testers. It bridges the gap between raw pipeline outputs and real-world quality assessment by letting subject matter experts interact with a pipeline directly and provide detailed evaluations of every session.
+The Feedback Portal is a platform feature designed to help teams evaluate, test, and improve AI agents by collecting structured feedback from domain experts and testers. It bridges the gap between raw agent outputs and real-world quality assessment by letting subject matter experts interact with an agent directly and provide detailed evaluations of every session.
 
-It is especially useful for pipelines that involve classification, triage, or decision-making, where correctness needs to be validated by humans with domain knowledge.
+It is especially useful for agents that involve classification, triage, or decision-making, where correctness needs to be validated by humans with domain knowledge.
 
 ---
 
 ## How It Works
 
-The Feedback Portal wraps around an existing AI pipeline and adds three layers of structured evaluation:
+The Feedback Portal wraps around an existing AI agent and adds three layers of structured evaluation:
 
 ### 1. Test Definition
 
-Before starting a session, the tester can optionally define what they expect the pipeline to output. This allows the platform to later compare expected vs actual results and surface discrepancies at scale.
+Before starting a session, the tester can optionally define what they expect the agent to output. This allows the platform to later compare expected vs actual results and surface discrepancies at scale.
 
 ### 2. Live Session
 
-The tester interacts with the pipeline through a chat interface, exactly as a real user would. The pipeline processes each message and returns its output. The tester observes the behavior and can rate individual responses using thumbs up or thumbs down during the session.
+The tester interacts with the agent through a chat interface, exactly as a real user would. The agent processes each message and returns its output. The tester observes the behavior and can rate individual responses using thumbs up or thumbs down during the session.
 
 ### 3. Closing Questions
 
-At the end of the session, the tester is shown a structured feedback form that captures their final assessment. This includes whether the pipeline's predictions were correct, what the correct answer should have been, and any additional observations.
+At the end of the session, the tester is shown a structured feedback form that captures their final assessment. This includes whether the agent's predictions were correct, what the correct answer should have been, and any additional observations.
 
 ---
 
 ## Key Concepts
 
-### Pipeline
+### Agent
 
 The AI system being evaluated. It receives a user message and returns an output along with optional context data such as token counts, latency, and cost metrics.
 
 ### Processing Logic
 
-A lightweight code layer that sits between the pipeline and the portal. It calls the pipeline, optionally transforms the output for display, and can extract key metrics into `collected_fields` to track them as session-level statistics in the portal's results table.
+A lightweight code layer that sits between the agent and the portal. It calls the agent, optionally transforms the output for display, and can extract key metrics into `collected_fields` to track them as session-level statistics in the portal's results table.
 
 ### Instructions for User Impersonator
 
@@ -47,7 +47,7 @@ A single JSON object that combines the `testDefinition` and `closingQuestions` f
 
 ### Collected Fields
 
-A dictionary available in the processing logic that can be populated with values extracted from the pipeline's context. These values appear as columns in the portal's results table, making it easy to track metrics like latency, cost, and token usage alongside correctness feedback.
+A dictionary available in the processing logic that can be populated with values extracted from the agent's context. These values appear as columns in the portal's results table, making it easy to track metrics like latency, cost, and token usage alongside correctness feedback.
 
 ---
 
@@ -61,8 +61,8 @@ When creating a Feedback Portal, you configure the following settings:
 | Group | Organizes the portal alongside related portals |
 | Description | A summary of what the portal is evaluating |
 | Feedback Instructions | Instructions shown to testers before they start, written in plain text |
-| Pipeline | The AI pipeline this portal collects feedback for |
-| Processing Logic | Custom code to call the pipeline and optionally extract metrics |
+| Agent | The AI agent this portal collects feedback for |
+| Processing Logic | Custom code to call the agent and optionally extract metrics |
 | Instructions for User Impersonator | A prompt that instructs an AI to simulate realistic user messages during testing |
 | Advanced Configs | A single JSON object combining the `testDefinition` and `closingQuestions` field arrays |
 
@@ -80,11 +80,11 @@ Fill in the Name, Group, Description, and Feedback Instructions. These top-level
 
 ![Portal settings — name, group, description, and feedback instructions](portal-settings-top.png)
 
-### Step 2 — Select a Pipeline and Write the Processing Logic
+### Step 2 — Select an Agent and Write the Processing Logic
 
-Scroll down to the **Pipeline** section and select the pipeline you want to evaluate. Then enable **Processing Logic** to write a Python snippet that calls your pipeline and returns the result.
+Scroll down to the **Agent** section and select the agent you want to evaluate. Then enable **Processing Logic** to write a Python snippet that calls your agent and returns the result.
 
-![Portal settings — pipeline selector and processing logic code](portal-settings-pipeline-logic.png)
+![Portal settings — agent selector and processing logic code](portal-settings-pipeline-logic.png)
 
 At a minimum, the processing logic looks like this:
 
@@ -92,7 +92,7 @@ At a minimum, the processing logic looks like this:
 return my_pipeline(user_message, history=history, context=context)
 ```
 
-If your pipeline returns useful metrics in the context (such as latency, token counts, or cost), you can surface them as tracked statistics using `collected_fields`:
+If your agent returns useful metrics in the context (such as latency, token counts, or cost), you can surface them as tracked statistics using `collected_fields`:
 
 ```python
 import json
@@ -155,7 +155,7 @@ Each field in either array follows this structure:
 
 The `required` property is set directly on the field object and only needs to be included when set to `true`. Supported field types include `selectbox` for dropdown selection and `text` for free text input.
 
-Example for a classification pipeline:
+Example for a classification agent:
 
 ```json
 {
@@ -206,7 +206,7 @@ Example for a classification pipeline:
 }
 ```
 
-Supported field types for closing questions also include `qna`, which renders an interactive question-and-answer widget where testers can add multiple question-answer pairs. This is useful for conversational pipelines where testers want to record follow-up questions they would have asked.
+Supported field types for closing questions also include `qna`, which renders an interactive question-and-answer widget where testers can add multiple question-answer pairs. This is useful for conversational agents where testers want to record follow-up questions they would have asked.
 
 ---
 
@@ -222,11 +222,11 @@ If a Test Definition is configured, you can optionally select your expected valu
 
 ### During the Session
 
-The pipeline processes your message and returns its response in the chat view.
+The agent processes your message and returns its response in the chat view.
 
-![Active chat session showing user message and pipeline response](session-chat-interface.png)
+![Active chat session showing user message and agent response](session-chat-interface.png)
 
-You can rate individual responses using the thumbs up or thumbs down buttons. Continue the conversation if the pipeline is multi-turn, or move to closing if it is single-turn. When you are ready to finish, click the **End Session** link that appears below the last response.
+You can rate individual responses using the thumbs up or thumbs down buttons. Continue the conversation if the agent is multi-turn, or move to closing if it is single-turn. When you are ready to finish, click the **End Session** link that appears below the last response.
 
 ### Ending the Session
 
@@ -238,7 +238,7 @@ The modal shows:
 
 - **Feedback Summary** — a collapsible section summarising any thumbs down ratings from the session
 - **Testing Notes** — a free text field to document your overall observations
-- **Closing Questions** — a collapsible section with the structured questions defined in the Advanced Configs, with the pipeline's actual predictions shown inline in the question labels
+- **Closing Questions** — a collapsible section with the structured questions defined in the Advanced Configs, with the agent's actual predictions shown inline in the question labels
 - **Mark all unmarked responses as 👍** — a checkbox to bulk-approve all responses that have not yet been rated
 
 Fill in your notes, answer the closing questions, and click **End Session** to submit.
@@ -249,11 +249,11 @@ If the portal has **Instructions for User Impersonator** configured, you can use
 
 ![Auto Chat tab showing Max Turns and Instructions for User Impersonator](session-auto-chat-classification.png)
 
-Select the **Auto Chat** tab, set the **Max Turns**, and click **Start Auto Chat**. The AI will use the impersonator instructions as its prompt to generate realistic user messages and send them to the pipeline automatically. This is useful for quickly generating test sessions without manually typing each message.
+Select the **Auto Chat** tab, set the **Max Turns**, and click **Start Auto Chat**. The AI will use the impersonator instructions as its prompt to generate realistic user messages and send them to the agent automatically. This is useful for quickly generating test sessions without manually typing each message.
 
-Once complete, a confirmation banner shows how many turns were run. The AI-generated messages appear in the chat view alongside the pipeline's responses, and you can proceed to end the session and fill in the closing questions as normal.
+Once complete, a confirmation banner shows how many turns were run. The AI-generated messages appear in the chat view alongside the agent's responses, and you can proceed to end the session and fill in the closing questions as normal.
 
-![Auto Chat completed — AI-generated message and pipeline response](session-auto-chat.png)
+![Auto Chat completed — AI-generated message and agent response](session-auto-chat.png)
 
 ---
 
@@ -301,7 +301,7 @@ Shows overall test session performance over time, color-coded by outcome: all li
 
 ## Tips for Portal Designers
 
-- Use `collected_fields` to surface any performance metrics your pipeline tracks — latency, cost, and token counts are especially valuable for benchmarking.
+- Use `collected_fields` to surface any performance metrics your agent tracks — latency, cost, and token counts are especially valuable for benchmarking.
 - Write feedback instructions in plain text without markdown formatting for the best display in the portal UI.
 - Design closing questions to mirror your test definition fields so expected vs actual comparisons are easy to make in the results table.
 - Write the User Impersonator instructions to match the persona of your real end users — this ensures simulated messages are representative of actual traffic.
@@ -310,7 +310,7 @@ Shows overall test session performance over time, color-coded by outcome: all li
 
 ## Example — Customer Intent Classification Portal
 
-The following is a complete example of a Feedback Portal configured for a banking customer intent classification pipeline that classifies messages into 6 predefined intents: ACTIVATE CARD, APPLY FOR LOAN, BLOCK CARD, CANCEL LOAN, CANCEL TRANSFER, and CARD DETAILS.
+The following is a complete example of a Feedback Portal configured for a banking customer intent classification agent that classifies messages into 6 predefined intents: ACTIVATE CARD, APPLY FOR LOAN, BLOCK CARD, CANCEL LOAN, CANCEL TRANSFER, and CARD DETAILS.
 
 ### Instructions for User Impersonator
 
@@ -363,7 +363,7 @@ return result
 
 ### Auto Chat
 
-Since this pipeline classifies each message independently in a single turn, set **Max Turns** to **1** when using Auto Chat. This ensures the AI generates one realistic customer query per session, which the pipeline then classifies.
+Since this agent classifies each message independently in a single turn, set **Max Turns** to **1** when using Auto Chat. This ensures the AI generates one realistic customer query per session, which the agent then classifies.
 
 ![Auto Chat configured with Max Turns set to 1 for single-turn classification](session-auto-chat-classification.png)
 

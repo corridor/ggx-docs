@@ -12,7 +12,7 @@ These integrations are organized into the following categories:
    Examples: [OpenAI](https://openai.com/), [Google Vertex AI](https://cloud.google.com/vertex-ai),[Azure AI](https://azure.microsoft.com/),[Amazon Bedrock](https://aws.amazon.com/bedrock/), [DeepSeek](https://www.deepseek.com/), [Anthropic](https://www.anthropic.com/), [HuggingFace](https://huggingface.co/), [Nvidia NIM](https://www.nvidia.com/en-us/ai/), [GitHub Models](https://github.com/marketplace/models)
 
 2. **LLM Gateways:**  
-   Register an LLM gateway in the GGX Model Registry, then route GGX prompts, RAGs, pipelines, simulations, and monitoring jobs to any LLM the gateway has access to.  
+   Register an LLM gateway as a GGX Model, then route GGX prompts, RAGs, agents, simulations, and monitoring jobs to any LLM the gateway has access to.  
    Examples: [LiteLLM](llm-gateways/litellm/), [Portkey](llm-gateways/portkey/), [OpenRouter](llm-gateways/openrouter/), [Cloudflare AI Gateway](llm-gateways/cloudflare-ai-gateway/), [Databricks AI Gateway](llm-gateways/databricks-ai-gateway/)
 
 3. **Data Warehouses:**  
@@ -28,7 +28,7 @@ These integrations are organized into the following categories:
    Examples: [Vertex AI Agent Playbooks](https://cloud.google.com/dialogflow/cx/docs/concept/playbook), [AgentForce (Salesforce)](https://www.salesforce.com/in/agentforce/), [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio), [Vapi AI](https://vapi.ai/),[GitHub Copilot](https://github.com/features/copilot), [Amazon Lex](https://aws.amazon.com/lex/), [CustomGPT](https://customgpt.ai/)
 
 6. **Report Providers:**  
-   Plug in evaluation tools to assess your data, RAGs, pipelines, agents, etc. effectively.  
+   Plug in evaluation tools to assess your data, RAGs, agents, etc. effectively.  
    Examples: [CleanLabs](https://cleanlabs.ai/), [Perspective API](https://perspectiveapi.com/)
 
 7. **Voice Providers:**

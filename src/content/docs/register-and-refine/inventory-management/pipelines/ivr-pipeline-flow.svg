@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 270" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="IVR pipeline: a caller message flows through Intent Classification then Response Generation to produce a spoken reply.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 270" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="IVR agent: a caller message flows through Intent Classification then Response Generation to produce a spoken reply.">
   <defs>
     <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
     </marker>
   </defs>
 
-  <text x="490" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">TWO SUB-PIPELINES ORCHESTRATED IN SEQUENCE</text>
+  <text x="490" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">TWO SUB-AGENTS ORCHESTRATED IN SEQUENCE</text>
 
   <!-- input -->
   <rect x="20" y="98" width="150" height="74" rx="16" fill="#eef1f6" stroke="#d7dcec"/>

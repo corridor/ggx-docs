@@ -38,7 +38,7 @@ Selecting a trace opens it in a panel over the list, so you can read it and carr
 
 Traces opened from the **Spans** tab open on the span you picked, and a session's turns open the same way.
 
-A trace shows its spans as a tree, on a timeline, or as an [agent graph](../agents-and-sessions/#the-agent-graph), with the project, deployment, pipeline version and the prompts, retrievers and models it declared.
+A trace shows its spans as a tree, on a timeline, or as an [agent graph](../agents-and-sessions/#the-agent-graph), with the project, deployment, agent version and the prompts, retrievers and models it declared.
 
 On the full page, arrows in the header step to the previous or next trace of the same session or week, and the session link opens the conversation the trace belongs to.
 

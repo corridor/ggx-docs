@@ -5,7 +5,7 @@ description: How teams collaborate in GGX — sharing and requesting object acce
 
 import { Badge, Card, CardGrid, LinkCard, Steps } from '@astrojs/starlight/components';
 
-GGX is built to help teams **develop, test, and monitor** GenAI pipelines together. Assets from different workstreams live in one central place, so developers, reviewers, and testers can build, iterate, and reuse each other's work instead of starting from scratch.
+GGX is built to help teams **develop, test, and monitor** GenAI agents together. Assets from different workstreams live in one central place, so developers, reviewers, and testers can build, iterate, and reuse each other's work instead of starting from scratch.
 
 ## Sharing and requesting access
 
@@ -38,7 +38,7 @@ If you add new objects to something already shared with full lineage, you must *
 
 ## Access management
 
-**Role-Based Access Management** governs what each user can do. Every onboarded user is assigned a **role**, configured under **Settings → Roles**. A role is built from three nested controls — you set how much of the platform a user sees, then exactly what they can do with the objects inside it.
+**Role-Based Access Management** governs what each user can do. Every onboarded user is assigned a **role**, configured under **Project Settings → Project Roles**. A role is built from three nested controls — you set how much of the platform a user sees, then exactly what they can do with the objects inside it.
 
 <figure class="ggx-figure">
 
@@ -50,7 +50,7 @@ If you add new objects to something already shared with full lineage, you must *
 | Control | What you set | Options |
 |---------|--------------|---------|
 | **Module Access** | Visibility of each module — Data & AI Assets, Human Integrated Testing, Risk & Compliance, Monitor & Track, Settings. | **Enable** · **Disable** · **Hidden** |
-| **Specific Pages Access** | Visibility of each page within an enabled module — Table Registry, Projects, Model Catalog, Prompt Registry, RAG Registry, Pipeline Registry, Global Functions, Reports. | **Enable** · **Disable** · **Hidden** |
+| **Specific Pages Access** | Visibility of each page within an enabled module — Datasets, Agents, Reports, Models, Skills / Prompts, RAGs / Knowledge Bases, Global Functions. | **Enable** · **Disable** · **Hidden** |
 | **Object-Level Authority** | What the role can do with each object type — Data Table, Project, Model, Prompt, and so on. | **Read** · **Write** · **Approve** |
 
 Object-Level Authority can then be **elevated** and **scoped** per object type:
@@ -86,4 +86,4 @@ Create **multiple independent workspaces** so teams can work in isolation, witho
 
 Build **customized dashboards** for key stakeholders and leadership — a bird's-eye view of activity across teams and across every stage of the application lifecycle, with alerting on the metrics that matter.
 
-<LinkCard title="Monitoring &amp; performance" description="Track live pipelines and configure alerts after deployment." href={`${import.meta.env.BASE_URL}deploy-and-monitor/performance/`} />
+<LinkCard title="Monitoring &amp; performance" description="Track live agents and configure alerts after deployment." href={`${import.meta.env.BASE_URL}deploy-and-monitor/performance/`} />

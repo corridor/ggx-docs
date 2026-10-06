@@ -11,7 +11,7 @@ import { Steps, Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 
 A report is an analytical entity that turns the output of a job into insight. It reads a data source, applies computation logic (statistics, grouping, filtering, model-based scoring), and presents the result through visual elements such as charts, tables, and narrative summaries — helping stakeholders make data-driven decisions.
 
-Once registered, a report becomes a **reusable asset**: the same report can be run against many objects (Pipelines, Models, RAGs, Prompts) and combined with others into use-case-specific **dashboards**.
+Once registered, a report becomes a **reusable asset**: the same report can be run against many objects (Agents, Models, RAGs, Prompts) and combined with others into use-case-specific **dashboards**.
 
 ## Anatomy of a report
 
@@ -26,12 +26,12 @@ Every report is made of **five building blocks** — three that *define* what th
 
 ### 1. Metadata
 
-Metadata is the descriptive header of the report — how it is named, classified, and discovered in the Report Registry. Only the **Name** is required up front; the classification fields can be left empty and filled in later.
+Metadata is the descriptive header of the report — how it is named, classified, and discovered on the Reports page. Only the **Name** is required up front; the classification fields can be left empty and filled in later.
 
 | Field | Required | What it captures |
 |-------|----------|------------------|
 | **Name** | <Badge text="required" variant="caution" /> | Human-readable name of the report. |
-| **Object Type** | <Badge text="required" variant="caution" /> | The kind of object the report runs on (Foundation Model, Pipeline, RAG, Prompt, …). |
+| **Object Type** | <Badge text="required" variant="caution" /> | The kind of object the report runs on (Foundation Model, Agent, RAG, Prompt, …). |
 | **Description** | optional | What the report measures and how to read it. |
 | **Risk Type** | optional | The risk category the report addresses (e.g. Accuracy, Bias, Toxicity, Vulnerability). |
 | **Task Type** | optional | The task being evaluated (e.g. classification, summarization, retrieval, generation). |
@@ -178,7 +178,7 @@ A metric-style output simply returns a numeric value.
 
 ## Registering a report
 
-The **Report Registry** organizes every report in one place for easy tracking, monitoring, and creation. To register a new one, go to **Resources → Reports** and click **Create**, then work through the five building blocks:
+The **Reports** page organizes every report in one place for easy tracking, monitoring, and creation. To register a new one, go to **Data & AI Assets → Reports** and click **Create**, then work through the five building blocks:
 
 <Steps>
 

@@ -5,7 +5,7 @@ description: "Connect a GGX instance to Codex, Claude Code, Gemini CLI, OpenCode
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Connect your AI coding client to GGX through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). The client can then use your GGX permissions to find platform objects, consult GGX documentation, author assets, run pipelines, and start simulations.
+Connect your AI coding client to GGX through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). The client can then use your GGX permissions to find platform objects, consult GGX documentation, author assets, run agents, and start simulations.
 
 ## Before you begin
 
@@ -18,7 +18,7 @@ https://YOUR-GGX-INSTANCE/mcp
 When you first use the server, your client opens a browser window so you can sign in to GGX and approve access. The server only exposes data and actions that your GGX account is authorized to use.
 
 :::caution
-GGX MCP includes tools that can create, update, and permanently delete GGX objects, as well as run pipelines and simulations. Keep tool approvals enabled, review write actions before approving them, and connect only to GGX instances you trust.
+GGX MCP includes tools that can create, update, and permanently delete GGX objects, as well as run agents and simulations. Keep tool approvals enabled, review write actions before approving them, and connect only to GGX instances you trust.
 :::
 
 ## Connect your client
@@ -172,9 +172,9 @@ Complete the GGX browser sign-in when Zed prompts you. Return to **Settings → 
 
 After connecting, ask your client a read-only question first:
 
-> List the GGX projects and pipelines I can access.
+> List the GGX projects and agents I can access.
 
-For guidance on GGX concepts or configuration, ask the client to search GGX documentation before making changes. Before any authoring action, it should inspect the object schema and current object details. Review any proposed create, update, delete, pipeline-run, or simulation action before you approve it.
+For guidance on GGX concepts or configuration, ask the client to search GGX documentation before making changes. Before any authoring action, it should inspect the object schema and current object details. Review any proposed create, update, delete, agent-run, or simulation action before you approve it.
 
 ## Troubleshooting
 

@@ -1,6 +1,6 @@
 ---
 title: "Model Registration: Gemini 2.0 Flash"
-description: "Register Gemini 2.0 Flash in the GGX Model Catalog with provider settings, input arguments, scoring logic, model metadata, and test examples."
+description: "Register Gemini 2.0 Flash in GGX with provider settings, input arguments, scoring logic, model metadata, and test examples."
 ---
 
 This guide covers registering the Gemini 2.0 Flash model on the platform. 
@@ -11,9 +11,9 @@ This guide covers registering the Gemini 2.0 Flash model on the platform.
 
 ## Registration Steps
 
-### Step 1. Navigate to Model Catalog
+### Step 1. Navigate to Models
 
-Go to **GenAI Studio → Model Catalog** and click the **Create** button.
+Go to **Data & AI Assets → Models** and click the **Create** button.
 
 ### Step 2. Fill in Basic Information
 
@@ -48,7 +48,7 @@ Once you select a provider, additional fields will appear to configure how the m
 
 ![alt text](model-code-configure.png)
 
-- **Alias:** Variable name to reference this model in pipeline code (e.g., `gemini_2_0_flash`)
+- **Alias:** Variable name to reference this model in agent code (e.g., `gemini_2_0_flash`)
 - **Output Type:** Data type returned by the model (e.g., `dict[str, str]`)
 - **Input Type:** Choose between API-based (for external providers) or Python Function (for custom code)
 - **Model Provider:** Select the API provider hosting the model (Google Vertex AI)
@@ -130,11 +130,11 @@ Use the platform's test interface to verify:
 - Debug any configuration issues
 - Validate the output format matches expectations
 
-## Usage in Pipelines
+## Usage in Agents
 
 Once registered, the model appears in your Resources library and can be selected for any downstream usages.
 
-**Reference in pipeline code:**
+**Reference in agent code:**
 ```python
 # Call the registered model
 response = gemini_2_0_flash(

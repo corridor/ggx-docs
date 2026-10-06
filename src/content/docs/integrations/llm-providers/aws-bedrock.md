@@ -121,7 +121,7 @@ return {
 
 Before registering models, configure your AWS credentials:
 
-1. Navigate to **Settings > Platform Integrations**
+1. Navigate to **Org Settings → Integrations**
 2. Click on **Amazon Bedrock**
 3. Configure AWS credentials:
    * **Access Key ID**: Your AWS access key

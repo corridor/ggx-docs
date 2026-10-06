@@ -3,8 +3,8 @@ title: "Self-Hosted GGX"
 description: "Install, configure, scale, back up, harden, and operate self-hosted GGX instances across Kubernetes, Terraform, cloud, Docker, and manual deployment options."
 ---
 
-:::note[Pipeline Hosting]
-For guides on how the analytics and pipelines written in GGX can be deployed to Production - refer to the [Direct to Production](../../deploy-and-monitor/direct-to-production/) guide.
+:::note[Agent Hosting]
+For guides on how the analytics and agents written in GGX can be deployed to Production - refer to the [Direct to Production](../../deploy-and-monitor/direct-to-production/) guide.
 :::
 
 Guides that cover the installation, configuration, and scaling of Self-Hosted GGX instances for analytical use.

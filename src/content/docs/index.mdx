@@ -84,7 +84,7 @@ Every flag, rating, and expected answer from a domain expert becomes reusable **
 
 ### Make approval evidence-based, not subjective
 
-GGX turns GenAI risk review into a repeatable workflow run against curated datasets, expected outputs, and thresholds — not one-off scripts. Every asset is versioned, every decision moves through an approval workflow with an audit trail, and an approved pipeline is locked, so the artifact that was signed off is the artifact that ships.
+GGX turns GenAI risk review into a repeatable workflow run against curated datasets, expected outputs, and thresholds — not one-off scripts. Every asset is versioned, every decision moves through an approval workflow with an audit trail, and an approved agent is locked, so the artifact that was signed off is the artifact that ships.
 
 <CardGrid>
 <Card title="1 · Identify">Map use-case-specific risks: accuracy, stability, bias, toxicity, privacy leakage, groundedness, prompt injection, jailbreaking, dark patterns, and agent tool use.</Card>
@@ -146,13 +146,13 @@ export const pillarChip = { display: 'inline-block', padding: '6px 12px', border
     <div style={pillarNum}>01</div>
     <div>
       <p style={pillarTitle}>Centralized, governed platform</p>
-      <p style={pillarLead}>One organized GenAI studio to register, evaluate, and govern LLM pipelines and every component.</p>
+      <p style={pillarLead}>One organized GenAI studio to register, evaluate, and govern LLM agents and every component.</p>
       <div style={pillarChips}>
         <span style={pillarChip}>Version tracking &amp; lineage</span>
         <span style={pillarChip}>Comprehensive audit</span>
         <span style={pillarChip}>Automated approval workflows</span>
         <span style={pillarChip}>Role-based governance</span>
-        <span style={pillarChip}>End-to-end pipeline testing</span>
+        <span style={pillarChip}>End-to-end agent testing</span>
         <span style={pillarChip}>CI/CD for production</span>
       </div>
     </div>
@@ -182,7 +182,7 @@ export const pillarChip = { display: 'inline-block', padding: '6px 12px', border
         <span style={pillarChip}>Compatible with leading hyperscaler and AI ecosystems</span>
         <span style={pillarChip}>API integration for RAG &amp; models</span>
         <span style={pillarChip}>Conversation-log monitoring</span>
-        <span style={pillarChip}>One-click pipeline export</span>
+        <span style={pillarChip}>One-click agent export</span>
       </div>
     </div>
   </div>
@@ -193,7 +193,7 @@ export const pillarChip = { display: 'inline-block', padding: '6px 12px', border
 GGX organizes everything into three stages, with tracing across live traffic. Explore the documentation for each:
 
 <CardGrid>
-  <LinkCard title="Register & Refine" href={`${import.meta.env.BASE_URL}register-and-refine/`} description="Point-and-click building of GenAI apps, with prompt, RAG, and pipeline optimization." />
+  <LinkCard title="Register & Refine" href={`${import.meta.env.BASE_URL}register-and-refine/`} description="Point-and-click building of GenAI apps, with prompt, RAG, and agent optimization." />
   <LinkCard title="Evaluate & Approve" href={`${import.meta.env.BASE_URL}evaluate-and-approve/`} description="Standardized and custom testing, human-in-the-loop dashboards, and approval tracking." />
   <LinkCard title="Deploy & Monitor" href={`${import.meta.env.BASE_URL}deploy-and-monitor/`} description="Direct-to-production deployment with continuous monitoring and alerts." />
   <LinkCard title="Tracing" href={`${import.meta.env.BASE_URL}tracing/`} description="Every model call, retrieval, and tool step in production, with evaluators, monitors, and governance signals." />

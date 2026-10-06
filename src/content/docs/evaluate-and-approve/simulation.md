@@ -7,7 +7,7 @@ The most common type of execution is a **Simulation** - used to execute analytic
 
 A Simulation task typically involves:
 
-- **Current object:** Object which is currently selected and being tested. This can be a Pipeline, Model, RAG, or Prompt.
+- **Current object:** Object which is currently selected and being tested. This can be an Agent, Model, RAG, or Prompt.
 - **Data Source:** The data to run the object on.
 - **Report & Metrices:** Exact evaluation metrics to be run on the output.
 

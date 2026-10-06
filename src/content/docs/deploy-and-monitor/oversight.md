@@ -1,13 +1,13 @@
 ---
 title: "Governance Oversight"
-description: "Monitor GGX governance activity with dashboards, object views, custom alerts, and role-based views across registered models, prompts, RAGs, and pipelines."
+description: "Monitor GGX governance activity with dashboards, object views, custom alerts, and role-based views across registered models, prompts, RAGs, and agents."
 ---
 
 The Monitoring Dashboard provides users with a comprehensive overview of all registered objects on the platform which helps in providing a clear Oversight of all activities happening. It offers an interface that enables users to access snapshots and trend statistics related to various objects, jobs, and users. The dashboard provides various metadata information such as properties, attributes, and statuses of the registered objects.
 
 Monitoring Dashboard is an indispensable tool for review committees and project managers, offering a rich set of features to monitor, analyze, and review all elements registered on the platform efficiently.
 
-The "Monitoring Dashboard" is accessible in the "GenAI Studio" the sub-menu of all modules and is available at various levels (Pipelines, Models, Prompts, RAGs) - and can be used to
+The Monitoring Dashboard is accessible under **Monitor & Track → Monitoring** and is available at various levels (Agents, Models, Prompts, RAGs) - and can be used to
 
 ## Base Views
 
@@ -32,7 +32,7 @@ Different stakeholders need the same information at different altitudes. Custom 
 - An **executive** view summarising activity, cost, and the most problematic objects across the entire environment.
 - A **team or domain** view scoped to one product area or object group.
 - A **customer or tenant** view filtered to a single customer's objects.
-- An **object-level** view for the developers responsible for a specific pipeline or agent.
+- An **object-level** view for the developers responsible for a specific agent.
 
 Because views are configurable and visibility is governed by [roles](../../register-and-refine/collaboration/#access-management), each audience sees the dashboard relevant to them when they log in, rather than one undifferentiated view.
 
