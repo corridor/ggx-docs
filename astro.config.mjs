@@ -1,12 +1,17 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import sitemap from "@astrojs/sitemap";
 import starlightImageZoom from "starlight-image-zoom";
 import starlightSidebarTopics from "starlight-sidebar-topics";
 import { llmsIntegration } from "./src/integrations/llms.mjs";
+import { gitLastModified } from "./src/integrations/sitemap-lastmod.mjs";
 
 // Base path defaults to '/' for local dev, published docs, and the Python/Flask offline package.
 const base = process.env.DOCS_BASE ?? "/";
+
+const lastModified = gitLastModified();
+const basePath = base.replace(/\/?$/, "/");
 
 const GA_ID = "G-SMFMDV1JW7";
 
@@ -22,6 +27,14 @@ export default defineConfig({
   },
   integrations: [
     llmsIntegration({ site: "https://docs.genguardx.ai", base }),
+    // Registered explicitly (Starlight would otherwise add a default one) to emit <lastmod>.
+    sitemap({
+      serialize(item) {
+        const route = `/${new URL(item.url).pathname.slice(basePath.length)}`;
+        const lastmod = lastModified.get(route);
+        return lastmod ? { ...item, lastmod } : item;
+      },
+    }),
     starlight({
       title: "GenGuardX Docs",
       logo: {
