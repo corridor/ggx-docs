@@ -23,11 +23,13 @@ export default defineConfig({
   integrations: [
     llmsIntegration({ site: "https://docs.genguardx.ai", base }),
     starlight({
-      title: "Documentation",
+      title: "GenGuardX Docs",
       logo: {
         light: "./src/assets/ggx-blue.png",
         dark: "./src/assets/ggx-white.png",
         alt: "GenGuardX",
+        // The logo already carries the brand; keep the title for <title> and og:site_name only.
+        replacesTitle: true,
       },
       favicon: "/favicon.ico",
       customCss: [
