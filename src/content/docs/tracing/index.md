@@ -63,4 +63,3 @@ Each trace also records which project, deployment and pipeline version it belong
 
 - [Cost and retention](cost-and-retention/): price sheets, retention, sampling and access.
 - [API reference](api-reference/): the tracing endpoints.
-- [What's new](whats-new/): changes to the tracing features, by date.
