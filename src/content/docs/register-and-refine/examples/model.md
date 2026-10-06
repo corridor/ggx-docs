@@ -151,7 +151,7 @@ output_text = response["response"]
 
 ## Related Documentation
 
-- [Prompt Registration Guide](../intent_classification_pipeline_registration/prompt/) - Create reusable prompts
+- [Prompt Registration Guide](../intent-classification-pipeline-registration/prompt/) - Create reusable prompts
 - [Google Gemini API Docs](https://ai.google.dev/gemini-api/docs) - Official Google documentation
 
 ---
