@@ -7,4 +7,4 @@ Once an agent is registered on the GGX platform, it can be [evaluated and approv
 
 For an agent in production, **monitoring is essential** to maintaining the reliability, performance, and accuracy of systems in real-world scenarios. The platform **automates production monitoring** by ingesting data from relevant systems, generating performance metrics, providing intuitive monitoring dashboards and alerting capabilities. Additionally, it offers **Annotation Queues**, enabling human reviewers to evaluate and label production data, with automated dashboards for key insights and statistics.
 
-For request-level visibility, [Tracing](../tracing/) records every model call, retrieval and tool step your agents, deployments and agents make, so you can search, score, evaluate and alert on live traffic.
+For request-level visibility, [Agent Observability](../agent-observability/) traces every LLM call, tool call, retrieval and autonomous decision your agents and deployments make, so you can search, score, evaluate and alert on live traffic.

@@ -1,6 +1,6 @@
 ---
-title: "Tracing API Reference"
-description: "REST endpoints for GGX tracing: OTLP ingest, traces, spans, sessions, scores, score configs, masking, evaluators, monitors, exports, saved views and findings."
+title: "Agent Observability API Reference"
+description: "REST endpoints for GGX agent observability: OTLP ingest, traces, spans, sessions, scores, score configs, masking, evaluators, monitors, exports, saved views and findings."
 ---
 
 All endpoints take your API key in the `x-api-key` header. Request and response fields use camelCase.

@@ -1,18 +1,18 @@
 ---
-title: "Tracing"
-description: "LLM tracing and observability in GGX: record every model call, retrieval and tool step as a trace, then mask, price, score, evaluate, monitor and keep it as evidence."
+title: "Agent Observability"
+description: "Agent observability in GGX: trace every LLM call, tool call, retrieval and autonomous agent decision, then mask, price, score, evaluate, monitor and keep it as evidence."
 ---
 
-GGX records each request your agents, deployments and agents handle as a **trace** you can open, mask, price, score, evaluate and keep as evidence. These pages cover what is captured, how to send it, and how to work with it once it is in.
+Agent observability shows what your agents did in production and why. GGX records each request your agents and deployments handle as a **trace** that covers every LLM call, tool call, retrieval and autonomous decision the agent made along the way. You can open a trace, mask it, price it, score it, evaluate it and keep it as evidence. These pages cover what is captured, how to send it, and how to work with it once it is in.
 
-Tracing lives under **Monitor & Track → Tracing**.
+In the app, agent observability lives under **Monitor & Track → Tracing**.
 
 ## Traces, spans and sessions
 
 These pages follow one example throughout: a _Card Replacement Assistant_, a chat agent that helps cardholders block a lost card and order a new one.
 
 - A **trace** is one request: a cardholder's message and everything the assistant did to answer it.
-- A **span** is one step inside that request: a model call, a document retrieval, a tool call such as _lookup card status_, or a chain that groups them.
+- A **span** is one step inside that request: an LLM call, a document retrieval, a tool call such as _lookup card status_, an agent deciding what to do next, or a chain that groups them.
 - A **session** is the whole conversation: every trace that shares a session id, in order.
 
 ```text
