@@ -293,7 +293,6 @@ export default defineConfig({
                     slug: "tracing/cost-and-retention",
                   },
                   { label: "API Reference", slug: "tracing/api-reference" },
-                  { label: "What's New", slug: "tracing/whats-new" },
                 ],
               },
             ],
