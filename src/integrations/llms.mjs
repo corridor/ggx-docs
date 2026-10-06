@@ -4,6 +4,17 @@ import path from "node:path";
 const DOCS_DIR = path.join(process.cwd(), "src/content/docs");
 const DOC_EXTENSIONS = new Set([".md", ".mdx"]);
 const SITE_TITLE = "GGX Documentation";
+const JUDGES_DIR = path.join(process.cwd(), "src/data/llm-judges");
+// Top-level route segments, in sidebar order, used to group llms.txt.
+const SECTIONS = [
+  ["register-and-refine", "Register and Refine"],
+  ["evaluate-and-approve", "Evaluate and Approve"],
+  ["deploy-and-monitor", "Deploy and Monitor"],
+  ["integrations", "Integrations"],
+  ["technology", "Technology"],
+  ["llm-judges", "LLM Judges"],
+  ["faq", "FAQ"],
+];
 const SITE_DESCRIPTION =
   "Documentation for GenGuardX, a Responsible AI governance platform for testing, approving, monitoring, and governing GenAI systems.";
 
@@ -11,6 +22,27 @@ export function llmsIntegration({ site, base = "/" }) {
   return {
     name: "ggx-llms",
     hooks: {
+      // The per-page Markdown files only exist after a build; serve them on the fly in dev
+      // so the "View Markdown" and "Ask AI" links work there too.
+      "astro:server:setup": ({ server }) => {
+        server.middlewares.use(async (req, res, next) => {
+          const pathname = decodeURIComponent((req.url || "").split(/[?#]/)[0]);
+          if (!pathname.endsWith("/index.md")) return next();
+
+          try {
+            const pages = await collectPages({ site, base });
+            const page = pages.find(
+              (candidate) => publicPath(candidate.markdownRoute, base) === pathname,
+            );
+            if (!page) return next();
+
+            res.setHeader("Content-Type", "text/markdown; charset=utf-8");
+            res.end(pageMarkdown(page));
+          } catch (error) {
+            next(error);
+          }
+        });
+      },
       "astro:build:done": async ({ dir }) => {
         const pages = await collectPages({ site, base });
 
@@ -27,6 +59,7 @@ export function llmsIntegration({ site, base = "/" }) {
 
 async function collectPages({ site, base }) {
   const files = await walk(DOCS_DIR);
+  const judges = await judgesMarkdown();
   const pages = [];
 
   for (const filePath of files) {
@@ -41,7 +74,7 @@ async function collectPages({ site, base }) {
     const url = absoluteUrl(route, site, base);
     const markdownUrl = absoluteUrl(markdownRoute(route), site, base);
     const sourcePath = path.relative(process.cwd(), filePath);
-    const content = normalizeContent(body);
+    const content = normalizeContent(body, { url, site, base, judges });
 
     pages.push({
       title,
@@ -112,12 +145,200 @@ function stripQuotes(value) {
   return value;
 }
 
-function normalizeContent(body) {
-  return body
+function normalizeContent(body, context) {
+  // Fenced code is copied through untouched; only prose is converted.
+  const converted = body
+    .split(/(^[ \t]*(?:```|~~~)[\s\S]*?^[ \t]*(?:```|~~~)[ \t]*$)/m)
+    .map((segment, index) => (index % 2 ? segment : proseToMarkdown(segment, context)))
+    .join("");
+
+  return converted.replace(/\n{3,}/g, "\n\n").trim();
+}
+
+// Turn MDX components, JSX, and Starlight directives into plain Markdown so the output is
+// readable by LLMs and by people opening "View Markdown".
+function proseToMarkdown(source, { url, site, base, judges }) {
+  let text = source
     .replace(/^import\s.+?;\s*$/gm, "")
     .replace(/^export\s.+?;\s*$/gm, "")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+    .replace(
+      /\{`\$\{import\.meta\.env\.BASE_URL\}([^`]*)`\}/g,
+      (_, route) => `"${absoluteUrl(`/${route}`, site, base)}"`,
+    );
+
+  text = replaceComponent(text, "LlmJudges", () => judges);
+  text = replaceComponent(text, "BenchmarkBarChart", chartMarkdown);
+  text = replaceComponent(text, "LinkCard", ({ title, description, href }) =>
+    `- [${title}](${href})${description ? `: ${description}` : ""}`,
+  );
+  text = replaceComponent(text, "Badge", ({ text: label }) => `(${label})`);
+
+  text = text
+    .replace(
+      /<LinkButton\s[^>]*?href="([^"]*)"[^>]*>\s*([\s\S]*?)\s*<\/LinkButton>/g,
+      "[$2]($1)",
+    )
+    .replace(/<a\s[^>]*?href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/g, "[$2]($1)")
+    .replace(/<video[\s\S]*?src="([^"]*)"[\s\S]*?<\/video>/g, "[Video]($1)")
+    .replace(/<figcaption>([\s\S]*?)<\/figcaption>/g, "*$1*")
+    .replace(/^[ \t]*<Card\s[^>]*?title="([^"]*)"[^>]*>[ \t]*(\S.*?)<\/Card>[ \t]*$/gm, "- **$1**: $2")
+    .replace(/<(?:Card|Aside)\s[^>]*?title="([^"]*)"[^>]*>/g, "**$1**\n")
+    .replace(/<TabItem\s[^>]*?label="([^"]*)"[^>]*>/g, "**$1**\n")
+    .replace(/^[ \t]*<\/?(?:Tabs|TabItem|CardGrid|Card|Steps|Aside|figure|helper-panel)(?:\s[^>]*)?>[ \t]*$/gm, "")
+    // Remaining presentational JSX wrappers: keep their text, drop the markup and indentation.
+    .replace(/^[ \t]*(?:<\/?(?:div|span)(?:\s(?:[^>{]|\{\{[^}]*\}\}|\{[^}]*\})*)?>[ \t]*)+$/gm, "")
+    .replace(/^[ \t]*<(div|span)(?:\s(?:[^>{]|\{\{[^}]*\}\}|\{[^}]*\})*)?>(.*?)<\/\1>[ \t]*$/gm, (_, tag, inner) =>
+      tag === "span" ? `- ${inner}` : `${inner}\n`,
+    )
+    .replace(/&amp;/g, "&")
+    .replace(/^[ \t]+(?=<(?:h[1-6]|p)[ >])/gm, "")
+    .replace(/<h([1-6])[^>]*>(.*?)<\/h\1>/g, (_, level, heading) => `${"#".repeat(Number(level))} ${heading}`)
+    .replace(/<p(?:\s(?:[^>{]|\{\{[^}]*\}\}|\{[^}]*\})*)?>([\s\S]*?)<\/p>/g, (_, paragraph) =>
+      paragraph.replace(/\s*\n\s*/g, " ").trim(),
+    )
+    // Starlight asides: `:::tip[Title]` ... `:::`
+    .replace(/^([ \t]*):::(\w+)(?:\[(.*?)\])?[ \t]*$/gm, (_, indent, type, title) => {
+      const label = type.charAt(0).toUpperCase() + type.slice(1);
+      return `${indent}**${title ? `${label}: ${title}` : label}**\n`;
+    })
+    .replace(/^[ \t]*:::[ \t]*$/gm, "")
+    // Images are fingerprinted at build time, so keep the description instead of a dead path.
+    .replace(/!\[([^\]]*)\]\((?!https?:)[^)]*\)/g, (_, alt) => (alt ? `*Figure: ${alt}*` : ""))
+    // Resolve relative and root-relative links against the published page URL.
+    .replace(/(?<!!)\[([^\]]+)\]\((?!https?:|mailto:|#)([^)\s]+)\)/g, (_, label, href) => {
+      const target = href.startsWith("/")
+        ? absoluteUrl(href.slice(normalizeBase(base).length - 1) || "/", site, base)
+        : new URL(href, url).href;
+      return `[${label}](${target})`;
+    });
+
+  return text;
+}
+
+// Replace every `<Name ... />` with the output of `render(props)`. Attribute values may be
+// quoted strings or `{expressions}` containing nested braces.
+function replaceComponent(text, name, render) {
+  let output = "";
+  let cursor = 0;
+
+  for (;;) {
+    const start = text.indexOf(`<${name}`, cursor);
+    if (start === -1 || !/[\s/>]/.test(text[start + name.length + 1] ?? "")) {
+      if (start === -1) break;
+      output += text.slice(cursor, start + 1);
+      cursor = start + 1;
+      continue;
+    }
+
+    const props = {};
+    let index = start + name.length + 1;
+    let depth = 0;
+    let quote = "";
+    let attributeStart = index;
+
+    for (; index < text.length; index += 1) {
+      const char = text[index];
+      if (quote) {
+        if (char === quote) quote = "";
+      } else if (char === '"' || char === "'" || char === "`") {
+        quote = char;
+      } else if (char === "{") {
+        depth += 1;
+      } else if (char === "}") {
+        depth -= 1;
+      } else if (char === ">" && depth === 0) {
+        break;
+      }
+    }
+
+    const attributes = text.slice(attributeStart, index).replace(/\/\s*$/, "");
+    const pattern = /([A-Za-z]+)=(?:"([^"]*)"|\{)/g;
+    let match;
+    while ((match = pattern.exec(attributes))) {
+      if (match[2] !== undefined) {
+        props[match[1]] = match[2];
+        continue;
+      }
+      let end = pattern.lastIndex;
+      for (let level = 1; end < attributes.length && level > 0; end += 1) {
+        if (attributes[end] === "{") level += 1;
+        if (attributes[end] === "}") level -= 1;
+      }
+      props[match[1]] = attributes.slice(pattern.lastIndex, end - 1);
+      pattern.lastIndex = end;
+    }
+
+    output += text.slice(cursor, start) + render(props);
+    cursor = index + 1;
+  }
+
+  return output + text.slice(cursor);
+}
+
+function chartMarkdown({ title, description, series, data }) {
+  try {
+    // Chart props are object literals authored in this repository's own MDX.
+    const columns = new Function(`return (${series});`)();
+    const rows = new Function(`return (${data});`)();
+    const lines = [
+      `**${title}** — ${description}`,
+      "",
+      `| | ${columns.map((column) => column.label).join(" | ")} |`,
+      `| --- | ${columns.map(() => "---").join(" | ")} |`,
+      ...rows.map(
+        (row) =>
+          `| ${row.label} | ${columns
+            .map((column) => row.display?.[column.key] ?? row.values[column.key] ?? "")
+            .join(" | ")} |`,
+      ),
+    ];
+    return lines.join("\n");
+  } catch {
+    return `**${title}** — ${description}`;
+  }
+}
+
+// The judge gallery is rendered by a component, so list the same data as Markdown.
+async function judgesMarkdown() {
+  const entries = await readdir(JUDGES_DIR, { withFileTypes: true }).catch(() => []);
+  const judges = [];
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const directory = path.join(JUDGES_DIR, entry.name);
+    const meta = JSON.parse(await readFile(path.join(directory, "meta.json"), "utf8"));
+    const read = (file) => readFile(path.join(directory, file), "utf8").catch(() => "");
+    judges.push({
+      ...meta,
+      prompt: await read(meta.promptFile ?? "prompt.txt"),
+      code: await read(meta.module ?? "judge.py"),
+    });
+  }
+
+  return judges
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((judge) =>
+      [
+        `### ${judge.name}`,
+        "",
+        `- Category: ${judge.category}`,
+        judge.scoreRange ? `- Score range: ${judge.scoreRange}` : "",
+        judge.tags?.length ? `- Tags: ${judge.tags.join(", ")}` : "",
+        "",
+        judge.description || judge.summary || "",
+        "",
+        // Most judges embed the prompt in their module; avoid printing it twice.
+        ...(judge.code.includes(judge.prompt.trim().slice(0, 200))
+          ? []
+          : ["Prompt:", "", `~~~text\n${judge.prompt.trim()}\n~~~`, ""]),
+        "Code:",
+        "",
+        `~~~python\n${judge.code.trim()}\n~~~`,
+      ]
+        .filter((line, index, lines) => line !== "" || lines[index - 1] !== "")
+        .join("\n"),
+    )
+    .join("\n\n");
 }
 
 function routeFromContentPath(relativePath) {
@@ -172,11 +393,9 @@ function pageMarkdown(page) {
     `Source: ${page.url}`,
     `Markdown: ${page.markdownUrl}`,
     page.description ? `Description: ${page.description}` : "",
-    "",
-    page.content,
-    "",
   ]
     .filter(Boolean)
+    .concat("", page.content, "")
     .join("\n");
 }
 
@@ -191,14 +410,24 @@ async function writeLlmsTxt(dir, pages) {
     "- [Full documentation](./llms-full.txt): Complete docs content in one Markdown-oriented text file.",
     "- [Structured index](./llms.json): Machine-readable list of docs pages and Markdown URLs.",
     "",
-    "## Documentation pages",
+    "## Overview",
     "",
   ];
 
-  for (const page of pages) {
+  const entry = (page) => {
     const suffix = page.description ? `: ${page.description}` : "";
-    lines.push(`- [${page.title}](${page.url})${suffix}`);
-    lines.push(`  - Markdown: ${page.markdownUrl}`);
+    return [`- [${page.title}](${page.url})${suffix}`, `  - Markdown: ${page.markdownUrl}`];
+  };
+  const sectionOf = (page) => page.route.split("/")[1] || "";
+  const known = new Set(SECTIONS.map(([segment]) => segment));
+
+  lines.push(...pages.filter((page) => !known.has(sectionOf(page))).flatMap(entry));
+
+  for (const [segment, label] of SECTIONS) {
+    const sectionPages = pages.filter((page) => sectionOf(page) === segment);
+    if (sectionPages.length === 0) continue;
+
+    lines.push("", `## ${label}`, "", ...sectionPages.flatMap(entry));
   }
 
   await writeFile(new URL("llms.txt", dir), `${lines.join("\n")}\n`);
