@@ -246,6 +246,59 @@ export default defineConfig({
             ],
           },
           {
+            label: "Tracing",
+            link: "/tracing/",
+            icon: "list-format",
+            items: [
+              { label: "Overview", slug: "tracing" },
+              {
+                label: "Start Here",
+                items: [
+                  { label: "Sending Traces", slug: "tracing/sending-traces" },
+                  { label: "Data Masking", slug: "tracing/data-masking" },
+                ],
+              },
+              {
+                label: "Use It",
+                items: [
+                  {
+                    label: "Exploring Traces",
+                    slug: "tracing/exploring-traces",
+                  },
+                  {
+                    label: "Search, Analytics and Export",
+                    slug: "tracing/search-and-analytics",
+                  },
+                  {
+                    label: "Agents and Sessions",
+                    slug: "tracing/agents-and-sessions",
+                  },
+                  {
+                    label: "Scores and Feedback",
+                    slug: "tracing/scores-and-feedback",
+                  },
+                  { label: "Evaluators", slug: "tracing/evaluators" },
+                  { label: "Monitors", slug: "tracing/monitors" },
+                  {
+                    label: "Governance Signals",
+                    slug: "tracing/governance-signals",
+                  },
+                ],
+              },
+              {
+                label: "Operate It",
+                items: [
+                  {
+                    label: "Cost and Retention",
+                    slug: "tracing/cost-and-retention",
+                  },
+                  { label: "API Reference", slug: "tracing/api-reference" },
+                  { label: "What's New", slug: "tracing/whats-new" },
+                ],
+              },
+            ],
+          },
+          {
             label: "Integrations",
             link: "/integrations/",
             icon: "puzzle",
