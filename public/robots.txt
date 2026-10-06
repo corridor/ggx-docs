@@ -23,4 +23,4 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
-Sitemap: https://docs.genguardx.ai/sitemap.xml
+Sitemap: https://docs.genguardx.ai/sitemap-index.xml
