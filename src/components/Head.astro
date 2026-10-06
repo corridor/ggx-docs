@@ -1,0 +1,8 @@
+---
+import Default from "@astrojs/starlight/components/Head.astro";
+import headingFont from "@fontsource/newsreader/files/newsreader-latin-400-normal.woff2?url";
+---
+
+<Default><slot /></Default>
+<!-- Heading face is above the fold on every page; preload it to avoid a late swap. -->
+<link rel="preload" href={headingFont} as="font" type="font/woff2" crossorigin />
