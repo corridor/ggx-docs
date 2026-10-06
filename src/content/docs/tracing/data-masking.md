@@ -25,6 +25,8 @@ Before anything is stored, GGX masks personal data in every span, from every sou
 
 Open **Monitor & Track → Tracing → Data masking** and pick a project. The page shows the policy version and who last changed it.
 
+![The Data masking page with content capture set to Masked, the six built-in detectors switched on, and the custom rules section](./data-masking-policy.jpg)
+
 - **Content capture** is **Masked** (the default: store content with personal data masked), **Off** (store no bodies at all), or **Full** (store content unmasked; organization admins only).
 - **Detectors** can be switched on or off individually.
 - **Custom rules** (up to 20) add your own patterns, such as internal account numbers, each with its own replacement token.

@@ -20,6 +20,8 @@ An **evaluator** is a judge that reads your traces and records a verdict on each
 
 Open **Tracing → Evaluators**, choose **New evaluator** and start from a template or from scratch.
 
+![The Evaluators tab listing three evaluators with what each judges, its sample rate, labels, judge model and recent activity](./evaluators-tab.jpg)
+
 1. **Name and scope.** The name is also the score name its verdicts are filed under. The scope is what it judges: a span, a whole trace, or a session.
 2. **Which targets.** Narrow by span kind, span name, model or environment, and set a sample percentage to judge a share of traffic. Sampling is deterministic, so the same trace is always in or out.
 3. **Rubric.** Write the judging instructions. Variables such as `{input}`, `{output}`, `{context}`, `{tool_calls}`, `{trajectory}` and `{conversation}` insert the target's content, which the judge reads already masked.
