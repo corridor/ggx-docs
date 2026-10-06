@@ -5,7 +5,7 @@ description: "Register LiteLLM as a GGX Model Registry model and route GGX reque
 
 [LiteLLM](https://docs.litellm.ai/docs/) provides a unified interface for many LLM providers and includes a self-hosted proxy server that can expose an OpenAI-compatible gateway. LiteLLM is commonly used to standardize provider APIs, manage virtual keys, track spend, configure fallbacks, and route requests across model deployments.
 
-In GGX, LiteLLM can be registered in the [Model Registry](../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls your LiteLLM proxy, and LiteLLM can route the request to any underlying LLM that your LiteLLM configuration exposes.
+In GGX, LiteLLM can be registered in the [Model Registry](../../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls your LiteLLM proxy, and LiteLLM can route the request to any underlying LLM that your LiteLLM configuration exposes.
 
 ## When to use this integration
 

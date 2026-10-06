@@ -75,10 +75,10 @@ Use Databricks AI Gateway and GGX together when Databricks is part of the produc
 
 ## Related GGX docs
 
-- [Inventory Management](../../register-and-refine/inventory-management/)
-- [Lineage Tracking](../../register-and-refine/lineage-tracking/)
-- [Evaluations and Approval](../../evaluate-and-approve/)
-- [Reporting](../../evaluate-and-approve/reporting/)
-- [Approval Workflows](../../evaluate-and-approve/approval-workflows/)
-- [Deployment and Monitoring](../../deploy-and-monitor/)
-- [Annotation Queues](../../deploy-and-monitor/annotation-queues/)
+- [Inventory Management](../../../register-and-refine/inventory-management/)
+- [Lineage Tracking](../../../register-and-refine/lineage-tracking/)
+- [Evaluations and Approval](../../../evaluate-and-approve/)
+- [Reporting](../../../evaluate-and-approve/reporting/)
+- [Approval Workflows](../../../evaluate-and-approve/approval-workflows/)
+- [Deployment and Monitoring](../../../deploy-and-monitor/)
+- [Annotation Queues](../../../deploy-and-monitor/annotation-queues/)

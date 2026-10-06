@@ -5,7 +5,7 @@ description: "Register OpenRouter as a GGX Model Registry model and route GGX re
 
 [OpenRouter](https://openrouter.ai/docs/quickstart) provides a unified API for accessing many AI models through a single endpoint. It supports direct API calls and OpenAI-compatible SDK usage, so GGX can call OpenRouter as a gateway-backed model.
 
-In GGX, OpenRouter can be registered in the [Model Registry](../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls OpenRouter, and OpenRouter can route to any model that your OpenRouter account and request configuration can access.
+In GGX, OpenRouter can be registered in the [Model Registry](../../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls OpenRouter, and OpenRouter can route to any model that your OpenRouter account and request configuration can access.
 
 ## When to use this integration
 
