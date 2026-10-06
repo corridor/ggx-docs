@@ -11,22 +11,22 @@ In the app, agent observability lives under **Monitor & Track → Tracing**.
 
 These pages follow one example throughout: a _Card Replacement Assistant_, a chat agent that helps cardholders block a lost card and order a new one.
 
-- A **trace** is one request: a cardholder's message and everything the assistant did to answer it.
-- A **span** is one step inside that request: an LLM call, a document retrieval, a tool call such as _lookup card status_, an agent deciding what to do next, or a chain that groups them.
-- A **session** is the whole conversation: every trace that shares a session id, in order.
+Everything GGX records sits at one of three levels, each nested inside the one above: a session holds traces, and a trace holds spans.
 
-```text
-Session  chat with one cardholder
-├── Trace 1  "I lost my card"
-├── Trace 2  "Block it and send a new one"
-│   └── chain      card assistant turn          3.1 s
-│       ├── retriever  card policy
-│       ├── llm        gpt-4o-mini              1,036 → 58 tokens
-│       └── tool       block card               0.4 s
-└── Trace 3  "Thanks"
-```
+<figure class="ggx-figure ggx-figure--wide">
 
-A session groups traces, and a trace is a tree of spans. Model calls carry tokens and cost; every span carries its timing and status.
+![A session is one conversation with a cardholder and holds three traces in order. Trace 2, "Block it and send a new one", is opened to show its tree of spans: a chain span for the assistant's turn that contains a retriever span, an LLM span and a tool span, each with its own timing.](./session-trace-span.svg)
+
+<figcaption>One conversation with the Card Replacement Assistant: a session of three traces, with the second trace opened to show its spans.</figcaption>
+</figure>
+
+| Level | What it is | In the example |
+| --- | --- | --- |
+| **Session** | The whole conversation: every trace that shares a session id, in order. | One cardholder's chat, from "I lost my card" to "Thanks". |
+| **Trace** | One request: a message and everything the assistant did to answer it. | "Block it and send a new one" and the work behind the reply. |
+| **Span** | One step inside a request: an LLM call, a retrieval, a tool call, an agent deciding what to do next, or a chain that groups them. | The call to `gpt-4o-mini`, the _card policy_ lookup, the _block card_ tool. |
+
+A span can contain other spans, which is how a trace becomes a tree: in the figure, the _card assistant turn_ chain contains the retrieval, the LLM call and the tool call. LLM calls carry tokens and cost; every span carries its timing and status.
 
 ## What gets captured
 
