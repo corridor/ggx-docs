@@ -1,6 +1,6 @@
 ---
 title: "Langfuse"
-description: "Use Langfuse traces, scores, datasets, and annotation queues with GGX to close the monitoring loop across judges, human review, ground truth, bugs, and approvals."
+description: "Use Langfuse traces, scores, datasets, and annotation queues with GGX to close the monitoring loop across judges, human review, bugs, and approvals."
 ---
 
 [Langfuse](https://langfuse.com/docs) is an open-source AI engineering platform for LLM observability, prompt management, evaluations, dashboards, datasets, experiments, user feedback, and annotation queues.

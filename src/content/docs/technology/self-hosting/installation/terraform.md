@@ -1,5 +1,5 @@
 ---
-title: "Terraform"
+title: "Deploy GGX with Terraform"
 description: "Provision self-hosted GGX infrastructure as code with Terraform modules for AWS, Azure, and Google Cloud managed container deployments."
 ---
 

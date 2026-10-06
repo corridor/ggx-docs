@@ -1,6 +1,6 @@
 ---
 title: "Governance Oversight"
-description: "Monitor GGX governance activity with dashboards, object views, custom alerts, role-based views, and review signals across registered models, prompts, RAGs, and pipelines."
+description: "Monitor GGX governance activity with dashboards, object views, custom alerts, and role-based views across registered models, prompts, RAGs, and pipelines."
 ---
 
 The Monitoring Dashboard provides users with a comprehensive overview of all registered objects on the platform which helps in providing a clear Oversight of all activities happening. It offers an interface that enables users to access snapshots and trend statistics related to various objects, jobs, and users. The dashboard provides various metadata information such as properties, attributes, and statuses of the registered objects.
@@ -9,7 +9,7 @@ Monitoring Dashboard is an indispensable tool for review committees and project 
 
 The "Monitoring Dashboard" is accessible in the "GenAI Studio" the sub-menu of all modules and is available at various levels (Pipelines, Models, Prompts, RAGs) - and can be used to
 
-### Base Views
+## Base Views
 
 This is the default view that the organization decides to show to all users of the platform. Typically the primary cockpit is to quickly find the overall status of governance across all objects on the Platform.
 
@@ -25,7 +25,7 @@ By default, the baseview contains examples of monitoring reports that can help b
 
 Explore these pre-configured views and customize them further to cater to specific monitoring needs and gain deeper insights into the platform's governance.
 
-### Role-Based and Multi-Level Dashboards
+## Role-Based and Multi-Level Dashboards
 
 Different stakeholders need the same information at different altitudes. Custom views and dashboards can be tailored to an audience and surfaced based on a user's role — for example:
 
@@ -36,17 +36,17 @@ Different stakeholders need the same information at different altitudes. Custom 
 
 Because views are configurable and visibility is governed by [roles](../../register-and-refine/collaboration/#access-management), each audience sees the dashboard relevant to them when they log in, rather than one undifferentiated view.
 
-### Data View
+## Data View
 
 This view presents the complete data for the selected object type in a tabular format. Users can easily navigate to specific objects by clicking on the rows. Additionally, they can apply filters or sort rows based on any specified column.
 
 The data view is a comprehensive place to access all information across the entire platform - and is the base for nearly all other types of monitoring - be it creating Custom Views or creating automated Alerts.
 
-### Automated Alerts
+## Automated Alerts
 
 Alerts are defined as a set of rules that are designed to identify specific items or events that require immediate attention or further action. These rules are created based on predefined criteria, enabling the system to detect critical situations, anomalies, or deviations from expected behaviour. When the conditions specified in the alert rules are met, the system triggers events such as notifications, emails etc. Ensuring that appropriate actions can be taken promptly to address the identified issues.
 
-### Creating Alerts
+## Creating Alerts
 
 On the platform, users have the flexibility to create custom alerts tailored to their specific needs. Custom alerts encompass essential properties, including name, description, conditions, severity, and associated actions.
 

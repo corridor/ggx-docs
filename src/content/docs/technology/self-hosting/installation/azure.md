@@ -1,6 +1,6 @@
 ---
-title: "Azure"
-description: "Deploy self-hosted GGX on Azure using Container Apps, Azure Files, managed networking, database services, container registry, and Terraform-based infrastructure."
+title: "Deploy GGX on Azure"
+description: "Deploy self-hosted GGX on Azure using Container Apps, Azure Files, managed networking, database services, container registry, and Terraform."
 ---
 
 Use this page to choose and configure an Azure deployment path for GGX.

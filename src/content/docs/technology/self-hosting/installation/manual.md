@@ -1,6 +1,6 @@
 ---
-title: "Manual"
-description: "Install self-hosted GGX manually on VMs, bare metal, or cloud instances with direct control over services, databases, storage, web servers, and process managers."
+title: "Manual GGX Installation"
+description: "Install self-hosted GGX manually on VMs, bare metal, or cloud instances with direct control over services, databases, storage, and web servers."
 ---
 
 Use a manual installation when you are deploying GGX directly on VMs, bare metal, or cloud instances and want direct control over the operating system, process manager, web server, database, and storage.

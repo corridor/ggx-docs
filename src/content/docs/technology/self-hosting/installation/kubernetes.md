@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes"
+title: "Deploy GGX on Kubernetes"
 description: "Deploy self-hosted GGX on Kubernetes using Kustomize manifests, namespaces, persistent volumes, ingress, secrets, and provider-specific cluster settings."
 ---
 
