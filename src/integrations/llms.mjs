@@ -10,6 +10,7 @@ const SECTIONS = [
   ["register-and-refine", "Register and Refine"],
   ["evaluate-and-approve", "Evaluate and Approve"],
   ["deploy-and-monitor", "Deploy and Monitor"],
+  ["tracing", "Tracing"],
   ["integrations", "Integrations"],
   ["technology", "Technology"],
   ["llm-judges", "LLM Judges"],
