@@ -23,13 +23,15 @@ This outputs the static site to `dist/` with the site root (`/`).
 
 ## Deployment
 
-Pushing to `main` triggers two workflows, each of which builds the site with base URL `/`:
+Two workflows deploy the site, each of which builds it with base URL `/`:
 
-- [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) publishes the test site to
-  GitHub Pages at <https://docs.test.genguardx.ai> with a noindex `robots.txt`.
-- [`.github/workflows/deploy-prod.yml`](.github/workflows/deploy-prod.yml) syncs the build to
-  the production server behind <https://docs.genguardx.ai> over SSH, then checks that the
-  site responds and is still indexable. It can also be run manually from the Actions tab.
+- [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main`
+  and publishes the test site to GitHub Pages at <https://docs.test.genguardx.ai> with a
+  noindex `robots.txt`.
+- [`.github/workflows/deploy-prod.yml`](.github/workflows/deploy-prod.yml) runs only when
+  started manually from the Actions tab (**Deploy to production → Run workflow**). It syncs
+  the build to the production server behind <https://docs.genguardx.ai> over SSH, then checks
+  that the site responds and is still indexable.
 
 > The repository's **Settings → Pages → Source** must be set to **GitHub Actions**.
 

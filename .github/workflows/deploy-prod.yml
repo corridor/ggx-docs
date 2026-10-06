@@ -1,10 +1,7 @@
 name: Deploy to production
 
 on:
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Production is deployed on demand only: run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
