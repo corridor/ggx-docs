@@ -1,22 +1,22 @@
 ---
 title: "LiteLLM Gateway"
-description: "Register LiteLLM as a GGX Model Registry model and route GGX requests to any LLM provider configured behind LiteLLM."
+description: "Register LiteLLM as a GGX Model and route GGX requests to any LLM provider configured behind LiteLLM."
 ---
 
 [LiteLLM](https://docs.litellm.ai/docs/) provides a unified interface for many LLM providers and includes a self-hosted proxy server that can expose an OpenAI-compatible gateway. LiteLLM is commonly used to standardize provider APIs, manage virtual keys, track spend, configure fallbacks, and route requests across model deployments.
 
-In GGX, LiteLLM can be registered in the [Model Registry](../../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls your LiteLLM proxy, and LiteLLM can route the request to any underlying LLM that your LiteLLM configuration exposes.
+In GGX, LiteLLM can be registered on the [Models](../../../register-and-refine/inventory-management/model-catalog/) page as a Model. The registered GGX Model calls your LiteLLM proxy, and LiteLLM can route the request to any underlying LLM that your LiteLLM configuration exposes.
 
 ## When to use this integration
 
 Use LiteLLM with GGX when:
 
 - Your engineering team already uses LiteLLM as the LLM proxy.
-- You want GGX pipelines to call the same model aliases that production applications call.
+- You want GGX agents to call the same model aliases that production applications call.
 - You want to evaluate several providers through one gateway layer.
 - You want LiteLLM to handle provider credentials, routing, fallback, or cost tracking while GGX handles evaluation, approval, and monitoring.
 
-## Register LiteLLM in the Model Registry
+## Register LiteLLM as a Model
 
 Create one GGX Model per LiteLLM model alias, or create one parameterized model that accepts a `model` argument.
 

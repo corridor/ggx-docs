@@ -1,6 +1,6 @@
 ---
 title: "Global Functions"
-description: "A Global Function in GGX is reusable analytical logic, registered once and called across pipelines, RAGs, models, reports, and simulations."
+description: "A Global Function in GGX is reusable analytical logic, registered once and called across agents, RAGs, models, reports, and simulations."
 ---
 
 import { Badge, Card, CardGrid, LinkCard, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
@@ -11,11 +11,11 @@ import { Badge, Card, CardGrid, LinkCard, Steps, Tabs, TabItem } from '@astrojs/
 
 A **Global Function** lets you write a set of analytical operations **once** and run them many times with different objects as inputs — without rewriting the logic each time. It supports inputs and outputs of **any type** (DataFrames, dictionaries, plain Python values, and more) and does **not** require a predefined input/output schema.
 
-Because it is registered centrally, the same function can be called across the platform — inside GenAI Studio, Reports, Simulation Data Sources, or even other Global Functions — which is what makes it the platform's primary unit of reuse.
+Because it is registered centrally, the same function can be called across the platform — inside Agents, Models and RAGs, Reports, Simulation Data Sources, or even other Global Functions — which is what makes it the platform's primary unit of reuse.
 
 <figure class="ggx-figure">
 
-![Global Function anatomy: inputs of any type flow into reusable logic that returns an output of any type, and the same function is reused across GenAI Studio, Reports, Simulation Data Sources, and other Global Functions.](./global-function-concept.svg)
+![Global Function anatomy: inputs of any type flow into reusable logic that returns an output of any type, and the same function is reused across Data & AI Assets, Reports, Simulation Data Sources, and other Global Functions.](./global-function-concept.svg)
 
 <figcaption>Write the logic once; call it with different inputs from anywhere on the platform.</figcaption>
 </figure>
@@ -44,8 +44,8 @@ Unlike most registered objects, a Global Function does **not** require an Output
 Once registered, a Global Function is available anywhere logic runs on the platform:
 
 <CardGrid>
-<Card title="GenAI Studio" icon="puzzle">
-Call it from a **Pipeline**, **Model**, or **RAG** as a registered Resource — shared pre/post-processing, formatting, or scoring helpers.
+<Card title="Data & AI Assets" icon="puzzle">
+Call it from an **Agent**, **Model**, or **RAG** as a registered Resource — shared pre/post-processing, formatting, or scoring helpers.
 </Card>
 <Card title="Reports" icon="document">
 Reuse the same logic when writing **Reports**, so report calculations match what runs in production.
@@ -60,7 +60,7 @@ Compose functions — a Global Function can call other registered Global Functio
 
 ## Adding a Global Function to the registry
 
-The **Global Function Registry** is the central place where every registered utility lives, organised into customisable groups for easier tracking, monitoring, and creation.
+The **Global Functions** page (**Data & AI Assets → Global Functions**) is the central place where every registered utility lives, organised into customisable groups for easier tracking, monitoring, and creation.
 
 Click **Create** on the registry page, then work through the form:
 
@@ -89,7 +89,7 @@ This fills in every field for the `mask_card` utility introduced above.
 
 | Field | Value |
 |-------|-------|
-| Description | *"Redacts card numbers in free text, keeping only the last four digits. Reusable across pipelines, RAGs, and reports for safe logging and display."* |
+| Description | *"Redacts card numbers in free text, keeping only the last four digits. Reusable across agents, RAGs, and reports for safe logging and display."* |
 | Alias | `mask_card` |
 | Output Type | `str` |
 | Input Arguments | `text` (`str`, required) |
@@ -118,7 +118,7 @@ return re.sub(r"\b(?:\d[ -]?){13,16}\b", _mask, text)
 </TabItem>
 <TabItem label="Calling it">
 
-Once registered, call it by its **Alias** from any pipeline, RAG, model, or report:
+Once registered, call it by its **Alias** from any agent, RAG, model, or report:
 
 ```python
 # inside a pipeline's scoring logic, before logging the turn
@@ -132,7 +132,7 @@ safe_message = mask_card(user_message)
 
 ## Testing a Global Function
 
-While writing the definition, click **Test Code** at the bottom of the editor to run the function against sample inputs without saving — confirm it returns what you expect and that the return value matches the declared **Output Type** (if you set one). Because functions are composed into other objects, they also get exercised end-to-end whenever a pipeline, RAG, or report that uses them is run or simulated.
+While writing the definition, click **Test Code** at the bottom of the editor to run the function against sample inputs without saving — confirm it returns what you expect and that the return value matches the declared **Output Type** (if you set one). Because functions are composed into other objects, they also get exercised end-to-end whenever an agent, RAG, or report that uses them is run or simulated.
 
 ## Capabilities unlocked by registration
 
@@ -140,7 +140,7 @@ Registering a Global Function — rather than copy-pasting a helper into every s
 
 | Capability | What you get |
 |------------|--------------|
-| **Reusability** | Call the same logic across pipelines, models, RAGs, reports, and simulations, with visibility through [Lineage Tracking](../../lineage-tracking/). |
+| **Reusability** | Call the same logic across agents, models, RAGs, reports, and simulations, with visibility through [Lineage Tracking](../../lineage-tracking/). |
 | **Change tracking** | Automatic recording of modifications with efficient version upgrades. |
 | **Auditable path to production** | A transparent, fully auditable journey from Draft through Approval to downstream use. |
 | **Better collaboration** | A shared base for continuous building and testing across teams. |

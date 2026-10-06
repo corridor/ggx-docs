@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Three ways to test a pipeline with increasing coverage and confidence: Quick Test on a single input, Interactive Test on a live conversation, and Bulk Simulation across an entire dataset.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Three ways to test an agent with increasing coverage and confidence: Quick Test on a single input, Interactive Test on a live conversation, and Bulk Simulation across an entire dataset.">
   <defs>
     <linearGradient id="prog" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#dbe0ee"/>

@@ -1,18 +1,18 @@
 ---
 title: "LLM Gateways"
-description: "Use LLM gateways with GGX by registering gateway-backed models in the Model Registry and routing requests to any LLM the gateway can access."
+description: "Use LLM gateways with GGX by registering gateway-backed models under Data & AI Assets → Models and routing requests to any LLM the gateway can access."
 ---
 
 LLM gateways provide a common API layer in front of one or more model providers. They are useful when your organization already centralizes routing, provider credentials, cost controls, logging, rate limits, caching, fallback, or provider selection outside GGX.
 
-In GGX, an LLM gateway can be registered in the [Model Registry](../../register-and-refine/inventory-management/model-catalog/) as a Model. Once registered, that model can be used in prompts, RAGs, pipelines, simulations, comparisons, approval workflows, and production monitoring just like any directly integrated LLM provider.
+In GGX, an LLM gateway can be registered on the [Models](../../register-and-refine/inventory-management/model-catalog/) page as a Model. Once registered, that model can be used in prompts, RAGs, agents, simulations, comparisons, approval workflows, and production monitoring just like any directly integrated LLM provider.
 
 ## How the pattern works
 
 1. Configure the LLM gateway with the providers and model aliases it is allowed to access.
 2. Store the gateway base URL, API key, and default model alias in GGX environment variables or integration settings.
 3. Register a GGX Model that calls the gateway endpoint.
-4. Use the registered GGX Model in pipelines and evaluations.
+4. Use the registered GGX Model in agents and evaluations.
 5. Let the gateway route to any underlying LLM it has access to, while GGX records governance metadata, test evidence, approvals, lineage, and monitoring results.
 
 ## Registration options
@@ -21,11 +21,11 @@ In GGX, an LLM gateway can be registered in the [Model Registry](../../register-
 | --- | --- |
 | **One GGX Model per gateway model alias** | Use this when reviewers should approve and monitor each underlying LLM separately. For example, register `gateway_gpt4o`, `gateway_claude_sonnet`, and `gateway_gemini_flash` as separate GGX Models. |
 | **One parameterized GGX Model** | Use this when the gateway chooses the model dynamically or when the caller should pass a `model` argument. This is useful for routing tests, fallback tests, and cost or latency comparisons. |
-| **Gateway-backed pipeline** | Use this when the gateway is only one component in a larger GGX Pipeline that also includes prompts, retrieval, guardrails, parsing, or business logic. |
+| **Gateway-backed agent** | Use this when the gateway is only one component in a larger GGX Agent that also includes prompts, retrieval, guardrails, parsing, or business logic. |
 
-## Model Registry setup
+## Model setup
 
-When registering an LLM gateway in the Model Registry, capture enough metadata for business, risk, and audit reviewers to understand what is behind the gateway.
+When registering an LLM gateway as a Model, capture enough metadata for business, risk, and audit reviewers to understand what is behind the gateway.
 
 | Field | Recommended value |
 | --- | --- |
@@ -76,8 +76,8 @@ return {
 
 LLM gateways centralize runtime access. GGX adds lifecycle governance around the AI system that uses that gateway:
 
-- Model Registry inventory, ownership, and descriptions.
-- Version history and lineage for prompts, models, RAGs, pipelines, reports, and data.
+- Model inventory, ownership, and descriptions.
+- Version history and lineage for prompts, models, RAGs, agents, reports, and data.
 - Automated simulations and comparisons across gateway-backed models.
 - Standardized risk reports for accuracy, stability, bias, toxicity, vulnerability, hallucination, retrieval quality, and other compliance dimensions.
 - Approval workflows for business, risk, legal, compliance, technology, and model-risk reviewers.

@@ -3,7 +3,7 @@ title: "Governance Signals"
 description: "GGX investigates LLM traces every 15 minutes and files findings for PII leaks, error spikes, silent failures, retry loops and cost outliers, linked to risk assessments."
 ---
 
-GGX investigates your traces every 15 minutes and files a **finding** when it sees a risk. Each finding is tied to the deployment, pipeline version and model it concerns, so it can follow the model into its risk assessment rather than stop at an engineer's inbox.
+GGX investigates your traces every 15 minutes and files a **finding** when it sees a risk. Each finding is tied to the deployment, agent version and model it concerns, so it can follow the model into its risk assessment rather than stop at an engineer's inbox.
 
 ## What GGX looks for
 
@@ -34,12 +34,12 @@ Open **Tracing → Signals**. Tiles count open findings by severity, and the lis
 
 ## Findings in governance
 
-- A **Trace signals** panel on pipeline and deployment pages lists the open findings that concern them, so approvers see them.
-- **Add to risk assessment** records a finding in the pipeline version's risk assessment under a suggested category and risk (a PII leak goes under data leakage, for example), keeping the assessor's own text.
-- Deleting a deployment, pipeline version or model keeps its findings and unlinks them.
+- A **Trace signals** panel on agent and deployment pages lists the open findings that concern them, so approvers see them.
+- **Add to risk assessment** records a finding in the agent version's risk assessment under a suggested category and risk (a PII leak goes under data leakage, for example), keeping the assessor's own text.
+- Deleting a deployment, agent version or model keeps its findings and unlinks them.
 
 ## What to read next
 
 - [Monitors](../monitors/): thresholds you set yourself, which can also open findings.
 - [Data masking](../data-masking/): the policy the PII leak investigator checks against.
-- [Approval workflows](../../evaluate-and-approve/approval-workflows/): where approvers review a pipeline before it ships.
+- [Approval workflows](../../evaluate-and-approve/approval-workflows/): where approvers review an agent before it ships.

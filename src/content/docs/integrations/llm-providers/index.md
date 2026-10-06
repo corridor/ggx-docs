@@ -7,7 +7,7 @@ Setup integrations to services that provide LLMs as an API. Configure your API k
 
 ## Getting Started
 
-Navigate to **Settings > Platform Integrations** to configure your LLM providers. Each provider requires an API key that creates secure environment variables for your models.
+Open **Org Settings → Integrations** from the profile menu to configure your LLM providers. Each provider requires an API key that creates secure environment variables for your models.
 
 ## LLM Providers
 

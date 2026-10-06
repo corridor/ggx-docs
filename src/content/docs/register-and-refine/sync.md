@@ -1,11 +1,11 @@
 ---
 title: "GGX Sync"
-description: "Use GGX Sync to declare, version, and synchronize prompts, models, RAGs, pipelines, global functions, and reports from Python code into GenGuardX."
+description: "Use GGX Sync to declare, version, and synchronize prompts, models, RAGs, agents, global functions, and reports from Python code into GenGuardX."
 ---
 
 ## Overview
 
-The GGX Sync system enables you to programmatically manage and version-control your AI assets (Prompts, Models, RAGs, Pipelines, Global Functions, and Reports) directly from your development environment. Using Python decorators and a simple sync command, you can declare and synchronize your components to the GenGuardX platform.
+The GGX Sync system enables you to programmatically manage and version-control your AI assets (Prompts, Models, RAGs, Agents, Global Functions, and Reports) directly from your development environment. Using Python decorators and a simple sync command, you can declare and synchronize your components to the GenGuardX platform.
 
 ---
 
@@ -18,7 +18,7 @@ GGX Sync supports six core component types:
 | **Prompt** | System instructions, templates, and persona definitions | Customer service chatbot instructions |
 | **Model** | LLM configurations and API integrations | Gemini, GPT, Claude model wrappers |
 | **RAG** | Retrieval-Augmented Generation systems | Database query systems, knowledge base retrieval |
-| **Pipeline** | End-to-end workflows combining multiple components | Complete chatbot with intent classification and response generation |
+| **Agent** | End-to-end workflows combining multiple components | Complete chatbot with intent classification and response generation |
 | **Global Function** | Reusable utility functions | Data preprocessing, validation, formatting functions |
 | **Report** | Evaluation and monitoring reports with visualizations | Model performance dashboards, bias analysis reports |
 
@@ -40,7 +40,7 @@ Before syncing any components, you need to authenticate with your GenGuardX inst
 ### Obtaining Your API Key
 
 1. Log into your GenGuardX platform
-2. Navigate to **Profile Section** → **Account Security**
+2. Open the profile menu and select **My Account**
 3. Locate your **API Key** (format: `eyJI-XXXX-XXXX-XXXX-XXXX-XXXX-3fe3`)
 4. Click **"How to use this key"** to view the initialization code
 
@@ -64,7 +64,7 @@ ggx.init(
 
 ## Component Declaration & Sync
 
-Each component type uses a specific decorator pattern. Components can be declared and synced **independently** or used together in pipelines.
+Each component type uses a specific decorator pattern. Components can be declared and synced **independently** or used together in agents.
 
 ### 1. Prompts
 
@@ -155,9 +155,9 @@ ggx.sync(my_rag_function)
 
 ---
 
-### 4. Pipelines
+### 4. Agents
 
-Pipelines orchestrate multiple components into complete workflows.
+Agents orchestrate multiple components into complete workflows.
 
 ### Decorator Syntax
 
@@ -217,7 +217,7 @@ ggx.sync(my_utility_function)
 
 **Key Points**:
 
-- Global Functions can be called by other components (Pipelines, RAGs, Models, etc.)
+- Global Functions can be called by other components (Agents, RAGs, Models, etc.)
 
 ---
 
@@ -299,13 +299,13 @@ cursor = cache["sql_cursor_obj"]
 
 ### Dependency Resolution
 
-When you sync a Pipeline, the system:
+When you sync an Agent, the system:
 
 1. Inspects the function bytecode to find referenced objects
 2. Checks if those objects have `_corridor_metadata`
 3. Recursively syncs those dependencies by calling their respective sync handlers
 4. Collects the version IDs returned from each sync operation
-5. Includes those version IDs in the pipeline payload (e.g., `promptVersionIds`, `foundationModelVersionIds`)
+5. Includes those version IDs in the agent payload (e.g., `promptVersionIds`, `foundationModelVersionIds`)
 
 **Example:**
 
@@ -346,11 +346,11 @@ ggx.sync(qa_pipeline)
 
 ---
 
-## Independent vs. Pipeline Usage
+## Independent vs. Agent Usage
 
 ### Independent Sync
 
-You can declare and sync components **without** using them in a pipeline:
+You can declare and sync components **without** using them in an agent:
 
 ```python
 # Declare a standalone prompt
@@ -365,9 +365,9 @@ ggx.sync(greeting_prompt)
 
 ```
 
-### Pipeline Integration
+### Agent Integration
 
-Or use components together in a pipeline (they'll sync automatically):
+Or use components together in an agent (they'll sync automatically):
 
 ```python
 @ggx.Pipeline.declare(name='Greeter Bot', pipeline_type='Chat based - OpenAI Spec')
@@ -414,7 +414,7 @@ ggx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
 - `knowledge_base_format` (str, optional): `'Vector Database'` | `'Graph Database'` | `'Relational Database'` | `'External Web-Search APIs'` | `'NoSQL'` | `'Document'` | `'Others'`
 - `provider` (str, optional): Provider identifier for API-based RAG systems.
 
-### Pipeline-Specific Parameters
+### Agent-Specific Parameters
 
 - `usecase_type` (str, optional): `'Question Answering'` | `'Summarization'` | `'Translation'`
 - `task_type` (str, optional): `'Classification'` | `'Templated Responses'` | `'Generative Responses'` | `'Summarization'` | `'Others'`
@@ -572,7 +572,7 @@ def my_prompt(*, cache: dict = {}, prompt: str = "Hello"):
 
 **Problem**: Warning message: `[WARN] Skipping "function_name" - as it is not declared as a GGX object`
 
-**Cause**: Your pipeline references a function that doesn't have a `@declare()` decorator.
+**Cause**: Your agent references a function that doesn't have a `@declare()` decorator.
 
 **Solution**: Add the appropriate decorator to the referenced function:
 

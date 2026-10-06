@@ -102,7 +102,7 @@ return {"output": completion.choices[0].message.content, "context": None}
 
 Before registering models, configure your OpenAI credentials:
 
-1. Navigate to **Settings > Platform Integrations**
+1. Navigate to **Org Settings → Integrations**
 2. Click on **OpenAI**
 3. Enter your OpenAI API key
 4. Test the connection

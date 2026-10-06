@@ -7,7 +7,7 @@ description: "Create GGX approval workflows with responsibilities, reviewers, re
 
 ## What is Approval Workflow?
 
-After the development of GenAI pipelines, it is important to have a set of review processes to ensure various committees can collectively review and approve the pipeline. In GGX, workflows that comprise multiple responsibilities can be created - and every responsibility is comprised of one or more reviewers. An object goes through the approval process from each of the responsibilities and reviewers.
+After the development of GenAI agents, it is important to have a set of review processes to ensure various committees can collectively review and approve the agent. In GGX, workflows that comprise multiple responsibilities can be created - and every responsibility is comprised of one or more reviewers. An object goes through the approval process from each of the responsibilities and reviewers.
 
 ## Why it is important?
 
@@ -15,13 +15,13 @@ After the development of GenAI pipelines, it is important to have a set of revie
 - Provides clear documentation of who approved what and why.
 - Ensures that only validated versions of models are deployed.
 - Involves key stakeholders (developers, legal, compliance, business teams) in decision-making.
-- Establishes clear ownership over AI pipeline governance.
+- Establishes clear ownership over AI agent governance.
 
 ## Registering Approval Workflows:
 
-Approval workflows can be created and edited within the Settings section by anyone with the right authority level (mainly Admin and Master roles). Approval workflows are specific to object types.
+Approval workflows can be created and edited within Org Settings by anyone with the right authority level (mainly Admin and Master roles). Approval workflows are specific to object types.
 
-1. Go to **Settings** and click on **Approval Workflow** Tab.
+1. Open **Org Settings** from the profile menu and click **Approval Workflows**.
 2. On the listing page click on the **Create** button to create a new one.
 3. Fill in important details like **Name**, **Attributes** (Object Types, Description and Status).
 4. Click on the **Create** button at the end to register the Approval Workflow.
@@ -38,7 +38,7 @@ Once registered the Approval Workflow can be chosen while registering any object
 
 ## Attaching validation evidence
 
-Approval is where testing meets governance. Before an object — a pipeline, model, judge, or report — is approved, the results of [Simulation](../simulation/) and [Comparison](../comparison/) runs over representative or **ground-truth** datasets can be attached as evidence, so reviewers see exactly how it performed and on what data. Re-running this regression set on every change is what keeps an evaluation asset trustworthy as it evolves.
+Approval is where testing meets governance. Before an object — an agent, model, judge, or report — is approved, the results of [Simulation](../simulation/) and [Comparison](../comparison/) runs over representative or **ground-truth** datasets can be attached as evidence, so reviewers see exactly how it performed and on what data. Re-running this regression set on every change is what keeps an evaluation asset trustworthy as it evolves.
 
 External CI can participate too: the **external tools** responsibility lets a third-party application — for example a Git/CI pipeline that runs additional checks on the object's exported code — act as an approver, blocking promotion until its status checks pass.
 

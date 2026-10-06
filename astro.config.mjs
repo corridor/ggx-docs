@@ -121,11 +121,11 @@ export default defineConfig({
                     slug: "register-and-refine/inventory-management",
                   },
                   {
-                    label: "Table Registry",
+                    label: "Datasets",
                     slug: "register-and-refine/inventory-management/table-registry",
                   },
                   {
-                    label: "Model Catalog",
+                    label: "Models",
                     slug: "register-and-refine/inventory-management/model-catalog",
                   },
                   {
@@ -137,7 +137,7 @@ export default defineConfig({
                     slug: "register-and-refine/inventory-management/rags",
                   },
                   {
-                    label: "Pipelines",
+                    label: "Agents",
                     slug: "register-and-refine/inventory-management/pipelines",
                   },
                   {
@@ -175,23 +175,23 @@ export default defineConfig({
                     slug: "register-and-refine/examples/model",
                   },
                   {
-                    label: "Intent Classification Pipeline Example",
+                    label: "Intent Classification Agent Example",
                     items: [
                       {
                         label: "Prompt Registration",
                         slug: "register-and-refine/examples/intent-classification-pipeline-registration/prompt",
                       },
                       {
-                        label: "Pipeline Registration",
+                        label: "Agent Registration",
                         slug: "register-and-refine/examples/intent-classification-pipeline-registration/pipeline",
                       },
                     ],
                   },
                   {
-                    label: "Language Translation Pipeline Example",
+                    label: "Language Translation Agent Example",
                     items: [
                       {
-                        label: "Pipeline Registration",
+                        label: "Agent Registration",
                         slug: "register-and-refine/examples/language-translation-pipeline-registration/pipeline",
                       },
                     ],

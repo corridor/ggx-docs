@@ -1,5 +1,5 @@
 ---
-title: "Model Catalog"
+title: "Models"
 description: "How models work in GGX: API-based, Python-based, and custom-uploaded models, supported providers, registration, testing, and a worked example."
 ---
 
@@ -59,9 +59,9 @@ Every model registered in GGX is one of three types. Choosing the right one is t
 
 ## Adding a model to the catalog
 
-The **Model Catalog** is the central place where every registered model lives, organised into customisable groups. From here you can track, monitor, test, and create new models.
+The **Models** page (**Data & AI Assets → Models**) is the central place where every registered model lives, organised into customisable groups. From here you can track, monitor, test, and create new models.
 
-Click **Create** on the Model Catalog page, then work through the form:
+Click **Create** on the Models page, then work through the form:
 
 <Steps>
 
@@ -69,7 +69,7 @@ Click **Create** on the Model Catalog page, then work through the form:
 
 2. **Properties.** Set the **Group**, **Permissible Purpose**, **Approval Workflow**, **Ownership Type** (Proprietary, Open Source, Internal), and **Model Type** (for example, *LLM*).
 
-3. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name pipelines use to refer to this model — lowercase with underscores, no spaces.
+3. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name agents use to refer to this model — lowercase with underscores, no spaces.
 
 4. **Input Type.** Pick **API-Based**, **Python-Based**, or **Custom**. If API-Based, also pick the **Model Provider** and the specific **Model**.
 
@@ -112,7 +112,7 @@ Testing a model means confirming three things: the scoring logic runs without er
 
 ### Quick check — Test Code in the editor
 
-Inside the Model Catalog page, the **Test Code** button at the bottom-right of the Scoring Logic editor runs the model against sample inputs without saving. Use it during development to:
+On a model's page, the **Test Code** button at the bottom-right of the Scoring Logic editor runs the model against sample inputs without saving. Use it during development to:
 
 - Confirm the API credentials configured in Integrations actually reach the provider.
 - Verify the return value matches the declared **Output Type** (e.g. `dict[str, str]`).
@@ -165,12 +165,12 @@ return {"response": response.text}
 ```
 
 :::tip[Where the API token comes from]
-You never hard-code the key. The `os.getenv("GOOGLE_API_TOKEN")` value is supplied by connecting the provider on the **Settings → Platform Integrations** page — pick the provider card (here **Google Vertex AI**), add its credentials, and GGX exposes them to scoring logic as environment variables.
+You never hard-code the key. The `os.getenv("GOOGLE_API_TOKEN")` value is supplied by connecting the provider on the **Org Settings → Integrations** page — pick the provider card (here **Google Vertex AI**), add its credentials, and GGX exposes them to scoring logic as environment variables.
 
 If your provider is **not** one of the listed cards, open the **Advanced** tab to register a custom provider and define the environment variable yourself, then reference it the same way with `os.getenv(...)`.
 :::
 
-Once saved, it can be called from any downstream pipeline:
+Once saved, it can be called from any downstream agent:
 
 ```python
 reply = gemini_2_0_flash(
@@ -202,7 +202,7 @@ Registering a model — rather than calling it from a one-off script — is what
 | **Change tracking** | Every modification to a draft is snapshotted in Change History; approved versions are locked. |
 | **Purpose enforcement** | Automatic detection of Permissible Purpose violations when the model is used downstream. |
 | **Testing & evaluation** | Quick Test Code during development and Bulk Simulation across datasets before promoting. |
-| **Reusability** | Reuse across pipelines, with visibility through [Lineage Tracking](../../lineage-tracking/). |
+| **Reusability** | Reuse across agents, with visibility through [Lineage Tracking](../../lineage-tracking/). |
 | **API fingerprinting** | External API connectivity is fingerprinted so changes upstream are detectable. |
-| **Auditable path to production** | A transparent, fully auditable journey from Draft through Approval to use in pipelines. |
+| **Auditable path to production** | A transparent, fully auditable journey from Draft through Approval to use in agents. |
 | **Executable artifacts** | Extract ready-to-productionise artifacts straight from the Catalog. |

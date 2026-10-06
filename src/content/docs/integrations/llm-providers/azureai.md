@@ -99,7 +99,7 @@ return {"output": completion.choices[0].message.content, "context": None}
 
 Before registering models, configure your Azure credentials:
 
-1. Navigate to **Settings > Platform Integrations**
+1. Navigate to **Org Settings → Integrations**
 2. Click on **Azure AI**
 3. Enter your Azure OpenAI API key
 4. Provide your Azure endpoint URL

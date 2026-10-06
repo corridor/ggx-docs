@@ -1,11 +1,11 @@
 ---
 title: "Portkey Gateway"
-description: "Register Portkey as a GGX Model Registry model and use Portkey provider routing with GGX evaluations, pipelines, approvals, and monitoring."
+description: "Register Portkey as a GGX Model and use Portkey provider routing with GGX evaluations, agents, approvals, and monitoring."
 ---
 
 [Portkey](https://docs.portkey.ai/docs/introduction/what-is-portkey) is an AI gateway that provides a unified interface for many AI models, with tooling for visibility, routing, control, and security. Portkey can be used directly through its SDK or through OpenAI-compatible clients pointed at the Portkey gateway.
 
-In GGX, Portkey can be registered in the [Model Registry](../../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls Portkey, and Portkey can connect to any LLM provider or model that your Portkey configuration allows.
+In GGX, Portkey can be registered on the [Models](../../../register-and-refine/inventory-management/model-catalog/) page as a Model. The registered GGX Model calls Portkey, and Portkey can connect to any LLM provider or model that your Portkey configuration allows.
 
 ## When to use this integration
 
@@ -16,7 +16,7 @@ Use Portkey with GGX when:
 - You want GGX evaluation and approval evidence to exercise the same gateway route as production.
 - You need GGX to test multiple Portkey-backed providers without adding each provider directly to GGX.
 
-## Register Portkey in the Model Registry
+## Register Portkey as a Model
 
 | GGX setting | Recommended value |
 | --- | --- |

@@ -1,50 +1,50 @@
 ---
-title: "English-to-French Translation Pipeline Registration"
-description: "Register an English-to-French translation pipeline in GGX using Gemini 2.0 Flash, custom translation logic, pipeline metadata, and usage tracking."
+title: "English-to-French Translation Agent Registration"
+description: "Register an English-to-French translation agent in GGX using Gemini 2.0 Flash, custom translation logic, agent metadata, and usage tracking."
 ---
 
-This guide walks you through registering an **English to French Translation Pipeline** on the GGX. This pipeline automatically detects English text and provides high-quality French translations using Gemini 2.0 Flash.
+This guide walks you through registering an **English to French Translation Agent** on the GGX. This agent automatically detects English text and provides high-quality French translations using Gemini 2.0 Flash.
 
-**What This Pipeline Does:**
+**What This Agent Does:**
 
 - Detects if input text is in English
 - Translates English text to French with preserved tone and style
 - Returns error messages for non-English input
 - Tracks API usage costs
 
-If you are new to Pipelines, read [What are Pipelines?](../../../inventory-management/pipelines/) to understand how they work.
+If you are new to Agents, read [What are Agents?](../../../inventory-management/pipelines/) to understand how they work.
 
 ## Prerequisites
 
-Before registering this pipeline, ensure you have:
+Before registering this agent, ensure you have:
 
 - ✅ **Registered Gemini 2.0 Flash Model** - Follow the [Model Registration Guide](../../model/) to register the model
 
 - ✅ **API Token Configured** - Ensure `GOOGLE_API_TOKEN` is set up in Platform Integrations
 
-**Quick Check:** Navigate to **GenAI Studio → Model Catalog** and verify `gemini_2_0_flash` is available.
+**Quick Check:** Navigate to **Data & AI Assets → Models** and verify `gemini_2_0_flash` is available.
 
 If you haven't completed these steps, please do so before proceeding.
 
 ## Registration Steps
 
-### Step 1. Navigate to Pipeline Registry
+### Step 1. Navigate to Agents
 
-Go to **GenAI Studio → Pipeline Registry** and click the **Create** button.
+Go to **Data & AI Assets → Agents** and click the **Create** button.
 
 ### Step 2. Fill in Basic Information
 
-![Pipeline Basic Information](english-to-french-pipeline-description.png)
+![Agent Basic Information](english-to-french-pipeline-description.png)
 
-**Basic Information** fields help organize and identify your pipeline:
+**Basic Information** fields help organize and identify your agent:
 
-- **Description:** Clear explanation of what the pipeline does and its workflow
+- **Description:** Clear explanation of what the agent does and its workflow
 - **Usecase Type:** The primary use case category - select **Translation**
-- **Task Type:** Specific task the pipeline performs - select **Generative Responses**
-- **Impact of Generated Output:** Scope of the pipeline's usage - select **External Facing**
-- **Data Usage:** Whether the pipeline uses additional data sources - leave empty for this pipeline
-- **Group:** Category for organizing similar pipelines - select **Example Pipelines**
-- **Permissible Purpose:** Approved use cases and business scenarios for this pipeline
+- **Task Type:** Specific task the agent performs - select **Generative Responses**
+- **Impact of Generated Output:** Scope of the agent's usage - select **External Facing**
+- **Data Usage:** Whether the agent uses additional data sources - leave empty for this agent
+- **Group:** Category for organizing similar agents - select **Example Agents**
+- **Permissible Purpose:** Approved use cases and business scenarios for this agent
 
 **Example Description:**
 
@@ -67,24 +67,24 @@ Note: This pipeline only translates FROM English TO French.
 
 ### Step 3. Configure Code Settings
 
-![Pipeline Code Configuration](english-to-french-pipeline-code-config.png)
+![Agent Code Configuration](english-to-french-pipeline-code-config.png)
 
-**Code Settings** define how your pipeline operates and which resources it uses.
+**Code Settings** define how your agent operates and which resources it uses.
 
 **Configuration Fields:**
 
-- **Alias:** `english_to_french_translation`: A Python variable name to reference this pipeline in code
+- **Alias:** `english_to_french_translation`: A Python variable name to reference this agent in code
 
-- **Input Type:** Select **Python Function** : This pipeline uses custom Python code for translation logic
+- **Input Type:** Select **Python Function** : This agent uses custom Python code for translation logic
 
-- **Agent Provider:** Select **Other** : We're not using a pre-built agent provider for this translation pipeline
+- **Agent Provider:** Select **Other** : We're not using a pre-built agent provider for this translation agent
 
-- **Pipeline Type:** Select **Chat Based Pipeline** :Enables conversational interface and message history.
+- **Agent Type:** Select **Chat Based Agent** :Enables conversational interface and message history.
  
 - **Context Type:** `dict[str, str]`
   
   - Data type for storing information across conversation turns
-  - For this pipeline, context stores translation metadata (costs, language detection)
+  - For this agent, context stores translation metadata (costs, language detection)
 
 - **Interaction Type:** `TypedDict[{'role': str, 'content': str}]`
   
@@ -92,13 +92,13 @@ Note: This pipeline only translates FROM English TO French.
   - Standard chat message format with role (user/assistant) and content
 
  
-💡 *Note: While this is a single-turn translation, Chat Based Pipeline allows for future enhancements like multi-turn conversations*
+💡 *Note: While this is a single-turn translation, Chat Based Agent allows for future enhancements like multi-turn conversations*
 
 ### Step 4. Add Resources
 
-![Pipeline Resources](english-to-french-pipeline-resource.png)
+![Agent Resources](english-to-french-pipeline-resource.png)
 
-**Resources** are the pre-registered components your pipeline will use.
+**Resources** are the pre-registered components your agent will use.
 
 Click **+ Create New** or search for existing resources to add:
 
@@ -108,25 +108,25 @@ Click **+ Create New** or search for existing resources to add:
 
 - Follow the [Prompt Registration Guide](../../intent-classification-pipeline-registration/prompt/) to create a reusable prompt
 
-**Other Resources** (Not required for this pipeline):
+**Other Resources** (Not required for this agent):
 
 - **RAGs:** For retrieving translation dictionaries or context
-- **Agents & Sub-Pipelines:** For complex multi-step translation workflows
+- **Agents & Sub-Agents:** For complex multi-step translation workflows
 - **Helper Functions:** For pre/post-processing text
 
-### Step 5. Write Pipeline Scoring Logic
+### Step 5. Write Agent Scoring Logic
 
-![Pipeline Scoring Logic](english-to-french-pipeline-scoring-logic.png)
+![Agent Scoring Logic](english-to-french-pipeline-scoring-logic.png)
 
-**Pipeline Scoring Logic** orchestrates how resources work together to perform the translation.
+**Agent Scoring Logic** orchestrates how resources work together to perform the translation.
 
-**Variables Available in the Pipeline:**
+**Variables Available in the Agent:**
 
 - `user_message` - The English text to translate (type: String)
 - `history` - Previous conversation messages (type: list[TypedDict[{'role': str, 'content': str}]])
 - `context` - Information stored across turns (type: dict[str, str])
 
-**Complete Pipeline Code:**
+**Complete Agent Code:**
 
 ```python
 # Step 1: Generate strict translation prompt
@@ -151,13 +151,13 @@ return {
 
 - Use the registered Translation Prompt to convert the user's message to a French translation
 - Call the registered Gemini 2.0 Flash Model with the translation prompt to generate the translation:
-- Return the translation as the output of the pipeline
+- Return the translation as the output of the agent
 
 ### Step 6. Add Examples (Optional)
 
-![Pipeline Examples Section](english-to-french-pipeline-examples.png)
+![Agent Examples Section](english-to-french-pipeline-examples.png)
 
-Add test examples to validate pipeline behavior:
+Add test examples to validate agent behavior:
 
 | Input | Expected Output |
 |-------|----------------|
@@ -166,27 +166,27 @@ Add test examples to validate pipeline behavior:
 | "Thank you very much!" | "Merci beaucoup !" |
 | "Hola, ¿cómo estás?" (Spanish) | "Error: Input text must be in English. Detected language: Spanish" |
 
-**Note:** Examples help with testing and documenting expected behavior. They also serve as regression tests when updating the pipeline.
+**Note:** Examples help with testing and documenting expected behavior. They also serve as regression tests when updating the agent.
 
-### Step 7. Save the Pipeline
+### Step 7. Save the Agent
 
-Click **Create** to register the pipeline.
+Click **Create** to register the agent.
 
-The pipeline is now:
+The agent is now:
 
-- ✅ Available in the Pipeline Registry
+- ✅ Available under **Data & AI Assets → Agents**
 - ✅ Ready for simulation and testing
 - ✅ Ready for use in downstream applications
 
-## Testing Your Pipeline
+## Testing Your Agent
 
-After creating the pipeline, test it to verify translation quality and error handling
+After creating the agent, test it to verify translation quality and error handling
 
 ### Quick Test (During Creation/Editing)
 
 ![Test Code](english-to-french-pipeline-test-code.png)
 
-1. While creating or editing the pipeline, scroll to the **Code** section
+1. While creating or editing the agent, scroll to the **Code** section
 2. Click **Test Code** in the bottom right corner
 3. Enter test inputs to verify logic without saving
 
@@ -204,7 +204,7 @@ user_message = "Hola, ¿cómo estás?"
 
 ### Interactive Test (After Saving)
 
-- Navigate to your saved pipeline
+- Navigate to your saved agent
 - Click **Run** → **Chat Session** (top right corner)
 - Enter sample English messages to test the translation flow
 
@@ -222,15 +222,15 @@ user_message = "Hola, ¿cómo estás?"
 - Verify cultural nuances are preserved
 - Test edge cases (very short/long text, special characters)
 
-## Want to Improve/Extend Your Pipeline? Try These Ideas:
+## Want to Improve/Extend Your Agent? Try These Ideas:
 
-- Auto-detect source language using NLP techiques and see how it performs compared to the current pipeline
+- Auto-detect source language using NLP techiques and see how it performs compared to the current agent
 - Add translation confidence scores and quality of the translations using evaluation providers
 - Extend to support other languages
 
 ## Conclusion: 
 
-You've successfully learned how to register an English to French Translation Pipeline that:
+You've successfully learned how to register an English to French Translation Agent that:
 
 - ✅ Detects English language automatically
 - ✅ Provides high-quality French translations

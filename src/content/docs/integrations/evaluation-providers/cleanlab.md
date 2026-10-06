@@ -1,6 +1,6 @@
 ---
 title: "Cleanlab"
-description: "Connect Cleanlab with GGX to use external data quality and evaluation signals in model, RAG, pipeline, and dataset assessment workflows."
+description: "Connect Cleanlab with GGX to use external data quality and evaluation signals in model, RAG, agent, and dataset assessment workflows."
 ---
 
 ![alt text](cleanlab_logo.png)
@@ -23,14 +23,14 @@ trustworthiness_score = tlm.get_trustworthiness_score("<your prompt>", response=
 
 ## Potential Usage Within GGX
 
-Cleanlab strengthens GGX by adding a **trust and reliability layer** that evaluates the accuracy, relevance, and safety of agents and their underlying components. With Cleanlab, one can systematically identify hallucinations, off-topic responses, unsafe outputs, and other critical issues across agents, RAG pipelines, and broader LLM workflows. Cleanlab’s metrics and scores can be used to create insightful reports for validating systems and can also serve as guardrails to ensure your agents respond safely.
+Cleanlab strengthens GGX by adding a **trust and reliability layer** that evaluates the accuracy, relevance, and safety of agents and their underlying components. With Cleanlab, one can systematically identify hallucinations, off-topic responses, unsafe outputs, and other critical issues across agents, RAG agents, and broader LLM workflows. Cleanlab’s metrics and scores can be used to create insightful reports for validating systems and can also serve as guardrails to ensure your agents respond safely.
 
 ### Key Use Cases
 
 - **RAG System Evaluation**  
-  Automatically detect inaccuracies, assess retrieval quality, and surface knowledge gaps in RAG pipelines.
+  Automatically detect inaccuracies, assess retrieval quality, and surface knowledge gaps in RAG agents.
 
-- **Agent & Pipeline Response Evaluation**  
+- **Agent & Agent Response Evaluation**  
   Cleanlab’s TLM (Trustworthiness Language Model) assigns confidence scores to LLM responses, flagging hallucinations, ambiguous answers, and unsafe content with detailed explanations.
 
 - **Data Quality & Reliability**  

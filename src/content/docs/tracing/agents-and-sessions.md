@@ -24,7 +24,7 @@ The graph is drawn from agent spans, or from `graph.node.id` and `graph.node.par
 
 A LangGraph run is drawn from the node each step ran in, which LangGraph records itself. Since it does not record which node came before, control is shown passing in the order the nodes ran.
 
-In a LangGraph pipeline running in GGX, the model calls and tool calls a node makes sit under that node in the trace tree, so each agent shows what it spent. Each node counts as one agent run on the trace and its session. This applies to graphs run synchronously; an async graph keeps its model calls beside the graph.
+In a LangGraph agent running in GGX, the model calls and tool calls a node makes sit under that node in the trace tree, so each agent shows what it spent. Each node counts as one agent run on the trace and its session. This applies to graphs run synchronously; an async graph keeps its model calls beside the graph.
 
 ### Agents written without a framework
 
@@ -61,7 +61,7 @@ Send the same `session_id` for every turn of a conversation, through `tracing.co
 
 Every trace a [simulation](../../evaluate-and-approve/simulation/) job produces shares one session, named _Simulation #_ and the job's number. Its page lists the job's records in the order of the input data, each with its input, output, cost and a link to its trace. In a multi-turn simulation the traces of one conversation stay together under a conversation label.
 
-A job shows what it spent on model calls in its header, on every tab, and in a **Model usage** card on **Job Results**; both link to the session. Opening a row of the results shows that record's cost and tokens and a link to its trace, for a job with a single evaluation. The total covers the pipeline's own calls and any model calls its reports make. Traces of a simulation are named after the pipeline.
+A job shows what it spent on model calls in its header, on every tab, and in a **Model usage** card on **Job Results**; both link to the session. Opening a row of the results shows that record's cost and tokens and a link to its trace, for a job with a single evaluation. The total covers the agent's own calls and any model calls its reports make. Traces of a simulation are named after the agent.
 
 ## What to read next
 

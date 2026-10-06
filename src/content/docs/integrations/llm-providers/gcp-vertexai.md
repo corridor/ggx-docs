@@ -93,7 +93,7 @@ return {"response": response.text}
 
 Before registering models, configure your Google Cloud credentials:
 
-1. Navigate to **Settings > Platform Integrations**
+1. Navigate to **Org Settings → Integrations**
 2. Click on **Google Vertex AI**
 3. Upload your service account JSON key file
 4. Enter your Google Cloud project ID

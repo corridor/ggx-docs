@@ -1,5 +1,5 @@
 ---
-title: "Prompt Registry"
+title: "Prompts"
 description: "How prompts work in GGX: the template, input arguments, and creation logic of a registered prompt, plus registration, testing, and a worked example."
 ---
 
@@ -36,13 +36,13 @@ If a prompt has no processing or formatting to do, the creation logic can simply
 | **Input Arguments** | The typed values that replace placeholders. Each has an Alias, Type, optional flag, and default. | Optional for system-only prompts |
 | **Creation Logic** | A Python function that formats arguments and returns the filled template. | <Badge text="required" variant="caution" /> |
 | **Properties** | Description, Group, Permissible Purpose, Approval Workflow, Task Type, Prompt Type. | Mostly required — see below |
-| **Attributes** | Alias (the Python variable name pipelines call this prompt by). | <Badge text="required" variant="caution" /> |
+| **Attributes** | Alias (the Python variable name agents call this prompt by). | <Badge text="required" variant="caution" /> |
 
 ## Adding a prompt to the registry
 
-The **Prompt Registry** is the central place where every registered prompt lives, organised into customisable groups. From here you can track, monitor, test, and create new prompts.
+The **Skills / Prompts** page (**Data & AI Assets → Skills / Prompts**) is the central place where every registered prompt lives, organised into customisable groups. From here you can track, monitor, test, and create new prompts.
 
-Click **Create** on the Prompt Registry page, then work through the form:
+Click **Create** on the Skills / Prompts page, then work through the form:
 
 <Steps>
 
@@ -50,7 +50,7 @@ Click **Create** on the Prompt Registry page, then work through the form:
 
 2. **Properties.** Set the **Group**, **Permissible Purpose**, **Approval Workflow**, **Task Type**, and **Prompt Type** (for example, *System Instruction*).
 
-3. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name pipelines use to refer to this prompt — lowercase with underscores, no spaces.
+3. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name agents use to refer to this prompt — lowercase with underscores, no spaces.
 
 4. **Resources.** Add any registered Models, Global Functions, or other assets the creation logic should be able to call.
 
@@ -66,7 +66,7 @@ Click **Create** on the Prompt Registry page, then work through the form:
 
 ## Testing and improving a prompt
 
-A prompt is only as good as the outputs it produces against the inputs you actually expect. GGX has dedicated features for prompt iteration *inside the Prompt Registry page itself*, plus the same Bulk Simulation that every other registered asset uses.
+A prompt is only as good as the outputs it produces against the inputs you actually expect. GGX has dedicated features for prompt iteration *on the prompt page itself*, plus the same Bulk Simulation that every other registered asset uses.
 
 ### Analyze Prompt
 
@@ -91,9 +91,9 @@ The **Improve with AI** button uses the Findings surfaced by Analyze Prompt to g
 
 If your Creation Logic does anything non-trivial (formats a list of intents, fetches dynamic context, applies conditional logic), use **Test Code** at the bottom of the Creation Logic editor to run it against sample arguments and inspect the filled template before saving.
 
-### Bulk simulation through a pipeline
+### Bulk simulation through an agent
 
-When the prompt is wired into a pipeline, **Bulk Simulation** runs that pipeline over an entire dataset of inputs and stores every filled prompt and model response — the right tool for measuring tone consistency, safety, output-format adherence, and edge-case behaviour at scale.
+When the prompt is wired into an agent, **Bulk Simulation** runs that agent over an entire dataset of inputs and stores every filled prompt and model response — the right tool for measuring tone consistency, safety, output-format adherence, and edge-case behaviour at scale.
 
 ## A worked example: Customer Intent Classification
 
@@ -154,14 +154,14 @@ return prompt.format(
 )
 ```
 
-Once saved, a pipeline calls the prompt by its alias:
+Once saved, an agent calls the prompt by its alias:
 
 ```python
 result = customer_intent_classification_prompt(user_message=user_input)
 intent = result["classified_intent"]
 ```
 
-<LinkCard title="Full Intent Classification walkthrough" description="The complete prompt with every intent, screenshots, and pipeline integration." href={`${import.meta.env.BASE_URL}register-and-refine/examples/intent-classification-pipeline-registration/prompt/`} />
+<LinkCard title="Full Intent Classification walkthrough" description="The complete prompt with every intent, screenshots, and agent integration." href={`${import.meta.env.BASE_URL}register-and-refine/examples/intent-classification-agent-registration/prompt/`} />
 
 ## Capabilities unlocked by registration
 
@@ -171,7 +171,7 @@ Registering a prompt — rather than hard-coding it in a script — is what turn
 |------------|--------------|
 | **Change tracking** | Every modification to a draft is snapshotted in Change History; approved versions are locked. |
 | **Purpose enforcement** | Automatic detection of Permissible Purpose violations when the prompt is used downstream. |
-| **Testing & evaluation** | Analyze Prompt, Improve with AI, and Bulk Simulation through a pipeline. |
-| **Reusability** | Reuse across pipelines, with visibility through [Lineage Tracking](../../lineage-tracking/). |
-| **Auditable path to production** | A transparent, fully auditable journey from Draft through Approval to use in pipelines. |
-| **Executable artifacts** | Extract ready-to-productionise artifacts straight from the Registry. |
+| **Testing & evaluation** | Analyze Prompt, Improve with AI, and Bulk Simulation through an agent. |
+| **Reusability** | Reuse across agents, with visibility through [Lineage Tracking](../../lineage-tracking/). |
+| **Auditable path to production** | A transparent, fully auditable journey from Draft through Approval to use in agents. |
+| **Executable artifacts** | Extract ready-to-productionise artifacts straight from the asset's page. |

@@ -1,11 +1,11 @@
 ---
 title: "Cloudflare AI Gateway"
-description: "Register Cloudflare AI Gateway as a GGX Model Registry model and route GGX requests to providers available through your Cloudflare gateway."
+description: "Register Cloudflare AI Gateway as a GGX Model and route GGX requests to providers available through your Cloudflare gateway."
 ---
 
 [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) provides visibility and control for AI applications, including analytics, logging, caching, rate limiting, retries, and model fallback. Cloudflare supports provider-specific endpoints that preserve the provider API schema while adding AI Gateway features.
 
-In GGX, Cloudflare AI Gateway can be registered in the [Model Registry](../../../register-and-refine/inventory-management/model-catalog/) as a Model. The registered GGX Model calls the Cloudflare gateway endpoint, and Cloudflare can connect to any provider or model that your gateway configuration and account permissions allow.
+In GGX, Cloudflare AI Gateway can be registered on the [Models](../../../register-and-refine/inventory-management/model-catalog/) page as a Model. The registered GGX Model calls the Cloudflare gateway endpoint, and Cloudflare can connect to any provider or model that your gateway configuration and account permissions allow.
 
 ## When to use this integration
 
@@ -16,7 +16,7 @@ Use Cloudflare AI Gateway with GGX when:
 - You want GGX evaluations to test the same gateway path used in production.
 - You want Cloudflare to handle runtime controls while GGX handles inventory, simulations, approvals, compliance evidence, and monitoring workflows.
 
-## Register Cloudflare AI Gateway in the Model Registry
+## Register Cloudflare AI Gateway as a Model
 
 | GGX setting | Recommended value |
 | --- | --- |

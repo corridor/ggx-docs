@@ -1,19 +1,19 @@
 ---
-title: "Pipeline Registration Guide"
-description: "Register an intent classification pipeline in GGX by connecting a model and prompt, configuring pipeline metadata, adding resources, and testing outputs."
+title: "Agent Registration Guide"
+description: "Register an intent classification agent in GGX by connecting a model and prompt, configuring agent metadata, adding resources, and testing outputs."
 ---
 
-A pipeline combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Pipelines](../../../inventory-management/pipelines/) to understand more about what they are and how they work. This guide covers how to register pipelines on the GGX, using an **Intent Classification Pipeline** as a working example.
+An agent combines multiple resources (models, prompts, RAGs, helper functions) to create an end-to-end use-case specific workflow. Read more about [Agents](../../../inventory-management/pipelines/) to understand more about what they are and how they work. This guide covers how to register agents on the GGX, using an **Intent Classification Agent** as a working example.
 
 ## Prerequisites
 
-Before registering a pipeline, ensure you have:
+Before registering an agent, ensure you have:
 
 - ✅ **Registered a Model** - Follow the [Model Registration Guide](../../model/) to register Gemini 2.0 Flash
 
 - ✅ **Registered a Prompt** - Follow the [Prompt Registration Guide](../prompt/) to register the intent classification prompt
 
-**Quick Check:** Navigate to **GenAI Studio → Model Catalog** and **Prompt Registry** to verify your resources are available.
+**Quick Check:** Navigate to **Data & AI Assets → Models** and **Skills / Prompts** to verify your resources are available.
 
 If you haven't completed these steps, please do so before proceeding.
 
@@ -21,25 +21,25 @@ If you haven't completed these steps, please do so before proceeding.
 
 ## Registration Steps
 
-### Step 1. Navigate to Pipeline Registry
+### Step 1. Navigate to Agents
 
-Go to **GenAI Studio → Pipeline Registry** and click the **Create** button.
+Go to **Data & AI Assets → Agents** and click the **Create** button.
 
 ### Step 2. Fill in Basic Information
 
 ![alt text](intent-pipeline-description.png)
 
-**Basic Information** fields help organize and identify your pipeline:
+**Basic Information** fields help organize and identify your agent:
 
-- **Description:** Clear explanation of what the pipeline does and its workflow
+- **Description:** Clear explanation of what the agent does and its workflow
 - **Usecase Type:** The primary use case category (e.g., "Question Answering")
-- **Task Type:** Specific task the pipeline performs (e.g., "Classification")
-- **Impact of Generated Output:** Scope of the pipeline's usage (e.g., "Internal Only")
-- **Data Usage:** Whether the pipeline uses additional data sources beyond user input
-- **Group:** Category for organizing similar pipelines (e.g., "Conversational AI ChatBot Pipeline")
-- **Permissible Purpose:** Approved use cases and business scenarios for this pipeline
+- **Task Type:** Specific task the agent performs (e.g., "Classification")
+- **Impact of Generated Output:** Scope of the agent's usage (e.g., "Internal Only")
+- **Data Usage:** Whether the agent uses additional data sources beyond user input
+- **Group:** Category for organizing similar agents (e.g., "Conversational AI ChatBot Agent")
+- **Permissible Purpose:** Approved use cases and business scenarios for this agent
 
-**Example for Intent Classification Pipeline:**
+**Example for Intent Classification Agent:**
 
 ```
 This is a chat-based pipeline designed for intent recognition & classifies incoming user
@@ -59,15 +59,15 @@ without maintaining conversational context across interactions.
 
 ![alt text](intent-pipeline-code-configure.png)
 
-**Code Settings** define how your pipeline operates and which resources it uses.
+**Code Settings** define how your agent operates and which resources it uses.
 
-Fill in the **Basic Information** fields as shown in the image above. These includes Alias, Input Type, Pipeline Type, and Context Type.
+Fill in the **Basic Information** fields as shown in the image above. These includes Alias, Input Type, Agent Type, and Context Type.
 
-NOTE: For this case we have chosen to create a chat-based pipeline as in future we can expand the pipeline to recognize the user's intent over multiple turns, though for now we are keeping it simple and using a single input/output.
+NOTE: For this case we have chosen to create a chat-based agent as in future we can expand the agent to recognize the user's intent over multiple turns, though for now we are keeping it simple and using a single input/output.
 
 ### Step 4. Add Resources
 
-**Resources** are the pre-registered components your pipeline will use.
+**Resources** are the pre-registered components your agent will use.
 
 Click **+ Create New** or search for existing resources to add:
 
@@ -82,20 +82,20 @@ Click **+ Create New** or search for existing resources to add:
 **Other Resources** (Not required for this example):
 
 - **RAGs:** For retrieving relevant documents
-- **Agents & Sub-Pipelines:** For complex multi-step workflows
+- **Agents & Sub-Agents:** For complex multi-step workflows
 - **Helper Functions:** For data processing utilities, or any other function according to your requirement
 
-### Step 5. Write Pipeline Scoring Logic
+### Step 5. Write Agent Scoring Logic
 
 ![alt text](intent-pipeline-scoring.png)
 
-**Pipeline Scoring Logic** orchestrates how resources work together:
+**Agent Scoring Logic** orchestrates how resources work together:
 
 - Combines models, prompts, and other resources
 - Processes user inputs and conversation history
 - Generates outputs and maintains context across turns
 
-**Example - Intent Classification Pipeline:**
+**Example - Intent Classification Agent:**
 
 ```python
 import json
@@ -146,49 +146,49 @@ return {
 
 ![alt text](intent-pipeline-examples.png)
 
-Add test examples to validate pipeline behavior.
+Add test examples to validate agent behavior.
 
 **Note:** Examples help with testing and documenting expected behavior.
 
-### Step 7. Save the Pipeline
+### Step 7. Save the Agent
 
-Click **Create** to register the pipeline.
+Click **Create** to register the agent.
 
-The pipeline is now:
+The agent is now:
 
-- Available in the Pipeline Registry
+- Available under **Data & AI Assets → Agents**
 - Ready for simulation and testing
 - Ready for use in downstream applications
 
 ---
 
-## Testing Your Pipeline
+## Testing Your Agent
 
-After creating the pipeline, test it to verify behavior:
+After creating the agent, test it to verify behavior:
 
 ### Quick Test (During Creation/Editing)
 
-1. While creating or editing the pipeline, scroll to the **Code** section
+1. While creating or editing the agent, scroll to the **Code** section
 2. Click **Test Code** in the bottom right corner
 3. Enter test inputs to verify logic without saving
 
 ### Interactive Test (After Saving)
 
-1. Navigate to your saved pipeline
+1. Navigate to your saved agent
 2. Click **Run** → **Chat Session** (top right corner)
     
-    NOTE: Chat sessions is only available for chat-based pipelines. For free-flow pipelines, you can test the pipeline by calling the pipeline function with sample inputs using the test code button.
+    NOTE: Chat sessions is only available for chat-based agents. For free-flow agents, you can test the agent by calling the agent function with sample inputs using the test code button.
 
 3. Enter sample messages to test the full conversation flow
 4. Verify outputs match expected behavior
 
 ---
 
-## Using Pipelines
+## Using Agents
 
 ### In Applications
 
-Reference the pipeline in your application code:
+Reference the agent in your application code:
 
 ```python
 # Call the pipeline
@@ -212,4 +212,4 @@ context = result["context"]  # "Any information that needs to be stored across t
 
 ---
 
-By following this guide, you can create reliable, production-ready pipelines that combine multiple AI resources into cohesive workflows.
+By following this guide, you can create reliable, production-ready agents that combine multiple AI resources into cohesive workflows.
