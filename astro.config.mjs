@@ -38,8 +38,8 @@ export default defineConfig({
     starlight({
       title: "GenGuardX Docs",
       logo: {
-        light: "./src/assets/ggx-logo-on-light.svg",
-        dark: "./src/assets/ggx-logo-on-dark.svg",
+        light: "./src/assets/ggx-black.svg",
+        dark: "./src/assets/ggx-white.svg",
         alt: "GenGuardX",
         // The logo already carries the brand; keep the title for <title> and og:site_name only.
         replacesTitle: true,
