@@ -1,13 +1,13 @@
 ---
 title: "Sending Traces"
-description: "Send traces to GGX with the genguardx Python SDK or any OpenTelemetry OTLP exporter. Covers tool spans and LangChain, LangGraph, LlamaIndex, CrewAI and OpenAI Agents tracing."
+description: "Send traces to GGX from registered assets, the genguardx Python SDK or any OpenTelemetry exporter. Covers tool spans, custom metadata and tags, and agent framework tracing."
 ---
 
 There are four ways to get traces into GGX. They all go through the same intake, so masking, pricing, retention and access rules apply the same way whichever you use.
 
 | Source | How it works |
 | --- | --- |
-| **GGX's own AI features** | The assistant, prompt analysis and agent chat trace themselves when your administrator turns platform tracing on. |
+| **Assets registered in GGX** | Agents, Models and other assets registered in GGX produce traces when they run on the platform, as long as your administrator has platform tracing configured. |
 | **The GGX Python SDK** | Two lines in your application. Model calls through OpenAI or Anthropic, and agents built with LangChain, LangGraph, LlamaIndex, CrewAI or the OpenAI Agents SDK, are captured automatically. |
 | **Any OpenTelemetry exporter** | Point an OTLP/HTTP exporter at `/api/v1/traces/otlp` with your API key. |
 | **Langfuse history** | Your administrator can import past traces, sessions and scores from a Langfuse instance. |
@@ -61,6 +61,52 @@ This works the same in agent code running inside GGX and in your own application
 
 An agent you wrote without a framework is marked the same way, with `@tracing.agent` or `tracing.trace_agent`. See [The agent graph](../agents-and-sessions/#the-agent-graph).
 
+## Custom metadata and tags
+
+A trace can carry your own values next to what GGX captures, such as the customer tier, the application version or an experiment name. There are two places to put them:
+
+| Use | For | How to send it |
+| --- | --- | --- |
+| **Tags** | Short labels you filter by, such as `beta` or `card-replacement`. | `tags=` on `tracing.init()` or `tracing.context()`, or `tracing.add_tags()`. |
+| **Span attributes** | Key and value metadata, such as `customer_tier = "gold"`. | Set an attribute on the current span with the OpenTelemetry API. |
+
+```python
+from opentelemetry import trace
+
+from genguardx import tracing
+
+tracing.init(
+    api_key="your-ggx-api-key",
+    api_url="https://ggx.example.com",
+    deployment_id=12,
+    tags=["card-replacement"],          # on every span from this process
+)
+
+with tracing.context(session_id="chat-8841", tags=["beta"]):
+    tracing.add_tags("escalated")       # for the rest of this block
+
+    # Key and value metadata: set it on the span that is running
+    span = trace.get_current_span()
+    span.set_attribute("customer_tier", "gold")
+    span.set_attribute("app.version", "1.2")
+
+    reply = assistant.respond(message)
+```
+
+The SDK has no separate metadata argument: metadata is a span attribute, with any key you choose. A value that is the same for the whole process, such as the application version, can be set once as a resource attribute instead, for example through the standard `OTEL_RESOURCE_ATTRIBUTES` environment variable.
+
+The arguments of a tool call need none of this. A function marked with [`@tracing.tool`](#your-own-tools) records its arguments and result on the tool span for you.
+
+Once the trace is in GGX:
+
+- **See it.** Your attributes appear on the span's **Attributes** tab, nested by their dotted names. See [Exploring traces](../exploring-traces/).
+- **Search it.** On the Spans tab, query any attribute as `attr.<key>`, for example `attr.app.version = 1.2`.
+- **Filter and chart by it.** Promote a key to a [metadata dimension](../search-and-analytics/#metadata-dimensions) and it becomes a sidebar filter, `metadata.<key>` in trace queries and a grouping in Analytics. A project can promote up to 10 keys.
+
+:::caution[Keep personal data out of tags]
+Attribute values are [masked](../data-masking/) like inputs and outputs. Tags, user ids and session ids are not, because GGX groups and filters by them. A trace keeps at most 50 tags.
+:::
+
 ## Frameworks
 
 Agent frameworks are traced one level above the model calls: each chain, graph node, agent, tool and retriever becomes a span, with the model calls it made beneath it.
@@ -113,7 +159,7 @@ GGX reads the OpenTelemetry GenAI conventions, OpenInference and OpenLLMetry, so
 | Scope | Resource attribute `ggx.deployment_id`, `ggx.pipeline_version_id` or `ggx.project_id` |
 | Limits | Up to 10,000 spans per request. A busy server answers `429` with `Retry-After`. |
 
-To group a conversation into a [session](../agents-and-sessions/#sessions), send the same `session.id` span attribute on every turn.
+To group a conversation into a [session](../agents-and-sessions/#sessions), send the same `session.id` span attribute on every turn. Custom metadata works the same way as with the SDK: send it as [span attributes](#custom-metadata-and-tags) under your own keys.
 
 ## What to read next
 
