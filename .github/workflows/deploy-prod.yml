@@ -1,0 +1,82 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "production"
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://docs.genguardx.ai
+  DEPLOY_USER: ec2-user
+  # nginx serves the site from this directory. It is synced with --delete, so keep it pointed at the docs root only.
+  DEPLOY_PATH: /opt/ggx-docs/dist
+
+jobs:
+  deploy:
+    # Add required reviewers to this environment to require approval before each production deployment.
+    environment:
+      name: production
+      url: ${{ env.SITE_URL }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          # Full history so "Last updated" dates and sitemap <lastmod> reflect each page's own commits.
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Astro site
+        run: npm run build
+      - name: Check build output
+        run: |
+          test -s dist/index.html
+          test -s dist/sitemap-index.xml
+          # Production must stay indexable: never ship the test robots file.
+          cmp -s public/robots.txt dist/robots.txt
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.PROD_SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Sync site to the production server
+        env:
+          SSH_HOST: ${{ secrets.PROD_SSH_HOST }}
+        run: |
+          # The docs root is owned by root, so rsync runs under sudo on the server.
+          rsync -rltz --delete --delay-updates --chmod=D755,F644 \
+            --rsync-path="sudo rsync" \
+            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
+            dist/ "${DEPLOY_USER}@${SSH_HOST}:${DEPLOY_PATH}/"
+      - name: Verify production site
+        run: |
+          curl --fail --silent --show-error --retry 5 --retry-delay 5 --output /dev/null "${SITE_URL}/"
+          curl --fail --silent --show-error --retry 5 --retry-delay 5 "${SITE_URL}/sitemap-index.xml" \
+            | grep -q "<sitemapindex"
+          if curl --fail --silent --show-error "${SITE_URL}/robots.txt" | grep -qx "Disallow: /"; then
+            echo "::error::Production is serving a robots.txt that blocks all crawlers"
+            exit 1
+          fi
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

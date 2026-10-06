@@ -23,10 +23,26 @@ This outputs the static site to `dist/` with the site root (`/`).
 
 ## Deployment
 
-Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
-which builds the site with base URL `/` and publishes it to GitHub Pages.
+Pushing to `main` triggers two workflows, each of which builds the site with base URL `/`:
+
+- [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) publishes the test site to
+  GitHub Pages at <https://docs.test.genguardx.ai> with a noindex `robots.txt`.
+- [`.github/workflows/deploy-prod.yml`](.github/workflows/deploy-prod.yml) syncs the build to
+  the production server behind <https://docs.genguardx.ai> over SSH, then checks that the
+  site responds and is still indexable. It can also be run manually from the Actions tab.
 
 > The repository's **Settings → Pages → Source** must be set to **GitHub Actions**.
+
+The production workflow runs in the `production` environment, which must define these secrets:
+
+| Secret | Value |
+| --- | --- |
+| `PROD_SSH_HOST` | Address of the production server |
+| `PROD_SSH_PRIVATE_KEY` | Private key of a deploy user that can run `sudo rsync` |
+| `PROD_SSH_KNOWN_HOSTS` | The server's `known_hosts` line, from `ssh-keyscan <host>` |
+
+Add required reviewers to the `production` environment to require approval before each
+production deployment.
 
 ## Authoring content
 
