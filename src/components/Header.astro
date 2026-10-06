@@ -1,0 +1,130 @@
+---
+import config from "virtual:starlight/user-config";
+
+import LanguageSelect from "virtual:starlight/components/LanguageSelect";
+import Search from "virtual:starlight/components/Search";
+import SiteTitle from "virtual:starlight/components/SiteTitle";
+import SocialIcons from "virtual:starlight/components/SocialIcons";
+import ThemeSelect from "virtual:starlight/components/ThemeSelect";
+
+const shouldRenderSearch =
+  config.pagefind ||
+  config.components.Search !== "@astrojs/starlight/components/Search.astro";
+
+// Topics come from starlight-sidebar-topics; on desktop they render as a tab row
+// here and the in-sidebar topic list is hidden (see custom.css).
+const topics = Astro.locals.starlightSidebarTopics?.topics ?? [];
+---
+
+<div class="ggx-header">
+  <div class="ggx-header__bar">
+    <div class="ggx-header__title sl-flex">
+      <SiteTitle />
+    </div>
+    <div class="ggx-header__search sl-flex print:hidden">
+      {shouldRenderSearch && <Search />}
+    </div>
+    <div class="ggx-header__actions sl-hidden md:sl-flex print:hidden">
+      <div class="ggx-header__social sl-flex">
+        <SocialIcons />
+      </div>
+      <ThemeSelect />
+      <LanguageSelect />
+    </div>
+  </div>
+  {
+    topics.length > 0 && (
+      <nav class="ggx-header__tabs sl-hidden md:sl-flex print:hidden" aria-label="Sections">
+        <ul>
+          {topics.map((topic) => (
+            <li>
+              <a href={topic.link} aria-current={topic.isCurrent ? "true" : undefined}>
+                {topic.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+</div>
+
+<style>
+  .ggx-header {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .ggx-header__bar {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sl-nav-gap);
+    min-height: 0;
+  }
+
+  .ggx-header__title {
+    /* Prevent long titles covering the search and menu buttons on narrow viewports. */
+    overflow: clip;
+    padding: 0.25rem;
+    margin: -0.25rem;
+    min-width: 0;
+  }
+
+  .ggx-header__actions,
+  .ggx-header__social {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ggx-header__tabs ul {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ggx-header__tabs a {
+    display: flex;
+    align-items: center;
+    height: var(--ggx-tabs-height);
+    box-shadow: inset 0 -1.5px 0 transparent;
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    outline-offset: -2px;
+    transition:
+      color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .ggx-header__tabs a:hover {
+    box-shadow: inset 0 -1.5px 0 var(--sl-color-gray-5);
+    color: var(--sl-color-white);
+  }
+
+  .ggx-header__tabs a[aria-current] {
+    box-shadow: inset 0 -1.5px 0 var(--sl-color-text-accent);
+    color: var(--sl-color-white);
+  }
+
+  @media (min-width: 50rem) {
+    .ggx-header__bar {
+      display: grid;
+      flex: none;
+      grid-template-columns: 1fr minmax(0, 20rem) 1fr;
+      height: var(--ggx-bar-height);
+    }
+
+    .ggx-header__actions {
+      justify-content: flex-end;
+    }
+  }
+</style>

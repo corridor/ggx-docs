@@ -37,6 +37,7 @@ export default defineConfig({
         "@fontsource/dm-sans/700.css",
         "@fontsource/dm-mono/400.css",
         "@fontsource/dm-mono/500.css",
+        "@fontsource/newsreader/latin-400.css",
         "./src/styles/custom.css",
       ],
       lastUpdated: true,
@@ -44,7 +45,31 @@ export default defineConfig({
         baseUrl: "https://github.com/corridor/ggx-docs/edit/main/",
       },
       components: {
+        Head: "./src/components/Head.astro",
+        Header: "./src/components/Header.astro",
         PageTitle: "./src/components/PageTitle.astro",
+      },
+      expressiveCode: {
+        themes: ["github-dark-default", "github-light-default"],
+        useStarlightUiThemeColors: true,
+        styleOverrides: {
+          borderRadius: "1rem",
+          borderColor: "var(--sl-color-gray-5)",
+          codeBackground: "transparent",
+          codeFontSize: "0.875rem",
+          codeLineHeight: "1.7",
+          frames: {
+            shadowColor: "transparent",
+            editorActiveTabIndicatorTopColor: "transparent",
+            editorActiveTabIndicatorBottomColor: "var(--sl-color-text-accent)",
+            editorTabBarBackground: "var(--ggx-surface)",
+            editorTabBarBorderBottomColor: "var(--sl-color-gray-5)",
+            editorActiveTabBackground: "transparent",
+            terminalBackground: "transparent",
+            terminalTitlebarBackground: "var(--ggx-surface)",
+            terminalTitlebarBorderBottomColor: "var(--sl-color-gray-5)",
+          },
+        },
       },
       social: [
         {

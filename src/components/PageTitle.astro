@@ -8,7 +8,14 @@ const path = Astro.url.pathname.endsWith("/")
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
 const markdownPath = path === "/" ? "/index.md" : `${path}index.md`;
+const isHome = starlightRoute.entry.id === "index" || starlightRoute.entry.id === "";
+const section = isHome
+  ? undefined
+  : Astro.locals.starlightSidebarTopics?.topics.find((topic) => topic.isCurrent)?.label;
+const lead = isHome ? undefined : starlightRoute.entry.data.description;
 ---
+
+{section && section !== title && <p class="ggx-page-section">{section}</p>}
 
 <div class="ggx-page-title-row">
   <h1 id={PAGE_TITLE_ID}>{title}</h1>
@@ -42,6 +49,7 @@ const markdownPath = path === "/" ? "/index.md" : `${path}index.md`;
     </div>
   </details>
 </div>
+{lead && <p class="ggx-page-lead">{lead}</p>}
 
 <script>
   const pagePath = window.location.pathname.endsWith("/")
@@ -77,10 +85,8 @@ const markdownPath = path === "/" ? "/index.md" : `${path}index.md`;
 <style>
   @layer starlight.core {
     h1 {
-      margin-top: 1rem;
       font-size: var(--sl-text-h1);
       line-height: var(--sl-line-height-headings);
-      font-weight: 600;
       color: var(--sl-color-white);
     }
   }
