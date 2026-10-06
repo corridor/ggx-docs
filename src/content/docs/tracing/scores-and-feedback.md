@@ -25,7 +25,9 @@ The trace list shows each trace's scores and can filter on them.
 
 A score config fixes what a score name means in a project, so two reviewers' _helpfulness_ is the same measurement. It sets the type (number, yes/no or label), the valid range or labels, and guidance for reviewers. A score whose name has a config must fit it.
 
-Manage them in the **Score configs** tab. Archiving a config hides it from pickers but keeps enforcing it.
+Manage them in the **Score configs** tab.
+
+![The Score configs tab listing a yes/no score and a 1-to-5 numeric score with reviewer guidance](./score-configs-tab.jpg) Archiving a config hides it from pickers but keeps enforcing it.
 
 ## Relaying end-user feedback
 

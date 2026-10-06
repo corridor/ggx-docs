@@ -18,6 +18,8 @@ A **monitor** watches one measure of your traffic and tells you when it crosses 
 
 A monitor can be narrowed to an environment, trace name, deployment or pipeline version. The numbers are computed exactly as the trace list's summary tiles compute them, so a monitor and the dashboard never disagree.
 
+![The Monitors tab listing monitors on cost, empty answers, error rate, repeated tool calls, latency and evaluator scores with their conditions and last values](./monitors-tab.jpg)
+
 ## Creating a monitor
 
 1. Open **Tracing → Monitors** and choose **New monitor**.

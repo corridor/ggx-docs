@@ -37,6 +37,8 @@ A query holds up to 32 conditions and three `span(…)` terms. A `span(…)` sea
 
 **Spans** searches every step of the traces in your range at once: every tool call, model call and retrieval. Sort by start time, duration, cost or tokens, and select a row to open its trace with that step selected.
 
+![The Spans tab listing model calls, tool calls and chains across traces with status, latency, model, tokens and cost](./spans-tab.jpg)
+
 A search reads a bounded number of stored spans (fewer when it looks inside inputs, outputs or attributes); if it stops early, the page says there may be more. Adding a condition on `kind`, `name`, `status` or `latency_ms` keeps searches quick.
 
 ## Metadata dimensions
@@ -48,6 +50,8 @@ Each trace takes the key's value from its root span, then any span, then the res
 ## Analytics
 
 The **Analytics** tab charts traffic, error rate, latency (50th, 95th and 99th percentile), cost per currency, tokens and agent flags over the selected range.
+
+![The Analytics tab charting traffic, error rate, latency percentiles and cost over the selected range](./analytics-tab.jpg)
 
 - It uses the query and filters from the Traces tab and names the ones in force, with a button to clear them.
 - Group the charts by environment, trace name, deployment, model or a dimension to compare the five largest groups, with the rest shown as **Other**.

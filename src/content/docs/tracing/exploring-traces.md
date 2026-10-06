@@ -12,6 +12,8 @@ Open **Monitor & Track → Tracing**. The tabs come in three groups, with one se
 
 The trace list shows what each trace was asked and what it answered, next to its status, scores, latency, tokens and cost; hover a preview for the full text. Models, spans and session are in the **Columns** menu. A session reads as the conversation it was, turn by turn, with each turn's raw request and response a click away.
 
+![The Traces tab in GGX, with summary tiles for traces, error rate, latency and cost above a filterable list of traces](./trace-list.jpg)
+
 ## Choosing a time range
 
 The range picker offers the last 15 minutes, hour, 12 hours, day, 7 days, 2 weeks, month, 3 months or 6 months, or any custom days and clock times. Times can be shown in UTC or your local time zone. **Last 15 min** refreshes itself every 30 seconds. Your chosen range stays with you as you move between tracing pages, and a link you share carries the range it was taken with.
@@ -31,6 +33,8 @@ Selecting a trace opens it in a panel over the list, so you can read it and carr
 - **Esc** or the close button returns to the list.
 - **Open full page** gives the trace the whole screen.
 - The panel's address can be shared, and **Back** closes it.
+
+![A trace open in a side panel over the list: its span tree on the left and the selected span's input and output on the right](./trace-panel.jpg)
 
 Traces opened from the **Spans** tab open on the span you picked, and a session's turns open the same way.
 

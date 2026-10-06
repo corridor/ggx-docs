@@ -16,6 +16,8 @@ The **Graph** view on a trace draws the run from **Start** at the top to **End**
 - Each node shows how many times the agent ran, its tool and model calls, its time and any failures.
 - Selecting a node opens that agent's span in the [inspector](../exploring-traces/#the-span-inspector).
 
+![The Graph view of a trace: a planner hands off to weather, budget and local-info specialists, then a synthesizer, with the span's attributes alongside](./agent-graph.jpg)
+
 ### Where the graph comes from
 
 The graph is drawn from agent spans, or from `graph.node.id` and `graph.node.parent_id` when your instrumentation sends them (the heading then says _nodes_ rather than _agents_). A trace with neither says so.
@@ -46,6 +48,8 @@ Your administrator can tune the thresholds with `TRACE_LOOP_MIN_REPEAT`, `TRACE_
 ## Sessions
 
 The **Sessions** tab rolls traces up by session id. Each row shows the conversation's first and last message, how many turns it had, how long it ran, its tool calls and agent runs, tokens, cost, errors, users, scores, and how many of its turns were flagged. **Flagged sessions only** narrows the list to conversations with at least one flagged turn.
+
+![The Sessions tab listing simulation and chat sessions with their first input, last output, traces, agent work, tokens, cost and flagged turns](./sessions-tab.jpg)
 
 Opening a session shows the conversation as a transcript, one turn per trace with its flags, each linking to its full trace, plus the session's evaluations.
 

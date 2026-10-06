@@ -24,6 +24,8 @@ Findings never quote trace content. They carry counts, the time window, links to
 
 Open **Tracing → Signals**. Tiles count open findings by severity, and the list can be filtered by status and investigator. Opening a finding shows its narrative, evidence, linked assets and history.
 
+![The Signals tab with tiles counting open findings by severity and one high-severity silent-failure finding](./signals-tab.jpg)
+
 - **Status**: open, acknowledged, resolved or dismissed. Resolving or dismissing needs a reason, and every change records who, when and why. A finding can be reopened and assigned to someone.
 - **Repeats**: if the same problem recurs while a finding is open, GGX updates it (occurrence count, evidence, and severity only ever rises) rather than filing another.
 - **Resolved means fixed**: if the problem comes back, it is a new finding.
