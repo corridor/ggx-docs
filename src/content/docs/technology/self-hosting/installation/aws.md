@@ -1,5 +1,5 @@
 ---
-title: "AWS"
+title: "Deploy GGX on AWS"
 description: "Deploy self-hosted GGX on AWS using ECS Fargate, EFS, load balancers, networking, IAM, database services, and container registry configuration."
 ---
 

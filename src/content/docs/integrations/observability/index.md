@@ -1,6 +1,6 @@
 ---
 title: "Observability"
-description: "Connect AI observability traces from LangSmith, Arize Phoenix, Langfuse, Humanloop, Datadog, and other tools to GGX for judges, human review, ground truth, bug categorization, and closed-loop AI lifecycle governance."
+description: "Connect AI observability traces from LangSmith, Arize Phoenix, Langfuse, Humanloop, and Datadog to GGX for judges, human review, and ground truth."
 ---
 
 AI observability tools help teams collect traces, inspect runs, measure latency and cost, evaluate outputs, and understand production behavior. GGX can sit alongside these tools by connecting their traces into the GGX monitoring and review workflow.

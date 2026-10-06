@@ -1,6 +1,6 @@
 ---
 title: "Evaluations and Approval"
-description: "Evaluate GGX pipelines and components with automated jobs, human annotations, standardized reports, comparison workflows, and structured approval processes before production release."
+description: "Evaluate GGX pipelines and components with automated jobs, human annotations, standardized reports, comparisons, and structured approval before release."
 ---
 
 ## Purpose of Evaluations

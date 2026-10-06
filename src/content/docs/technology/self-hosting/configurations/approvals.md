@@ -1,5 +1,5 @@
 ---
-title: "CI CD Integrations"
+title: "CI/CD Integrations"
 description: "Integrate GGX approval workflows with external CI/CD and review systems by implementing custom approval handlers and exchanging review actions through APIs."
 ---
 

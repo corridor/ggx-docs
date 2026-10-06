@@ -1,6 +1,6 @@
 ---
 title: "Arize Phoenix"
-description: "Connect Arize Phoenix traces, evaluations, datasets, and human annotations to GGX for governed monitoring, review, bug categorization, and AI lifecycle improvement."
+description: "Connect Arize Phoenix traces, evaluations, datasets, and human annotations to GGX for governed monitoring, review, and bug categorization."
 ---
 
 [Arize Phoenix](https://arize.com/docs/phoenix) is an AI observability and evaluation platform with tracing, evaluations, prompt engineering, datasets, experiments, and human annotations. Phoenix supports OpenTelemetry-based tracing and can capture model calls, retrieval, tool use, and custom logic.

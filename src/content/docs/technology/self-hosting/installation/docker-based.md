@@ -1,6 +1,6 @@
 ---
-title: "Docker-based"
-description: "Run self-hosted GGX with Docker-based deployments for local, staging, or controlled environments using containers, volumes, configuration, and service orchestration."
+title: "Docker-Based GGX Deployment"
+description: "Run self-hosted GGX with Docker for local, staging, or controlled environments using containers, volumes, configuration, and service orchestration."
 ---
 
 Use a Docker-based deployment when you already operate Docker hosts or Docker Compose and want a containerized GGX installation without adopting Kubernetes.

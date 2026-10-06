@@ -1,5 +1,5 @@
 ---
-title: "GCP"
+title: "Deploy GGX on Google Cloud"
 description: "Deploy self-hosted GGX on Google Cloud using Cloud Run, GKE, Cloud SQL, Cloud Storage, networking, service accounts, and Terraform modules."
 ---
 
