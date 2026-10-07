@@ -1,0 +1,71 @@
+<svg viewBox="0 0 1080 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The AI trust lifecycle: six stages from Design and develop, to Business confidence, Risk approval, Deploy, Monitoring, and Re-evaluate, joined by a constant-improvement loop. GenGuardX powers the Business confidence, Risk approval and Monitoring stages." font-family="'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect x="0" y="0" width="1080" height="350" rx="16" fill="#ffffff"/>
+
+  <!-- header -->
+  <line x1="40" y1="34" x2="395" y2="34" stroke="#e5e8f0" stroke-width="1"/>
+  <line x1="685" y1="34" x2="1040" y2="34" stroke="#e5e8f0" stroke-width="1"/>
+  <text x="540" y="39" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="3" fill="#6b7280">THE AI TRUST LIFECYCLE</text>
+
+  <!-- connector arrows -->
+  <g stroke="#c9ced5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M175 110 l9 0 m-5 -6 l6 6 l-6 6"/>
+    <path d="M355 110 l9 0 m-5 -6 l6 6 l-6 6"/>
+    <path d="M535 110 l9 0 m-5 -6 l6 6 l-6 6"/>
+    <path d="M715 110 l9 0 m-5 -6 l6 6 l-6 6"/>
+    <path d="M895 110 l9 0 m-5 -6 l6 6 l-6 6"/>
+  </g>
+
+  <!-- Step 1: Design & develop (outside GGX) -->
+  <circle cx="90" cy="110" r="34" fill="#eef1f6" stroke="#d7dcec" stroke-width="1.5"/>
+  <text x="90" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#6b7280">1</text>
+  <text x="90" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Design &amp; develop</text>
+  <text x="90" y="200" text-anchor="middle" font-size="11.5" fill="#6b7280">Build with trust</text>
+  <text x="90" y="215" text-anchor="middle" font-size="11.5" fill="#6b7280">from day one</text>
+
+  <!-- Step 2: Business confidence (GGX) -->
+  <circle cx="270" cy="110" r="34" fill="#293147" stroke="#1b2236" stroke-width="1.5"/>
+  <text x="270" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">2</text>
+  <text x="270" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Business confidence</text>
+  <text x="270" y="200" text-anchor="middle" font-size="11.5" fill="#6b7280">Align on value</text>
+  <text x="270" y="215" text-anchor="middle" font-size="11.5" fill="#6b7280">&amp; readiness</text>
+
+  <!-- Step 3: Risk approval (GGX) -->
+  <circle cx="450" cy="110" r="34" fill="#293147" stroke="#1b2236" stroke-width="1.5"/>
+  <text x="450" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">3</text>
+  <text x="450" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Risk approval</text>
+  <text x="450" y="200" text-anchor="middle" font-size="11.5" fill="#6b7280">Evaluate safety, security</text>
+  <text x="450" y="215" text-anchor="middle" font-size="11.5" fill="#6b7280">&amp; compliance</text>
+
+  <!-- Step 4: Deploy (outside GGX) -->
+  <circle cx="630" cy="110" r="34" fill="#eef1f6" stroke="#d7dcec" stroke-width="1.5"/>
+  <text x="630" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#6b7280">4</text>
+  <text x="630" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Deploy</text>
+  <text x="630" y="200" text-anchor="middle" font-size="11.5" fill="#6b7280">Launch with</text>
+  <text x="630" y="215" text-anchor="middle" font-size="11.5" fill="#6b7280">guardrails in place</text>
+
+  <!-- Step 5: Monitoring (GGX) -->
+  <circle cx="810" cy="110" r="34" fill="#293147" stroke="#1b2236" stroke-width="1.5"/>
+  <text x="810" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">5</text>
+  <text x="810" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Monitoring</text>
+  <text x="810" y="200" text-anchor="middle" font-size="11.5" fill="#6b7280">Detect issues,</text>
+  <text x="810" y="215" text-anchor="middle" font-size="11.5" fill="#6b7280">ensure performance</text>
+
+  <!-- Step 6: Re-evaluate (outside GGX) -->
+  <circle cx="990" cy="110" r="34" fill="#eef1f6" stroke="#d7dcec" stroke-width="1.5"/>
+  <text x="990" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#6b7280">6</text>
+  <text x="990" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Re-evaluate</text>
+  <text x="990" y="200" text-anchor="middle" font-size="11.5" fill="#6b7280">Continuously improve</text>
+  <text x="990" y="215" text-anchor="middle" font-size="11.5" fill="#6b7280">and adapt</text>
+
+  <!-- constant improvement loop -->
+  <path d="M990 250 L990 270 L270 270 L270 252" fill="none" stroke="#9aa3b8" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <path d="M270 246 l-6 10 l12 0 z" fill="#9aa3b8"/>
+  <rect x="453" y="261" width="174" height="18" fill="#ffffff"/>
+  <text x="540" y="274" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="2.5" fill="#6b7280">CONSTANT IMPROVEMENT</text>
+
+  <!-- legend -->
+  <rect x="372" y="312" width="13" height="13" rx="3" fill="#293147"/>
+  <text x="392" y="323" font-size="12" fill="#4b5563">Stages GenGuardX powers</text>
+  <rect x="585" y="312" width="13" height="13" rx="3" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="605" y="323" font-size="12" fill="#4b5563">Handled by your existing stack</text>
+</svg>

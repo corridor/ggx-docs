@@ -1,0 +1,4 @@
+# Test/staging deployment: keep this host out of search engine indexes.
+User-agent: *
+Disallow: /
+

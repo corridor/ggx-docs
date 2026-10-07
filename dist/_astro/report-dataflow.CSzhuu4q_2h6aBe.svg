@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 250" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="At run time the job data (a DuckDB DataFrame) plus the user's parameters feed the computation, which emits raw_output; the visualization turns it into figures that assemble into a dashboard.">
+  <defs>
+    <marker id="rf_ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <text x="490" y="30" text-anchor="middle" font-size="12" letter-spacing="1.5" font-weight="700" fill="#6b7280">WHAT HAPPENS WHEN A REPORT RUNS</text>
+
+  <!-- connectors -->
+  <line x1="205" y1="102" x2="271" y2="102" stroke="#5b6a96" stroke-width="2" marker-end="url(#rf_ah)"/>
+  <line x1="455" y1="102" x2="521" y2="102" stroke="#5b6a96" stroke-width="2" marker-end="url(#rf_ah)"/>
+  <line x1="705" y1="102" x2="771" y2="102" stroke="#5b6a96" stroke-width="2" marker-end="url(#rf_ah)"/>
+
+  <!-- 1 Job data -->
+  <rect x="25" y="62" width="180" height="80" rx="14" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="115" y="92" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Job data</text>
+  <text x="115" y="112" text-anchor="middle" font-size="10.5" fill="#6b7280">a DuckDB DataFrame —</text>
+  <text x="115" y="127" text-anchor="middle" font-size="10.5" fill="#6b7280">inputs + object output</text>
+
+  <!-- 2 Computation -->
+  <rect x="275" y="62" width="180" height="80" rx="14" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <rect x="275" y="62" width="180" height="30" rx="14" fill="#293147"/>
+  <rect x="275" y="78" width="180" height="14" fill="#293147"/>
+  <text x="365" y="83" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Computation</text>
+  <text x="365" y="118" text-anchor="middle" font-size="10.5" fill="#374151">score &amp; summarize</text>
+  <text x="365" y="133" text-anchor="middle" font-size="10.5" fill="#374151">the data</text>
+
+  <!-- 3 Visualization -->
+  <rect x="525" y="62" width="180" height="80" rx="14" fill="#ffffff" stroke="#5b6a96" stroke-width="1.5"/>
+  <rect x="525" y="62" width="180" height="30" rx="14" fill="#5b6a96"/>
+  <rect x="525" y="78" width="180" height="14" fill="#5b6a96"/>
+  <text x="615" y="83" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Visualization</text>
+  <text x="615" y="118" text-anchor="middle" font-size="10.5" fill="#374151">Plotly · grid table ·</text>
+  <text x="615" y="133" text-anchor="middle" font-size="10.5" fill="#374151">HTML / Markdown</text>
+
+  <!-- 4 Dashboard -->
+  <rect x="775" y="62" width="180" height="80" rx="14" fill="#293147"/>
+  <text x="865" y="97" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Dashboard</text>
+  <text x="865" y="117" text-anchor="middle" font-size="10.5" fill="#c8d0e4">shared for review</text>
+
+  <!-- raw_output label on the computation -> visualization arrow -->
+  <text x="490" y="88" text-anchor="middle" font-size="9.5" font-family="'DM Mono', monospace" font-weight="700" fill="#8a6d2f">raw_output</text>
+
+  <!-- parameters feed into computation -->
+  <line x1="365" y1="204" x2="365" y2="146" stroke="#5b6a96" stroke-width="2" marker-end="url(#rf_ah)"/>
+  <rect x="285" y="204" width="160" height="42" rx="12" fill="#f7f9fc" stroke="#d7dcec"/>
+  <text x="365" y="223" text-anchor="middle" font-size="12" font-weight="700" fill="#2f3a57">Parameters</text>
+  <text x="365" y="239" text-anchor="middle" font-size="10" font-family="'DM Mono', monospace" fill="#6b7280">job.parameters</text>
+</svg>

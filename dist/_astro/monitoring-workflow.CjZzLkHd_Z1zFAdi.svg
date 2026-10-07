@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" font-family="'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-labelledby="workflow-title workflow-desc">
+  <title id="workflow-title">GGX monitoring benchmark workflow</title>
+  <desc id="workflow-desc">Production conversations are fetched from observability storage in about one minute. Heuristics assign clear problems, while the remaining conversations fan out to four or five parallel LLM judges. Assignment logic then routes problems to developers, accepted conversations to ground truth, and uncertain conversations to human annotation queues.</desc>
+  <defs>
+    <marker id="workflow-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M1 1L7 4.5L1 8" fill="none" stroke="#5b6a96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="workflow-arrow-dark" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M1 1L7 4.5L1 8" fill="none" stroke="#293147" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1120" height="600" rx="18" fill="#ffffff"/>
+  <text x="560" y="31" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1.4" fill="#6b7280">FROM PRODUCTION TRACE TO ACTIONABLE ASSIGNMENT</text>
+
+  <!-- Source -->
+  <rect x="40" y="60" width="210" height="112" rx="14" fill="#ffffff" stroke="#c3ccdf"/>
+  <text x="145" y="88" text-anchor="middle" font-size="14.5" font-weight="700" fill="#293147">Observability storage</text>
+  <text x="145" y="113" text-anchor="middle" font-size="12" fill="#6b7280">Datadog · CloudWatch</text>
+  <text x="145" y="132" text-anchor="middle" font-size="12" fill="#6b7280">Langfuse · Arize</text>
+  <rect x="78" y="145" width="134" height="20" rx="10" fill="#eef1f6"/>
+  <text x="145" y="159" text-anchor="middle" font-size="10.5" font-weight="600" fill="#5b6a96">10K conversations/day</text>
+
+  <line x1="262" y1="116" x2="304" y2="116" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+
+  <!-- Acquire -->
+  <rect x="320" y="60" width="200" height="112" rx="14" fill="#eef1f6" stroke="#5b6a96"/>
+  <circle cx="350" cy="88" r="16" fill="#293147"/>
+  <text x="350" y="93" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">1</text>
+  <text x="377" y="93" font-size="14.5" font-weight="700" fill="#293147">Acquire</text>
+  <text x="420" y="120" text-anchor="middle" font-size="12" fill="#5b6a96">Fetch new traces and metadata</text>
+  <text x="420" y="145" text-anchor="middle" font-size="12.5" font-weight="700" fill="#293147">Target freshness ≤ 1 minute</text>
+
+  <line x1="532" y1="116" x2="574" y2="116" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+
+  <!-- Heuristics -->
+  <rect x="590" y="60" width="220" height="112" rx="14" fill="#eef1f6" stroke="#5b6a96"/>
+  <circle cx="620" cy="88" r="16" fill="#293147"/>
+  <text x="620" y="93" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">2a</text>
+  <text x="648" y="93" font-size="14.5" font-weight="700" fill="#293147">Heuristic tests</text>
+  <text x="700" y="120" text-anchor="middle" font-size="12" fill="#5b6a96">Deterministic checks first</text>
+  <text x="700" y="145" text-anchor="middle" font-size="12.5" font-weight="700" fill="#293147">Modeled: 30% assigned</text>
+
+  <!-- Heuristic problem branch -->
+  <path d="M700 184V246H537V276" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+  <rect x="506" y="202" width="190" height="34" rx="17" fill="#fff1f0" stroke="#d9776a"/>
+  <text x="601" y="224" text-anchor="middle" font-size="11.5" font-weight="700" fill="#9f2d20">~3K clear problems</text>
+
+  <!-- Remaining to judges -->
+  <path d="M822 116H868V258" fill="none" stroke="#293147" stroke-width="2.2" marker-end="url(#workflow-arrow-dark)"/>
+  <rect x="824" y="178" width="204" height="34" rx="17" fill="#eef1f6" stroke="#9aa6c0"/>
+  <text x="926" y="200" text-anchor="middle" font-size="11.5" font-weight="700" fill="#293147">~7K need more context</text>
+
+  <!-- Judges -->
+  <rect x="730" y="276" width="330" height="142" rx="16" fill="#293147" stroke="#1b2236"/>
+  <circle cx="764" cy="308" r="17" fill="#5b6a96"/>
+  <text x="764" y="313" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2b</text>
+  <text x="792" y="313" font-size="15" font-weight="700" fill="#ffffff">Parallel LLM judges</text>
+  <text x="895" y="340" text-anchor="middle" font-size="12" fill="#c8d0e4">4–5 judges per conversation</text>
+  <g transform="translate(770 359)">
+    <rect x="0" y="0" width="50" height="32" rx="7" fill="#ffffff"/>
+    <rect x="58" y="0" width="50" height="32" rx="7" fill="#ffffff"/>
+    <rect x="116" y="0" width="50" height="32" rx="7" fill="#ffffff"/>
+    <rect x="174" y="0" width="50" height="32" rx="7" fill="#ffffff"/>
+    <rect x="232" y="0" width="50" height="32" rx="7" fill="#c8d0e4"/>
+    <text x="25" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#293147">J1</text>
+    <text x="83" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#293147">J2</text>
+    <text x="141" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#293147">J3</text>
+    <text x="199" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#293147">J4</text>
+    <text x="257" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#293147">J5</text>
+  </g>
+  <text x="895" y="407" text-anchor="middle" font-size="11.5" fill="#c8d0e4">Up to 100 API calls in flight</text>
+
+  <!-- Assignment -->
+  <path d="M718 347H660" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+  <rect x="430" y="288" width="215" height="118" rx="15" fill="#eef1f6" stroke="#293147" stroke-width="1.5"/>
+  <circle cx="462" cy="319" r="17" fill="#293147"/>
+  <text x="462" y="324" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">3</text>
+  <text x="490" y="324" font-size="15" font-weight="700" fill="#293147">Assignment</text>
+  <text x="537.5" y="353" text-anchor="middle" font-size="12" fill="#5b6a96">Combine test evidence</text>
+  <text x="537.5" y="373" text-anchor="middle" font-size="12" fill="#5b6a96">and route the outcome</text>
+  <text x="537.5" y="394" text-anchor="middle" font-size="11.5" font-weight="700" fill="#293147">10K final assignments</text>
+
+  <!-- Output connectors -->
+  <path d="M537 418V452H220V477" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+  <path d="M537 418V477" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+  <path d="M537 452H854V477" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#workflow-arrow)"/>
+
+  <!-- Outputs -->
+  <rect x="70" y="492" width="300" height="82" rx="14" fill="#fff1f0" stroke="#d9776a"/>
+  <circle cx="101" cy="519" r="13" fill="#9f2d20"/>
+  <text x="101" y="524" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">!</text>
+  <text x="126" y="524" font-size="14" font-weight="700" fill="#7f251b">Has problems</text>
+  <text x="222" y="550" text-anchor="middle" font-size="12" fill="#7f251b">Developer routing · Jira create/link</text>
+
+  <rect x="410" y="492" width="255" height="82" rx="14" fill="#edf8f4" stroke="#6aa795"/>
+  <circle cx="441" cy="519" r="13" fill="#256b5e"/>
+  <path d="M435 519l4 4 8-9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="466" y="524" font-size="14" font-weight="700" fill="#20594f">No problems</text>
+  <text x="530" y="550" text-anchor="middle" font-size="12" fill="#20594f">Governed ground truth</text>
+
+  <rect x="705" y="492" width="345" height="82" rx="14" fill="#fff8eb" stroke="#d6a85c"/>
+  <circle cx="736" cy="519" r="13" fill="#9a6208"/>
+  <text x="736" y="524" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">?</text>
+  <text x="761" y="524" font-size="14" font-weight="700" fill="#805205">Unsure</text>
+  <text x="863" y="550" text-anchor="middle" font-size="12" fill="#805205">Human review in Annotation Queue</text>
+</svg>
