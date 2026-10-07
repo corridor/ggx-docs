@@ -102,11 +102,6 @@ export default defineConfig({
       },
       social: [
         {
-          icon: "github",
-          label: "GitHub",
-          href: "https://github.com/corridor",
-        },
-        {
           icon: "linkedin",
           label: "LinkedIn",
           href: "https://www.linkedin.com/company/corridor-platforms/",
