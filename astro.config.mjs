@@ -67,7 +67,6 @@ export default defineConfig({
         "@fontsource/dm-sans/700.css",
         "@fontsource/dm-mono/400.css",
         "@fontsource/dm-mono/500.css",
-        "@fontsource/newsreader/latin-400.css",
         "./src/styles/custom.css",
       ],
       lastUpdated: true,
@@ -83,9 +82,9 @@ export default defineConfig({
         themes: ["github-dark-default", "github-light-default"],
         useStarlightUiThemeColors: true,
         styleOverrides: {
-          borderRadius: "1rem",
+          borderRadius: "0.625rem",
           borderColor: "var(--sl-color-gray-5)",
-          codeBackground: "transparent",
+          codeBackground: "var(--ggx-surface)",
           codeFontSize: "0.875rem",
           codeLineHeight: "1.7",
           frames: {
@@ -95,7 +94,7 @@ export default defineConfig({
             editorTabBarBackground: "var(--ggx-surface)",
             editorTabBarBorderBottomColor: "var(--sl-color-gray-5)",
             editorActiveTabBackground: "transparent",
-            terminalBackground: "transparent",
+            terminalBackground: "var(--ggx-surface)",
             terminalTitlebarBackground: "var(--ggx-surface)",
             terminalTitlebarBorderBottomColor: "var(--sl-color-gray-5)",
           },

@@ -93,7 +93,7 @@ const topics = Astro.locals.starlightSidebarTopics?.topics ?? [];
     display: flex;
     align-items: center;
     height: var(--ggx-tabs-height);
-    box-shadow: inset 0 -1.5px 0 transparent;
+    box-shadow: inset 0 -2px 0 transparent;
     color: var(--sl-color-gray-3);
     font-size: var(--sl-text-sm);
     font-weight: 500;
@@ -106,13 +106,13 @@ const topics = Astro.locals.starlightSidebarTopics?.topics ?? [];
   }
 
   .ggx-header__tabs a:hover {
-    box-shadow: inset 0 -1.5px 0 var(--sl-color-gray-5);
+    box-shadow: inset 0 -2px 0 var(--sl-color-gray-5);
     color: var(--sl-color-white);
   }
 
   .ggx-header__tabs a[aria-current] {
-    box-shadow: inset 0 -1.5px 0 var(--sl-color-text-accent);
-    color: var(--sl-color-white);
+    box-shadow: inset 0 -2px 0 var(--sl-color-text-accent);
+    color: var(--sl-color-text-accent);
   }
 
   @media (min-width: 50rem) {

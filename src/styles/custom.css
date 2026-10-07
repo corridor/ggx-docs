@@ -1,7 +1,7 @@
 /* GGX brand theme for Starlight.
- * Warm paper surface, serif display headings, quiet chrome.
- * Brand navy #293147 is reserved for small accents (active tab, focus, selection).
- * Fonts: Newsreader (headings) / DM Sans (text) / DM Mono (code)
+ * White and cool-neutral surfaces, sans headings, crisp chrome — matches genguardx.ai.
+ * Corridor blue #0c8ce9 carries links and active states; orange is kept for emphasis.
+ * Fonts: DM Sans (headings + text) / DM Mono (code)
  */
 
 /* ---- Tokens: dark (Starlight's default scope) --------------------------- */
@@ -11,35 +11,40 @@
         sans-serif;
     --sl-font-mono:
         "DM Mono", ui-monospace, "SFMono-Regular", "Consolas", monospace;
-    --ggx-font-serif: "Newsreader", Georgia, "Times New Roman", serif;
 
-    --sl-color-white: #faf9f5;
-    --sl-color-gray-1: #ecebe4;
-    --sl-color-gray-2: #cfcdc4;
-    --sl-color-gray-3: #a3a198;
-    --sl-color-gray-4: #5c5a53;
-    --sl-color-gray-5: #33322e;
-    --sl-color-gray-6: #201f1d;
-    --sl-color-black: #151514;
+    --sl-color-white: #f8fafc;
+    --sl-color-gray-1: #e5e9f0;
+    --sl-color-gray-2: #c3cad6;
+    --sl-color-gray-3: #94a0b3;
+    --sl-color-gray-4: #556072;
+    --sl-color-gray-5: #2a3342;
+    --sl-color-gray-6: #171d28;
+    --sl-color-black: #0d1219;
 
-    --sl-color-accent-low: #222a40;
-    --sl-color-accent: #8492bd;
-    --sl-color-accent-high: #c8d0e4;
+    --sl-color-accent-low: #0b2a47;
+    --sl-color-accent: #0b76cc;
+    --sl-color-accent-high: #7cc4fd;
+
+    --sl-color-orange-low: #3b1d06;
+    --sl-color-orange: #f97316;
+    --sl-color-orange-high: #fdba74;
 
     --sl-color-text: var(--sl-color-gray-1);
     --sl-color-bg-nav: var(--sl-color-bg);
     --sl-color-bg-sidebar: var(--sl-color-bg);
-    --sl-color-bg-inline-code: rgb(250 249 245 / 0.08);
+    --sl-color-bg-inline-code: rgb(148 163 184 / 0.16);
     --sl-color-hairline-light: var(--sl-color-gray-5);
     --sl-color-hairline: var(--sl-color-gray-5);
     --sl-color-hairline-shade: var(--sl-color-gray-5);
 
     --ggx-surface: var(--sl-color-gray-6);
-    --ggx-hover: rgb(250 249 245 / 0.06);
-    --ggx-active: rgb(250 249 245 / 0.11);
+    --ggx-hover: rgb(148 163 184 / 0.1);
+    --ggx-active: rgb(12 140 233 / 0.16);
+    --ggx-radius: 0.5rem;
+    --ggx-radius-lg: 0.625rem;
 
     /* Type scale: calmer than Starlight's default, same at every breakpoint. */
-    --sl-text-h1: 2.25rem;
+    --sl-text-h1: 2.125rem;
     --sl-text-h2: 1.5rem;
     --sl-text-h3: 1.25rem;
     --sl-text-h4: 1.0625rem;
@@ -58,28 +63,32 @@
 
 /* ---- Tokens: light ------------------------------------------------------ */
 :root[data-theme="light"] {
-    --sl-color-white: #141413;
-    --sl-color-gray-1: #1f1e1c;
-    --sl-color-gray-2: #3d3c38;
-    --sl-color-gray-3: #65635c;
-    --sl-color-gray-4: #8f8d84;
-    --sl-color-gray-5: #dddbd0;
-    --sl-color-gray-6: #ebe9df;
-    --sl-color-gray-7: #f5f4ec;
-    --sl-color-black: #fdfdf7;
+    --sl-color-white: #030712;
+    --sl-color-gray-1: #111827;
+    --sl-color-gray-2: #374151;
+    --sl-color-gray-3: #566072;
+    --sl-color-gray-4: #8a94a3;
+    --sl-color-gray-5: #d5dbe3;
+    --sl-color-gray-6: #e6eaef;
+    --sl-color-gray-7: #f7f9fb;
+    --sl-color-black: #ffffff;
 
-    --sl-color-accent-low: #e3e6ef;
-    --sl-color-accent: #293147;
-    --sl-color-accent-high: #1a1f30;
+    --sl-color-accent-low: #e3f1ff;
+    --sl-color-accent: #006fc9;
+    --sl-color-accent-high: #0257a2;
 
-    --sl-color-bg-inline-code: rgb(20 20 19 / 0.06);
+    --sl-color-orange-low: #fff7ed;
+    --sl-color-orange: #c54600;
+    --sl-color-orange-high: #7c2d12;
+
+    --sl-color-bg-inline-code: rgb(17 24 39 / 0.06);
     --sl-color-hairline-light: var(--sl-color-gray-6);
     --sl-color-hairline: var(--sl-color-gray-6);
     --sl-color-hairline-shade: var(--sl-color-gray-6);
 
     --ggx-surface: var(--sl-color-gray-7);
-    --ggx-hover: rgb(20 20 19 / 0.04);
-    --ggx-active: rgb(20 20 19 / 0.08);
+    --ggx-hover: rgb(17 24 39 / 0.045);
+    --ggx-active: rgb(12 140 233 / 0.1);
 }
 
 ::selection {
@@ -95,9 +104,8 @@
 .site-title {
     gap: 0.625rem;
     color: var(--sl-color-white);
-    font-family: var(--ggx-font-serif);
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: 1.125rem;
+    font-weight: 600;
     letter-spacing: -0.01em;
 }
 
@@ -132,6 +140,13 @@
     }
 
     .page > .header {
+        background-color: color-mix(
+            in srgb,
+            var(--sl-color-bg-nav) 82%,
+            transparent
+        );
+        -webkit-backdrop-filter: saturate(1.4) blur(12px);
+        backdrop-filter: saturate(1.4) blur(12px);
         padding-block: 0;
         padding-inline: calc(var(--sl-nav-pad-x) + var(--ggx-gutter));
     }
@@ -160,18 +175,18 @@
     border-inline-start: 0;
 }
 
-/* Header search: quiet pill */
+/* Header search: tinted field */
 @media (min-width: 50rem) {
     site-search button[data-open-modal] {
         height: 2.25rem;
         border-color: var(--sl-color-gray-5);
-        border-radius: 0.75rem;
-        background-color: var(--sl-color-bg);
+        border-radius: var(--ggx-radius);
+        background-color: var(--ggx-surface);
         color: var(--sl-color-gray-3);
     }
 
     site-search button[data-open-modal]:hover {
-        border-color: var(--sl-color-gray-4);
+        border-color: var(--sl-color-accent);
     }
 
     site-search button > kbd {
@@ -180,10 +195,10 @@
     }
 }
 
-/* ---- Sidebar: flat list, soft pill for the current page ------------------ */
+/* ---- Sidebar: flat list, blue-tinted row for the current page ----------- */
 .sidebar-content a,
 .sidebar-content summary {
-    border-radius: 0.75rem;
+    border-radius: var(--ggx-radius);
     padding: 0.4rem 0.75rem;
     font-size: var(--sl-text-sm);
     line-height: 1.4;
@@ -205,8 +220,8 @@
 .sidebar-content a[aria-current="page"]:hover,
 .sidebar-content a[aria-current="page"]:focus {
     background-color: var(--ggx-active);
-    color: var(--sl-color-white);
-    font-weight: 500;
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
 }
 
 .sidebar-content .large {
@@ -271,17 +286,17 @@
 }
 
 .right-sidebar-panel a[aria-current="true"] {
-    color: var(--sl-color-white);
+    color: var(--sl-color-text-accent);
     font-weight: 500;
 }
 
 /* ---- Page header: section, title, lead ----------------------------------- */
 .ggx-page-section {
     margin-bottom: 0.5rem;
-    color: var(--sl-color-white);
-    font-size: var(--sl-text-sm);
+    color: var(--sl-color-text-accent);
+    font-size: var(--sl-text-xs);
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.06em;
     line-height: 1.4;
     text-transform: uppercase;
 }
@@ -298,9 +313,8 @@
 /* ---- Content typography -------------------------------------------------- */
 .ggx-page-title-row h1,
 .sl-markdown-content :is(h1, h2, h3):not(:where(.not-content *)) {
-    font-family: var(--ggx-font-serif);
-    font-weight: 400;
-    letter-spacing: -0.012em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     text-wrap: balance;
 }
 
@@ -326,14 +340,15 @@
 }
 
 .sl-markdown-content a:not(:where(.not-content *)) {
-    color: var(--sl-color-white);
-    font-weight: 600;
+    color: var(--sl-color-text-accent);
+    font-weight: 500;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
 }
 
 .sl-markdown-content a:hover:not(:where(.not-content *)) {
-    color: var(--sl-color-text-accent);
+    text-decoration-color: currentColor;
 }
 
 .sl-markdown-content code:not(:where(.not-content *)) {
@@ -349,6 +364,7 @@
 
 .sl-markdown-content th:not(:where(.not-content *)) {
     border-bottom-color: var(--sl-color-gray-5);
+    background-color: var(--ggx-surface);
     color: var(--sl-color-white);
     font-weight: 600;
 }
@@ -366,10 +382,10 @@
     margin-top: 0;
 }
 
-/* ---- Code blocks: outlined, no fill -------------------------------------- */
+/* ---- Code blocks: faint cool fill, hairline border ----------------------- */
 .expressive-code {
-    --ec-frm-edBg: transparent;
-    --ec-frm-trmBg: transparent;
+    --ec-frm-edBg: var(--ggx-surface);
+    --ec-frm-trmBg: var(--ggx-surface);
     --ec-frm-edActTabBg: transparent;
 }
 
@@ -392,12 +408,12 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 
 /* ---- Pagination ---------------------------------------------------------- */
 .pagination-links a {
-    border-radius: 1rem;
+    border-radius: var(--ggx-radius-lg);
     box-shadow: none;
 }
 
 .pagination-links a:hover {
-    border-color: var(--sl-color-gray-4);
+    border-color: var(--sl-color-accent);
     background-color: var(--ggx-hover);
 }
 
@@ -426,7 +442,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 .ggx-figure img {
     width: 100%;
     border: 1px solid var(--sl-color-gray-5);
-    border-radius: 1rem;
+    border-radius: var(--ggx-radius-lg);
     background: #ffffff;
     padding: 0.5rem;
 }
@@ -449,7 +465,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 .ggx-benchmark-kpi {
     min-width: 0;
     border: 1px solid var(--sl-color-gray-5);
-    border-radius: 1rem;
+    border-radius: var(--ggx-radius-lg);
     background: var(--ggx-surface);
     padding: 1rem;
     margin: 0;
@@ -479,7 +495,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
     gap: 0.85rem;
     margin: 1.5rem 0;
     border: 1px solid var(--sl-color-gray-5);
-    border-radius: 1rem;
+    border-radius: var(--ggx-radius-lg);
     background: var(--ggx-surface);
     padding: 1rem;
     color: var(--sl-color-white);
@@ -571,7 +587,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 .sl-markdown-content .card {
     --sl-card-border: var(--sl-color-gray-5);
     --sl-card-bg: var(--ggx-surface);
-    border-radius: 1rem;
+    border-radius: var(--ggx-radius-lg);
     background-color: transparent;
     padding: 1.25rem;
     gap: 0.625rem;
@@ -591,7 +607,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 }
 
 .sl-markdown-content .sl-link-card {
-    border-radius: 1rem;
+    border-radius: var(--ggx-radius-lg);
     box-shadow: none;
     transition:
         border-color 0.15s ease,
@@ -599,7 +615,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 }
 
 .sl-markdown-content .sl-link-card:hover {
-    border-color: var(--sl-color-gray-4);
+    border-color: var(--sl-color-accent);
     background: var(--ggx-hover);
 }
 
@@ -607,7 +623,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
 .sl-markdown-content .starlight-aside {
     border: 1px solid
         color-mix(in srgb, var(--sl-color-asides-border) 40%, transparent);
-    border-radius: 0.875rem;
+    border-radius: var(--ggx-radius-lg);
     background-color: color-mix(
         in srgb,
         var(--sl-color-asides-border) 9%,
@@ -615,11 +631,17 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
     );
 }
 
+/* Tips take the brand blue; Starlight's default purple is off-brand. */
+.sl-markdown-content .starlight-aside--tip {
+    --sl-color-asides-text-accent: var(--sl-color-text-accent);
+    --sl-color-asides-border: var(--sl-color-accent);
+}
+
 /* ---- Collapsible <details>: make it obviously expandable -------------- */
 .sl-markdown-content details.ggx-details {
     margin: 1.25rem 0;
     border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.875rem;
+    border-radius: var(--ggx-radius-lg);
     background: var(--ggx-surface);
     padding: 0 1rem;
 }
@@ -689,7 +711,7 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
     gap: 0.4rem;
     min-height: 2.25rem;
     border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.75rem;
+    border-radius: var(--ggx-radius);
     padding: 0.35rem 0.75rem;
     background: var(--sl-color-bg);
     color: var(--sl-color-gray-2);
@@ -735,9 +757,9 @@ starlight-tabs .tab [role="tab"][aria-selected="true"] {
     min-width: 13.5rem;
     overflow: hidden;
     border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.75rem;
+    border-radius: var(--ggx-radius);
     background: var(--sl-color-bg);
-    box-shadow: 0 12px 28px -16px rgb(20 20 19 / 0.35);
+    box-shadow: 0 12px 28px -16px rgb(3 7 18 / 0.35);
 }
 
 .ggx-ai-menu__panel a {
