@@ -1,12 +1,12 @@
 /* Scoped styles for the LLM Judges gallery.
- * Brand navy #293147; buttons/active states use literal white text because
+ * Brand blue accent; buttons/active states use literal white text because
  * Starlight's --sl-color-white flips to near-black in light mode. */
 
 .app {
-  --card-shadow: 0 1px 2px rgba(41, 49, 71, 0.06),
-    0 8px 24px -16px rgba(41, 49, 71, 0.45);
-  --card-shadow-hover: 0 2px 4px rgba(41, 49, 71, 0.08),
-    0 18px 40px -18px rgba(41, 49, 71, 0.55);
+  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.06),
+    0 8px 24px -16px rgba(15, 23, 42, 0.45);
+  --card-shadow-hover: 0 2px 4px rgba(15, 23, 42, 0.08),
+    0 18px 40px -18px rgba(15, 23, 42, 0.55);
   margin-top: 1.75rem;
 }
 
@@ -135,7 +135,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--sl-color-accent), #7b88b4);
+  background: linear-gradient(90deg, var(--sl-color-accent), #36a8fa);
   opacity: 0;
   transition: opacity 0.18s ease;
 }
@@ -264,7 +264,7 @@
     color-mix(in srgb, var(--sl-color-accent) 86%, #000)
   );
   color: #fff;
-  box-shadow: 0 8px 18px -12px rgba(41, 49, 71, 0.95);
+  box-shadow: 0 8px 18px -12px rgba(15, 23, 42, 0.95);
 }
 
 .btnPrimary:hover:not(:disabled) {
@@ -274,7 +274,7 @@
     color-mix(in srgb, var(--sl-color-accent) 78%, #000)
   );
   transform: translateY(-1px);
-  box-shadow: 0 12px 22px -12px rgba(41, 49, 71, 1);
+  box-shadow: 0 12px 22px -12px rgba(15, 23, 42, 1);
 }
 
 .btnPrimary:active:not(:disabled) {
@@ -350,7 +350,7 @@
 .tabActive {
   color: var(--sl-color-text);
   background: var(--sl-color-bg);
-  box-shadow: 0 1px 3px rgba(41, 49, 71, 0.18);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
 }
 
 .codeBar {
