@@ -7,7 +7,9 @@ Data warehouses provide governed enterprise data for GGX evaluation, retrieval, 
 
 ## Available integrations
 
-- [Databricks Unity Catalog](databricks-unity-catalog/) — Use Unity Catalog-governed data assets as controlled sources for GGX workflows.
+- [Databricks](databricks-unity-catalog/) — Connect a Databricks SQL warehouse and register a table or SQL query as a GGX dataset.
+
+Other warehouse providers and data formats can be supported through **custom integrations**. For dataset sources that need a custom reader, use **Custom Logic** in [Datasets](../../register-and-refine/inventory-management/table-registry/).
 
 ## Integration principles
 

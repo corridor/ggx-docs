@@ -17,7 +17,7 @@ These integrations are organized into the following categories:
 
 3. **Data Warehouses:**  
    Connect governed enterprise data to GGX for evaluation datasets, retrieval sources, monitoring evidence, and auditable AI lifecycle workflows.  
-   Examples: [Databricks Unity Catalog](data-warehouses/databricks-unity-catalog/)
+   Examples: [Databricks](data-warehouses/databricks-unity-catalog/)
 
 4. **Observability:**  
    Connect AI traces, logs, scores, alerts, and review signals to GGX so monitoring feeds judges, human review, ground truth, bug categorization, and lifecycle governance.  
