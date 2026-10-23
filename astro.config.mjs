@@ -383,7 +383,7 @@ export default defineConfig({
                     slug: "integrations/data-warehouses",
                   },
                   {
-                    label: "Databricks Unity Catalog",
+                    label: "Databricks",
                     slug: "integrations/data-warehouses/databricks-unity-catalog",
                   },
                 ],
