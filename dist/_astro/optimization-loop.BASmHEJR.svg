@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 460" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="The hill-climbing loop as a cycle: starting from an Initialize step, the prompt goes round Evaluate, Compare, Promote, and Modify, repeating until the target is reached and the best prompt is produced. A prompt is promoted to the new baseline only if it scores better. The evaluation is powered by held-constant components: a fixed LLM with set hyperparameters, standardized metrics, and a fixed dataset.">
+  <defs>
+    <marker id="ah-ol" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="32" font-size="13" letter-spacing="1.4" font-weight="600" fill="#6b7280">THE HILL-CLIMBING LOOP</text>
+
+  <!-- Initialize entry -->
+  <rect x="40" y="46" width="150" height="48" rx="13" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <text x="115" y="68" text-anchor="middle" font-size="13.5" font-weight="700" fill="#293147">Initialize</text>
+  <text x="115" y="83" text-anchor="middle" font-size="10.5" fill="#6b7280">start prompt</text>
+  <line x1="190" y1="70" x2="338" y2="70" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-ol)"/>
+
+  <!-- ring arrows (clockwise) -->
+  <path d="M470 89 A140 140 0 0 1 521 140" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-ol)"/>
+  <path d="M521 280 A140 140 0 0 1 470 331" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-ol)"/>
+  <path d="M330 331 A140 140 0 0 1 279 280" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-ol)"/>
+  <path d="M279 140 A140 140 0 0 1 330 89" fill="none" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-ol)"/>
+
+  <!-- hub -->
+  <circle cx="400" cy="210" r="64" fill="#fbfcfe" stroke="#9aa6c0" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="400" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#293147">Better?</text>
+  <text x="400" y="225" text-anchor="middle" font-size="10.5" fill="#6b7280">keep &#10003; &#183; discard &#10007;</text>
+
+  <!-- Evaluate (top) -->
+  <rect x="344" y="46" width="112" height="48" rx="13" fill="#293147"/>
+  <text x="400" y="68" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">Evaluate</text>
+  <text x="400" y="83" text-anchor="middle" font-size="10.5" fill="#c8d0e4">score on dataset</text>
+
+  <!-- Compare (right) -->
+  <rect x="484" y="186" width="112" height="48" rx="13" fill="#ffffff" stroke="#5b6a96"/>
+  <text x="540" y="208" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2f3a57">Compare</text>
+  <text x="540" y="223" text-anchor="middle" font-size="10.5" fill="#6b7280">vs baseline</text>
+
+  <!-- Promote (bottom) -->
+  <rect x="344" y="326" width="112" height="48" rx="13" fill="#eef1f6" stroke="#293147" stroke-width="1.5"/>
+  <text x="400" y="348" text-anchor="middle" font-size="13.5" font-weight="700" fill="#293147">Promote</text>
+  <text x="400" y="363" text-anchor="middle" font-size="10.5" fill="#6b7280">to new baseline</text>
+
+  <!-- Modify (left) -->
+  <rect x="204" y="186" width="112" height="48" rx="13" fill="#ffffff" stroke="#5b6a96"/>
+  <text x="260" y="208" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2f3a57">Modify</text>
+  <text x="260" y="223" text-anchor="middle" font-size="10.5" fill="#6b7280">small edit</text>
+
+  <!-- exit to best prompt -->
+  <line x1="400" y1="374" x2="400" y2="400" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-ol)"/>
+  <rect x="300" y="404" width="200" height="46" rx="13" fill="#293147"/>
+  <text x="400" y="426" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">Best prompt</text>
+  <text x="400" y="441" text-anchor="middle" font-size="10.5" fill="#c8d0e4">when the target is reached</text>
+
+  <!-- held-constant panel feeding the evaluation -->
+  <path d="M636 312 L 452 250" fill="none" stroke="#9aa6c0" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah-ol)"/>
+  <rect x="632" y="300" width="276" height="130" rx="14" fill="#fbfcfe" stroke="#d7dcec"/>
+  <text x="652" y="326" font-size="11.5" letter-spacing="1" font-weight="600" fill="#6b7280">HELD CONSTANT DURING A RUN</text>
+  <g font-size="12" fill="#374151">
+    <text x="652" y="354">&#8226;&#160; Fixed LLM + hyperparameters</text>
+    <text x="652" y="378">&#8226;&#160; Standardized metrics</text>
+    <text x="652" y="402">&#8226;&#160; Consistent test dataset</text>
+  </g>
+  <text x="652" y="423" font-size="11" fill="#6b7280">Only the prompt changes between iterations.</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 340" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Change History is a log of snapshots. Each save adds a snapshot row recording the author, the action (Created or Changed), and what changed, with a version name. Any snapshot can be previewed, restored, restored as a copy, or named.">
+  <text x="40" y="32" font-size="13" letter-spacing="1.4" font-weight="600" fill="#6b7280">CHANGE HISTORY — A LOG OF SNAPSHOTS</text>
+
+  <!-- timeline spine -->
+  <line x1="66" y1="78" x2="66" y2="288" stroke="#d7dcec" stroke-width="2"/>
+
+  <!-- Row 1: Created -->
+  <circle cx="66" cy="92" r="7" fill="#256b5e"/>
+  <rect x="92" y="78" width="86" height="28" rx="14" fill="#e8f5ee" stroke="#bfe0cc"/>
+  <text x="135" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#1f6a4d">Created</text>
+  <text x="196" y="96" font-size="13" fill="#374151">Foundation Model created</text>
+  <rect x="470" y="80" width="156" height="24" rx="6" fill="#f3f5fa" stroke="#e1e6f0"/>
+  <text x="482" y="97" font-size="11.5" font-family="'DM Mono', ui-monospace, monospace" fill="#5a6b86">snapshot_May-14</text>
+
+  <!-- Row 2: Changed -->
+  <circle cx="66" cy="152" r="7" fill="#5b6a96"/>
+  <rect x="92" y="138" width="86" height="28" rx="14" fill="#eef1f6" stroke="#c3cbe0"/>
+  <text x="135" y="156" text-anchor="middle" font-size="12" font-weight="700" fill="#2f3a57">Changed</text>
+  <text x="196" y="156" font-size="13" fill="#374151">Group: Foundational &#8594; GGX Utility</text>
+  <rect x="470" y="140" width="156" height="24" rx="6" fill="#f3f5fa" stroke="#e1e6f0"/>
+  <text x="482" y="157" font-size="11.5" font-family="'DM Mono', ui-monospace, monospace" fill="#5a6b86">snapshot_May-16</text>
+
+  <!-- Row 3: Changed -->
+  <circle cx="66" cy="212" r="7" fill="#5b6a96"/>
+  <rect x="92" y="198" width="86" height="28" rx="14" fill="#eef1f6" stroke="#c3cbe0"/>
+  <text x="135" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#2f3a57">Changed</text>
+  <text x="196" y="216" font-size="13" fill="#374151">Input type: custom &#8594; api-based</text>
+  <rect x="470" y="200" width="156" height="24" rx="6" fill="#f3f5fa" stroke="#e1e6f0"/>
+  <text x="482" y="217" font-size="11.5" font-family="'DM Mono', ui-monospace, monospace" fill="#5a6b86">snapshot_Feb-05</text>
+
+  <!-- Row 4: Changed (latest) -->
+  <circle cx="66" cy="272" r="7" fill="#293147"/>
+  <rect x="92" y="258" width="86" height="28" rx="14" fill="#eef1f6" stroke="#c3cbe0"/>
+  <text x="135" y="276" text-anchor="middle" font-size="12" font-weight="700" fill="#2f3a57">Changed</text>
+  <text x="196" y="276" font-size="13" fill="#374151">Default value: None &#8594; "abc"</text>
+  <rect x="470" y="260" width="176" height="24" rx="6" fill="#293147"/>
+  <text x="482" y="277" font-size="11.5" font-family="'DM Mono', ui-monospace, monospace" fill="#ffffff">snapshot_Feb-05 &#183; latest</text>
+
+  <!-- actions panel -->
+  <rect x="678" y="74" width="202" height="214" rx="14" fill="#fbfcfe" stroke="#d7dcec"/>
+  <text x="696" y="100" font-size="11.5" letter-spacing="1" font-weight="600" fill="#6b7280">EVERY SAVE → A SNAPSHOT</text>
+  <text x="696" y="132" font-size="13" fill="#374151">&#8226; &#160;Preview snapshot</text>
+  <text x="696" y="160" font-size="13" fill="#374151">&#8226; &#160;Restore snapshot</text>
+  <text x="696" y="188" font-size="13" fill="#374151">&#8226; &#160;Restore as a copy</text>
+  <text x="696" y="216" font-size="13" fill="#374151">&#8226; &#160;Name &amp; compare</text>
+  <line x1="696" y1="236" x2="862" y2="236" stroke="#e1e6f0" stroke-width="1"/>
+  <text x="696" y="262" font-size="11.5" fill="#6b7280">Revert to any point</text>
+  <text x="696" y="279" font-size="11.5" fill="#6b7280">in time — full audit trail.</text>
+</svg>

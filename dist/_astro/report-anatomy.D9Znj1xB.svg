@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="A report has five steps: Metadata, Data Schema and Parameter Schema define the report; Computation and Visualization run it.">
+  <defs>
+    <marker id="ra_ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <!-- group labels + brackets -->
+  <text x="294" y="30" text-anchor="middle" font-size="12" letter-spacing="1.5" font-weight="700" fill="#6b7280">DEFINE  ·  WHAT THE REPORT EXPECTS</text>
+  <path d="M30 40 L30 50 L558 50 L558 40" fill="none" stroke="#c3ccdf" stroke-width="1.5"/>
+  <text x="759" y="30" text-anchor="middle" font-size="12" letter-spacing="1.5" font-weight="700" fill="#6b7280">RUN  ·  WHAT IT DOES</text>
+  <path d="M588 40 L588 50 L930 50 L930 40" fill="none" stroke="#c3ccdf" stroke-width="1.5"/>
+
+  <!-- connectors (y = badge height) -->
+  <line x1="188" y1="112" x2="214" y2="112" stroke="#5b6a96" stroke-width="2" marker-end="url(#ra_ah)"/>
+  <line x1="374" y1="112" x2="400" y2="112" stroke="#5b6a96" stroke-width="2" marker-end="url(#ra_ah)"/>
+  <line x1="560" y1="112" x2="586" y2="112" stroke="#293147" stroke-width="2.5" marker-end="url(#ra_ah)"/>
+  <line x1="746" y1="112" x2="772" y2="112" stroke="#5b6a96" stroke-width="2" marker-end="url(#ra_ah)"/>
+
+  <!-- 1 Metadata -->
+  <rect x="30" y="86" width="156" height="132" rx="14" fill="#ffffff" stroke="#d7dcec"/>
+  <circle cx="108" cy="112" r="15" fill="#293147"/>
+  <text x="108" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">1</text>
+  <text x="108" y="152" text-anchor="middle" font-size="13.5" font-weight="700" fill="#293147">Metadata</text>
+  <text x="108" y="176" text-anchor="middle" font-size="10.5" fill="#6b7280">Name, object type,</text>
+  <text x="108" y="192" text-anchor="middle" font-size="10.5" fill="#6b7280">risk &amp; task class,</text>
+  <text x="108" y="208" text-anchor="middle" font-size="10.5" fill="#6b7280">methodology</text>
+
+  <!-- 2 Data Schema -->
+  <rect x="216" y="86" width="156" height="132" rx="14" fill="#ffffff" stroke="#d7dcec"/>
+  <circle cx="294" cy="112" r="15" fill="#293147"/>
+  <text x="294" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">2</text>
+  <text x="294" y="152" text-anchor="middle" font-size="13.5" font-weight="700" fill="#293147">Data Schema</text>
+  <text x="294" y="176" text-anchor="middle" font-size="10.5" fill="#6b7280">Which columns</text>
+  <text x="294" y="192" text-anchor="middle" font-size="10.5" fill="#6b7280">the report reads</text>
+  <text x="294" y="208" text-anchor="middle" font-size="10.5" fill="#6b7280">from the data</text>
+
+  <!-- 3 Parameter Schema -->
+  <rect x="402" y="86" width="156" height="132" rx="14" fill="#ffffff" stroke="#d7dcec"/>
+  <circle cx="480" cy="112" r="15" fill="#293147"/>
+  <text x="480" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">3</text>
+  <text x="480" y="152" text-anchor="middle" font-size="13" font-weight="700" fill="#293147">Parameter Schema</text>
+  <text x="480" y="176" text-anchor="middle" font-size="10.5" fill="#6b7280">Run-time inputs</text>
+  <text x="480" y="192" text-anchor="middle" font-size="10.5" fill="#6b7280">the user supplies</text>
+  <text x="480" y="208" text-anchor="middle" font-size="10.5" fill="#6b7280">for each run</text>
+
+  <!-- 4 Computation -->
+  <rect x="588" y="86" width="156" height="132" rx="14" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <circle cx="666" cy="112" r="15" fill="#5b6a96"/>
+  <text x="666" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">4</text>
+  <text x="666" y="152" text-anchor="middle" font-size="13.5" font-weight="700" fill="#293147">Computation</text>
+  <text x="666" y="176" text-anchor="middle" font-size="10.5" fill="#6b7280">Score &amp; summarize</text>
+  <text x="666" y="192" text-anchor="middle" font-size="10.5" fill="#6b7280">the data into</text>
+  <text x="666" y="208" text-anchor="middle" font-size="10.5" font-family="'DM Mono', monospace" fill="#293147">raw_output</text>
+
+  <!-- 5 Visualization -->
+  <rect x="774" y="86" width="156" height="132" rx="14" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <circle cx="852" cy="112" r="15" fill="#5b6a96"/>
+  <text x="852" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">5</text>
+  <text x="852" y="152" text-anchor="middle" font-size="13.5" font-weight="700" fill="#293147">Visualization</text>
+  <text x="852" y="176" text-anchor="middle" font-size="10.5" fill="#6b7280">Charts, tables &amp;</text>
+  <text x="852" y="192" text-anchor="middle" font-size="10.5" fill="#6b7280">summaries for</text>
+  <text x="852" y="208" text-anchor="middle" font-size="10.5" fill="#6b7280">the dashboard</text>
+</svg>

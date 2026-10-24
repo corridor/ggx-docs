@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="Prompt anatomy: a template with placeholders plus typed input arguments are merged by the creation logic into a filled prompt sent to a model.">
+  <defs>
+    <marker id="ah-p" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5b6a96"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="34" text-anchor="middle" font-size="13" letter-spacing="1.5" font-weight="600" fill="#6b7280">A REGISTERED PROMPT — TEMPLATE + ARGS, MERGED BY CREATION LOGIC</text>
+
+  <!-- prompt template (top left) -->
+  <rect x="24" y="74" width="240" height="86" rx="14" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="38" y="96" font-size="13" font-weight="700" fill="#293147">Prompt Template</text>
+  <text x="38" y="122" font-size="12" font-family="'DM Mono', ui-monospace, monospace" fill="#374151">Summarise this article:</text>
+  <text x="38" y="142" font-size="12" font-family="'DM Mono', ui-monospace, monospace" fill="#293147">{article_text}</text>
+
+  <!-- input arguments (bottom left) -->
+  <rect x="24" y="196" width="240" height="86" rx="14" fill="#eef1f6" stroke="#d7dcec"/>
+  <text x="38" y="218" font-size="13" font-weight="700" fill="#293147">Input Arguments</text>
+  <text x="38" y="244" font-size="12" font-family="'DM Mono', ui-monospace, monospace" fill="#293147">article_text: str</text>
+  <text x="38" y="264" font-size="12" font-family="'DM Mono', ui-monospace, monospace" fill="#6b7280">"GGX is a platform…"</text>
+
+  <!-- arrows into creation logic -->
+  <line x1="266" y1="118" x2="378" y2="160" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-p)"/>
+  <line x1="266" y1="240" x2="378" y2="194" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-p)"/>
+
+  <!-- creation logic (center) -->
+  <rect x="380" y="118" width="220" height="118" rx="16" fill="#ffffff" stroke="#293147" stroke-width="1.5"/>
+  <rect x="380" y="118" width="220" height="40" rx="16" fill="#293147"/>
+  <rect x="380" y="142" width="220" height="16" fill="#293147"/>
+  <text x="490" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Creation Logic</text>
+  <text x="490" y="186" text-anchor="middle" font-size="12" fill="#374151">fills the placeholders</text>
+  <text x="490" y="204" text-anchor="middle" font-size="12" fill="#374151">and returns the prompt</text>
+  <text x="490" y="222" text-anchor="middle" font-size="12" fill="#374151">to send to a model</text>
+
+  <!-- arrow out -->
+  <line x1="602" y1="177" x2="716" y2="177" stroke="#5b6a96" stroke-width="2" marker-end="url(#ah-p)"/>
+
+  <!-- filled prompt (right) -->
+  <rect x="720" y="118" width="156" height="118" rx="16" fill="#293147"/>
+  <text x="798" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Filled Prompt</text>
+  <text x="798" y="178" text-anchor="middle" font-size="11" font-family="'DM Mono', ui-monospace, monospace" fill="#c8d0e4">Summarise this</text>
+  <text x="798" y="194" text-anchor="middle" font-size="11" font-family="'DM Mono', ui-monospace, monospace" fill="#c8d0e4">article: GGX is a</text>
+  <text x="798" y="210" text-anchor="middle" font-size="11" font-family="'DM Mono', ui-monospace, monospace" fill="#c8d0e4">platform…</text>
+  <text x="798" y="228" text-anchor="middle" font-size="11" fill="#9aa6c5">→ sent to a Model</text>
+</svg>
