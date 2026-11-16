@@ -64,6 +64,26 @@ kubectl get svc -n ggx
 kubectl get ingress -n ggx
 ```
 
+## User And File Permissions
+
+The GGX containers run as UID 1001 in the root group (GID 0), not as root. The manifests set this in the pod security context:
+
+```yaml
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1001
+  runAsGroup: 0
+  fsGroup: 0
+```
+
+Volumes must be writable by group 0 (or UID 1001). Kubernetes applies `fsGroup` to volumes of most storage drivers, but **NFS ignores it**: for an NFS share (including Filestore), prepare the directory once from outside the pods:
+
+```sh
+chown -R 1001:0 <dir> && chmod -R g=u <dir>
+```
+
+OpenShift starts a container with an arbitrary UID; this works because the process still runs in group 0, which has the same access as the owner.
+
 ## Kernel Worker
 
 `corridor-worker` is the [kernel worker](../../configurations/process-management/#kernel-runtime): a Jupyter server on port 5001, exposed inside the cluster by `corridor-worker-service`. The API finds it with `KERNEL_WORKER_URL` (`http://corridor-worker-service:5001`), and both mount the same volume for the kernel environments (`kernels-volume`, at `/opt/ggx/kernels`), so they see it at the same path.
