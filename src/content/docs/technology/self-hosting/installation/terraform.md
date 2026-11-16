@@ -25,6 +25,8 @@ terraform apply
 
 Keep `terraform.tfvars` and state files out of source control unless your organization has an approved secrets and backend workflow. For production, configure a remote backend such as S3, Azure Storage, or GCS and restrict state access because state may contain sensitive values.
 
+The GGX containers run as UID 1001 in group 0, so any shared storage that you attach (EFS, Azure Files, Filestore) must be writable by group 0 or UID 1001. See [Kubernetes](../kubernetes/#user-and-file-permissions).
+
 ## AWS Module
 
 The AWS module runs GGX on ECS Fargate. It provisions or configures:

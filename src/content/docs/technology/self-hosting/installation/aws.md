@@ -109,6 +109,10 @@ An EC2 deployment follows the [Manual](../manual/) path. The EC2 installation pa
 
 Use EC2 when you need direct host access or your organization standardizes on VM operations. Use EKS or ECS Fargate when you want managed container operations.
 
+## Container User And Shared Storage
+
+The GGX containers run as UID 1001 in group 0, so an EFS file system must be writable by group 0 (or UID 1001). With EFS access points, the identity of the access point is used for file access and does not need to match UID 1001. See [Kubernetes](../kubernetes/#user-and-file-permissions) for the details.
+
 ## Security Notes
 
 - Do not deploy with the AWS account root user.

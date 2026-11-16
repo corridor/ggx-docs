@@ -39,6 +39,16 @@ GGX provides production-ready Dockerfile templates with the installation bundle.
 7. Configure the reverse proxy so `/` reaches the app service and `/jupyter` reaches the Jupyter service.
 8. Verify logs, health checks, persistent storage, and user login.
 
+## User And File Permissions
+
+The GGX image runs as UID 1001 in the root group (GID 0), as Red Hat images do, and not as root. Everything that the containers write to must be writable by group 0 (or by UID 1001). That includes bind mounts, named volumes, and NFS or EFS shares for data, uploads, notebooks, Jupyter state, and the kernel environments:
+
+```sh
+chown -R 1001:0 <dir> && chmod -R g=u <dir>
+```
+
+Platforms that start the container with another UID, such as OpenShift, work as long as the process runs in group 0, since the group has the same access as the owner. The API and the kernel worker must run as the same user and see the kernel folder at the same path.
+
 ## Configuration Notes
 
 - Keep the database outside the app container for production deployments.

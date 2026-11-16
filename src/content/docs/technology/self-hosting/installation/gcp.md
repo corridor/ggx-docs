@@ -106,6 +106,10 @@ A Compute Engine deployment follows the [Manual](../manual/) path. The Compute E
 
 Use Compute Engine when you need direct host access or your organization standardizes on VM operations. Use GKE or Cloud Run when you want managed container operations.
 
+## Container User And Shared Storage
+
+The GGX containers run as UID 1001 in group 0, so a Filestore or other NFS share must be writable by group 0 (or UID 1001). NFS ignores `fsGroup`. See [Kubernetes](../kubernetes/#user-and-file-permissions) for the details.
+
 ## Security Notes
 
 - Use service accounts with least-privilege IAM roles.
