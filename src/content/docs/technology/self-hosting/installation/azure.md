@@ -1,6 +1,6 @@
 ---
 title: "Deploy GGX on Azure"
-description: "Deploy self-hosted GGX on Azure using Container Apps, Azure Files, managed networking, database services, container registry, and Terraform."
+description: "Deploy self-hosted GGX on Azure using Container Apps, Azure Files, managed networking, database services with managed identity login, container registry, and Terraform."
 ---
 
 Use this page to choose and configure an Azure deployment path for GGX.
@@ -97,6 +97,45 @@ An Azure VM deployment follows the [Manual](../manual/) path. The Azure VM insta
 9. Create systemd services and start the components.
 
 Use Azure VMs when you need direct host access or your organization standardizes on VM operations. Use AKS or Azure Container Apps when you want managed container operations.
+
+## Database Login With A Managed Identity
+
+On Azure, the platform can log in to the Metadata Database with a Microsoft Entra token of a managed identity instead of a password. This works for Azure Database for PostgreSQL and for Azure SQL.
+
+Set the following in `api_config.py`:
+
+```python
+SQLALCHEMY_AZURE_MANAGED_IDENTITY = True
+```
+
+and give `SQLALCHEMY_DATABASE_URI` the database user of the identity and no password:
+
+```python
+# Azure Database for PostgreSQL
+SQLALCHEMY_DATABASE_URI = 'postgresql://<identity-name>@<server>.postgres.database.azure.com:5432/<database>'
+
+# Azure SQL
+SQLALCHEMY_DATABASE_URI = 'mssql://@<server>.database.windows.net/<database>?driver=ODBC+Driver+18+for+SQL+Server'
+```
+
+The platform uses the AKS workload identity when its variables are set (`AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_FEDERATED_TOKEN_FILE`, and `AZURE_AUTHORITY_HOST`, which the workload identity webhook sets in the pod), and the managed identity of the virtual machine otherwise. On a virtual machine, set `AZURE_CLIENT_ID` to the client ID of the identity that has the database user: without it, the token is the one of the machine's default identity, which has no login in the database. The tokens are renewed automatically.
+
+The identity must exist as a user of the database. Create it with an administrator of Microsoft Entra on the server, and grant it the permissions the platform needs on the database.
+
+For Azure SQL, the GGX image includes ODBC Driver 18 for SQL Server and unixODBC. The driver encrypts the connection: if the server uses a self-signed certificate, add `&TrustServerCertificate=yes` to the URI.
+
+### Letting the ODBC driver log in (Azure SQL)
+
+As an alternative, the ODBC driver can acquire the token by itself with the `authentication` keyword in the URI. Leave `SQLALCHEMY_AZURE_MANAGED_IDENTITY` off in this case. Write the keyword in lowercase: with `Authentication`, the connection also asks for Windows login, which the driver refuses.
+
+- `authentication=ActiveDirectoryMSI`: an IMDS-based connection, which uses the managed identity of a VM, an App Service, and similar hosts through the instance metadata service.
+- `authentication=ActiveDirectoryDefault`: a managed identity connection that follows the default credential chain: environment variables, workload identity, managed identity, and the Azure CLI.
+
+```python
+SQLALCHEMY_DATABASE_URI = 'mssql://@<server>.database.windows.net/<database>?driver=ODBC+Driver+18+for+SQL+Server&authentication=ActiveDirectoryMSI'
+```
+
+For a user-assigned managed identity, put its client ID as the user of the URI: `mssql://<client-id>@<server>.database.windows.net/<database>?...`.
 
 ## Container User And Shared Storage
 

@@ -42,8 +42,10 @@ Some of the commonly used configurations are:
 - `API_KEYS`: The API keys to accept requests from
 - `SQLALCHEMY_DATABASE_URI`: The Database URI to connect to for the Metadata Database
 - `FS_URI`: The FileSystem URI to connect to for File Management
-- `OUTPUT_DATA_LOCATION`: Where job results are written as Parquet files, for example `file:///opt/ggx/data/results/{}.parquet`. The `{}` is replaced by the name of the result, and a local folder is created if it does not exist
+- `OUTPUT_DATA_LOCATION`: Where job results are written as Parquet files, for example `file:///opt/corridor/instances/default/data/results/{}.parquet`. The `{}` is replaced by the name of the result, and a local folder is created if it does not exist
 - `KERNEL_WORKER_URL`, `KERNEL_MAX_PROCESSES`, `KERNEL_ENV_DIR`: Where the kernel worker is, how many kernels run, and where their environments are kept. See [Kernel Runtime](../process-management/#kernel-runtime)
+
+On Azure, GGX can log in to the Metadata Database with a managed identity instead of a password: see [Azure](../../installation/azure/#database-login-with-a-managed-identity).
 
 ## Web Application
 
