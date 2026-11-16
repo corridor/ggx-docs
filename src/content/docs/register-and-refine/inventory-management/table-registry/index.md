@@ -9,7 +9,7 @@ The **Datasets** page (**Data & AI Assets → Datasets**) records the location, 
 
 The table can be registered using one of the following methods:
 
-- **Connection to a Data Lake:** A direct link to a data lake allows specifying the location of the data file. The link must point to a valid **PySpark** data file.
+- **Connection to a Data Lake:** A direct link to a data lake allows specifying the location of the data file. The link must point to a valid **Parquet** data file.
 
 - **Table Upload:** Datasets with fewer rows can be uploaded directly in CSV or Excel format.
 
@@ -17,7 +17,7 @@ The table can be registered using one of the following methods:
 
 - **Custom Logic:** Use a custom reader for other data formats or providers supported through custom integrations.
 
-> **Note:** Large or production-scale datasets should be registered through the **Data Lake connection** rather than uploaded through the browser. The data is then read directly from its source location (for example a cloud bucket or a PySpark/Parquet file), avoiding slow uploads while remaining viewable as a table.
+> **Note:** Large or production-scale datasets should be registered through the **Data Lake connection** rather than uploaded through the browser. The data is then read directly from its source location (for example a cloud bucket or a Parquet file), avoiding slow uploads while remaining viewable as a table.
 
 ## Managing Tables on the Platform
 
