@@ -10,7 +10,7 @@ are recommended but optional, and can be configured as needed.
 
 GGX saves data in the following locations:
 
-- Data Lake
+- Output Data Location (job results)
 - File Management System
 - Metadata Database
 - Jupyter Content Manager (For notebooks)
@@ -22,9 +22,9 @@ Any data stored in them should be encrypted and backups should be maintained as 
 The following network connections are created in GGX, and should be secured:
 
 - **Web Application ↔︎ API Server**: HTTPS connection
-- **API Server / API - Celery ↔︎ File Management**: FTPS connection (if using FTP)
-- **API Server / API - Celery ↔︎ Metadata Database**: SSL connections to Database
-- **Spark - Celery / Jupyter ↔︎ Spark**: Kerberos
+- **API Server / Kernel worker ↔︎ File Management**: FTPS connection (if using FTP)
+- **API Server ↔︎ Metadata Database**: SSL connections to Database
+- **API Server ↔︎ Kernel worker**: Keep the kernel worker port (`5001`) reachable only from the API Server; the connection uses a token that is derived from `SECRET_KEY`
 - **GGX package ↔︎ API Server**: HTTPS connection
 - **Jupyter ↔︎ Web Application**: HTTPS connection
 - **End User ↔︎ Web Application / Jupyter**: HTTPS / WSS connection
@@ -52,15 +52,11 @@ This section describes the steps to follow for each of the GGX components to ens
 - Set a strong and unique SECRET_KEY
 - Ensure API Keys are set to ensure only authorized access to the APIs
 
-### API - Celery worker
+### Kernel worker
 
-No specific steps are required for the API - Celery workers as no other component connects to it directly.
-
-### Spark - Celery worker
-
-- Ensure that the cluster is Kerberized
-- Ensure the standard security practices for Spark are followed as described in the
-  [Spark - Security](https://spark.apache.org/docs/latest/security.html) documentation.
+- Ensure that only the API Server can connect to the kernel worker (by default it listens on `127.0.0.1:5001`), and use a strong and unique `SECRET_KEY`, since the worker token is derived from it.
+- Kernels run as the same operating-system user as the API, so run that user without more privileges than it needs (the GGX container image runs as UID 1001 in group 0, not as root).
+- Kernels only inherit the environment variables of `KERNEL_ALLOWED_ENVIRONMENT`, so the secrets of the API are not passed to them. See [Kernel Runtime](../configurations/process-management/#kernel-runtime).
 
 ### Jupyter Notebook
 

@@ -27,9 +27,9 @@ Guides that cover the installation, configuration, and scaling of Self-Hosted GG
     - [Web Servers - Nginx, Apache, etc.](configurations/web-servers/)
     - [Integrating packages - Wheelhouse, Artifactory, etc.](configurations/packages/)
     - [Automated Approval Steps - Jenkins, ServiceNow, JIRA, etc.](configurations/approvals/)
-    - [Data Lakes - HDFS, Hive, Snowflake, etc.](configurations/datalake/)
+    - [Output Data Location - Where job results are written](configurations/datalake/)
     - [Notifications - Email, Slack, Teams, etc.](configurations/notifications/)
-    - [Process Management - Systemd, Supervisor, etc.](configurations/process-management/)
+    - [Process Management and Kernel Runtime - Systemd, Supervisor, etc.](configurations/process-management/)
 
 - Scaling to 100s and 1000s of users
 
@@ -49,8 +49,7 @@ The components are divided into:
 
 - **Web Application Server**: The web application server for the analytical UI of the platform
 - **API Server**: The API for business logic
-- **API - Celery worker**: The worker for asynchronous API tasks
-- **Spark - Celery worker**: The worker for asynchronous spark tasks
+- **Kernel worker**: The worker (`corridor-worker run`) that owns the Jupyter kernels where all Python code, including background jobs, runs. See [Kernel Runtime](configurations/process-management/#kernel-runtime)
 - **Jupyter Notebook**: The Jupyter Notebook server for free-form analytical use
 - **File Management**: The file management server to manage files
 - **Metadata Database (SQL RDBMS)**: The database with all metadata provided in the Web Application

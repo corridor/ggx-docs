@@ -1,40 +1,26 @@
 ---
-title: "Multiple GGX Workers"
-description: "Run multiple named GGX workers with separate queues, process files, logs, state databases, and worker-specific configuration in self-hosted environments."
+title: "Concurrency"
+description: "Increase the number of parallel GGX runs by sizing the kernel worker, the kernel limits, the job queue, and the environments on the shared disk."
 ---
 
-GGX provides an option to run multiple workers on the same server, without the workers interfering with
-each other. The user needs to provide a name for each worker and worker-specific configuration in
-api_config.py, where each configuration is tied to the worker's name.
+All the Python that GGX runs for its users, including the background jobs (simulations and annotation queue ingestions), executes in Jupyter kernels that belong to the **kernel worker** (`corridor-worker run`). How many things can run in parallel is decided by the limits of the kernel runtime. See [Kernel Runtime](../../configurations/process-management/#kernel-runtime) for what the runtime is and how to run it.
 
-## Custom `corridor-worker run` command with a worker name
+## Limits
 
-The worker name can be provided with the option `--worker-name` or `-n`
+Set these in `api_config.py` (or as environment variables with the `CORRIDOR_` prefix):
 
-- `INSTALL_DIR/venv-api/bin/corridor-worker run --worker-name CUSTOM_`
+- `KERNEL_MAX_PROCESSES` (default `4`): The number of kernels that can run at the same time, across all API workers.
+- `KERNEL_MAX_JOB_PROCESSES` (default `2`): Of those kernels, the number that can run background jobs at the same time. The other kernels stay available for chats, Debug Code, deployments, figures, and data previews.
+- `KERNEL_MAX_TEST_GENERATION_PROCESSES` (default `2`): Of those kernels, the number that can run the tests that Corra generates for a feedback portal.
+- `KERNEL_IDLE_TIMEOUT` (default 15 minutes, in seconds): How long a kernel that is not in use is kept before it is stopped.
+- `JOB_TIME_LIMIT` (default 2 hours, in seconds): How long a background job can run.
 
-:::note
-The worker's name needs to have all **capital letters**. Underscores (`_`) can be part of the worker's name.
-:::
+When all the kernels that a job may use are busy, new jobs wait in a queue and start in the order in which they were submitted. A chat turn waits for a kernel for as long as it takes. A short request, such as a figure or a data preview, gives up after 60 seconds and says that every kernel is busy.
 
-## Custom worker configurations
+## Sizing
 
-Any worker-specific configuration is required to be added to the file:
+Each kernel is a Python process with the packages of its project, so its memory is whatever the code and the data in it need. To allow more parallel runs, raise `KERNEL_MAX_PROCESSES` (and `KERNEL_MAX_JOB_PROCESSES` for jobs) together with the CPU and memory of the machine or pod that runs the kernel worker, and restart the processes.
 
-- `INSTALL_DIR/instances/INSTANCE_NAME/config/api_config.py`
+The kernels are shared by all the API workers, so running more API workers does not add kernels. To run more kernels at once, raise `KERNEL_MAX_PROCESSES` and give the kernel worker the memory and CPU for them.
 
-To avoid synchronization issues with other workers running on the same server. The worker configurations have
-to be prefixed with the worker name provided in the `corridor-worker run` command above.
-
-### Configurations
-
-Taking the above `corridor-worker run` command as an example, where the worker name is `CUSTOM_`,
-the configurations would be:
-
-- `CUSTOM_WORKER_QUEUES`
-- `CUSTOM_WORKER_PIDFILE`
-- `CUSTOM_WORKER_LOGFILE`
-- `CUSTOM_WORKER_PROCESSES`
-- `CUSTOM_CELERY_WORKER_STATE_DB`
-- `CUSTOM_CELERY_WORKER_HIJACK_ROOT_LOGGER`
-- `CUSTOM_CELERY_WORKER_REDIRECT_STDOUTS`
+The environments with the Python packages of each project are built the first time they are needed, which can take a while for large projects, and are kept on the shared disk for 14 days after their last use.

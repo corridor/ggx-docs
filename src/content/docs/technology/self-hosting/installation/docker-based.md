@@ -12,7 +12,7 @@ GGX provides production-ready Dockerfile templates with the installation bundle.
 | Component | Implementation options |
 |---|---|
 | Web application | GGX app container behind a reverse proxy |
-| API and workers | GGX worker containers for API and Spark queues |
+| Kernel worker | GGX worker container (`corridor-worker run`) that owns the Jupyter kernels, see [Kernel Runtime](../../configurations/process-management/#kernel-runtime) |
 | Jupyter | Jupyter container or integration with an existing notebook service |
 | File management | Host mount, Docker volume, or network-attached persistent storage |
 | Metadata database | External PostgreSQL, Oracle, SQL Server, or managed database service |

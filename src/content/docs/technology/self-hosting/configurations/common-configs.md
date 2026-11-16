@@ -9,7 +9,7 @@ work correctly. Using these configurations the setup can be tweaked as needed.
 
 The configurations for each component needs to be present in the corresponding config file:
 
-- `api_config.py`: For the API Server and Celery Tasks
+- `api_config.py`: For the API Server and the kernel worker
 - `app_config.py`: For the Web Application Server
 - `jupyterhub_config.py`: For the Jupyter Notebook (Jupyterhub)
 - `jupyter_notebook_config.py`: For the Jupyter Notebook (Notebook server)
@@ -28,13 +28,13 @@ Below are some examples for some standard data types,
 | Setting in `api_config.py`                        | Environment Variable Equivalent                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------- |
 | `LICENSE_KEY = xxxxxxx`                           | `export CORRIDOR_LICENSE_KEY=xxxxxxx`                             |
-| `WORKER_PROCESSES = 1`                            | `export CORRIDOR_WORKER_PROCESSES=1`                              |
+| `KERNEL_MAX_PROCESSES = 4`                        | `export CORRIDOR_KERNEL_MAX_PROCESSES=4`                          |
 | `REQUIRE_SIMULATION = False`                      | `export CORRIDOR_REQUIRE_SIMULATION=false`                        |
-| `WORKER_QUEUES = ['api', 'spark', 'quick_spark']` | `export CORRIDOR_WORKER_QUEUES="['api', 'spark', 'quick_spark']"` |
+| `KERNEL_ALLOWED_ENVIRONMENT = ['PATH', 'UV_*']`   | `export CORRIDOR_KERNEL_ALLOWED_ENVIRONMENT="['PATH', 'UV_*']"`   |
 
 ## API
 
-The API Configurations help in controlling how the API Server and Celery workers behave.
+The API Configurations help in controlling how the API Server and the kernel worker behave.
 
 Some of the commonly used configurations are:
 
@@ -42,6 +42,8 @@ Some of the commonly used configurations are:
 - `API_KEYS`: The API keys to accept requests from
 - `SQLALCHEMY_DATABASE_URI`: The Database URI to connect to for the Metadata Database
 - `FS_URI`: The FileSystem URI to connect to for File Management
+- `OUTPUT_DATA_LOCATION`: Where job results are written as Parquet files, for example `file:///opt/ggx/data/results/{}.parquet`. The `{}` is replaced by the name of the result, and a local folder is created if it does not exist
+- `KERNEL_WORKER_URL`, `KERNEL_MAX_PROCESSES`, `KERNEL_ENV_DIR`: Where the kernel worker is, how many kernels run, and where their environments are kept. See [Kernel Runtime](../process-management/#kernel-runtime)
 
 ## Web Application
 

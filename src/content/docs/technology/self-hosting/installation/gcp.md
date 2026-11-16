@@ -97,9 +97,9 @@ A Compute Engine deployment follows the [Manual](../manual/) path. The Compute E
 
 1. Create a Compute Engine VM, commonly `n2-standard-8` or similar for all-in-one deployments.
 2. Create Cloud SQL for PostgreSQL.
-3. Install Python 3.11, Java 8 for Spark, Nginx, and unzip.
+3. Install Python 3.11, Nginx, and unzip.
 4. Extract the GGX installation bundle.
-5. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
+5. Install the `app`, `api`, `worker-api` (the [kernel worker](../../configurations/process-management/#kernel-runtime)), and `jupyter` components.
 6. Configure database and application settings.
 7. Run database migrations.
 8. Create systemd services and start the components.

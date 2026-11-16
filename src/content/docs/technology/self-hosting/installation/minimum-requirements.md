@@ -1,14 +1,14 @@
 ---
 title: "Minimum Requirements"
-description: "Review the minimum CPU, memory, storage, database, Spark, Python, Java, web server, and process management requirements for self-hosted GGX components."
+description: "Review the minimum CPU, memory, storage, database, kernel worker, Python, web server, and process management requirements for self-hosted GGX components."
 ---
 
 This section describes the minimum requirements that are needed for a GGX installation.
 
 Broadly, the components involved are:
 
-- Web Application & Worker
-- Spark Worker
+- Web Application
+- Kernel Worker
 - Jupyter Notebook
 - File Management
 - Metadata Database (SQL RDBMS)
@@ -19,8 +19,7 @@ keeping them separate to simplify scalability needs.
 ## Web Application
 
 A flask application which serves the User Interface and Web APIs which are accessible to users via the browser.
-It also includes a worker process for long running tasks in the API.
-This component has 2 processes: `corridor-app` and `corridor-worker`
+This component has the process `corridor-app`; the kernel worker (`corridor-worker`) is described below.
 
 ### Requirements
 
@@ -34,25 +33,21 @@ Optional:
 - Web Server - Example: Nginx
 - Process Management - Example: Supervisor or Systemd
 
-## Spark Worker
+## Kernel Worker
 
-Worker to handle any jobs triggered by users which are asynchronously.
-It is recommended to have at least 2 workers and increase concurrency as required.
+The worker (`corridor-worker run`) that owns the Jupyter kernels, where all Python code runs: chats, Debug Code, deployments, figures, data previews, and the background jobs. By default, up to 4 kernels run at the same time, 2 of them for jobs. See [Kernel Runtime](../../configurations/process-management/#kernel-runtime).
 
 :::note
-This needs to be installed on a machine that is configured as a Spark Gateway (i.e. A
-master node or an edge node of the cluster). This is not the data nodes of the cluster itself.
-The worker process should be able to import the `pyspark` module.
+The kernel worker and the API server use the same files (the kernel environments, and the files that jobs read and write): run them on the same machine, or give both the same shared storage.
 :::
 
 ### Requirements
 
-- RAM: 16 GB
+- RAM: 16 GB (each kernel needs the memory of the data and code that it runs)
 - Processor: 8 CPU
-- HDFS storage space: 500 GB (depends on the data being processed, HDFS space to handle shuffles need to be considered too)
+- Storage space: for the kernel environments (which depend on the Python packages of the projects) and the data being processed
 - Python 3.11+
-- Java 8+
-- Spark 3.3+
+- Access to a Python package index, to build the environments of the projects
 
 Optional:
 
@@ -62,19 +57,12 @@ Optional:
 
 A notebook for free-form analytical usage. We provide Jupyter Notebooks out-of-the-box but can integrate with existing notebook solutions too.
 
-:::note
-This needs to be installed on a machine that is configured as a Spark Gateway (i.e. A
-master node or an edge node of the cluster). This is not the data nodes of the cluster itself.
-The jupyter notebook kernel should be able to import the `pyspark` module.
-:::
-
 ### Requirements
 
 - RAM: 4 GB for base services and more as per usage by users
 - Processor: 4 CPU and more as per usage by users
 - Installation storage space: 10 GB
 - Python 3.11+
-- Spark 3.3+
 
 Optional:
 
