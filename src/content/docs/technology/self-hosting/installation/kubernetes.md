@@ -64,6 +64,10 @@ kubectl get svc -n ggx
 kubectl get ingress -n ggx
 ```
 
+## Kernel Worker
+
+`corridor-worker` is the [kernel worker](../../configurations/process-management/#kernel-runtime): a Jupyter server on port 5001, exposed inside the cluster by `corridor-worker-service`. The API finds it with `KERNEL_WORKER_URL` (`http://corridor-worker-service:5001`), and both mount the same volume for the kernel environments (`kernels-volume`, at `/opt/ggx/kernels`), so they see it at the same path.
+
 ## Overlay Configuration
 
 Before applying the overlay, configure the deployment for your environment:

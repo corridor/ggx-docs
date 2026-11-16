@@ -89,9 +89,9 @@ An Azure VM deployment follows the [Manual](../manual/) path. The Azure VM insta
 1. Create a resource group and Azure VM, commonly `Standard_D8s_v3` or larger for an all-in-one deployment.
 2. Attach and mount a data disk for `/opt/corridor` and application state.
 3. Create Azure Database for PostgreSQL.
-4. Install Python 3.11, Java 8 for Spark, Nginx, and unzip.
+4. Install Python 3.11, Nginx, and unzip.
 5. Extract the GGX installation bundle.
-6. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
+6. Install the `app`, `api`, `worker-api` (the [kernel worker](../../configurations/process-management/#kernel-runtime)), and `jupyter` components.
 7. Configure database and application settings.
 8. Run database migrations.
 9. Create systemd services and start the components.

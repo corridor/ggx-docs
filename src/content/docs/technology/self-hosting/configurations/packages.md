@@ -8,11 +8,7 @@ out of the box.
 
 ## Configuration
 
-There are 5 steps which have to be followed so that the user is able to validate the definition
-and run successful jobs on the platform.
+Python code runs in the kernels of the [kernel worker](../process-management/#kernel-runtime), in an environment that GGX builds for each project from its Python packages, so a library does not need to be installed on the servers. To let the user validate the definition and run successful jobs on the platform:
 
-1. Install the library in the virtual environment of API servers.
-2. Install the library in the virtual environment of Worker-API servers.
-3. Install the library in the virtual environment of Worker-Spark servers.
-4. Install the library on the spark cluster.
-5. Add the library to the Allowed Python Imports in the `Platform Settings` tab in the platform UI
+1. Add the library in **Settings > Python Packages** (for the organization or for a project). GGX builds the environment with it the first time that it is needed.
+2. Add the library to the Allowed Python Imports in the `Platform Settings` tab in the platform UI

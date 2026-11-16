@@ -100,9 +100,9 @@ An EC2 deployment follows the [Manual](../manual/) path. The EC2 installation pa
 
 1. Launch an EC2 instance sized from the [minimum requirements](../minimum-requirements/), commonly `t3.2xlarge` or larger for all-in-one deployments.
 2. Create an RDS PostgreSQL database.
-3. Install system dependencies such as Python 3.11, Java 8 for Spark, Nginx, and unzip.
+3. Install system dependencies such as Python 3.11, Nginx, and unzip.
 4. Extract the GGX installation bundle.
-5. Install the `app`, `api`, `worker-api`, `worker-spark`, and `jupyter` components.
+5. Install the `app`, `api`, `worker-api` (the [kernel worker](../../configurations/process-management/#kernel-runtime)), and `jupyter` components.
 6. Configure `/opt/corridor/instances/default/config/api_config.py`.
 7. Run `corridor-api db upgrade`.
 8. Create systemd services and start the components.

@@ -16,7 +16,6 @@ You also need:
 - GGX installation bundle.
 - Linux host access with privilege to install packages and create services.
 - Python 3.11 or later.
-- Java 8 or later for Spark worker functionality.
 - Metadata database: PostgreSQL 11.7 or later, Oracle 19 or later, or SQL Server 2016 or later.
 - Persistent file storage.
 - Nginx, Apache, or another production reverse proxy.
@@ -28,8 +27,7 @@ The installation bundle provides command-line entry points for each component:
 
 - Web application server: `corridor-app`
 - API server: `corridor-api`
-- API Celery worker: `corridor-worker`
-- Spark Celery worker: `corridor-worker`
+- Kernel worker: `corridor-worker` (see [Kernel Runtime](../../configurations/process-management/#kernel-runtime))
 - Jupyter Notebook server: `corridor-jupyter`
 
 ## Install Components
@@ -38,7 +36,7 @@ Extract the bundle and run the installer for each required component:
 
 ```sh
 unzip corridor-bundle.zip
-sudo ./corridor-bundle/install [app | api | worker-api | worker-spark | jupyter]
+sudo ./corridor-bundle/install [app | api | worker-api | jupyter]
 ```
 
 The installer creates:
@@ -54,7 +52,7 @@ usage: install [-h] [-i INSTALL_DIR] [-n NAME] component
 
 positional arguments:
   component             The component to install. Possible values are: api,
-                        app, worker-api, worker-spark, jupyter
+                        app, worker-api, jupyter
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -102,19 +100,12 @@ Set `WSGI_SERVER` to `gunicorn` or `auto` for production. Do not use Werkzeug fo
 
 Set `WSGI_SERVER` to `gunicorn` or `auto` for production. Do not use Werkzeug for production.
 
-### API Worker
+### Kernel Worker
 
 - Configuration file: `INSTALL_DIR/instances/INSTANCE_NAME/config/api_config.py`
-- Run command: `INSTALL_DIR/venv-api/bin/corridor-worker run --queue api`
+- Run command: `INSTALL_DIR/venv-api/bin/corridor-worker run`
 
-If the process runs as root, set `C_FORCE_ROOT=1`.
-
-### Spark Worker
-
-- Configuration file: `INSTALL_DIR/instances/INSTANCE_NAME/config/api_config.py`
-- Run command: `INSTALL_DIR/venv-api/bin/corridor-worker run --queue spark --queue quick_spark`
-
-The Spark worker should run on a machine configured as a Spark gateway or edge node. It should be able to import `pyspark` and reach the target Spark cluster.
+The kernel worker is a Jupyter server that owns the kernels where all the Python code of GGX runs, including simulations and annotation queue ingestions. It listens on `127.0.0.1:5001` by default. Run it on the same machine as the API server, as the same user, so that both see the kernel environments at the same path. See [Kernel Runtime](../../configurations/process-management/#kernel-runtime) for the settings.
 
 ### Jupyter Notebook
 
@@ -148,8 +139,8 @@ After creating services:
 
 ```sh
 sudo systemctl daemon-reload
-sudo systemctl enable corridor-app corridor-api corridor-worker-api corridor-worker-spark corridor-jupyter
-sudo systemctl start corridor-app corridor-api corridor-worker-api corridor-worker-spark corridor-jupyter
+sudo systemctl enable corridor-app corridor-api corridor-worker corridor-jupyter
+sudo systemctl start corridor-app corridor-api corridor-worker corridor-jupyter
 ```
 
 ## Reverse Proxy

@@ -27,18 +27,18 @@ The throughput for the orchestrations depends on the method of deployment of the
 
 ## Simulation and other jobs
 
-The simulations and other jobs like Comparison, Validation, etc. Use the Celery workers to perform tasks. There are 2 parts which can be considered here:
+Simulations and the other background jobs, such as annotation queue ingestions, run in Jupyter kernels that belong to the kernel worker. There are 2 parts which can be considered here:
 
 - Number of parallel jobs to run
-- Cluster nodes available for use per job
+- Resources available to each job
 
-If the number of parallel jobs is a concern, due to a large job blocking later jobs, etc. - this can be handled by adding more "Spark - Celery Workers" as needed. Note that adding too many Spark - Celery workers could cause resource contention between the workers themselves and may require an increase in cluster nodes.
+If the number of parallel jobs is a concern, due to a large job blocking later jobs, increase `KERNEL_MAX_JOB_PROCESSES` (and `KERNEL_MAX_PROCESSES` with it). Note that too many parallel jobs can cause resource contention between them, so increase the CPU and memory of the machine or pod that runs the kernel worker as well. Jobs wait in a queue when the limit is reached and start in order. See [Concurrency](../concurrency/) for the settings.
 
-If the spark jobs themselves are slow - then the issue is more likely the cluster nodes available per job. i.e. the number of Spark workers or YARN containers that are allocated per job. To make this faster, more spark nodes need to be provided to make Spark jobs run faster.
+If the jobs themselves are slow, the cause is more likely the CPU and memory that each kernel gets, or the efficiency of the logic and the size of the data.
 
 ## User-initiated analytics
 
-The platform's Notebook section allows the user to initiate their own jobs in a free-form manner using Python/PySpark. As these jobs are user-dependent, they can utilize a large number of cluster resources if not used correctly. If this causes issues with the Simulation jobs, it is recommended to use separate YARN queues to manage the resource allocation appropriately.
+Chats, Debug Code, figures, and data previews run in the same kernels as the jobs, within the `KERNEL_MAX_PROCESSES` limit and with a share kept apart for jobs (`KERNEL_MAX_JOB_PROCESSES`), so a burst of long jobs does not take every kernel away from interactive work. Idle kernels are stopped after `KERNEL_IDLE_TIMEOUT`.
 
 ## Application
 
