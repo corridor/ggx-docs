@@ -80,14 +80,10 @@ model_a.b.c
 ├── metadata.json
 ├── input_info.json
 ├── ... (additional information about features etc. used)
-├── python_dict
-|     ├── __init__.py
-|     ├── versions.json
-|     └── Additional information
-└── pyspark_dataframe
- ├── __init__.py
- ├── versions.json
- └── Additional information
+└── python_dict
+    ├── __init__.py
+    ├── versions.json
+    └── Additional information
 ```
 
 The **metadata.json** contains metadata information about the folder it is in. It will have
@@ -99,11 +95,8 @@ creation - python version, any ML libraries, etc.
 
 The **input_info.json** contains the input data tables needed to be sent to the artifact's main() function.
 
-The `__init__.py` file inside **pyspark_dataframe** and **python_dict** folders contain the end-to-end Python function
-which can be used to run the entire artifact. They support different execution engines:
-
-- Batch execution with PySpark (**pyspark_dataframe**)
-- API execution in a Python environment (**python_dict**)
+The `__init__.py` file inside the **python_dict** folder contains the end-to-end Python function
+which can be used to run the entire artifact. It supports API execution in a Python environment.
 
 To run the artifact, simply call the `main()` function in the artifact with the needed data.  
 The `python_dict/__init__.py` contains a `main()` function into which data can be sent - in the form of a  
