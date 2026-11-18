@@ -231,6 +231,10 @@ export default defineConfig({
                 slug: "evaluate-and-approve/feedback-portals",
               },
               {
+                label: "Risk Assessment",
+                slug: "evaluate-and-approve/risk-assessment",
+              },
+              {
                 label: "Document Generation",
                 slug: "evaluate-and-approve/document-generation",
               },
