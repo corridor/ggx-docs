@@ -4,7 +4,31 @@ import headingFont from "@fontsource/dm-sans/files/dm-sans-latin-600-normal.woff
 import bodyFont from "@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url";
 
 const SITE_NAME = "GenGuardX Docs";
-const ORGANIZATION = { "@type": "Organization", name: "GenGuardX", url: "https://genguardx.ai/" };
+const ORGANIZATION = {
+  "@type": "Organization",
+  "@id": "https://genguardx.ai/#organization",
+  name: "GenGuardX",
+  alternateName: "GGX",
+  url: "https://genguardx.ai/",
+  logo: "https://docs.genguardx.ai/logo.png",
+  description:
+    "GenGuardX is a Responsible AI governance platform for testing, approving, and monitoring GenAI systems.",
+  sameAs: [
+    "https://www.linkedin.com/company/corridor-platforms/",
+    "https://www.youtube.com/@corridorplatforms",
+  ],
+};
+const ORGANIZATION_REF = { "@id": ORGANIZATION["@id"] };
+const PRODUCT = {
+  "@type": "SoftwareApplication",
+  name: "GenGuardX",
+  alternateName: "GGX",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Responsible AI governance",
+  operatingSystem: "Web",
+  url: "https://genguardx.ai/",
+  publisher: ORGANIZATION_REF,
+};
 
 const { entry, lastUpdated } = Astro.locals.starlightRoute;
 const { title, description } = entry.data;
@@ -54,7 +78,7 @@ const faq =
     : [];
 
 const graph = isHome
-  ? [{ ...website, description, publisher: ORGANIZATION }, ORGANIZATION]
+  ? [{ ...website, description, publisher: ORGANIZATION_REF }, ORGANIZATION, PRODUCT]
   : [
       {
         "@type": "TechArticle",
@@ -65,8 +89,10 @@ const graph = isHome
         inLanguage: "en",
         ...(lastUpdated ? { dateModified: lastUpdated.toISOString() } : {}),
         isPartOf: website,
-        publisher: ORGANIZATION,
+        author: ORGANIZATION_REF,
+        publisher: ORGANIZATION_REF,
       },
+      ORGANIZATION,
       {
         "@type": "BreadcrumbList",
         itemListElement: breadcrumbs.map((crumb, index) => ({
