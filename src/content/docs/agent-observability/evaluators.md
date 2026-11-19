@@ -1,6 +1,6 @@
 ---
 title: "Evaluators"
-description: "Run LLM judges on live traces in GGX: six evaluator templates, custom rubrics and labels, backfill, evaluator trends, and the spending safeguards that cap judge cost."
+description: "Run LLM judges on live traces in GGX: six evaluator templates, custom rubrics, backfill, evaluator trends, and spending safeguards that cap judge cost."
 ---
 
 An **evaluator** is a judge that reads your traces and records a verdict on each one: a label, an optional score, and an explanation of why. Evaluators run on live traffic as it arrives, so quality is measured continuously rather than only before launch.

@@ -1,6 +1,6 @@
 ---
 title: "Scores and Feedback"
-description: "Attach scores to LLM traces, spans and sessions in GGX: reviewer ratings, score configs, and end-user feedback relayed from your application with the SDK or the API."
+description: "Attach scores to LLM traces, spans and sessions in GGX: reviewer ratings, score configs, and end-user feedback sent from your app with the SDK or API."
 ---
 
 A **score** is a judgment attached to a trace, to one span, or to a whole session: a reviewer's rating, a cardholder's thumbs-down relayed by your application, an evaluator's verdict, or a score imported from Langfuse. Every score records who gave it, when and from where, and a changed score keeps its history.

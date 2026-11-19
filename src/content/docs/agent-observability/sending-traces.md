@@ -1,6 +1,6 @@
 ---
 title: "Sending Traces"
-description: "Send traces to GGX from registered assets, the genguardx Python SDK or any OpenTelemetry exporter. Covers tool spans, custom metadata and tags, and agent framework tracing."
+description: "Send traces to GGX from registered assets, the genguardx Python SDK or any OpenTelemetry exporter, with tool spans, custom metadata, tags and framework tracing."
 ---
 
 There are four ways to get traces into GGX. They all go through the same intake, so masking, pricing, retention and access rules apply the same way whichever you use.

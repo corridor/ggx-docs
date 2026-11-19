@@ -1,6 +1,6 @@
 ---
 title: "Data Masking"
-description: "How GGX masks personal data in LLM traces before storage: built-in PII detectors, per-project content capture, custom rules, and proof on every span that masking ran."
+description: "How GGX masks personal data in LLM traces before storage: built-in PII detectors, per-project content capture, custom rules, and proof that masking ran."
 ---
 
 Before anything is stored, GGX masks personal data in every span, from every source. Masking covers inputs and outputs, error messages, exception details, event text and attribute values, including values inside JSON and numbers that look like card or social security numbers.

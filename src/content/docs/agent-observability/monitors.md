@@ -1,6 +1,6 @@
 ---
 title: "Monitors"
-description: "Set up LLM monitoring alerts in GGX: monitors on trace volume, error rate, latency, cost, tokens, agent flags and evaluator scores, with email and Slack notifications."
+description: "Set up LLM monitoring alerts in GGX on trace volume, error rate, latency, cost, tokens, agent flags and evaluator scores, with email and Slack notifications."
 ---
 
 A **monitor** watches one measure of your traffic and tells you when it crosses a line you set. It is checked on a schedule, so you hear about a problem without watching the dashboard.

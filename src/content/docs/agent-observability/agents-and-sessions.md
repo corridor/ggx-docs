@@ -1,6 +1,6 @@
 ---
 title: "Agents and Sessions"
-description: "Debug AI agents in GGX: the agent graph, trajectory flags for repeated tool calls, loops, cost outliers and empty outputs, plus session transcripts and simulation job traces."
+description: "Debug AI agents in GGX: the agent graph, trajectory flags for loops, repeated tool calls and cost outliers, plus session transcripts and simulation traces."
 ---
 
 Agents fail in ways a single step never shows: calling the same tool again and again, looping, or quietly returning nothing. GGX looks at the whole run and flags these patterns on the trace.

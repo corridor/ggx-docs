@@ -1,6 +1,6 @@
 ---
 title: "Deploy GGX on Azure"
-description: "Deploy self-hosted GGX on Azure using Container Apps, Azure Files, managed networking, database services with managed identity login, container registry, and Terraform."
+description: "Deploy self-hosted GGX on Azure with Container Apps, Azure Files, managed networking, managed-identity database login, a container registry, and Terraform."
 ---
 
 Use this page to choose and configure an Azure deployment path for GGX.

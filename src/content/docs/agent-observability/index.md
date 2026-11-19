@@ -1,6 +1,6 @@
 ---
 title: "Agent Observability"
-description: "Agent observability in GGX: trace every LLM call, tool call, retrieval and autonomous agent decision, then mask, price, score, evaluate, monitor and keep it as evidence."
+description: "Agent observability in GGX: trace every LLM call, tool call, retrieval and agent decision, then mask, price, score, evaluate, monitor and keep it as evidence."
 ---
 
 Agent observability shows what your agents did in production and why. GGX records each request your agents and deployments handle as a **trace** that covers every LLM call, tool call, retrieval and autonomous decision the agent made along the way. You can open a trace, mask it, price it, score it, evaluate it and keep it as evidence. These pages cover what is captured, how to send it, and how to work with it once it is in.

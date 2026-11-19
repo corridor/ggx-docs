@@ -1,6 +1,6 @@
 ---
 title: "Search, Analytics and Export"
-description: "Query LLM traces and spans in GGX with a one-line query language, promote metadata dimensions, chart traffic, latency and cost, save views, and export CSV or JSON Lines."
+description: "Query LLM traces and spans in GGX with a one-line query language, chart traffic, latency and cost, save views, and export CSV or JSON Lines."
 ---
 
 ## The query box

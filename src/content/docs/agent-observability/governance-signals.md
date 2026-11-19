@@ -1,6 +1,6 @@
 ---
 title: "Governance Signals"
-description: "GGX investigates LLM traces every 15 minutes and files findings for PII leaks, error spikes, silent failures, retry loops and cost outliers, linked to risk assessments."
+description: "GGX scans LLM traces every 15 minutes and files findings for PII leaks, error spikes, silent failures, retry loops and cost outliers, linked to risk assessments."
 ---
 
 GGX investigates your traces every 15 minutes and files a **finding** when it sees a risk. Each finding is tied to the deployment, agent version and model it concerns, so it can follow the model into its risk assessment rather than stop at an engineer's inbox.
