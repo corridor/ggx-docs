@@ -133,8 +133,6 @@ Everything above connects into one closed loop. Each pass leaves the next approv
   <span style={pillarChip} role="listitem">New evidence</span>
 </div>
 
-See [Agent Observability](agent-observability/) for how GGX records, evaluates, and files findings on production traffic.
-
 ## Key pillars of the GGX platform
 
 export const pillarRow = { display: 'flex', gap: '1.25rem', alignItems: 'flex-start', borderTop: '1px solid var(--sl-color-gray-5)', paddingTop: '1.4rem' };
@@ -195,13 +193,12 @@ export const pillarChip = { display: 'inline-block', padding: '6px 12px', border
 
 ## A structured lifecycle
 
-GGX organizes everything into three stages, with agent observability across live traffic. Explore the documentation for each:
+GGX organizes everything into three stages. Explore the documentation for each:
 
 <CardGrid>
   <LinkCard title="Register & Refine" href={`${import.meta.env.BASE_URL}register-and-refine/`} description="Point-and-click building of GenAI apps, with prompt, RAG, and agent optimization." />
   <LinkCard title="Evaluate & Approve" href={`${import.meta.env.BASE_URL}evaluate-and-approve/`} description="Standardized and custom testing, human-in-the-loop dashboards, and approval tracking." />
   <LinkCard title="Deploy & Monitor" href={`${import.meta.env.BASE_URL}deploy-and-monitor/`} description="Direct-to-production deployment with continuous monitoring and alerts." />
-  <LinkCard title="Agent Observability" href={`${import.meta.env.BASE_URL}agent-observability/`} description="Every LLM call, tool call, retrieval, and autonomous agent decision in production, with evaluators, monitors, and governance signals." />
 </CardGrid>
 
 ## The Responsible AI Sandbox

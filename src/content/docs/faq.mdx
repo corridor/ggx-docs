@@ -190,7 +190,7 @@ This is the loop that makes evaluation scale: collect SME feedback and labels, i
 
 ### How do I get alerted when something goes wrong?
 
-Use **Agent Observability monitors** on live traces: conditions on trace volume, error rate, latency, cost, tokens, agent flags or evaluator scores, with email and Slack notifications. This is how you catch runaway behaviour early — for example, an agent burning an abnormal number of tokens. Monitoring tasks then show the longer-term trend of each metric against its threshold.
+Use **monitoring tasks** on live production data: each tracks a metric over time against a threshold, so you catch runaway behaviour early — for example, an agent burning an abnormal number of tokens. Add threshold alerts so the people you choose are notified when a metric breaches its limit.
 
 <CardGrid>
 <LinkCard title="Feedback Portals" href={`${import.meta.env.BASE_URL}evaluate-and-approve/feedback-portals/`} />

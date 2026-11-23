@@ -53,4 +53,4 @@ The **⋮** menu of a monitoring task offers:
 
 ## Alerting on production behaviour
 
-For request-level alerting on live traffic, such as error rate, latency, cost or evaluator scores, with email and Slack notifications, use [Agent Observability monitors](../../agent-observability/monitors/). For human review of production data, route records to [Annotation Queues](../annotation-queues/).
+For human review of production data, route records to [Annotation Queues](../annotation-queues/).

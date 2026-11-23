@@ -19,21 +19,6 @@ export default defineConfig({
   site: "https://docs.genguardx.ai",
   base,
   outDir: "./dist",
-  // The section moved from /tracing/ to /agent-observability/; keep old links working.
-  redirects: {
-    "/tracing": "/agent-observability/",
-    "/tracing/agents-and-sessions": "/agent-observability/agents-and-sessions/",
-    "/tracing/api-reference": "/agent-observability/api-reference/",
-    "/tracing/cost-and-retention": "/agent-observability/cost-and-retention/",
-    "/tracing/data-masking": "/agent-observability/data-masking/",
-    "/tracing/evaluators": "/agent-observability/evaluators/",
-    "/tracing/exploring-traces": "/agent-observability/exploring-traces/",
-    "/tracing/governance-signals": "/agent-observability/governance-signals/",
-    "/tracing/monitors": "/agent-observability/monitors/",
-    "/tracing/scores-and-feedback": "/agent-observability/scores-and-feedback/",
-    "/tracing/search-and-analytics": "/agent-observability/search-and-analytics/",
-    "/tracing/sending-traces": "/agent-observability/sending-traces/",
-  },
   // Astro 6.4.x was causing issues with the table rendering.
   // REF: https://github.com/withastro/starlight/issues/3934
   // REF: https://github.com/withastro/astro/issues/16971
@@ -255,58 +240,6 @@ export default defineConfig({
               {
                 label: "Annotation Queues",
                 slug: "deploy-and-monitor/annotation-queues",
-              },
-            ],
-          },
-          {
-            label: "Agent Observability",
-            link: "/agent-observability/",
-            icon: "list-format",
-            items: [
-              { label: "Overview", slug: "agent-observability" },
-              {
-                label: "Start Here",
-                items: [
-                  { label: "Sending Traces", slug: "agent-observability/sending-traces" },
-                  { label: "Data Masking", slug: "agent-observability/data-masking" },
-                ],
-              },
-              {
-                label: "Use It",
-                items: [
-                  {
-                    label: "Exploring Traces",
-                    slug: "agent-observability/exploring-traces",
-                  },
-                  {
-                    label: "Search, Analytics and Export",
-                    slug: "agent-observability/search-and-analytics",
-                  },
-                  {
-                    label: "Agents and Sessions",
-                    slug: "agent-observability/agents-and-sessions",
-                  },
-                  {
-                    label: "Scores and Feedback",
-                    slug: "agent-observability/scores-and-feedback",
-                  },
-                  { label: "Evaluators", slug: "agent-observability/evaluators" },
-                  { label: "Monitors", slug: "agent-observability/monitors" },
-                  {
-                    label: "Governance Signals",
-                    slug: "agent-observability/governance-signals",
-                  },
-                ],
-              },
-              {
-                label: "Operate It",
-                items: [
-                  {
-                    label: "Cost and Retention",
-                    slug: "agent-observability/cost-and-retention",
-                  },
-                  { label: "API Reference", slug: "agent-observability/api-reference" },
-                ],
               },
             ],
           },
