@@ -485,6 +485,23 @@ export default defineConfig({
             ],
           },
           {
+            label: "Administration",
+            link: "/administration/",
+            icon: "setting",
+            items: [
+              { label: "Overview", slug: "administration" },
+              { label: "Users and Teams", slug: "administration/users-and-teams" },
+              { label: "Organization Permissions", slug: "administration/permissions" },
+              { label: "Platform Settings", slug: "administration/platform-settings" },
+              { label: "System Health", slug: "administration/system-health" },
+              { label: "AI Policy and Risk Library", slug: "administration/ai-policy-and-risk-library" },
+              {
+                label: "Branding, Account and Notifications",
+                slug: "administration/branding-and-notifications",
+              },
+            ],
+          },
+          {
             label: "Technology",
             link: "/technology/self-hosting/",
             icon: "server",

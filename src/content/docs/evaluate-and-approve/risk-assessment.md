@@ -1,9 +1,9 @@
 ---
 title: "Risk Assessment and Compliance"
-description: "Record agent risks with inherent and residual severity, attach evidence, check coverage against the EU AI Act, NIST AI RMF, ISO/IEC 42001 and OWASP LLM, and sign the assessment off."
+description: "Work through Summary, Identify and Measure for each agent version, record risks with severity and evidence, check framework coverage and sign the assessment off."
 ---
 
-Each agent version has a **Risk Assessment** that records how serious each risk is, what mitigates it, and which evidence backs the mitigation. You can also choose the frameworks (laws, standards and guidance) that apply, see how far the assessment covers their requirements, and sign it off.
+Each agent version has a **Risk Assessment** that records which risk controls apply to it, how each is met, how serious each risk is and which evidence backs the mitigation. You can also see how far the assessment covers the frameworks (laws, standards and guidance) that apply, and sign it off.
 
 :::caution
 The tier, the coverage and the framework summaries are a guide to help a review. They are not legal advice, and GGX never states that an agent complies with a law or a standard.
@@ -22,6 +22,28 @@ The assessment of a specific agent version is also on the agent's **Risk Assessm
 Open a category to see its risks. For each risk, the assessment records how it was mitigated (for example **Prompt Instructions**), a comment that can include figures, the evidence behind it, and the residual risk.
 
 ![A risk finding: the mitigation methods, a comment with a chart of accuracy across releases, the evidence links and the residual risk](./risk-assessment-finding.jpg)
+
+## Summary, Identify and Measure
+
+An agent's **Risk Assessment** tab has three tabs. They work on the controls of the [Risk Library](/administration/ai-policy-and-risk-library/#risk-library).
+
+| Tab | What you do |
+|-----|-------------|
+| **Summary** | See how far the assessment is. It shows how many controls apply and how many are documented, with a table by Risk Library category (**Category**, **Code**, **Applies**, **Documented**). With policies on, a **Compliance** section shows each active framework with a bar of completed, to do and not applicable requirements, a percentage and the work that is left. Each item links to its control. |
+| **Identify** | Answer the questions in **About this agent**, grouped as what the agent does, what it uses, who it affects and where it operates. Answers decide which controls apply. An unanswered question never hides a control. Click **Review risk controls** to see each control and switch it on or off by hand. A reason is required for a change by hand. GGX may suggest an answer, which counts as unanswered until you confirm it. |
+| **Measure** | For each control that applies, write how it is met: what you did, the tests you ran, the reports. A control is documented once something is written. There is also one overview text for the whole assessment. Text saves on request or after a pause. |
+
+Which frameworks appear in **Compliance** is set under **AI Policy**. See [AI Policy and Risk Library](/administration/ai-policy-and-risk-library/).
+
+### Read-only when the agent version is frozen
+
+A risk assessment is reviewed with its agent version. When the version is **Approved**, **Rejected** or **Active**, nothing in the assessment can be changed: Identify, Measure, Fill with Corra and the earlier format all become read-only, and a banner at the top says why. To continue, create a new version of the agent and copy the assessment into it. Versions in **Draft**, **Pending Approval** or **Archived** stay editable. If the version becomes approved while you have the page open, the page reloads as read-only.
+
+### Previous format
+
+Assessments made before the Risk Library keep their findings. Measure takes them over as the text of the controls. **Previous format** on the Measure tab opens the earlier findings screen, with the findings, severities and evidence described below. If those findings were edited after the carry-over, Measure warns that its text may not match.
+
+That screen opens with a verdict banner: **No risks to assess**, **In progress** (some risks have no residual rating yet), **Needs attention** (a risk is rated medium or above, or an action is open) or **Ready** (every risk is mitigated and the residual risk is low).
 
 ## Findings: inherent and residual risk
 
@@ -91,7 +113,7 @@ Any fresh evidence record counts, including a note. A single note can therefore 
 
 ## Sign off
 
-A person with the **Approve** permission for risk assessments can sign an assessment off once every risk is assessed. A signed-off assessment is read only. Edits, Fill with Corra, restoring a version, deleting and moving it to another project are blocked until someone chooses **Reopen**. The page shows who signed it off and when.
+A person with the **Approve** permission for risk assessments can sign an assessment off once every risk is assessed. A signed-off assessment is read only, as is any assessment whose agent version is frozen (see above). Edits, Fill with Corra, restoring a version, deleting and moving it to another project are blocked until someone chooses **Reopen**. The page shows who signed it off and when.
 
 - A copy for a new agent version never comes signed off.
 - Deleting an agent version whose assessment is signed off is refused until the assessment is reopened.
@@ -99,5 +121,6 @@ A person with the **Approve** permission for risk assessments can sign an assess
 
 ## Related
 
+- [AI Policy and Risk Library](/administration/ai-policy-and-risk-library/)
 - [Approval Workflows](/evaluate-and-approve/approval-workflows/)
 - [Agents: risk assessment tab](/register-and-refine/inventory-management/pipelines/#agent-risk-assessment)
