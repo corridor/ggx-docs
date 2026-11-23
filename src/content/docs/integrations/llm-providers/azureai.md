@@ -135,3 +135,7 @@ result = document_processor(
 - Check Azure compliance and security features
 - Monitor usage through Azure Portal
 - Set up cost management and billing alerts
+
+## GenGuardX on Microsoft
+
+GenGuardX is listed on [Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/corridorplatforms.corridorggx).

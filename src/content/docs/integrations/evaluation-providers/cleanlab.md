@@ -51,3 +51,7 @@ For example, check below, Cleanlab can score how trustworthy each response is, m
 - [Cleanlab Codex Documentation](https://help.cleanlab.ai/codex/)
 - [Cleanlab TLM Overview](https://help.cleanlab.ai/tlm/)
 - [Cleanlab Studio Overview](https://help.cleanlab.ai/studio/quickstart/)
+
+## GenGuardX on Cleanlab
+
+Read the [Cleanlab and Corridor Platforms partnership announcement](https://finance.yahoo.com/news/cleanlab-partners-corridor-platforms-ensure-120000180.html).

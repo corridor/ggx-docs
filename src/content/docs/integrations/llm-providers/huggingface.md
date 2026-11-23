@@ -133,3 +133,7 @@ result = prompt_injection_detector(
 - Review Hugging Face Transformers documentation
 - Check model licensing for compliance
 - Monitor usage through platform analytics
+
+## GenGuardX on Hugging Face
+
+GenGuardX is listed on [Hugging Face](https://huggingface.co/genguardx).
