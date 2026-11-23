@@ -16,6 +16,13 @@ Use OpenRouter with GGX when:
 - You want GGX agents to use OpenRouter model slugs instead of provider-specific SDKs.
 - You need quick access to multiple hosted models while keeping GGX as the governance and approval layer.
 
+## Connect OpenRouter in GGX
+
+1. Open **Org Settings → Integrations** from the profile menu, and find **OpenRouter** under **LLM Gateways**.
+2. Click **Configure**, enter your OpenRouter **API Key**, click **Test Connection**, then **Save**.
+
+The key is available to model code as `OPENROUTER_API_KEY`.
+
 ## Register OpenRouter as a Model
 
 | GGX setting | Recommended value |

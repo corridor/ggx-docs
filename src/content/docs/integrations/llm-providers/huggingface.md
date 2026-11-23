@@ -76,7 +76,7 @@ from transformers import pipeline
 from huggingface_hub import login
 
 # Authentication for private models (optional)
-login(token=os.getenv("HUGGINGFACE_TOKEN"))
+login(token=os.getenv("HUGGING_FACE_HUB_TOKEN"))
 
 # Direct initialization
 client = pipeline(
@@ -101,12 +101,12 @@ else:
 For private models, configure your Hugging Face credentials:
 
 1. Navigate to **Org Settings → Integrations**
-2. Click on **Hugging Face**
+2. Find **Hugging Face** under **LLM Gateways** and click **Configure**
 3. Enter your Hugging Face API token
-4. Test the connection
+4. Click **Test Connection**, then **Save**
 
 The platform creates environment variables automatically:
-- `HUGGINGFACE_TOKEN`
+- `HUGGING_FACE_HUB_TOKEN`
 
 ## Example Use Case: Prompt Injection Detector
 

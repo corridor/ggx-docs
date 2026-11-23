@@ -11,37 +11,49 @@ The capability significantly improves the usual approach to annotating productio
 
 ![Annotation Queue Concept](./annotation-queue-concept.excalidraw.svg)
 
-## Maintaining Annotation Queues on the Platform:
+## Where annotation queues live
 
-The Annotation Queues module organizes all the existing queues, which are available in the top right dropdown under **"Select an annotation queue"**, for easier tracking, searching, and creating new ones.
+Annotation queues are listed under **Monitor & Track → Annotation Queues**, grouped by folder (for example production and staging traffic), with their status. Filter them by **Annotation Objective** or status, and click **Create** to add one.
 
-### Annotation Queue Registration:
+![Monitor & Track → Annotation Queues: queues for production and staging traces, grouped by folder](./annotation-queues-list.jpg)
 
-1. Click on **Select an Annotation Queue** dropdown in the Annotation Queue module and click on **+ Create New Annotation**.
-2. Fill in important details like **Name**, **Description**.
-3. **Upload data** files to begin annotation or **connect to production tables**.
-4. Click on the **Save** button to register the Annotation Queue. Once registered, it will be available in the dropdown to be chosen for annotation work.
-5. Select the registered Annotation Queue, and it should open up the details page.
+## Setting up a queue
 
-**Note:**
+A queue's **Details** tab configures what annotators see and record. Click **Edit** to change it.
 
-- Multiple files can be added, and the platform will concatenate them automatically as long as the schema matches.
-- The object can be edited to map the **Input, Output, and Date Columns**.
-- The Date column should be in the format **(mm/dd/yyyy)**.
-- Platform maintains **"Is Accurate", "Notes" and "Ground Truth"** columns which can be used for labelling.
-- Data will be deduplicated for the labelling process using similar Input and Output values.
-- For new data uploads, **"Is Accurate", "Notes" and "Ground Truth"** will be filled using the last labelled matching sample.
+- **Name** and **Description**: what the queue reviews and who reviews it.
+- **Annotation objective**: what one annotation covers.
+    - **Entire Chat**: one rating for the whole conversation.
+    - **Every Turn**: each response of the agent is annotated separately.
+    - **Every Record**: each row of the data is its own annotation.
+- **Feedback columns**: the fields annotators fill, such as the built-in **Is Accurate** like/dislike, a **Judge Verdict**, or a free-text comment.
+- **Map columns**: the **ID Column**, the **Date Column** and the **Labeling Columns** shown to annotators.
+- **Chat transcript**: the column holding the conversation, and optionally the persona name and description, so chats are displayed as transcripts.
+- **Chat configuration**: closing questions asked when an annotator finishes reviewing a chat.
+- **Assignees**: optionally assign records to specific annotators.
 
-**Once the registration is complete, the data is ready for annotation:**
+## Working in a queue
 
-- **View or export** the raw data from the **Data Tab**.
-- Start data annotation in the **Labeling Tab**.
-- View standardized and custom reports and metrics in the **Statistics Tab**.
-- Lastly, add guides and notes for best practices in the **Instruction Tab**.
+A queue has these tabs:
 
-## Inviting an Annotator:
+- **Data**: view or export the raw data.
+- **Labeling**: the records to annotate, with their labeling columns, a **View Transcript** button for chats, the feedback summary, review status and judge verdict. Use the date range at the top to focus on a period, and **Create test dataset** to turn reviewed records into a dataset for evaluations.
+- **Insights**: progress (total, pending, annotated and accuracy on rated records), counts over time, **Issues Found**, and reports. Click **Add report** to add your own.
+- **Judge**: an LLM judge that pre-labels records so annotators can focus where it matters.
 
-All users onboarded on the platform with access to the Annotation Queues module can collaborate on labeling. The platform tracks all label changes, allows annotators to leave notes, and provides keyboard shortcuts for faster annotations.
+![Labeling tab: production chats with their condition, risk tier and topic, a transcript button, the review status and the judge verdict](./annotation-queue-labeling.jpg)
+
+![Insights tab: overall progress of the queue and the number of correct, incorrect and unknown records by date](./annotation-queue-insights.jpg)
+
+### Automated judging
+
+On the **Judge** tab, turn on **Enable Automated Judging** and write the **Instructions for the Judge**. The instructions can reference columns of the data, such as `{Topic}` or `{messages}`, and define the verdicts the judge returns. Click **Rerun Judge** to judge the records again after changing the instructions. Judge verdicts appear in the Labeling tab next to the human review, so you can see where the judge and the reviewers disagree.
+
+![Judge tab: automated judging enabled, with instructions that reference the topic, risk tier and chat, and the list of possible verdicts](./annotation-queue-judge.jpg)
+
+## Inviting annotators
+
+All users with access to the project's annotation queues can collaborate on labeling. The platform records every label change and lets annotators leave notes.
 
 ## Benefits of Annotation Queues:
 

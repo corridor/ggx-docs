@@ -10,7 +10,7 @@ In GGX, an LLM gateway can be registered on the [Models](../../register-and-refi
 ## How the pattern works
 
 1. Configure the LLM gateway with the providers and model aliases it is allowed to access.
-2. Store the gateway base URL, API key, and default model alias in GGX environment variables or integration settings.
+2. Connect the gateway in **Org Settings → Integrations → LLM Gateways**. The integration stores the gateway's URL and credentials as environment variables for your model code. Gateways without their own entry can use **Other OpenAI-compatible gateway**.
 3. Register a GGX Model that calls the gateway endpoint.
 4. Use the registered GGX Model in agents and evaluations.
 5. Let the gateway route to any underlying LLM it has access to, while GGX records governance metadata, test evidence, approvals, lineage, and monitoring results.

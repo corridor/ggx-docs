@@ -48,7 +48,7 @@ Click **Create** on the Skills / Prompts page, then work through the form:
 
 1. **Name and description.** Give the prompt a clear name and a plain-English description of what it does, when to use it, and when not to — it is what teammates read when deciding whether to reuse it.
 
-2. **Properties.** Set the **Group**, **Permissible Purpose**, **Approval Workflow**, **Task Type**, and **Prompt Type** (for example, *System Instruction*).
+2. **Properties.** Set the **Group**, **Permissible Purpose**, **Approval Workflow**, **Task Type**, **Prompt Type** (for example, *System Instruction*), and the **Prompt Elements** the template covers (for example *Persona + Goal*, *Tone* and *Constraints*).
 
 3. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name agents use to refer to this prompt — lowercase with underscores, no spaces.
 
@@ -62,6 +62,8 @@ Click **Create** on the Skills / Prompts page, then work through the form:
 
 </Steps>
 
+![A registered prompt: its description, permissible purpose, task type, prompt type and prompt elements, above the alias and prompt template with the Analyze button](./prompt-details.jpg)
+
 </helper-panel>
 
 ## Testing and improving a prompt
@@ -70,7 +72,7 @@ A prompt is only as good as the outputs it produces against the inputs you actua
 
 ### Analyze Prompt
 
-The **Analyze Prompt** button at the bottom of the Prompt Template editor scores your prompt against a set of quality dimensions and returns an **estimated prompt score** (e.g. 75%). Alongside the score, GGX lists **Findings** — specific gaps in the prompt that, if addressed, would raise the score. For each dimension, GGX either lists one or more Findings with a short explanation, or shows *"Nothing was found"* if the dimension passes.
+The **Analyze** button at the bottom of the Prompt Template editor scores your prompt against a set of quality dimensions and returns an **estimated prompt score** (e.g. 75%). Alongside the score, GGX lists **Findings** — specific gaps in the prompt that, if addressed, would raise the score. For each dimension, GGX either lists one or more Findings with a short explanation, or shows *"Nothing was found"* if the dimension passes.
 
 The dimensions GGX currently evaluates include:
 
@@ -161,7 +163,7 @@ result = customer_intent_classification_prompt(user_message=user_input)
 intent = result["classified_intent"]
 ```
 
-<LinkCard title="Full Intent Classification walkthrough" description="The complete prompt with every intent, screenshots, and agent integration." href={`${import.meta.env.BASE_URL}register-and-refine/examples/intent-classification-agent-registration/prompt/`} />
+<LinkCard title="Full Intent Classification walkthrough" description="The complete prompt with every intent, screenshots, and agent integration." href={`${import.meta.env.BASE_URL}register-and-refine/examples/intent-classification-pipeline-registration/prompt/`} />
 
 ## Capabilities unlocked by registration
 

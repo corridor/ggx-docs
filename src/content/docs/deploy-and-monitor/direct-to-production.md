@@ -3,6 +3,28 @@ title: "CI/CD and Direct to Production"
 description: "Export approved GGX artifacts to production runtimes, APIs, containers, serverless services, or CI/CD systems without running GGX in production."
 ---
 
+## Deployments in GGX
+
+Every production deployment of a project is recorded under **Risk & Compliance → Deployments**, so reviewers can see where each approved agent runs and how it is called. Click **Create** to document a new one.
+
+![Risk & Compliance → Deployments: the project's deployments with their request and response types](./deployments-list.jpg)
+
+A deployment has these tabs:
+
+- **Details**: the name and description, an **Open UI** button when the deployment has its own interface, and **Call this endpoint**, with ready-to-copy requests in cURL, Python or Java, authenticated with a GGX **User API Key** or **Basic Auth**.
+- **Code**: the code of the deployment.
+- **Logs**: the deployment's logs.
+- **Insights**: how the deployment is being used.
+- **Change History**: every change to the deployment.
+
+![A deployment's Details tab: its description, the Open UI button, and how to call its endpoint with a user API key](./deployment-details.jpg)
+
+The targets an agent can be deployed to, from Docker and Kubernetes to AWS Lambda, Google Cloud Run, Databricks Model Serving and Hugging Face Spaces, are listed under **Deployment Platforms** in [Org Settings → Integrations](../../integrations/).
+
+## Exporting the production artifact
+
+To deploy an approved agent, open it and use the **⋮** menu: **Deploy** records a new deployment, and **Export As Python Code** downloads the locked artifact for your own pipeline.
+
 Typically, production execution environments are kept separate and managed to ensure 100% uptime as these are mission-critical systems for organizations.
 
 To tackle the air gap that these systems require - all analytics registered on the platform can be exported out from the system to be put into a Production Execution Environment. These production artifacts are locked to ensure they are not tampered with when they are promoted to production. And there is **NO extra dependency** required on the production side from GGX - i.e. there is no requirement for a license key or a GGX installation in production!

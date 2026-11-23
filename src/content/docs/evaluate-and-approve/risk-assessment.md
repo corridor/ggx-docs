@@ -9,6 +9,20 @@ Each agent version has a **Risk Assessment** that records how serious each risk 
 The tier, the coverage and the framework summaries are a guide to help a review. They are not legal advice, and GGX never states that an agent complies with a law or a standard.
 :::
 
+## Where to find risk assessments
+
+Every risk assessment in a project is listed under **Risk & Compliance → Risk Assessments**, with the agent and version it covers, its progress (how many of its risks are assessed) and its status: **Draft**, **Pending Approval**, **Approved**, **Rejected** or **Archived**. Use the filters on the left to narrow the list, and **Create** to start a new assessment.
+
+![Risk & Compliance → Risk Assessments: assessments for each agent version, with their progress and approval status](./risk-assessments-list.jpg)
+
+The assessment of a specific agent version is also on the agent's **Risk Assessment** tab. Risks are grouped into categories, such as **Accuracy**, **Stability**, **Ethics** and **Vulnerability**, each showing how many of its risks are assessed.
+
+![An agent's Risk Assessment tab: four risk categories with their assessed risks, and Fill with Corra](./agent-risk-assessment-tab.jpg)
+
+Open a category to see its risks. For each risk, the assessment records how it was mitigated (for example **Prompt Instructions**), a comment that can include figures, the evidence behind it, and the residual risk.
+
+![A risk finding: the mitigation methods, a comment with a chart of accuracy across releases, the evidence links and the residual risk](./risk-assessment-finding.jpg)
+
 ## Findings: inherent and residual risk
 
 Every risk has a finding with two severity ratings:
@@ -37,6 +51,8 @@ Each record belongs to the agent version it was gathered for. When you create a 
 ## Fill with Corra
 
 **Fill with Corra** reads the agent's prompts, jobs, metrics, approvals and issues, and proposes a mitigation for each risk with the sources it used. It can also propose evidence links for assessed risks that have no recent evidence. You accept or reject each proposal. Nothing is saved until you accept it.
+
+The **⋮** menu next to **Fill with Corra** opens the **Filler settings**, the **Risk Filling skill** that Corra follows, and **Configure**.
 
 ## EU AI Act tier
 

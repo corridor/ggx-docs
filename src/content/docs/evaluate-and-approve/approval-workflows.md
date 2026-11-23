@@ -5,11 +5,11 @@ description: "Create GGX approval workflows with responsibilities, reviewers, re
 
 <helper-panel object='ApprovalWorkflow' location='list'>
 
-## What is Approval Workflow?
+## What is an approval workflow?
 
 After the development of GenAI agents, it is important to have a set of review processes to ensure various committees can collectively review and approve the agent. In GGX, workflows that comprise multiple responsibilities can be created - and every responsibility is comprised of one or more reviewers. An object goes through the approval process from each of the responsibilities and reviewers.
 
-## Why it is important?
+## Why is it important?
 
 - Creates an approval trail for model updates and changes.
 - Provides clear documentation of who approved what and why.
@@ -17,24 +17,38 @@ After the development of GenAI agents, it is important to have a set of review p
 - Involves key stakeholders (developers, legal, compliance, business teams) in decision-making.
 - Establishes clear ownership over AI agent governance.
 
-## Registering Approval Workflows:
+## Registering approval workflows
 
-Approval workflows can be created and edited within Org Settings by anyone with the right authority level (mainly Admin and Master roles). Approval workflows are specific to object types.
+Approval workflows are created and edited in **Org Settings** by anyone with the right authority (mainly the Admin and Master roles). Each workflow applies to the object types you choose.
 
-1. Open **Org Settings** from the profile menu and click **Approval Workflows**.
-2. On the listing page click on the **Create** button to create a new one.
-3. Fill in important details like **Name**, **Attributes** (Object Types, Description and Status).
-4. Click on the **Create** button at the end to register the Approval Workflow.
-5. Once registered the **Approval Workflow** can be edited to add responsibilities in the **Responsibilities** tab by clicking on the **Add New Responsibility** button.
-6. Decide on **Veto and Editing power** to reviewers.
-7. Select all the reviewers for the responsibility.
-8. Add more responsibilities if required and **Save** to finally register the Approval Workflow.
+1. Open the profile menu at the bottom left, choose **Org Settings**, then **Approval Workflows**.
+2. Click **Create**.
+3. Enter a **Name**, choose the **Object Types** it applies to (for example Pipeline, Prompt, Model, RAG, Report, Global Function), add a **Description** and set the **Status** to **Active**.
+4. Under **Responsibilities**, click **Add Responsibility** for each group that must sign off, for example *Clinical owner*, *Pharmacy and safety* and *Compliance*.
+5. Name each responsibility and choose its **Reviewers**: anyone with approve access, or named people.
+6. Click **Save**.
 
-> **Note:** The external tools option is available when third-party tools are configured and allows a third-party application to be defined as a responsibility within an approval workflow.
+![Approval Workflows in Org Settings: the list of active workflows, each with its creator](./approval-workflows-list.jpg)
 
-Once registered the Approval Workflow can be chosen while registering any object. This would ensure that the model goes through a proper approval process from all the responsibilities and reviewers before getting approved for production usage.
+> **Note:** The external tools option is available when third-party tools are configured, and lets a third-party application act as a responsibility in an approval workflow.
+
+Once registered, the approval workflow can be chosen when registering an object. The object then has to pass every responsibility before it is approved for production use.
 
 </helper-panel>
+
+## Following an approval
+
+Every object that goes through a workflow is listed under **Risk & Compliance → Approvals**, with its version, type, creator and status, so reviewers can see what is waiting for them and what has been decided.
+
+![Risk & Compliance → Approvals: reports, agents, prompts and RAGs with their version and approval status](./approvals-list.jpg)
+
+On the object itself, the **Approvals** tab shows:
+
+- **Approval Status**: each responsibility, its active reviewers, their decision and the date.
+- **Changes**: what changed since the previous version, component by component, so reviewers approve the difference rather than re-reading everything.
+- **Activity Log**: every request, decision and comment.
+
+![An agent's Approvals tab: three responsibilities accepted, and the changes from version 4 to version 5](./agent-approvals-tab.jpg)
 
 ## Attaching validation evidence
 
@@ -42,7 +56,7 @@ Approval is where testing meets governance. Before an object — an agent, model
 
 External CI can participate too: the **external tools** responsibility lets a third-party application — for example a Git/CI pipeline that runs additional checks on the object's exported code — act as an approver, blocking promotion until its status checks pass.
 
-## Keeping track of Findings/Limitations
+## Keeping track of findings and limitations
 
 Once an object is approved, it is locked. No further changes can be made to it. But sometimes, reviews are done with findings or limitations on the usage and need follow-ups.
 

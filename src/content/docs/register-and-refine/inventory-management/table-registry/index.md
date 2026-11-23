@@ -23,6 +23,8 @@ The table can be registered using one of the following methods:
 
 The **Datasets** page organizes all the registered tables into customized groups at this centralized location and allows easier tracking, monitoring, and creating new ones.
 
+![Data & AI Assets → Datasets: standard and chat datasets grouped into folders, with their number of columns](./datasets-list.jpg)
+
 ### Registering a Table:
 
 - Click on **Create** button on the Datasets page.
@@ -30,7 +32,11 @@ The **Datasets** page organizes all the registered tables into customized groups
 - Select the source in **Location** and provide the data link, uploaded file, Databricks table or query, or custom read logic as appropriate.
 - Finally, click on the **Save** button to complete the registration.
 
-> **Note:** After registering the table, users can **Edit** and click on the **Fetch Columns** button to automatically load the table columns and their types.
+Each dataset has a **Dataset Type**: **Standard** for one record per row, or **Chat** for conversations.
+
+> **Note:** A dataset's **Data** section shows its source (for example an uploaded `data.parquet` file) and the query that reads it. Click **Fetch Preview** to load the first rows, and **Explore Data** to browse the full table. The **Data** tab and **Change History** tab sit next to **Details**.
+
+![A registered dataset: its alias, dataset type and description, and the Data section with the uploaded file, the query and a preview of the rows](./dataset-details.jpg)
 
 Once the table is registered, data quality can be evaluated through registered **Quality Checks** or it can be used for validation and testing.
 
@@ -38,7 +44,7 @@ Once the table is registered, data quality can be evaluated through registered *
 
 First, configure [Databricks under Org Settings → Integrations](../../../integrations/data-warehouses/databricks-unity-catalog/#connect-databricks-in-ggx). Then create a dataset and choose **Databricks** in the **Location** source selector. Use **Connect now** if the integration has not been configured.
 
-Choose either **Table path** and enter `catalog.schema.table_name`, or **SQL query** and enter a read-only `SELECT` query. The configured Databricks SQL warehouse executes the read. Save the dataset, use **Fetch Columns** to load its schema, and check its contents through **Explore Data**.
+Choose either **Table path** and enter `catalog.schema.table_name`, or **SQL query** and enter a read-only `SELECT` query. The configured Databricks SQL warehouse executes the read. Save the dataset, use **Fetch Preview** to load its rows and schema, and check its contents through **Explore Data**.
 
 **GGX treats Databricks as read-only and does not write to the warehouse.** Registering a dataset does not create a full copy of Databricks; GGX reads the selected table or query results for processing.
 

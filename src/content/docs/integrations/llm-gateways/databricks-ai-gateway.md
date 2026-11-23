@@ -61,6 +61,18 @@ GGX complements a gateway by turning runtime controls and logs into a governed c
 | Auditability and documentation | Databricks provides system tables, dashboards, and inference tables inside Unity Catalog.                               | GGX links tests, results, approvals, findings, versions, lineage, and monitoring evidence into an auditable lifecycle record that can be exported or reviewed by committees.                |
 | Ecosystem coverage             | Strongest for AI services governed through Databricks and Unity Catalog.                                                | GGX can govern AI applications across multiple providers, agent frameworks, RAG systems, custom agents, and production environments, including Databricks where it is part of the stack. |
 
+## Connect Databricks AI Gateway in GGX
+
+1. Open **Org Settings → Integrations** from the profile menu, and find **Databricks AI Gateway** under **LLM Gateways**.
+2. Click **Configure** and enter the **Workspace URL**. GGX adds the AI Gateway path (`/ai-gateway/mlflow/v1`) itself.
+3. Choose the **Authentication Type**:
+    - **Access token**: a personal access token or a token of a service principal.
+    - **Azure Managed Identity**: the identity of the Azure machine that runs GGX.
+    - **OAuth client (M2M)**: a service principal's OAuth client.
+4. Click **Test Connection**, then **Save**.
+
+The workspace URL is available to model code as `DATABRICKS_HOST`, and an access token as `DATABRICKS_TOKEN`. Type the fully qualified name of the model that the gateway serves when you register it as a GGX Model.
+
 ## When to use both together
 
 Use Databricks AI Gateway and GGX together when Databricks is part of the production AI stack and the organization needs a defensible approval process.
@@ -69,9 +81,9 @@ Use Databricks AI Gateway and GGX together when Databricks is part of the produc
 2. **Register in GGX:** Register the AI application or agent, plus relevant models, prompts, RAGs, datasets, and reports.
 3. **Evaluate before launch:** Run GGX simulations and comparison jobs for business quality and compliance dimensions.
 4. **Approve with evidence:** Attach results to GGX approval workflows for business, risk, compliance, and technical sign-off.
-5. **Deploy in databricks:** Export the agent from GGX and deploy it into databricks.
-5. **Monitor after launch:** Feed Databricks inference logs or production traces into GGX monitoring dashboards and annotation queues.
-6. **Close the loop:** Convert production findings into new test cases, compare challenger versions, and maintain a complete lifecycle record.
+5. **Deploy in Databricks:** Export the agent from GGX and deploy it into Databricks.
+6. **Monitor after launch:** Feed Databricks inference logs or production traces into GGX monitoring dashboards and annotation queues.
+7. **Close the loop:** Convert production findings into new test cases, compare challenger versions, and maintain a complete lifecycle record.
 
 ## Related GGX docs
 

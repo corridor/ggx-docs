@@ -12,12 +12,12 @@ For request-level visibility, [Agent Observability](../agent-observability/) tra
 
 ## What does deployment and monitoring cover?
 
-| Capability | What it gives you |
-| --- | --- |
-| [Direct to production](direct-to-production/) | Export the approved artifact to production runtimes, APIs, containers or CI/CD |
-| [Performance](performance/) | Recurring jobs, metrics dashboards, thresholds and alerts for approved objects |
-| [Oversight](oversight/) | Governance dashboards, role-based views and automated alerts across registered objects |
-| [Annotation queues](annotation-queues/) | Human reviewers label and evaluate production data |
+| Capability | Where | What it gives you |
+| --- | --- | --- |
+| [Deployments and direct to production](direct-to-production/) | Risk & Compliance → Deployments | Record where each approved agent runs and how it is called, and export locked artifacts to production |
+| [Performance tracking](performance/) | Monitor & Track → Monitoring | Monitoring tasks that run recurring jobs and chart production metrics against thresholds |
+| [Governance oversight](oversight/) | Project Home | The lifecycle and evidence of a whole project at a glance |
+| [Annotation queues](annotation-queues/) | Monitor & Track → Annotation Queues | Human reviewers, helped by an LLM judge, label production data |
 
 ## When should I use it?
 

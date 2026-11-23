@@ -20,7 +20,7 @@ There are two main types of evaluators for assessing LLM performance: **automate
 
 Automated evaluation is efficient for objective assessments and large-scale testing, while human annotations provide deeper insights at a higher cost. Combining both methods can ensure a balanced and reliable evaluation process.
 
-## GenAi Evaluation Framework
+## GenAI Evaluation Framework
 
 Gen AI agents can introduce significant risks, making a robust evaluation framework essential for comprehensive testing and validation. Follow these structured steps to ensure effective evaluation:
 
@@ -35,13 +35,33 @@ Gen AI agents can introduce significant risks, making a robust evaluation framew
 By following these steps, teams can systematically evaluate their Gen AI agents, mitigate risks, and enhance performance with data-driven insights.  
 GGX provides the ability to **run evaluation jobs** for registered GenAI components.
 
+## Where evaluations live
+
+Every evaluation in a project is listed under **Human Integrated Testing → Evaluations**. The page has two views:
+
+- **Batch** lists evaluation jobs (Simulation, Comparison and Hillclimb runs) with the object they ran on and their status. Pinned jobs, such as a release gate, stay at the top.
+- **Single** lists human test sessions: one conversation with an agent, with its rating and who ran it.
+
+![Evaluations page, Batch view: pinned release-gate jobs above a list of Simulation jobs with their object, type and status](./evaluations-batch.jpg)
+
+To start an evaluation, open the agent (or prompt, model, RAG or report) under **Data & AI Assets** and click **Run**:
+
+![The Run menu on an agent: Batch Evals (Simulation, Hillclimb, Comparison) and Single Evals (Start Chat)](./agent-run-menu.jpg)
+
+| Run option | What it does | Page |
+| --- | --- | --- |
+| **Simulation** | Runs the object on a dataset and computes one or more reports on its output. | [Simulation](simulation/) |
+| **Comparison** | Runs the object and its challengers on the same data and reports, side by side. | [Comparison](comparison/#how-to-run-a-comparison) |
+| **Hillclimb** | Swaps one or more attached models and compares the result with a baseline job. | [Hillclimb](comparison/#hillclimb-swap-a-model-and-compare) |
+| **Start Chat** | Opens a human test session with the agent. | [Human Integrated Testing](human-testing/) |
+
 ## Introduction to Jobs
 
-GGX provides the ability to perform evaluations by running jobs on the registered objects and generating standardised and customized reports/metrics. Evaluations are controlled by GGX and run in a dedicated locked environment to ensure reproducibility of results.
+A batch evaluation runs as a **job**. Jobs are controlled by GGX and run in a dedicated, locked environment, so results are reproducible.
 
-The platform supports batch evaluation of objects through **simulation jobs** or **comparisons with similar objects** on given datasets. Reports and metrics for these evaluations can be customized within GGX under **Data & AI Assets → Reports**. For more details, refer to the [Reporting](reporting/) section.
+A job holds one or more **evaluations**. Each evaluation pairs a registered [report](reporting/) with the data it runs on, the evaluation type (**Single Turn**, one input per row, or **Multi Turn**, where a tester agent holds a full conversation with the agent) and optional metric thresholds. One job can therefore run a quality scorecard, a safety review and a set of assurance probes in a single pass.
 
-Once the job is completed, GGX records all the details about the specific steps of the jobs, logs resource usages and publishes the dashboard containing all the selected reports which can be shared across the team on GGX for feedback and approval process. The results can be exported outside GGX or used for automated documentation.
+When the job completes, GGX records every step, logs resource usage and publishes a dashboard with one tab per report. The dashboard can be shared with the team for feedback and approval, attached as evidence to a risk assessment, exported, or used for automated documentation. Every job is also listed on the object's **Jobs** tab.
 
 ## Approvals post Evaluations
 

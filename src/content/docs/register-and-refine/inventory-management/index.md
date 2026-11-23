@@ -18,11 +18,26 @@ The platform allows registering, tracking, and monitoring of Data and GenAI asse
 
 Read more on different registries below:
 
-- [Data Inventory](table-registry/)
-- [LLMs and Models](model-catalog/)
-- [Prompts](prompts/)
-- [RAGs](rags/)
-- [End-to-End Agent Assets](pipelines/)
+Registries live under **Data & AI Assets** in each project. **Datasets**, **Agents** and **Reports** are always in the sidebar; click **Show all assets** for the rest.
+
+| Registry in the app | What it holds | Docs |
+| --- | --- | --- |
+| **Datasets** | Tables and chat datasets used for evaluation and monitoring | [Data Assets](table-registry/) |
+| **Agents** | End-to-end agents (pipelines) | [Agents](pipelines/) |
+| **Reports** | Evaluation reports and dashboards | [Reporting](../../evaluate-and-approve/reporting/) |
+| **Models** | LLMs and other models | [LLMs and Models](model-catalog/) |
+| **Skills / Prompts** | Prompt templates | [Prompts](prompts/) |
+| **RAGs / Knowledge Bases** | Retrieval components | [RAGs](rags/) |
+| **Code Repos** | Git repositories hosted in GGX, holding code that agents run | [Code Repos](#code-repos) |
+| **Global Functions** | Reusable Python functions | [Global Functions](global-functions/) |
+
+![Data & AI Assets with all registries shown in the sidebar, and the Agents page grouped into folders](./assets-registries.jpg)
+
+## Code Repos
+
+**Code Repos** are Git repositories hosted in GGX that hold the code your agents run. Click **Create** for a new repository, **Clone** to bring in an existing one, or **More providers** for other Git hosts. An agent of type **Code Repo** runs the latest commit of the branch you choose, so new commits reach the agent without saving it again.
+
+![Code Repos: a repository with its default branch](./code-repos-list.jpg)
 
 ## How Platform Helps in Managing Inventories?
 

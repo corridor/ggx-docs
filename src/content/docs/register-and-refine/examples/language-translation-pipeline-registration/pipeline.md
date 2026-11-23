@@ -20,7 +20,7 @@ Before registering this agent, ensure you have:
 
 - ✅ **Registered Gemini 2.0 Flash Model** - Follow the [Model Registration Guide](../../model/) to register the model
 
-- ✅ **API Token Configured** - Ensure `GOOGLE_API_TOKEN` is set up in Platform Integrations
+- ✅ **API Token Configured** - Ensure `GOOGLE_API_KEY` is set up in Platform Integrations
 
 **Quick Check:** Navigate to **Data & AI Assets → Models** and verify `gemini_2_0_flash` is available.
 

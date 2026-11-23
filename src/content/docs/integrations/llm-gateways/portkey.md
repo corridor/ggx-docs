@@ -16,6 +16,13 @@ Use Portkey with GGX when:
 - You want GGX evaluation and approval evidence to exercise the same gateway route as production.
 - You need GGX to test multiple Portkey-backed providers without adding each provider directly to GGX.
 
+## Connect Portkey in GGX
+
+1. Open **Org Settings → Integrations** from the profile menu, and find **Portkey** under **LLM Gateways**.
+2. Click **Configure**, enter your Portkey **API Key**, click **Test Connection**, then **Save**.
+
+The key is available to model code as `PORTKEY_API_KEY`.
+
 ## Register Portkey as a Model
 
 | GGX setting | Recommended value |
@@ -24,7 +31,7 @@ Use Portkey with GGX when:
 | **Description** | Identify the Portkey provider, config, model alias, routing behavior, and any data logging policy. |
 | **Model Provider** | Use a custom/API-based model or Python function that calls the Portkey gateway. |
 | **Arguments** | `messages`, `model`, `temperature`, `max_tokens`, optional `provider` or config identifier |
-| **Environment variables** | `PORTKEY_API_KEY`, `PORTKEY_BASE_URL`, `PORTKEY_PROVIDER`, `PORTKEY_MODEL` |
+| **Environment variables** | `PORTKEY_API_KEY` (set by the integration), and optionally your own `PORTKEY_BASE_URL`, `PORTKEY_PROVIDER` and `PORTKEY_MODEL` |
 
 ## Example scoring logic
 

@@ -17,11 +17,13 @@ Lineage tracking records and visualizes the complete lifecycle of an object and 
 
 ## Lineage Structure on GGX Platform:
 
-A Lineage is created and automatically maintained by the platform as soon as an object is registered. The lineage graph which is present on the details page is a **horizontal-tree representation** that maps how an object is created, used, and executed within the agent.
+A lineage is created and automatically maintained by the platform as soon as an object is registered. It appears in the **Lineage** section at the bottom of the object's **Details** tab, as a horizontal tree that maps how the object is built and where it is used.
 
-It consists of three key elements:
+Switch between two views at the top right of the section:
 
-- **Precedents (Inputs)**: Represent the sources or dependencies that contribute to the creation of an object.
-- **Dependents (Usage)**: Indicate other objects that rely on a given object.
+- **Precedents (inputs)**: the sources and dependencies the object is built from, such as the prompts, models, RAGs and sub-agents of an agent.
+- **Dependents (usage)**: the other objects that rely on this one.
 
-![Lineage Example](./lineage-example.png)
+The legend at the top counts the objects of each type in the graph (for example *Pipeline (10)*, *Prompt (10)*, *Model (2)*, *RAG (2)*); open a type to find a specific object. Use the controls at the top right to change the layout, refresh or search, and zoom with the controls at the bottom right. Click a node to see its details and open it.
+
+![The Lineage section of an agent, Precedents view: the prompts, models and sub-agents the General Hospital Care Companion is built from](./lineage.jpg)

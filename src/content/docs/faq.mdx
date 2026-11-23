@@ -25,7 +25,7 @@ The dashboard is the end result — an executive summary plus deep-dive sections
 
 ### How do I keep a monitoring view continuously up to date?
 
-Set the job up as a **recurring simulation** and select its first iteration for the **Metrics Dashboard**. The dashboard then tracks the latest completed run, and the platform can notify you as iterations near completion.
+Create a **monitoring task** under **Monitor & Track → Monitoring** for the agent. Each run computes its reports on fresh production data, the **Overview** tab charts every metric over time against its threshold, and the **Dashboard** tab shows the latest run.
 
 ### Can I filter or reshape data before it reaches a report?
 
@@ -70,7 +70,7 @@ Group several reports together — each contributing its own metrics and visuals
 
 <CardGrid>
 <LinkCard title="Reporting" href={`${import.meta.env.BASE_URL}evaluate-and-approve/reporting/`} />
-<LinkCard title="Role-based dashboards" href={`${import.meta.env.BASE_URL}deploy-and-monitor/oversight/#role-based-and-multi-level-dashboards`} />
+<LinkCard title="Project oversight" href={`${import.meta.env.BASE_URL}deploy-and-monitor/oversight/`} />
 <LinkCard title="Out-of-the-box reports" href={`${import.meta.env.BASE_URL}evaluate-and-approve/reporting/#reusing-reports-across-agents`} />
 <LinkCard title="Access &amp; roles" href={`${import.meta.env.BASE_URL}register-and-refine/collaboration/#access-management`} />
 </CardGrid>
@@ -190,7 +190,7 @@ This is the loop that makes evaluation scale: collect SME feedback and labels, i
 
 ### How do I get alerted when something goes wrong?
 
-Configure **Automated Alerts** on your dashboard data — conditions and thresholds with a severity level. A triggered alert can send notifications, **email or Slack** messages, raise a flag, or open a review on the responsible object. This is how you catch runaway behaviour early — for example, an agent burning an abnormal number of tokens.
+Use **Agent Observability monitors** on live traces: conditions on trace volume, error rate, latency, cost, tokens, agent flags or evaluator scores, with email and Slack notifications. This is how you catch runaway behaviour early — for example, an agent burning an abnormal number of tokens. Monitoring tasks then show the longer-term trend of each metric against its threshold.
 
 <CardGrid>
 <LinkCard title="Feedback Portals" href={`${import.meta.env.BASE_URL}evaluate-and-approve/feedback-portals/`} />

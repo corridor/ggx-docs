@@ -122,17 +122,20 @@ Click **Create** on the Agents page, then work through the registration form:
 
 <Steps>
 
-1. **Name and description.** Give the agent a clear name, then a plain-English description of what it does, when to use it, and when not to — it is what teammates read when deciding whether to reuse it. Under **Add Additional Details**, set the **Group**, **Permissible Purpose**, and metadata like **Usecase Type** and **Task Type**.
+1. **Name and alias.** <Badge text="required" variant="caution" /> Give the agent a clear name, and an **Alias**: a code-safe variable name other agents use to refer to this one — lowercase with underscores, no spaces. For our running example: `card_assistant`.
 
-2. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name other agents use to refer to this one — lowercase with underscores, no spaces. For our running example: `card_assistant`.
+2. **Agent type.** Choose what kind of agent you are registering:
+   - **Code Based** (Python Function) — write the logic in Python on this page.
+   - **Prebuilt External Agent** (External Agent) — connect an agent built on Vertex AI Agent Builder, Salesforce Agentforce, Vapi and similar platforms.
+   - **Code Repo** — run an agent written in one of the project's [Code Repos](../#code-repos). Each chat message runs the latest commit of the branch you choose.
 
-3. **Input type.** Choose how the logic is supplied:
-   - **Python Function** — write the logic in the Scoring Logic editor on this page.
-   - **External Agent** — connect to an agent built elsewhere.
+   ![The first step of creating an agent: name, alias, and the choice of Code Based, Prebuilt External Agent or Code Repo](./create-agent-type.jpg)
+
+3. **Description and details.** On the **Details** tab, add a plain-English description of what the agent does, when to use it, and when not to — it is what teammates read when deciding whether to reuse it. Set the **Group**, **Permissible Purpose**, and metadata like **Usecase Type** and **Task Type**.
 
 4. **Agent, interaction, and context type.** These three move together:
-   - **Agent Type** — pick **Chat-Based**, **Free-Flow**, or **Classification**.
-   - **Interaction Type** — set automatically from Agent Type; for chat it is `TypedDict[{'role': str, 'content': str}]`.
+   - **Pipeline Type** — pick a chat-based, free-flow or classification agent (shown, for example, as *Chat Based Pipeline*).
+   - **Interaction Type** — set automatically from the pipeline type; for chat it is the OpenAI completions format, `TypedDict[{'role': str, 'content': str}]`.
    - **Context Type** — required for chat agents; the data type of the `context` carried between turns, e.g. `dict[str, str]`.
 
 5. **Config, resources, and model file.** Attach what the logic needs:
@@ -142,9 +145,13 @@ Click **Create** on the Agents page, then work through the registration form:
 
 6. **Write the scoring logic.** In the editor, write the Python that ties everything together and returns the result. Use **Format Code** to tidy it and **Test Code** to run it against sample input before saving.
 
+   ![The Code tab of an agent: the configuration panel with alias, input type, pipeline type, interaction type, context type and resources, next to the agent's Python code](./agent-code-tab.jpg)
+
 7. **Finish registration.** Optionally add starting examples for human-in-the-loop testing and notes under **Additional Information**, then click **Create**. The agent is saved as a **Draft** until promoted.
 
 </Steps>
+
+Once created, an agent's page has these tabs: **Details**, **Code**, **Chats** (its test sessions), **Dashboard**, **Jobs**, **Risk Assessment**, **Approvals** and **Change History**. The header shows its version and status, with **Run**, **Copy** and **Clone**. The **⋮** menu adds **Deploy**, **Export As Python Code**, **Use with SDK**, **Move to Another Project** and **Create Feedback Portal**.
 
 ## Variables available in scoring logic
 
@@ -191,14 +198,14 @@ Once saved, test the agent the way an end user would experience it.
 <Steps>
 
 1. Navigate to your saved agent.
-2. Click **Run → Chat Session** in the top-right corner.
+2. Click **Run → Start Chat** in the top-right corner.
 3. Enter sample messages to walk through the full conversation flow.
 4. Confirm the outputs match the expected behaviour.
 
 </Steps>
 
-:::note[Chat Session is for chat-based agents]
-**Chat Session** is available only for **chat-based** agents. For **free-flow** and **classification** agents, use **Test Code** instead — call the function with sample inputs to check the output.
+:::note[Start Chat is for chat-based agents]
+**Start Chat** is available only for **chat-based** agents. For **free-flow** and **classification** agents, use **Test Code** instead — call the function with sample inputs to check the output.
 :::
 
 ### Bulk Simulation — validation at scale before for approvals

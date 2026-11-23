@@ -16,6 +16,24 @@ Use Cloudflare AI Gateway with GGX when:
 - You want GGX evaluations to test the same gateway path used in production.
 - You want Cloudflare to handle runtime controls while GGX handles inventory, simulations, approvals, compliance evidence, and monitoring workflows.
 
+## Connect Cloudflare AI Gateway in GGX
+
+1. Open **Org Settings → Integrations** from the profile menu, and find **Cloudflare AI Gateway** under **LLM Gateways**.
+2. Click **Configure** and enter:
+    - **Account ID** and **Gateway ID** of your Cloudflare AI Gateway;
+    - **Gateway token**, if the gateway is authenticated;
+    - **API Key** (optional), the key of the upstream provider if Cloudflare does not hold it.
+3. Click **Save**.
+
+The integration sets these environment variables for model code:
+
+| Field | Environment variable |
+| --- | --- |
+| Account ID | `CLOUDFLARE_ACCOUNT_ID` |
+| Gateway ID | `CLOUDFLARE_GATEWAY_ID` |
+| Gateway token | `CF_AIG_TOKEN` |
+| API Key | `CLOUDFLARE_AI_GATEWAY_API_KEY` |
+
 ## Register Cloudflare AI Gateway as a Model
 
 | GGX setting | Recommended value |
@@ -24,7 +42,7 @@ Use Cloudflare AI Gateway with GGX when:
 | **Description** | Identify the Cloudflare account, gateway ID, provider endpoint, model alias, and runtime controls such as caching, rate limits, retries, or fallback. |
 | **Model Provider** | Use a custom/API-based model or Python function that calls the Cloudflare AI Gateway endpoint. |
 | **Arguments** | `messages`, `model`, `temperature`, `max_tokens` |
-| **Environment variables** | `CLOUDFLARE_AI_GATEWAY_BASE_URL`, `CLOUDFLARE_AI_GATEWAY_API_KEY`, `CLOUDFLARE_AI_GATEWAY_MODEL` |
+| **Environment variables** | `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_GATEWAY_ID`, `CF_AIG_TOKEN` and `CLOUDFLARE_AI_GATEWAY_API_KEY` (set by the integration), and optionally your own `CLOUDFLARE_AI_GATEWAY_MODEL` default |
 
 Cloudflare provider-specific endpoints use this pattern:
 
@@ -32,7 +50,7 @@ Cloudflare provider-specific endpoints use this pattern:
 https://gateway.ai.cloudflare.com/v1/{account_id}/{gateway_id}/{provider}
 ```
 
-For OpenAI-compatible providers, configure `CLOUDFLARE_AI_GATEWAY_BASE_URL` to the provider-specific Cloudflare endpoint for your account and gateway.
+Build the endpoint in your scoring logic from `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_GATEWAY_ID`, using the provider segment of the upstream provider (for example `openai`).
 
 ## Example scoring logic
 
@@ -40,9 +58,14 @@ For OpenAI-compatible providers, configure `CLOUDFLARE_AI_GATEWAY_BASE_URL` to t
 import os
 from openai import OpenAI
 
+account_id = os.getenv("CLOUDFLARE_ACCOUNT_ID")
+gateway_id = os.getenv("CLOUDFLARE_GATEWAY_ID")
+gateway_token = os.getenv("CF_AIG_TOKEN")
+
 client = OpenAI(
     api_key=os.getenv("CLOUDFLARE_AI_GATEWAY_API_KEY"),
-    base_url=os.getenv("CLOUDFLARE_AI_GATEWAY_BASE_URL"),
+    base_url=f"https://gateway.ai.cloudflare.com/v1/{account_id}/{gateway_id}/openai",
+    default_headers={"cf-aig-authorization": f"Bearer {gateway_token}"} if gateway_token else None,
 )
 
 selected_model = model if model else os.getenv("CLOUDFLARE_AI_GATEWAY_MODEL")
