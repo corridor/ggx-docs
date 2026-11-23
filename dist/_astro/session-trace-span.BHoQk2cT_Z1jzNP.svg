@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif" role="img" aria-label="A session is one conversation and holds three traces in order. Each trace is one request. Trace 2 is opened to show its tree of spans: a chain span containing a retriever span, an LLM span and a tool span, each with its own timing.">
+  <text x="40" y="30" font-size="13" letter-spacing="1.4" font-weight="600" fill="#6b7280">ONE CONVERSATION — THREE LEVELS</text>
+
+  <!-- Session -->
+  <rect x="40" y="48" width="880" height="412" rx="16" fill="#fbfcfe" stroke="#293147" stroke-width="1.5"/>
+  <text x="64" y="80" font-size="15" font-weight="700" fill="#293147">Session</text>
+  <text x="64" y="98" font-size="11.5" fill="#6b7280">The whole conversation &#183; every trace that shares a session id, in order</text>
+  <rect x="730" y="64" width="166" height="26" rx="13" fill="#eef1f6" stroke="#c3cbe0"/>
+  <text x="813" y="81" text-anchor="middle" font-size="11" font-family="'DM Mono', monospace" fill="#2f3a57">session.id = chat-8841</text>
+
+  <!-- Trace 1 -->
+  <rect x="72" y="114" width="816" height="42" rx="11" fill="#ffffff" stroke="#d7dcec"/>
+  <text x="94" y="140" font-size="13" font-weight="700" fill="#2f3a57">Trace 1</text>
+  <text x="160" y="140" font-size="12.5" fill="#374151">&#8220;I lost my card&#8221;</text>
+  <text x="866" y="140" text-anchor="end" font-size="11" fill="#6b7280">its own tree of spans</text>
+
+  <!-- Trace 2 (opened) -->
+  <rect x="72" y="166" width="816" height="230" rx="13" fill="#eef1f6" stroke="#5b6a96"/>
+  <text x="94" y="194" font-size="14" font-weight="700" fill="#2f3a57">Trace 2</text>
+  <text x="160" y="194" font-size="12.5" fill="#374151">&#8220;Block it and send a new one&#8221;</text>
+  <text x="94" y="212" font-size="11.5" fill="#6b7280">One request &#183; the cardholder's message and everything the assistant did to answer it</text>
+
+  <!-- Spans -->
+  <rect x="94" y="224" width="772" height="156" rx="9" fill="#ffffff" stroke="#c3cbe0"/>
+  <text x="866" y="194" text-anchor="end" font-size="10.5" letter-spacing="1.2" font-weight="600" fill="#6b7280">SPANS &#183; ONE STEP EACH</text>
+
+  <!-- tree connectors -->
+  <path d="M121 263 L121 354 M121 286 L138 286 M121 320 L138 320 M121 354 L138 354" fill="none" stroke="#c3ccdf" stroke-width="1.5"/>
+
+  <!-- chain -->
+  <rect x="110" y="241" width="74" height="22" rx="6" fill="#293147"/>
+  <text x="147" y="256" text-anchor="middle" font-size="11" font-family="'DM Mono', monospace" fill="#ffffff">chain</text>
+  <text x="196" y="256" font-size="12.5" font-weight="600" fill="#293147">card assistant turn</text>
+  <rect x="420" y="248" width="280" height="8" rx="4" fill="#293147"/>
+  <text x="716" y="256" font-size="11" fill="#374151">3.1 s</text>
+
+  <!-- retriever -->
+  <rect x="138" y="275" width="74" height="22" rx="6" fill="#eaf2ff" stroke="#bcd3f2"/>
+  <text x="175" y="290" text-anchor="middle" font-size="11" font-family="'DM Mono', monospace" fill="#1f4d7a">retriever</text>
+  <text x="224" y="290" font-size="12.5" font-weight="600" fill="#293147">card policy</text>
+  <rect x="420" y="282" width="280" height="8" rx="4" fill="#eef1f6"/>
+  <rect x="427" y="282" width="45" height="8" rx="4" fill="#5b6a96"/>
+
+  <!-- llm -->
+  <rect x="138" y="309" width="74" height="22" rx="6" fill="#eef1f6" stroke="#c3cbe0"/>
+  <text x="175" y="324" text-anchor="middle" font-size="11" font-family="'DM Mono', monospace" fill="#2f3a57">llm</text>
+  <text x="224" y="324" font-size="12.5" font-weight="600" fill="#293147">gpt-4o-mini</text>
+  <rect x="420" y="316" width="280" height="8" rx="4" fill="#eef1f6"/>
+  <rect x="478" y="316" width="176" height="8" rx="4" fill="#5b6a96"/>
+  <text x="716" y="324" font-size="11" fill="#374151">1,036 &#8594; 58 tokens</text>
+
+  <!-- tool -->
+  <rect x="138" y="343" width="74" height="22" rx="6" fill="#e8f5ee" stroke="#bfe0cc"/>
+  <text x="175" y="358" text-anchor="middle" font-size="11" font-family="'DM Mono', monospace" fill="#1f6a4d">tool</text>
+  <text x="224" y="358" font-size="12.5" font-weight="600" fill="#293147">block card</text>
+  <rect x="420" y="350" width="280" height="8" rx="4" fill="#eef1f6"/>
+  <rect x="660" y="350" width="36" height="8" rx="4" fill="#5b6a96"/>
+  <text x="716" y="358" font-size="11" fill="#374151">0.4 s</text>
+
+  <!-- Trace 3 -->
+  <rect x="72" y="406" width="816" height="42" rx="11" fill="#ffffff" stroke="#d7dcec"/>
+  <text x="94" y="432" font-size="13" font-weight="700" fill="#2f3a57">Trace 3</text>
+  <text x="160" y="432" font-size="12.5" fill="#374151">&#8220;Thanks&#8221;</text>
+  <text x="866" y="432" text-anchor="end" font-size="11" fill="#6b7280">its own tree of spans</text>
+</svg>
