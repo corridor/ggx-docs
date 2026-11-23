@@ -19,3 +19,4 @@ GitHub Issues needs no connection of its own. It uses the GitHub connection that
 ## Notes
 
 - GitHub issue types belong to the organization and are not chosen in GGX.
+- GitHub Enterprise Server works the same way. It appears as **GitHub Enterprise Issues** and uses the GitHub Enterprise Server connection that each person makes for Code Repos. Link an issue by `owner/repo#123` or by its URL on your server.

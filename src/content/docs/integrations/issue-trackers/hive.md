@@ -1,6 +1,6 @@
 ---
 title: "Hive"
-description: "Create and link Hive actions from GGX issues and keep their status in sync, with a personal API key per person."
+description: "Create and link Hive actions from GGX issues and keep their status in sync, with a personal API key an administrator allows."
 ---
 
 [Hive](https://hive.com/) is a project management platform. GGX uses it to turn issues found in annotation queues and feedback portals into Hive actions.
@@ -13,8 +13,9 @@ description: "Create and link Hive actions from GGX issues and keep their status
 
 ## How to connect
 
-1. Each person creates an API key from **My profile → API info** in Hive and pastes it in **My Account → Integrations → Hive**.
-2. Optional: an administrator can set another Hive server URL in **Org Settings → Integrations → Issue trackers → Hive**. Hive at `https://app.hive.com` works with nothing saved.
+1. An administrator opens **Org Settings → Integrations → Issue trackers → Hive** and ticks **Let people connect with a personal API token**. Hive has no sign-in, so nobody can connect until this is on. A personal token acts as its owner, and Hive records what GGX does under that person.
+2. Each person creates an API key from **My profile → API info** in Hive and pastes it in **My Account → Integrations → Hive**.
+3. Optional: in the same dialog, an administrator can set another Hive server URL. Hive at `https://app.hive.com` works with nothing saved.
 
 ## Notes
 
