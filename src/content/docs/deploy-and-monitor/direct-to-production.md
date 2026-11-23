@@ -12,14 +12,20 @@ Every production deployment of a project is recorded under **Risk & Compliance �
 A deployment has these tabs:
 
 - **Details**: the name and description, an **Open UI** button when the deployment has its own interface, and **Call this endpoint**, with ready-to-copy requests in cURL, Python or Java, authenticated with a GGX **User API Key** or **Basic Auth**.
-- **Code**: the code of the deployment.
-- **Logs**: the deployment's logs.
-- **Insights**: how the deployment is being used.
+- **Code**: the request and response types, the resources it uses, the endpoint logic and an optional custom interface. See [Request and Response Types and Custom Interfaces](../deployment-request-types/).
+- **Logs**: the request logs of the deployment.
+- **Chats**: collect and review conversations with the deployment. See [Deployment Jobs, Chats and Insights](../deployment-jobs/#chats).
+- **Insights**: custom figures drawn from the deployment's invocations. See [Deployment Jobs, Chats and Insights](../deployment-jobs/#insights).
+- **Dashboard** and **Jobs**: run the deployment over a table of requests, on demand or on a schedule, with alerts. See [Deployment Jobs, Chats and Insights](../deployment-jobs/#run-a-job-on-a-deployment).
 - **Change History**: every change to the deployment.
 
 ![A deployment's Details tab: its description, the Open UI button, and how to call its endpoint with a user API key](./deployment-details.jpg)
 
-The targets an agent can be deployed to, from Docker and Kubernetes to AWS Lambda, Google Cloud Run, Databricks Model Serving and Hugging Face Spaces, are listed under **Deployment Platforms** in [Org Settings → Integrations](../../integrations/).
+The targets an agent can be deployed to are listed under **Deployment Platforms** in [Org Settings → Integrations](../../integrations/). They include Docker, Kubernetes, AWS Lambda, Amazon ECS (Fargate), Amazon Bedrock AgentCore Runtime, Google Cloud Run, Databricks Model Serving, Databricks Agent Runtime and Hugging Face Spaces.
+
+### Size limit for responses
+
+A deployment's response is read back from the Python kernel that runs it, and a response larger than the limit is refused. The limit is `KERNEL_MAX_RESULT_BYTES`, 6 MB by default, and the same setting limits the result of a chat turn. Self-hosted installs can raise it in their settings file. An install that set `CHAT_MAX_RESULT_BYTES` before must now set `KERNEL_MAX_RESULT_BYTES` instead.
 
 ## Exporting the production artifact
 

@@ -13,9 +13,14 @@ For an agent in production, **monitoring is essential** to maintaining the relia
 | Capability | Where | What it gives you |
 | --- | --- | --- |
 | [Deployments and direct to production](direct-to-production/) | Risk & Compliance → Deployments | Record where each approved agent runs and how it is called, and export locked artifacts to production |
-| [Performance tracking](performance/) | Monitor & Track → Monitoring | Monitoring tasks that run recurring jobs and chart production metrics against thresholds |
+| [Deployment jobs, chats and insights](deployment-jobs/) | Risk & Compliance → Deployments | Run and schedule jobs on a deployment, review its chats, and chart its invocations |
+| [Request and response types, custom interfaces](deployment-request-types/) | Risk & Compliance → Deployments → Code | Set the types of a deployment and serve your own page from it |
+| [Performance tracking](performance/) | Monitor & Track → Monitoring | Monitoring tasks that run on a schedule, chart production metrics against thresholds, and alert chosen people |
 | [Governance oversight](oversight/) | Project Home | The lifecycle and evidence of a whole project at a glance |
 | [Annotation queues](annotation-queues/) | Monitor & Track → Annotation Queues | Human reviewers, helped by an LLM judge, label production data |
+| [Ingesting data](annotation-queue-ingestion/) | Annotation Queues → Details | Fetch production data from datasets, Datadog, Langfuse, S3 or custom code, with sampling |
+| [Finding issues](annotation-queue-issues/) | Annotation Queues → Insights | Corra and reviewers find recurring problems and triage them with evidence |
+| [Reports and figures](annotation-queue-reports/) | Annotation Queues → Insights | Custom charts and tables, live or as snapshots |
 
 ## When should I use it?
 

@@ -21,7 +21,31 @@ The **Details** tab of a monitoring task holds:
 
 ![Details of a monitoring task: the agent and version it watches, its description and its input columns](./monitor-details.jpg)
 
-Click **Edit** to change the task, and **Run** to run a job now.
+Click **Edit** to change the task, and **Run** to open the job form and run a job.
+
+## Running a task on a schedule
+
+A monitoring task is only useful if it runs without someone remembering to click. In the job form, open the **Scheduling** panel:
+
+- **Start Date** and **Time**: when the first run starts. Leave them empty to run immediately (**Today** and **Run Immediately** are the placeholders).
+- **Recurrence**: how often the run repeats after the first one.
+
+The **Recurrence** list is built from the start date, so it offers the day that date falls on. The options are **Does not repeat**, **Hourly**, **Daily**, **Weekly on** that weekday, **Monthly** (on the Nth weekday, on the last weekday, or on that date of the month), **Quarterly** on the Nth or last weekday, and **Annually** on that date. The form lists the first iterations so you can check the dates before you run.
+
+When a run ends, GGX schedules the next one. If the job filters its data by a date range, the range moves forward by the same interval, so each run looks at the new period. Every run is named after the job with an **Iteration** number, and appears in **Calendar View** and in the **Jobs** tab.
+
+For a weekly check of last week's chats, set the start date to a Monday, the time to early morning and **Recurrence** to **Weekly on Monday**.
+
+## Alerts when a metric crosses its threshold
+
+Thresholds show on the chart as dotted lines. To be told when a run crosses them:
+
+1. In the job form, set **Metric Thresholds** for each metric: a lower and an upper threshold. A metric inside both is fine.
+2. Open the **Alerts** panel and choose people in **Notify**.
+
+When a run completes and any metric is below its lower threshold or above its upper threshold, each person gets one notification in GGX that lists every metric that breached. If your administrator has configured an email provider, they also get an email. Only active users who can read the monitoring task are notified.
+
+Recurring runs keep the same people, so you set this once. The alert uses the metric's own thresholds, so the chart and the alerts always agree.
 
 ## Tracking metrics over time
 
@@ -33,6 +57,16 @@ The **Overview** tab shows how each metric moved across runs.
 ![Overview, Chart View: five production metrics over thirteen weeks against their thresholds, with a dip and recovery in the middle](./monitor-overview.jpg)
 
 ![Overview, Calendar View: the runs of September, October and November with their metric values](./monitor-calendar.jpg)
+
+### Custom figures
+
+Click **Add Custom Figure** on the **Overview** tab to add a chart, table or summary of your own, for example the share of runs that failed a check. Fill in:
+
+- **Name**.
+- **Width**: **50%** or **100%** (100% is the default).
+- **Figure Logic**: Python code that returns a Plotly figure, a Markdown string or a pandas DataFrame, which is shown as a table. The metric data of the task is in the variable `data`, a DuckDB relation. Use `data.df()` for a pandas DataFrame. **View Examples** shows a Plotly, a Markdown and a Table example.
+
+Click **Save**. **Edit** and **Delete** are on each figure.
 
 ## Looking at a single run
 
@@ -51,6 +85,6 @@ The **⋮** menu of a monitoring task offers:
 - **Archive**: keep the task and its history, but stop treating it as active.
 - **Delete Monitoring**.
 
-## Alerting on production behaviour
+## Human review of production data
 
-For human review of production data, route records to [Annotation Queues](../annotation-queues/).
+Metrics catch what you can measure. For records that need human judgement, route them to [Annotation Queues](../annotation-queues/).

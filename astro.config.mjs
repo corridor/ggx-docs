@@ -242,6 +242,11 @@ export default defineConfig({
                 label: "Annotation Queues",
                 slug: "deploy-and-monitor/annotation-queues",
               },
+              { label: "Ingesting Data", slug: "deploy-and-monitor/annotation-queue-ingestion" },
+              { label: "Finding Issues", slug: "deploy-and-monitor/annotation-queue-issues" },
+              { label: "Reports and Figures", slug: "deploy-and-monitor/annotation-queue-reports" },
+              { label: "Jobs, Chats and Insights", slug: "deploy-and-monitor/deployment-jobs" },
+              { label: "Types and Custom Interfaces", slug: "deploy-and-monitor/deployment-request-types" },
             ],
           },
           {
