@@ -1,6 +1,6 @@
 ---
 title: "Data Assets"
-description: "Register datasets from Databricks tables or SQL queries, data lakes, uploads, and custom readers, then reuse them in GGX evaluations and quality checks."
+description: "Register datasets from warehouses, databases, cloud storage, uploads, and custom readers, then reuse them in GGX evaluations and quality checks."
 ---
 
 <helper-panel object='DataTable' location='list'>
@@ -9,15 +9,19 @@ The **Datasets** page (**Data & AI Assets → Datasets**) records the location, 
 
 The table can be registered using one of the following methods:
 
-- **Connection to a Data Lake:** A direct link to a data lake allows specifying the location of the data file. The link must point to a valid **Parquet** data file.
+- **Cloud file storage:** Point to a file or folder in Amazon S3 (`s3://`), Google Cloud Storage (`gs://`) or Azure Blob (`abfss://`). The location must be a `.csv`, `.parquet` or `.orc` file, or a folder of such files.
+
+- **Warehouses and databases:** Read a table by its path, or run a SQL query, on Snowflake, Amazon Redshift, Google BigQuery, Azure Synapse / Microsoft Fabric, PostgreSQL, MySQL / MariaDB, Apache Hive, Oracle, MSSQL or any other JDBC database. Each needs a connection and a Python driver; see [Data sources](../../../integrations/data-warehouses/data-sources/).
+
+- **Local File Path:** Read a file from a path on the GGX machine.
 
 - **Table Upload:** Datasets with fewer rows can be uploaded directly in CSV or Excel format.
 
 - **Databricks:** Use a configured Databricks integration to read a table by its full path or run a SQL query. See [Register a Databricks dataset](#register-a-databricks-dataset).
 
-- **Custom Logic:** Use a custom reader for other data formats or providers supported through custom integrations.
+- **Custom Logic:** Use a custom reader for other data formats or providers.
 
-> **Note:** Large or production-scale datasets should be registered through the **Data Lake connection** rather than uploaded through the browser. The data is then read directly from its source location (for example a cloud bucket or a Parquet file), avoiding slow uploads while remaining viewable as a table.
+> **Note:** Large or production-scale datasets should be registered through the **cloud storage or warehouse connection** rather than uploaded through the browser. The data is then read directly from its source location (for example a cloud bucket or a Parquet file), avoiding slow uploads while remaining viewable as a table.
 
 ## Managing Tables on the Platform
 

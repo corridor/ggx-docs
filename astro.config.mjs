@@ -344,6 +344,10 @@ export default defineConfig({
                     label: "Databricks",
                     slug: "integrations/data-warehouses/databricks-unity-catalog",
                   },
+                  {
+                    label: "Data sources",
+                    slug: "integrations/data-warehouses/data-sources",
+                  },
                 ],
               },
               {

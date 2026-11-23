@@ -7,9 +7,10 @@ Data warehouses provide governed enterprise data for GGX evaluation, retrieval, 
 
 ## Available integrations
 
+- [Data sources](data-sources/) — Connect Snowflake, Amazon Redshift, Google BigQuery, Azure Synapse / Microsoft Fabric, PostgreSQL, MySQL / MariaDB, Oracle, MSSQL, Apache Hive, other JDBC databases, Amazon S3, Google Cloud Storage and Azure Blob, and install the Python driver each one needs.
 - [Databricks](databricks-unity-catalog/) — Connect a Databricks SQL warehouse and register a table or SQL query as a GGX dataset.
 
-Other warehouse providers and data formats can be supported through **custom integrations**. For dataset sources that need a custom reader, use **Custom Logic** in [Datasets](../../register-and-refine/inventory-management/table-registry/).
+For a source GGX does not list, use **Custom Logic** in [Datasets](../../register-and-refine/inventory-management/table-registry/) to write your own reader.
 
 ## Integration principles
 
