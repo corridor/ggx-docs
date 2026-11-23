@@ -1,0 +1,255 @@
+---
+/**
+ * Logo grid of every documented integration, grouped by category, for the Integrations overview.
+ * Fully static: each tile is a link with a lazily loaded logo, or the initials when there is no logo file.
+ * Logos live in /public/assets/logos/integrations/ (copied from the GGX app's integration logos).
+ */
+import { Icon } from "@astrojs/starlight/components";
+
+type Item = { name: string; href: string; logo?: string; icon?: "github" };
+type Group = { title: string; href: string; items: Item[] };
+
+const base = "/integrations/";
+const logo = (file: string) => `/assets/logos/integrations/${file}.svg`;
+
+const groups: Group[] = [
+  {
+    title: "LLM Providers",
+    href: "llm-providers/",
+    items: [
+      { name: "OpenAI", href: "llm-providers/openai/", logo: logo("openai") },
+      { name: "Anthropic", href: "llm-providers/anthropic/", logo: logo("anthropic") },
+      { name: "Amazon Bedrock", href: "llm-providers/aws-bedrock/", logo: logo("aws") },
+      { name: "Azure AI", href: "llm-providers/azureai/", logo: logo("azure") },
+      { name: "Google Vertex AI", href: "llm-providers/gcp-vertexai/", logo: logo("gcloud") },
+      { name: "Hugging Face", href: "llm-providers/huggingface/", logo: logo("huggingface") },
+      { name: "DeepSeek", href: "llm-providers/deepseek/", logo: logo("deepseek") },
+      { name: "Groq", href: "llm-providers/groq/", logo: logo("groq") },
+      { name: "Together AI", href: "llm-providers/together-ai/", logo: logo("together") },
+      { name: "Fireworks AI", href: "llm-providers/fireworks-ai/", logo: logo("fireworks") },
+      { name: "Mistral AI", href: "llm-providers/mistral-ai/", logo: logo("mistral") },
+      { name: "Cohere", href: "llm-providers/cohere/", logo: logo("cohere") },
+      { name: "xAI", href: "llm-providers/xai/", logo: logo("xai") },
+      { name: "Ollama", href: "llm-providers/ollama/", logo: logo("ollama") },
+      { name: "vLLM", href: "llm-providers/vllm/", logo: logo("vllm") },
+      { name: "LM Studio", href: "llm-providers/lm-studio/", logo: logo("lmstudio") },
+      { name: "Meta (Llama)", href: "llm-providers/meta-llama/", logo: logo("meta") },
+      { name: "TypeSafe AI", href: "llm-providers/typesafe-ai/", logo: logo("typesafe") },
+    ],
+  },
+  {
+    title: "LLM Gateways",
+    href: "llm-gateways/",
+    items: [
+      { name: "LiteLLM", href: "llm-gateways/litellm/", logo: logo("litellm") },
+      { name: "Portkey", href: "llm-gateways/portkey/", logo: logo("portkey") },
+      { name: "OpenRouter", href: "llm-gateways/openrouter/", logo: logo("openrouter") },
+      { name: "Cloudflare AI Gateway", href: "llm-gateways/cloudflare-ai-gateway/", logo: logo("cloudflare") },
+      { name: "Databricks AI Gateway", href: "llm-gateways/databricks-ai-gateway/", logo: logo("databricks") },
+      { name: "NVIDIA NIM", href: "llm-gateways/nvidia-nim/", logo: logo("nvidia") },
+      { name: "GitHub Models", href: "llm-gateways/github-models/", icon: "github" },
+      { name: "Helicone", href: "llm-gateways/helicone-ai-gateway/", logo: logo("helicone") },
+      { name: "TrueFoundry", href: "llm-gateways/truefoundry-ai-gateway/", logo: logo("truefoundry") },
+      { name: "Vercel AI Gateway", href: "llm-gateways/vercel-ai-gateway/", logo: logo("vercel") },
+      { name: "Kong AI Gateway", href: "llm-gateways/kong-ai-gateway/", logo: logo("kong") },
+      { name: "Envoy AI Gateway", href: "llm-gateways/envoy-ai-gateway/", logo: logo("envoy") },
+      { name: "Gloo AI Gateway", href: "llm-gateways/gloo-ai-gateway/", logo: logo("gloo") },
+      { name: "Azure API Management", href: "llm-gateways/azure-api-management/", logo: logo("azure") },
+    ],
+  },
+  {
+    title: "Agent Studios",
+    href: "agent-studios/",
+    items: [
+      { name: "Agentforce", href: "agent-studios/agentforce/", logo: logo("salesforce") },
+      { name: "Vertex AI Agent Playbooks", href: "agent-studios/vertex-ai-agent-playbooks/", logo: logo("gcloud") },
+      { name: "Microsoft Copilot Studio", href: "agent-studios/microsoft-copilot-studio/", logo: logo("azure") },
+      { name: "GitHub Copilot", href: "agent-studios/github-copilot/", icon: "github" },
+      { name: "Vapi AI", href: "agent-studios/vapi-ai/", logo: logo("vapi") },
+      { name: "Amazon Lex", href: "agent-studios/amazon-lex/", logo: logo("aws") },
+      { name: "CustomGPT", href: "agent-studios/customgpt/", logo: logo("customgpt") },
+      { name: "Dialogflow CX", href: "agent-studios/dialogflow-cx/", logo: logo("gcloud") },
+    ],
+  },
+  {
+    title: "Observability",
+    href: "observability/",
+    items: [
+      { name: "LangSmith", href: "observability/langsmith/" },
+      { name: "Arize Phoenix", href: "observability/arize-phoenix/" },
+      { name: "Langfuse", href: "observability/langfuse/" },
+      { name: "Humanloop", href: "observability/humanloop/" },
+      { name: "Datadog", href: "observability/datadog/", logo: logo("datadog") },
+      { name: "Weights & Biases", href: "observability/weights-and-biases/", logo: logo("wandb") },
+      { name: "Fiddler AI", href: "observability/fiddler-ai/", logo: logo("fiddlerai") },
+    ],
+  },
+  {
+    title: "Evaluation Providers",
+    href: "evaluation-providers/",
+    items: [
+      { name: "Cleanlab", href: "evaluation-providers/cleanlab/", logo: logo("cleanlabs") },
+      { name: "MedBAR", href: "evaluation-providers/medbar/", logo: logo("medbar") },
+      { name: "Guardrails AI", href: "evaluation-providers/guardrails-ai/", logo: logo("guardrailsai") },
+    ],
+  },
+  {
+    title: "Issue Trackers",
+    href: "issue-trackers/",
+    items: [
+      { name: "Jira Cloud", href: "issue-trackers/jira-cloud/", logo: logo("jira") },
+      { name: "GitHub Issues", href: "issue-trackers/github-issues/", icon: "github" },
+      { name: "Azure Boards", href: "issue-trackers/azure-boards/", logo: logo("azure-boards") },
+      { name: "Rally", href: "issue-trackers/rally/", logo: logo("rally") },
+      { name: "Aha!", href: "issue-trackers/aha/", logo: logo("aha") },
+      { name: "ProdPad", href: "issue-trackers/prodpad/", logo: logo("prodpad") },
+      { name: "ProductPlan", href: "issue-trackers/productplan/", logo: logo("productplan") },
+      { name: "Hive", href: "issue-trackers/hive/", logo: logo("hive-com") },
+    ],
+  },
+  {
+    title: "Data, Code and Tools",
+    href: "",
+    items: [
+      { name: "Databricks", href: "data-warehouses/databricks-unity-catalog/", logo: logo("databricks") },
+      { name: "GitHub", href: "source-control/github/", icon: "github" },
+      { name: "JupyterHub", href: "ide/jupyterhub/", logo: logo("jupyter") },
+      { name: "Deepgram", href: "voice-providers/deepgram/", logo: logo("deepgram") },
+      { name: "MCP clients", href: "mcp/" },
+    ],
+  },
+];
+
+const initials = (name: string) =>
+  name
+    .split(/[\s()&]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+---
+
+<div class="ggx-integrations not-content">
+  {
+    groups.map((group) => (
+      <section class="ggx-int-group">
+        <h3 class="ggx-int-title">
+          {group.href ? <a href={base + group.href}>{group.title}</a> : group.title}
+          <span class="ggx-int-count">{group.items.length}</span>
+        </h3>
+        <ul class="ggx-int-grid">
+          {group.items.map((item) => (
+            <li>
+              <a class="ggx-int-tile" href={base + item.href}>
+                <span class="ggx-int-logo" aria-hidden="true">
+                  {item.logo ? (
+                    <img src={item.logo} alt="" width="32" height="32" loading="lazy" decoding="async" />
+                  ) : item.icon ? (
+                    <Icon name={item.icon} size="1.75rem" />
+                  ) : (
+                    <span class="ggx-int-initials">{initials(item.name)}</span>
+                  )}
+                </span>
+                <span class="ggx-int-name">{item.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .ggx-integrations {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-block: 1.5rem 2.5rem;
+  }
+  .ggx-int-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.75rem;
+    font-size: var(--sl-text-h4);
+    color: var(--sl-color-white);
+  }
+  .ggx-int-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .ggx-int-title a:hover {
+    color: var(--sl-color-accent-high);
+  }
+  .ggx-int-count {
+    font-size: var(--sl-text-xs);
+    font-weight: 600;
+    padding: 0.05rem 0.5rem;
+    border-radius: 999px;
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-gray-2);
+  }
+  .ggx-int-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.75rem;
+  }
+  .ggx-int-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 7rem;
+    padding: 1rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.6rem;
+    background: var(--sl-color-gray-7, var(--sl-color-black));
+    color: var(--sl-color-gray-1);
+    text-align: center;
+    text-decoration: none;
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .ggx-int-tile:hover,
+  .ggx-int-tile:focus-visible {
+    border-color: var(--sl-color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.12);
+  }
+  .ggx-int-logo {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    /* A light chip keeps dark logos readable in the dark theme. */
+    background: #fff;
+    color: #111;
+  }
+  .ggx-int-logo img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+  }
+  .ggx-int-initials {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--sl-color-accent);
+  }
+  .ggx-int-name {
+    font-size: var(--sl-text-sm);
+    line-height: 1.25;
+  }
+  @media (max-width: 30rem) {
+    .ggx-int-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
