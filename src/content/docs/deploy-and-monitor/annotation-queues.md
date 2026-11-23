@@ -29,9 +29,13 @@ A queue's **Details** tab configures what annotators see and record. Click **Edi
 - **Chat Configuration**: closing questions asked when an annotator finishes reviewing a chat.
 - **Enable assignees**, **Dedicated Reviewers** and **Send to other queues**: the review workflow, described below.
 
+![Details tab of an annotation queue, scrolled to Map Columns and Chat Transcript: the ID, Date and Labeling columns, the message column, and the Chat Configuration box](./annotation-queue-columns.jpg)
+
 ### Annotation objective and feedback columns
 
 The **Annotation Rubric** sets how annotators rate your data.
+
+![Details tab of an annotation queue: the Annotation Rubric with the Entire Chat, Every Turn and Every Record objectives, and the Is Accurate and Judge Verdict feedback columns](./annotation-queue-rubric.jpg)
 
 | Annotation objective | What one annotation covers | Type of the **Is Accurate** column |
 | --- | --- | --- |

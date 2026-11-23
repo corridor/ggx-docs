@@ -7,6 +7,8 @@ A dataset in GGX reads from a source: a warehouse, a database, or files in cloud
 
 ## Supported sources
 
+![The Choose where the data comes from dialog when creating a dataset, listing the 17 sources in three groups: cloud and distributed file storage, databases and warehouses, and other](./data-source-chooser.jpg)
+
 | Group | Sources |
 | --- | --- |
 | Cloud and distributed file storage | Amazon S3, Google Cloud Storage, Azure Blob |

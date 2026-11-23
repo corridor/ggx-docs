@@ -30,6 +30,8 @@ A monitoring task is only useful if it runs without someone remembering to click
 - **Start Date** and **Time**: when the first run starts. Leave them empty to run immediately (**Today** and **Run Immediately** are the placeholders).
 - **Recurrence**: how often the run repeats after the first one.
 
+![Run Job form of a monitoring task: the Scheduling panel with Start Date, Time and Recurrence, and the Alerts panel with the Notify list](./monitoring-run-scheduling-alerts.jpg)
+
 The **Recurrence** list is built from the start date, so it offers the day that date falls on. The options are **Does not repeat**, **Hourly**, **Daily**, **Weekly on** that weekday, **Monthly** (on the Nth weekday, on the last weekday, or on that date of the month), **Quarterly** on the Nth or last weekday, and **Annually** on that date. The form lists the first iterations so you can check the dates before you run.
 
 When a run ends, GGX schedules the next one. If the job filters its data by a date range, the range moves forward by the same interval, so each run looks at the new period. Every run is named after the job with an **Iteration** number, and appears in **Calendar View** and in the **Jobs** tab.
