@@ -1,57 +1,52 @@
 ---
 title: "Observability"
-description: "Connect AI observability traces from LangSmith, Arize Phoenix, Langfuse, Humanloop, Datadog, Weights & Biases, and Fiddler AI to GGX for judges, human review, and ground truth."
+description: "Bring production traces into GGX annotation queues from Datadog or Langfuse, connect Weights & Biases and Fiddler AI, and move other tools' traces in with a custom source."
 ---
 
-AI observability tools help teams collect traces, inspect runs, measure latency and cost, evaluate outputs, and understand production behavior. GGX can sit alongside these tools by connecting their traces into the GGX monitoring and review workflow.
+AI observability tools collect traces, latency, cost, and scores from production. GGX turns that signal into review: traces become annotation queue items, review outcomes become ground truth, and common failures become categorized bugs.
 
-The benefit is not just another dashboard. GGX helps make the AI lifecycle seamless: production traces become review queues, review outcomes become ground truth, common failures become categorized bugs, and the same evidence feeds future judges, evaluations, approvals, and deployment decisions.
+How a tool connects depends on the tool.
 
-## Supported observability patterns
+## How each tool connects
 
-| Tool | Typical use | GGX connection pattern |
-| --- | --- | --- |
-| [LangSmith](langsmith/) | Trace, debug, evaluate, and monitor LangChain and broader LLM applications. | Export or stream traces into GGX monitoring, then run judges and human reviews on selected interactions. |
-| [Arize Phoenix](arize-phoenix/) | OpenTelemetry-based AI tracing, evaluations, prompt iteration, datasets, and experiments. | Bring traces, spans, evaluator outputs, and human labels into GGX as monitoring evidence and reusable test cases. |
-| [Langfuse](langfuse/) | Open-source LLM observability, prompt management, evaluations, dashboards, and annotation queues. | Connect traces and scores to GGX so monitoring outcomes can become ground truth, bugs, and approval evidence. |
-| [Humanloop](humanloop/) | Evaluation, prompt management, observability, human feedback, and production log review. | Import logs and review outcomes into GGX for governed SME review, judge creation, and lifecycle evidence. |
-| [Datadog LLM Observability](datadog/) | Monitor LLM applications alongside broader infrastructure, APM, logs, and security telemetry. | Connect LLM traces or incidents to GGX so AI-specific quality review feeds testing, approvals, and remediation workflows. |
-| [Weights & Biases](weights-and-biases/) | Experiment tracking, monitoring, and observability for AI workloads. | Connect with an API key in Org Settings so W&B can be used from GGX workflows. |
-| [Fiddler AI](fiddler-ai/) | Model observability to monitor, explain, and improve AI systems. | Connect with an API key and instance URL in Org Settings. |
+| Tool | How it connects to GGX |
+| --- | --- |
+| [Datadog LLM Observability](datadog/) | A built-in **Ingestion Source** of an annotation queue. GGX fetches LLM Observability spans with your Datadog API and application keys. |
+| [Langfuse](langfuse/) | A built-in **Ingestion Source** of an annotation queue. GGX fetches observations with your Langfuse host and keys. |
+| [Weights & Biases](weights-and-biases/) | An organization integration under **Observability**. Add an API key and, for a dedicated deployment, a base URL. |
+| [Fiddler AI](fiddler-ai/) | An organization integration under **Observability**. Add an API key and your Fiddler URL. |
+| [LangSmith](langsmith/) | No built-in connection. Bring traces in with the **Custom** ingestion source or a registered dataset. |
+| [Arize Phoenix](arize-phoenix/) | No built-in connection. Bring traces in with the **Custom** ingestion source or a registered dataset. |
+| [Humanloop](humanloop/) | No built-in connection. Humanloop is sunset: only historical exports apply. |
 
-## What GGX adds
+## Bring traces into an annotation queue
 
-Observability platforms can show what happened. GGX turns that signal into governed lifecycle action.
+An annotation queue pulls its data from an **Ingestion Source**, which you choose in the queue's settings: **Datasets**, **Datadog**, **Langfuse**, **Amazon S3**, or **Custom**. **Custom** fetches data from sources such as internal APIs, warehouses, and data lakes with a Python fetch script. See [Annotation queues](../../deploy-and-monitor/annotation-queues/).
 
-1. **Connect traces:** Import production traces, spans, prompts, responses, metadata, scores, and user feedback from the observability tool.
-2. **Reduce the review funnel:** Use heuristics, automated checks, and LLM judges to identify which traces need human attention.
-3. **Run human reviews:** Route selected traces to business SMEs, risk teams, model owners, or annotation queues.
-4. **Promote positive reviews:** If a reviewed trace is acceptable, add it to ground truth so future tests and monitoring become more representative.
-5. **Capture negative reviews:** If a reviewed trace fails, create a bug or finding with the relevant prompt, model, RAG context, trace metadata, and reviewer notes.
-6. **Categorize common bugs:** Group repeated issues into failure categories such as hallucination, retrieval miss, bad refusal, toxicity, policy breach, tool error, latency, or user-intent mismatch.
-7. **Improve judges:** Use reviewed traces and failure categories to build, calibrate, and validate LLM-as-a-judge reports.
-8. **Close the loop:** Feed the resulting ground truth, bugs, judges, and reports back into refinement, approval, deployment, and ongoing monitoring.
+Once the data is in a queue, GGX supports the review loop:
 
-This turns monitoring from a static set of metrics into a practical operating system for managing and improving AI applications.
+1. **Reduce the review funnel.** Use heuristics, automated checks, and LLM judges to find the traces that need human attention.
+2. **Run human reviews.** Route selected traces to business experts, risk teams, or model owners.
+3. **Promote positive reviews.** Add acceptable traces to ground truth so future tests and monitoring are more representative.
+4. **Capture negative reviews.** Record a bug or finding with the relevant prompt, model, context, and reviewer notes.
+5. **Improve judges.** Use reviewed traces and failure categories to build and calibrate LLM-as-a-judge reports.
 
-## Choosing what to send to GGX
+## What to bring in
 
-Send enough trace context for review and remediation:
+Bring enough context for review and fixes:
 
-- Prompt, response, model, model version, route, and provider.
-- Retrieval context, citations, tool calls, agent steps, and error details.
-- User feedback, thumbs up/down, ratings, comments, escalation flags, and session metadata.
-- Existing observability scores such as toxicity, hallucination, latency, cost, groundedness, retrieval quality, or custom evaluator results.
-- Business context such as product area, customer segment, channel, workflow, policy, or approved application version.
-
-GGX can then combine this with its own registered assets, reports, approval workflows, and monitoring logic.
+- Prompt, response, model, and provider.
+- Retrieval context, tool calls, agent steps, and error details.
+- User feedback, ratings, and session metadata.
+- Existing scores from your observability tool, such as toxicity, hallucination, latency, or cost.
+- Business context such as product area, channel, or application version.
 
 ## Related pages
 
-- [LangSmith](langsmith/)
-- [Arize Phoenix](arize-phoenix/)
-- [Langfuse](langfuse/)
-- [Humanloop](humanloop/)
 - [Datadog](datadog/)
+- [Langfuse](langfuse/)
 - [Weights & Biases](weights-and-biases/)
 - [Fiddler AI](fiddler-ai/)
+- [LangSmith](langsmith/)
+- [Arize Phoenix](arize-phoenix/)
+- [Humanloop](humanloop/)

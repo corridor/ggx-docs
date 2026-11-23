@@ -237,6 +237,7 @@ export default defineConfig({
               },
               { label: "Oversight", slug: "deploy-and-monitor/oversight" },
               { label: "Performance", slug: "deploy-and-monitor/performance" },
+              { label: "Deployment Platforms", slug: "deploy-and-monitor/deploy-platforms" },
               {
                 label: "Annotation Queues",
                 slug: "deploy-and-monitor/annotation-queues",
@@ -309,6 +310,10 @@ export default defineConfig({
                   {
                     label: "Portkey",
                     slug: "integrations/llm-gateways/portkey",
+                  },
+                  {
+                    label: "Apache APISIX",
+                    slug: "integrations/llm-gateways/apache-apisix",
                   },
                   {
                     label: "OpenRouter",
@@ -391,6 +396,7 @@ export default defineConfig({
                   },
                   { label: "MedBAR", slug: "integrations/evaluation-providers/medbar" },
                   { label: "Guardrails AI", slug: "integrations/evaluation-providers/guardrails-ai" },
+                  { label: "Perspective API", slug: "integrations/evaluation-providers/perspective-api" },
                 ],
               },
               {
@@ -404,6 +410,7 @@ export default defineConfig({
                   { label: "Vapi AI", slug: "integrations/agent-studios/vapi-ai" },
                   { label: "Amazon Lex", slug: "integrations/agent-studios/amazon-lex" },
                   { label: "CustomGPT", slug: "integrations/agent-studios/customgpt" },
+                  { label: "Custom agent builder", slug: "integrations/custom-agent-builder" },
                   { label: "Dialogflow CX", slug: "integrations/agent-studios/dialogflow-cx" },
                 ],
               },
@@ -451,6 +458,10 @@ export default defineConfig({
                   { label: "Bitbucket", slug: "integrations/source-control/bitbucket" },
                   { label: "Other Git server", slug: "integrations/source-control/git-server" },
                 ],
+              },
+              {
+                label: "GRC Tools",
+                items: [{ label: "Overview", slug: "integrations/grc-tools" }],
               },
               {
                 label: "IDE Providers",

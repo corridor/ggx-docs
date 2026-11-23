@@ -1,33 +1,19 @@
 ---
 title: "LangSmith"
-description: "Use LangSmith traces with GGX to run judges, human reviews, ground truth promotion, bug tracking, and closed-loop AI monitoring."
+description: "Bring LangSmith traces into GGX annotation queues with a custom ingestion source, as GGX has no built-in LangSmith connection."
 ---
 
-[LangSmith](https://docs.smith.langchain.com/) provides observability for LLM applications, including traces, production metrics, dashboards, alerts, automations, online evaluations, annotation, and user feedback.
+[LangSmith](https://docs.smith.langchain.com/) provides traces, production metrics, online evaluations, annotation, and user feedback for LLM applications.
 
-## How LangSmith fits with GGX
+## What GGX supports
 
-LangSmith is often the first place engineering teams inspect detailed traces for LangChain or other LLM applications. GGX can consume those traces as monitoring evidence and add lifecycle governance around them.
+GGX has no built-in LangSmith connection. LangSmith does not appear under **Org Settings → Integrations**, and it is not one of the built-in **Ingestion Sources** of an annotation queue (those are **Datasets**, **Datadog**, **Langfuse**, **Amazon S3**, and **Custom**).
 
-Use this pattern when:
+## How to bring LangSmith data into GGX
 
-- Engineering teams already instrument production applications with LangSmith.
-- You want business, risk, or compliance reviewers to evaluate selected traces in GGX.
-- You want positive production examples to become ground truth.
-- You want negative examples to become categorized bugs or findings.
-- You want LangSmith monitoring to feed future GGX judges, simulations, and approval evidence.
+- **Custom ingestion source.** Set an annotation queue's **Ingestion Source** to **Custom** and write a Python fetch script that reads from the LangSmith API and returns the records as a table. **Custom** is meant for sources such as internal APIs, warehouses, and data lakes.
+- **Registered dataset.** Export the records, load them into a table, register it as a dataset, and use the **Datasets** ingestion source.
 
-## Trace-to-review workflow
+Keep the credentials for the API in environment variables or integration settings, not in the script.
 
-1. Export or stream LangSmith traces into GGX with prompt, response, model, metadata, evaluator scores, user feedback, and trace links.
-2. Use GGX monitoring rules and judges to prioritize which traces need review.
-3. Route selected traces to GGX human review or annotation queues.
-4. Promote accepted traces to ground truth.
-5. Convert rejected traces into bugs or findings, then categorize recurring failure patterns.
-6. Use reviewed examples to improve GGX judges, reports, and regression test datasets.
-
-## GGX value add
-
-LangSmith helps teams observe and debug LLM behavior. GGX closes the lifecycle loop: monitoring evidence becomes ground truth, bugs, judge calibration data, approval evidence, and deployment guidance.
-
-That makes production monitoring useful for the way teams manage AI systems, not just the way they inspect metrics.
+See [Observability](../) for the review loop that follows, and [Annotation queues](../../../deploy-and-monitor/annotation-queues/) for queue setup.

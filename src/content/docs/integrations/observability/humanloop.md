@@ -1,30 +1,19 @@
 ---
 title: "Humanloop"
-description: "Connect Humanloop logs, evaluations, prompt management, and human feedback workflows to GGX for closed-loop AI lifecycle governance."
+description: "Humanloop is sunset and has no built-in GGX connection; load historical exports through a registered dataset or custom ingestion source."
 ---
 
-[Humanloop](https://humanloop.com/docs) provides LLM evaluation, prompt management, observability, logs, human feedback, and reviewer workflows. Humanloop's documentation notes that the Humanloop platform will be sunset on September 8, 2025, so teams should confirm their current deployment and migration path before building new integrations.
+[Humanloop](https://humanloop.com/docs) provided LLM evaluation, prompt management, logs, and human feedback. Its documentation notes that the platform was sunset on September 8, 2025, so use this only for data you already exported.
 
-## How Humanloop fits with GGX
+## What GGX supports
 
-Humanloop logs and evaluations can provide useful review and product-feedback signals. GGX can ingest those signals and connect them to governed monitoring, ground truth, bug tracking, judge creation, and approval evidence.
+GGX has no built-in Humanloop connection. Humanloop does not appear under **Org Settings → Integrations**, and it is not one of the built-in **Ingestion Sources** of an annotation queue (those are **Datasets**, **Datadog**, **Langfuse**, **Amazon S3**, and **Custom**).
 
-Use this pattern when:
+## How to bring Humanloop data into GGX
 
-- Historical Humanloop logs contain useful production examples.
-- Humanloop human feedback or evaluator results should be preserved in GGX.
-- Your team is migrating review workflows into GGX.
-- You want production review outcomes to feed ongoing GGX monitoring and evaluation.
+- **Custom ingestion source.** Set an annotation queue's **Ingestion Source** to **Custom** and write a Python fetch script that reads from the Humanloop API and returns the records as a table. **Custom** is meant for sources such as internal APIs, warehouses, and data lakes.
+- **Registered dataset.** Export the records, load them into a table, register it as a dataset, and use the **Datasets** ingestion source.
 
-## Trace-to-review workflow
+Keep the credentials for the API in environment variables or integration settings, not in the script.
 
-1. Export Humanloop logs, prompts, evaluation results, user feedback, reviewer labels, and metadata.
-2. Import the records into GGX monitoring or datasets.
-3. Run GGX judges to triage which records need human review.
-4. Promote positive reviews to ground truth.
-5. Convert negative reviews into bugs or findings with failure categories.
-6. Use the resulting examples to create or improve GGX judges, reports, and simulations.
-
-## GGX value add
-
-Humanloop-style feedback loops are strongest when they affect future development and deployment decisions. GGX keeps that loop active: monitoring evidence becomes test data, judge calibration, bug categories, approval evidence, and deployment guidance in one lifecycle.
+See [Observability](../) for the review loop that follows, and [Annotation queues](../../../deploy-and-monitor/annotation-queues/) for queue setup.

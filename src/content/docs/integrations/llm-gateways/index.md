@@ -77,9 +77,28 @@ return {
 - [TrueFoundry AI Gateway](truefoundry-ai-gateway/)
 - [Vercel AI Gateway](vercel-ai-gateway/)
 - [Kong AI Gateway](kong-ai-gateway/)
+- [Apache APISIX](apache-apisix/)
 - [Envoy AI Gateway (Agent Router)](envoy-ai-gateway/)
 - [Gloo AI Gateway](gloo-ai-gateway/)
 - [Azure API Management](azure-api-management/)
+
+## Other OpenAI-compatible gateways
+
+If your gateway has no page above, connect it as an **Other OpenAI-compatible gateway**.
+
+1. Open **Org Settings → Integrations → LLM Gateways**, find **Other OpenAI-compatible gateway**, and click **Add**.
+2. Enter a **Name**. It shows in the integrations list and in the model picker.
+3. Enter the **Base URL**: the full address of the OpenAI-compatible API, with any path, such as `https://gateway.example.com/v1`. A **Path prefix (optional)** is added to it.
+4. Enter the **API key** and the **Header of the API key** your gateway reads. The key is optional: without it GGX sends no credential, which suits a gateway that holds the provider key or needs none. The **Scheme** is the word before the value, such as `Bearer`; use `none` to send the value alone. Use **Add another secret header** for more.
+5. Optionally add **Extra headers** that are not secret, for example to route or to name a team. Credentials belong in the secret headers.
+6. Optionally add **Body fields**: a JSON object merged into every request, for gateway options such as routing or caching. It cannot set the model, messages, stream, or tools.
+7. For a gateway with a private certificate, paste its authority under **Custom CA certificate (optional)**. GGX checks it as well as the usual authorities and never turns verification off.
+8. Add the models. Enter the **Model list path** (such as `/models`) and select **Fetch models**, or type the **Model names**, one per line, exactly as the gateway writes them. They appear in the model picker under the gateway's name.
+9. Select **Test connection**, then save. A gateway that is not **Enabled** is not offered and not used.
+
+## Gateways per project
+
+Gateways are set up for the organization, and a project can adjust them in **Project Settings → Integrations**. A gateway of the organization shows as **Inherited**, or **Overridden** when the project has its own configuration of it. In the dialog, **Inherit from Org Settings** is on by default. Turn it off to give the project its own address and credentials: the project does not share the credentials of the organization, so enter the ones it needs. A project can also add a gateway the organization does not have. That gateway belongs to the project alone.
 
 ## What GGX adds on top of an LLM gateway
 
