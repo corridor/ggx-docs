@@ -446,6 +446,10 @@ export default defineConfig({
                 items: [
                   { label: "Overview", slug: "integrations/source-control" },
                   { label: "GitHub", slug: "integrations/source-control/github" },
+                  { label: "GitHub Enterprise Server", slug: "integrations/source-control/github-enterprise-server" },
+                  { label: "GitLab", slug: "integrations/source-control/gitlab" },
+                  { label: "Bitbucket", slug: "integrations/source-control/bitbucket" },
+                  { label: "Other Git server", slug: "integrations/source-control/git-server" },
                 ],
               },
               {

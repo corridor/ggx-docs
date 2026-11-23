@@ -35,9 +35,58 @@ Registries live under **Data & AI Assets** in each project. **Datasets**, **Agen
 
 ## Code Repos
 
-**Code Repos** are Git repositories hosted in GGX that hold the code your agents run. Click **Create** for a new repository, **Clone** to bring in an existing one, or **More providers** for other Git hosts. An agent of type **Code Repo** runs the latest commit of the branch you choose, so new commits reach the agent without saving it again.
+**Code Repos** are Git repositories hosted in GGX that hold the code your agents run. Click **Create** for a new repository, **Clone** to bring in an existing one from GitHub, or **More providers** for other Git hosts. An agent of type **Code Repo** runs the latest commit of the branch you choose, so new commits reach the agent without saving it again.
 
 ![Code Repos: a repository with its default branch](./code-repos-list.jpg)
+
+### Where you can clone from
+
+| Provider | Hosts | Set up in |
+| --- | --- | --- |
+| [GitHub](../../integrations/source-control/github/) | github.com | **My Account → Integrations** |
+| [GitHub Enterprise Server](../../integrations/source-control/github-enterprise-server/) | A GitHub server your organization runs | **Org Settings → Integrations** |
+| [GitLab](../../integrations/source-control/gitlab/) | gitlab.com or a self-managed GitLab | **Org Settings → Integrations** |
+| [Bitbucket](../../integrations/source-control/bitbucket/) | Bitbucket Cloud | **Org Settings → Integrations** |
+| [Other Git server](../../integrations/source-control/git-server/) | Any Git server over HTTPS or SSH | **Org Settings → Integrations** |
+
+In **More providers**, a provider your administrator has not turned on shows **Not enabled yet**. Organization administrators get a **Set up** button there. Each person connects their own account, and GGX uses it to clone, sync, and push. Cloning brings in the branches and commit history.
+
+### Clone and sync
+
+A large repository can take several minutes to clone. You can leave the page: the files open once the clone is ready. If a clone fails, the repository shows **The repository could not be cloned** with the reason, and **Try again** repeats it.
+
+In the repository, the sync button pulls new commits from the remote. Next to it, a count shows how many commits the branch is behind or ahead of the remote, and a separate marker shows that the branch has diverged.
+
+### Use a Code Repo as an agent
+
+Create an agent of type **Code Repo** and choose:
+
+1. **The Code Repo.** Use the reload button if you added one a moment ago.
+2. **The branch.** It starts as the default branch. Each chat message runs the commit the branch is at when the message is sent.
+3. **The agent.** GGX looks for agents in the branch. Choose one under **Pick from detected agents**, or choose **Provide manually**.
+
+When you pick an agent, GGX fills in three fields that you can edit:
+
+- **Python path**: the folders of the repository that code is imported from, relative to its root, separated by `:` as in `PYTHONPATH`. The first folder that has a module wins. GGX detects a starting value: the folder the agent's module is imported from, then the folder of the project it belongs to (the closest one with a `pyproject.toml`), then the folders of other packages in the repository such as a shared library. **Use the detected one** puts it back. Empty means the root of the repository.
+- **Import statement**: how Python imports the agent, in the form `from <module> import <agent>`, such as `from my_pkg.agent import graph`.
+- **Framework**: the agent framework. It is required.
+
+GGX reads the Python files of the repository without importing or running them. Agents that it finds but cannot run are marked **not supported yet**.
+
+#### Supported agent frameworks
+
+GGX can run agents built with these ten frameworks:
+
+- LangChain
+- LangGraph
+- Deep Agents
+- OpenAI Agents
+- Google ADK
+- Strands Agents
+- Claude Agent SDK
+- CrewAI
+- AutoGen
+- Pydantic AI
 
 ## How Platform Helps in Managing Inventories?
 
