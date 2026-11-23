@@ -19,7 +19,7 @@ After the development of GenAI agents, it is important to have a set of review p
 
 ## Registering approval workflows
 
-Approval workflows are created and edited in **Org Settings** by anyone with the right authority (mainly the Admin and Master roles). Each workflow applies to the object types you choose.
+Approval workflows are created and edited in **Org Settings** by organization administrators (the **Organization Admin** organization permission). Other users can view them. Each workflow applies to the object types you choose.
 
 1. Open the profile menu at the bottom left, choose **Org Settings**, then **Approval Workflows**.
 2. Click **Create**.
