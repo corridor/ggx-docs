@@ -126,3 +126,20 @@ aws_region = os.getenv("AWS_DEFAULT_REGION")
 * Use "Test Connection" to verify your API keys
 * Check provider documentation for API key setup
 * Ensure proper permissions for your API keys
+
+## More integrations
+
+| Integration | What it does |
+| --- | --- |
+| [Deepseek](deepseek/) | Connect Deepseek as an LLM provider in GGX. |
+| [Groq](groq/) | Connect Groq as an LLM provider in GGX. |
+| [Together AI](together-ai/) | Connect Together AI as an LLM provider in GGX. |
+| [Fireworks AI](fireworks-ai/) | Connect Fireworks AI as an LLM provider in GGX. |
+| [Mistral AI](mistral-ai/) | Connect Mistral AI as an LLM provider in GGX. |
+| [Cohere](cohere/) | Connect Cohere as an LLM provider in GGX. |
+| [xAI](xai/) | Connect xAI as an LLM provider in GGX. |
+| [Ollama](ollama/) | Connect Ollama as an LLM provider in GGX. |
+| [vLLM](vllm/) | Connect vLLM as an LLM provider in GGX. |
+| [LM Studio](lm-studio/) | Connect LM Studio as an LLM provider in GGX. |
+| [Meta (Llama)](meta-llama/) | Connect Meta (Llama) as an LLM provider in GGX. |
+| [TypeSafe AI](typesafe-ai/) | Connect TypeSafe AI as an LLM provider in GGX. |

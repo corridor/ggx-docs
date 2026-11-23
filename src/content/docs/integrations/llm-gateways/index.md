@@ -71,6 +71,15 @@ return {
 - [OpenRouter](openrouter/)
 - [Cloudflare AI Gateway](cloudflare-ai-gateway/)
 - [Databricks AI Gateway](databricks-ai-gateway/)
+- [NVIDIA NIM](nvidia-nim/)
+- [GitHub Models](github-models/)
+- [Helicone AI Gateway](helicone-ai-gateway/)
+- [TrueFoundry AI Gateway](truefoundry-ai-gateway/)
+- [Vercel AI Gateway](vercel-ai-gateway/)
+- [Kong AI Gateway](kong-ai-gateway/)
+- [Envoy AI Gateway (Agent Router)](envoy-ai-gateway/)
+- [Gloo AI Gateway](gloo-ai-gateway/)
+- [Azure API Management](azure-api-management/)
 
 ## What GGX adds on top of an LLM gateway
 

@@ -130,3 +130,7 @@ result = content_analyzer(
 - Check Gemini model specifications
 - Monitor usage and costs through Google Cloud Console
 - Set up billing alerts for cost management
+
+## GenGuardX on Google Cloud
+
+GenGuardX is listed on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/corridorgenguardx-public/corridorggx).

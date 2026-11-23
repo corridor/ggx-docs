@@ -163,3 +163,7 @@ result = document_analyzer(
 - Check [supported foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
 - Monitor usage through AWS Console
 - Set up cost management and billing alerts
+
+## GenGuardX on AWS
+
+GenGuardX is listed on [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wp7rj5r7vf33u).

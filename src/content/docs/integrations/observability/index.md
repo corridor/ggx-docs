@@ -1,6 +1,6 @@
 ---
 title: "Observability"
-description: "Connect AI observability traces from LangSmith, Arize Phoenix, Langfuse, Humanloop, and Datadog to GGX for judges, human review, and ground truth."
+description: "Connect AI observability traces from LangSmith, Arize Phoenix, Langfuse, Humanloop, Datadog, Weights & Biases, and Fiddler AI to GGX for judges, human review, and ground truth."
 ---
 
 AI observability tools help teams collect traces, inspect runs, measure latency and cost, evaluate outputs, and understand production behavior. GGX can sit alongside these tools by connecting their traces into the GGX monitoring and review workflow.
@@ -16,6 +16,8 @@ The benefit is not just another dashboard. GGX helps make the AI lifecycle seaml
 | [Langfuse](langfuse/) | Open-source LLM observability, prompt management, evaluations, dashboards, and annotation queues. | Connect traces and scores to GGX so monitoring outcomes can become ground truth, bugs, and approval evidence. |
 | [Humanloop](humanloop/) | Evaluation, prompt management, observability, human feedback, and production log review. | Import logs and review outcomes into GGX for governed SME review, judge creation, and lifecycle evidence. |
 | [Datadog LLM Observability](datadog/) | Monitor LLM applications alongside broader infrastructure, APM, logs, and security telemetry. | Connect LLM traces or incidents to GGX so AI-specific quality review feeds testing, approvals, and remediation workflows. |
+| [Weights & Biases](weights-and-biases/) | Experiment tracking, monitoring, and observability for AI workloads. | Connect with an API key in Org Settings so W&B can be used from GGX workflows. |
+| [Fiddler AI](fiddler-ai/) | Model observability to monitor, explain, and improve AI systems. | Connect with an API key and instance URL in Org Settings. |
 
 ## What GGX adds
 
@@ -51,3 +53,5 @@ GGX can then combine this with its own registered assets, reports, approval work
 - [Langfuse](langfuse/)
 - [Humanloop](humanloop/)
 - [Datadog](datadog/)
+- [Weights & Biases](weights-and-biases/)
+- [Fiddler AI](fiddler-ai/)
