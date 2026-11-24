@@ -29,11 +29,13 @@ A deployment's response is read back from the Python kernel that runs it, and a 
 
 ## Exporting the production artifact
 
-To deploy an approved agent, open it and use the **⋮** menu: **Deploy** records a new deployment, and **Export As Python Code** downloads the locked artifact for your own pipeline.
+To deploy an approved agent, open it and use the **⋮** menu: **Deploy** opens the steps for deploying it to a platform, and **Export As Python Code** downloads the locked artifact for your own pipeline.
 
 ### Deploy bundle for a platform
 
 **Deploy** opens the **Deploy agent** dialog, where you choose a platform. GGX builds a bundle for that platform. [Deployment platforms](../deploy-platforms/) lists the platforms and how administrators turn them on or off. Platforms disabled for your organization or project appear under **Disabled** with the reason, and cannot be chosen.
+
+![The Deploy agent dialog listing 75 platforms in tabs (Popular, Agent runtimes, Hosting, Model serving, Workflows, Notebooks and apps) with a search box](./deploy-agent-platforms.jpg)
 
 After you choose a platform the dialog shows:
 
@@ -42,6 +44,8 @@ After you choose a platform the dialog shows:
 - **Download the bundle**: a zip with the agent's code, the files the platform needs and a README with the steps. **Download** saves it.
 - **View**: opens the zip in a preview dialog so you can read every file before you download. For **Databricks Agent Runtime**, **View** opens **Files of the app** instead.
 - The steps, with the most direct way first (**Most direct**) and fallbacks below it (**If that does not work**). Commands are ready to copy.
+
+![The Docker view of the Deploy agent dialog, showing the keys the agent needs, a Download button for the zip bundle with a View button, and the first step marked Most direct](./deploy-agent-docker.jpg)
 
 Some steps contain values only you know, such as a region or an account ID. They are highlighted. Select one, type the value and choose **Use this value**: it is filled into the steps and into the files of the next download or preview. If you fill in values after downloading, the dialog tells you to download again so the files have them too.
 

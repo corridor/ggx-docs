@@ -36,6 +36,8 @@ ServiceNow IRM is separate from the ServiceNow issue tracker. They are different
 4. Select **Test Connection**. GGX makes a real sign-in request to the vendor. The test passes only when the vendor answers with a token or a successful response.
 5. Select **Save**.
 
+![The Vanta Integration dialog with a collapsible Set up guide, empty Client ID and Client secret fields, a Scope list, and Test Connection, Close and Save buttons](./vanta-integration.jpg)
+
 ## Notes
 
 - Secrets are write-only. GGX encrypts them and never shows them again. Leave a secret empty to keep the saved one.

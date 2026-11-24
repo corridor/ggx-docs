@@ -14,6 +14,8 @@ Use **Other Git server** when your code is on a Git host that GGX has no dedicat
 
 Open **Org Settings → Integrations → Source Control** and select **Other Git server**. GGX reaches only the hosts you list, so a user cannot make GGX fetch another address.
 
+![The Other Git server dialog with an Allowed hosts box, an SSH host keys box and a Private certificate authority box, each showing example values as placeholders, and Close and Save buttons](./git-server-dialog.jpg)
+
 1. Under **Allowed hosts**, enter one host per line: the name and, if it is not the default, the port (443 for HTTPS, 22 for SSH). Leave it empty to turn the option off. Private addresses are fine: list them if your server is on your own network.
 2. For SSH, add the server's public keys under **SSH host keys**. GGX connects only to a host whose key is listed and refuses it if the key changes. The dialog shows how to get the keys with `ssh-keyscan`. Compare the fingerprints with the ones your server administrator publishes.
 3. If your HTTPS servers use a certificate from a private authority, paste it under **Private certificate authority**. GGX always verifies certificates. This adds an authority and never turns verification off.
