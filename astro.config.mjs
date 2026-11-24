@@ -406,20 +406,8 @@ export default defineConfig({
                     slug: "integrations/observability",
                   },
                   {
-                    label: "LangSmith",
-                    slug: "integrations/observability/langsmith",
-                  },
-                  {
-                    label: "Arize Phoenix",
-                    slug: "integrations/observability/arize-phoenix",
-                  },
-                  {
                     label: "Langfuse",
                     slug: "integrations/observability/langfuse",
-                  },
-                  {
-                    label: "Humanloop",
-                    slug: "integrations/observability/humanloop",
                   },
                   {
                     label: "Datadog",

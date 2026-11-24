@@ -1,6 +1,6 @@
 ---
 title: "Observability"
-description: "Bring production traces into GGX annotation queues from Datadog or Langfuse, connect Weights & Biases and Fiddler AI, and move other tools' traces in with a custom source."
+description: "Bring production traces into GGX annotation queues from Datadog or Langfuse, connect Weights & Biases and Fiddler AI, and bring other tools' traces in with a custom source."
 ---
 
 AI observability tools collect traces, latency, cost, and scores from production. GGX turns that signal into review: traces become annotation queue items, review outcomes become ground truth, and common failures become categorized bugs.
@@ -15,9 +15,6 @@ How a tool connects depends on the tool.
 | [Langfuse](langfuse/) | A built-in **Ingestion Source** of an annotation queue. GGX fetches observations with your Langfuse host and keys. |
 | [Weights & Biases](weights-and-biases/) | An organization integration under **Observability**. Add an API key and, for a dedicated deployment, a base URL. |
 | [Fiddler AI](fiddler-ai/) | An organization integration under **Observability**. Add an API key and your Fiddler URL. |
-| [LangSmith](langsmith/) | No built-in connection. Bring traces in with the **Custom** ingestion source or a registered dataset. |
-| [Arize Phoenix](arize-phoenix/) | No built-in connection. Bring traces in with the **Custom** ingestion source or a registered dataset. |
-| [Humanloop](humanloop/) | No built-in connection. Humanloop is sunset: only historical exports apply. |
 
 ## Bring traces into an annotation queue
 
@@ -47,6 +44,3 @@ Bring enough context for review and fixes:
 - [Langfuse](langfuse/)
 - [Weights & Biases](weights-and-biases/)
 - [Fiddler AI](fiddler-ai/)
-- [LangSmith](langsmith/)
-- [Arize Phoenix](arize-phoenix/)
-- [Humanloop](humanloop/)
