@@ -30,6 +30,7 @@ Every message, rating and comment is saved immediately. Sessions are listed unde
 - Rate each answer with 👍 or 👎. A 👎 asks for a reason and a comment.
 - Add comments to any message, copy it, or open its menu for more options.
 - When you are done, click **Review Session** to record an overall rating and testing notes. Once a session has ended, its chat is read only.
+- In **Testing Notes**, write rich text and attach files, so that files made during the review stay with the session. Type `/` and choose **File** to upload a file, or drop or paste a file into the notes. Images show inline and other files appear as links.
 
 ![A completed test session: the reviewer's messages, the agent's answers, and a thumbs-down with a comment on the last answer](./test-session-chat.jpg)
 
@@ -41,6 +42,10 @@ The panel on the left has two views:
 ![The Information panel of a session: agent version, feedback portal, feedback summary with the reviewer's comment, and the models, agents and prompts in use](./test-session-information.jpg)
 
 The **⋮** menu at the top right of a session offers **Debug Mode**, **Edit Session**, **View Events**, **Download Transcript** and **Delete Session**. A session can be run again against the agent; the **Run** selector shows which run you are looking at.
+
+### Fork a chat
+
+In a session that belongs to a [Feedback Portal](../feedback-portals/), choose **Fork Chat** in the **⋮** menu to start a new chat with the same history, so you can take the conversation another way from that point. It needs write access, and is disabled while a comparison is open or the agent is still answering. The fork is named `[Fork]` followed by the original name, and a divider in the chat marks where the copied messages end, with a link back to the original. If the portal has processing logic, it receives the ids of the chat; see [Processing logic](../feedback-portals/#processing-logic).
 
 ## Benefits
 

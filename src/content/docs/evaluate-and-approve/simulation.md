@@ -26,7 +26,8 @@ A simulation job holds:
     - **Upload Custom Data**: provide your own data for this evaluation.
 
     The form lists the columns the data must contain, for example `user_message`, `context` and `history` for a chat agent.
-7. Click **Add Additional Evaluation** to run more reports in the same job, then click **Run Job**.
+7. Click **Add Additional Evaluation** to run more reports in the same job. If several evaluations use the same agent and data, they can share one run: see [Reuse the output of another evaluation](../rerun-reports/#reuse-the-output-of-another-evaluation).
+8. Click **Run Job**.
 
 ![The Run Job form for a Simulation: description, execution concurrency and timeout, and Evaluation #1 with its report, evaluation type and data source](./run-job-form.jpg)
 
@@ -44,8 +45,8 @@ Each report tab is a dashboard of figures. Figures can carry a target line and a
 
 From the job page you can:
 
-- **Rerun** the job with the same configuration, for example on a new version of the object.
-- **Hillclimb**: swap one of the attached models and compare against this job. See [Hillclimb](../comparison/#hillclimb-swap-a-model-and-compare).
+- **Rerun** the job with the same configuration, for example on a new version of the object. To run only the reports again on the existing output, or one report as a new attempt, see [Rerun reports and attempts](../rerun-reports/).
+- **Hillclimb**: change prompts, models or the Code Repo branch and compare against this job. See [Hillclimb](../comparison/#hillclimb-change-an-agent-and-compare).
 - **Compare with other Simulation** (in the **⋮** menu): open this job side by side with another run.
 - Pin the job so that it stays at the top of the **Evaluations** page and the object's **Jobs** tab.
 

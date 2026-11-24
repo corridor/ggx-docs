@@ -51,8 +51,8 @@ To start an evaluation, open the agent (or prompt, model, RAG or report) under *
 | Run option | What it does | Page |
 | --- | --- | --- |
 | **Simulation** | Runs the object on a dataset and computes one or more reports on its output. | [Simulation](simulation/) |
-| **Comparison** | Runs the object and its challengers on the same data and reports, side by side. | [Comparison](comparison/#how-to-run-a-comparison) |
-| **Hillclimb** | Swaps one or more attached models and compares the result with a baseline job. | [Hillclimb](comparison/#hillclimb-swap-a-model-and-compare) |
+| **Comparison** | Opens two completed jobs side by side. | [Comparison](comparison/#how-to-run-a-comparison) |
+| **Hillclimb** | Changes prompts, attached models or the Code Repo branch and compares the result with a baseline job. | [Hillclimb](comparison/#hillclimb-change-an-agent-and-compare) |
 | **Start Chat** | Opens a human test session with the agent. | [Human Integrated Testing](human-testing/) |
 
 ## Introduction to Jobs

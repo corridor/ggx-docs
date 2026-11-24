@@ -3,45 +3,47 @@ title: "Comparisons"
 description: "Compare GGX objects against challengers using shared datasets, selected metrics, automated reports, and side-by-side results for model and agent evaluation."
 ---
 
-GGX can compare registered objects on the same task, with standard and customized metrics, so you can quickly pick the best of several candidates. There are two ways to compare:
+GGX can compare results on the same task, with standard and customized metrics, so you can quickly pick the best of several candidates. There are two ways to compare:
 
-- **Comparison** runs the current object and one or more challenger objects on the same data and reports.
-- **Hillclimb** keeps the agent as it is but swaps one or more of its attached models, then compares the result with a baseline job.
+- **Comparison** opens two completed jobs side by side. It does not run a new job.
+- **Hillclimb** keeps the agent as it is but changes its prompts, one or more of its attached models, or the Code Repo branch it runs, and compares the result with a baseline job.
 
-A comparison typically involves:
-
-- **Current object:** the object you start from.
-- **Challenger objects:** objects of the same type (models with models, prompts with prompts, agents with agents).
-- **Data source:** the data that every object is evaluated on.
-- **Reports and metrics:** the evaluations to compare.
-
-> **Note:** Use **Copy** or **Clone** on an object to create a challenger quickly, then change its definition or swap components such as models, prompts or processing.
+> **Note:** Use **Copy** or **Clone** on an object to create a challenger quickly, then change its definition or swap components such as models, prompts or processing. Run a [Simulation](../simulation/) of each, then compare the two jobs.
 
 ## How to run a Comparison
 
-1. Register the object and its challenger versions on the platform.
+1. Run a [Simulation](../simulation/) for each version you want to compare and wait for both to be **COMPLETED**.
 2. Open the object's page and click **Run → Comparison**.
-3. Add a **Description** of the comparison.
-4. In **Dependencies**, check the current object and select the challenger objects to compare it with.
-5. Configure **Evaluation #1** as for a [Simulation](../simulation/#how-to-run-a-simulation): the report, the evaluation type (**Single Turn** or **Multi Turn**) and the data source. Add more evaluations if needed.
-6. Click **Run Job** and wait for the job to complete.
+3. In **Comparison Configuration**, answer **Do you have 2 completed jobs to compare?** with **Yes**. If you answer **No**, click **Run a Job** to start a Simulation first.
+4. Choose the **Left Job** and the **Right Job**. They must be different jobs.
+5. Click **Start Comparison**.
 
-A submitted job moves from **NEW** through **COMPILING**, **QUEUED** and **RUNNING**, and stops at **COMPLETED** or **FAILED**.
+You can also open a completed job, click **⋮ → Compare with other Simulation** and choose the job to compare it with. Choose **Stop Comparison** from the same menu to go back.
 
-## Hillclimb: swap a model and compare
+## Hillclimb: change an agent and compare
 
-**Hillclimb** answers questions like *"Can we move to a lighter model without losing quality?"*. It runs the same evaluations as a baseline job with one or more of the agent's attached models replaced.
+**Hillclimb** answers questions like *"Can we move to a lighter model without losing quality?"* or *"Does this prompt do better?"*. It reruns the baseline job's evaluations with the changes you make. It is available for agents.
 
 1. Run a [Simulation](../simulation/) of the agent as it is. This is the baseline.
-2. Open that job and click **Hillclimb**, or click **Run → Hillclimb** on the agent.
-3. In **Dependencies**, under **Models**, replace any attached model with the challenger model.
+2. Click **Run → Hillclimb** on the agent, answer **Do you have a base job?** with **Yes**, choose the completed job and click **Start Hillclimb**. If you answer **No**, click **Run base Job** to create one first. You can also open a completed job and click **Hillclimb**.
+3. Make one or more changes in the panels below.
 4. Keep the same evaluations and data, and click **Run Job**.
+
+### What you can change
+
+| Panel | What you can do |
+| --- | --- |
+| **Models** | Replace any attached model with another model from the catalogue. Click **Revert** on one model, or **Revert All**. The panel only appears when the agent has attached models. |
+| **Code Repo** | For an agent that runs code from a Code Repo: choose another branch to run. The job runs the commit the branch is at when it starts. The panel shows **Branch changed** until you click **Revert**. |
+| **Prompts** | Edit the text of any prompt the agent uses. Click **Add prompt** to include another prompt, the sync icon to reset a prompt to its registered text, and the trash icon to remove it. |
+
+These changes apply to this job only. They do not change the registered agent, model or prompt.
 
 The results open side by side with the baseline, report by report, so a metric that moved is easy to spot. Use the selector at the top to choose which job to compare against.
 
 ![Hillclimb results: the baseline and the lighter-model run side by side, with the probes below their target in red](./hillclimb-side-by-side.jpg)
 
-The Job Details of a hillclimb job list the models that were replaced, for example *1 model · 1 replaced*.
+The Job Details of a hillclimb job list the models that were replaced, for example *1 model · 1 replaced*. On a finished hillclimb job, the prompts show as a difference against the registered text.
 
 All comparison and hillclimb jobs are recorded on the platform, shown on the object's **Jobs** tab and under **Human Integrated Testing → Evaluations → Batch**, and can be exported as part of the automated documentation.
 

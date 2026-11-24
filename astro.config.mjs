@@ -215,6 +215,7 @@ export default defineConfig({
             items: [
               { label: "Overview", slug: "evaluate-and-approve" },
               { label: "Simulation", slug: "evaluate-and-approve/simulation" },
+              { label: "Rerun reports and attempts", slug: "evaluate-and-approve/rerun-reports" },
               { label: "Comparison", slug: "evaluate-and-approve/comparison" },
               { label: "Reporting", slug: "evaluate-and-approve/reporting" },
               {
@@ -227,7 +228,15 @@ export default defineConfig({
               },
               {
                 label: "Feedback Portals",
-                slug: "evaluate-and-approve/feedback-portals",
+                items: [
+                  { label: "Overview", slug: "evaluate-and-approve/feedback-portals" },
+                  { label: "Generate tests with Corra", slug: "evaluate-and-approve/feedback-portals/test-generation" },
+                  { label: "Testing plan", slug: "evaluate-and-approve/feedback-portals/testing-plan" },
+                ],
+              },
+              {
+                label: "Get feedback from an expert",
+                slug: "evaluate-and-approve/get-feedback-from-expert",
               },
               {
                 label: "Risk Assessment",
