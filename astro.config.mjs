@@ -260,6 +260,21 @@ export default defineConfig({
             ],
           },
           {
+            label: "Corra AI",
+            link: "/corra/",
+            icon: "star",
+            items: [
+              { label: "Overview", slug: "corra" },
+              { label: "Chat and activity", slug: "corra/chat-and-activity" },
+              { label: "Write descriptions", slug: "corra/write-descriptions" },
+              { label: "Fill a risk assessment", slug: "corra/fill-risk-assessments" },
+              { label: "Generate portal tests", slug: "corra/generate-portal-tests" },
+              { label: "Discuss issues and tweak results", slug: "corra/discuss-and-tweak" },
+              { label: "Create a project", slug: "corra/create-a-project" },
+              { label: "Corra MCP settings", slug: "corra/corra-mcp" },
+            ],
+          },
+          {
             label: "Integrations",
             link: "/integrations/",
             icon: "puzzle",
