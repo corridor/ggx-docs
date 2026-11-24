@@ -51,6 +51,8 @@ Record the deployment afterwards under **Risk & Compliance → Deployments** so 
 
 **Export As Python Code** opens a dialog with a short code sample that calls the agent, and the exported code of the agent. Tick **Hide Decorators** to comment out the GGX decorators in the code, and choose **Download ZIP** to save the files. Use this for a pipeline of your own, when none of the platforms fits.
 
+![The Export Pipeline dialog for an approved agent, with a one-line code sample that calls the agent, the exported Python code with its dependency list, a Hide Decorators checkbox and a Download ZIP button](./export-python-code.jpg)
+
 Typically, production execution environments are kept separate and managed to ensure 100% uptime as these are mission-critical systems for organizations.
 
 To tackle the air gap that these systems require - all analytics registered on the platform can be exported out from the system to be put into a Production Execution Environment. These production artifacts are locked to ensure they are not tampered with when they are promoted to production. And there is **NO extra dependency** required on the production side from GGX - i.e. there is no requirement for a license key or a GGX installation in production!
