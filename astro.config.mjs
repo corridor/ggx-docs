@@ -163,6 +163,10 @@ export default defineConfig({
                 slug: "register-and-refine/lineage-tracking",
               },
               {
+                label: "Project Templates",
+                slug: "register-and-refine/project-templates",
+              },
+              {
                 label: "Prompt Optimization",
                 slug: "register-and-refine/prompt-optimization",
               },

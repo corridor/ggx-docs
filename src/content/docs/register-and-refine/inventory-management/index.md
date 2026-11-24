@@ -33,6 +33,18 @@ Registries live under **Data & AI Assets** in each project. **Datasets**, **Agen
 
 ![Data & AI Assets with all registries shown in the sidebar, and the Agents page grouped into folders](./assets-registries.jpg)
 
+## Pin an object to the top of a list
+
+Pin the objects you use most so they stay at the top of their list. If you have write access, right-click a row and choose **Pin** followed by the object type as the app names it, for example **Pin Data Table**. A pinned object shows as a card above the list, with its status, its creator and when it was modified, and it stays in its group in the list below. Cards respect the search and filters, so a filter that hides a pinned object hides its card too.
+
+To remove a pin, right-click the row or open the menu on the card and choose **Unpin** followed by the object type, for example **Unpin Data Table**. The card menu also has options to open the object in a new tab and to copy its link. When more than four objects are pinned, the button **Show all** with the count shows the rest.
+
+Pinning changes only how the list looks. It does not count as an edit, so **Last modified** and the change history stay as they were.
+
+## Agent icon
+
+Give an agent a logo or an icon so it is easy to spot in the **Agents** list and in the agent switcher. On the agent's **Details** tab, in edit mode, click the icon button next to the **Name** field. The picker has a search box and two groups: **Providers** (logos of model providers) and **Icons** (neutral icons). Click **Reset to default** to remove your choice. An agent without an icon shows the logo of its provider, or the default agent icon.
+
 ## Code Repos
 
 **Code Repos** are Git repositories hosted in GGX that hold the code your agents run. Click **Create** for a new repository, **Clone** to bring in an existing one from GitHub, or **More providers** for other Git hosts. An agent of type **Code Repo** runs the latest commit of the branch you choose, so new commits reach the agent without saving it again.
