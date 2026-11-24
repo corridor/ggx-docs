@@ -511,6 +511,19 @@ export default defineConfig({
                 items: [
                   { label: "Overview", slug: "integrations/ide" },
                   { label: "JupyterHub", slug: "integrations/ide/jupyterhub" },
+                  { label: "Google Colab", slug: "integrations/ide/google-colab" },
+                  { label: "Visual Studio Code", slug: "integrations/ide/visual-studio-code" },
+                  { label: "GitHub Codespaces", slug: "integrations/ide/github-codespaces" },
+                ],
+              },
+              {
+                label: "Single Sign-On (SAML)",
+                items: [
+                  { label: "Overview", slug: "integrations/sso" },
+                  { label: "Google Workspace", slug: "integrations/sso/google-workspace" },
+                  { label: "Auth0 by Okta", slug: "integrations/sso/auth0" },
+                  { label: "OneLogin", slug: "integrations/sso/onelogin" },
+                  { label: "Microsoft Entra ID", slug: "integrations/sso/microsoft-entra-id" },
                 ],
               },
               {
