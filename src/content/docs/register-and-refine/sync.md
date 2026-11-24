@@ -9,6 +9,10 @@ The GGX Sync system enables you to programmatically manage and version-control y
 
 ---
 
+To read objects, datasets and results back from Python, see the [Python SDK reference](../../developers/sdk/).
+
+---
+
 ## What Can Be Synced?
 
 GGX Sync supports six core component types:

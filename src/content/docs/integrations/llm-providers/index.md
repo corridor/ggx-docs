@@ -54,6 +54,10 @@ These services are listed under **LLM Gateways** in the catalog:
 
 For routing gateways such as LiteLLM, Portkey, OpenRouter, Cloudflare AI Gateway and Databricks AI Gateway, see [LLM Gateways](../llm-gateways/).
 
+## What else uses these integrations
+
+An integration serves two purposes. Your model code can read its environment variables, as described below. GGX also calls the connected providers and gateways itself, for Corra, the judge of annotation queues, the issue finder of annotation queues, and the automatic chats of feedback portals and simulations. A gateway that is not **Enabled** is not used. A project can override a gateway of the organization, or add one of its own. See [LLM Gateways](../llm-gateways/#gateways-per-project).
+
 ## Using environment variables
 
 Once an integration is saved, its environment variables are available in your model code:

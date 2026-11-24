@@ -31,6 +31,26 @@ A deployment's response is read back from the Python kernel that runs it, and a 
 
 To deploy an approved agent, open it and use the **⋮** menu: **Deploy** records a new deployment, and **Export As Python Code** downloads the locked artifact for your own pipeline.
 
+### Deploy bundle for a platform
+
+**Deploy** opens the **Deploy agent** dialog, where you choose a platform. GGX builds a bundle for that platform. [Deployment platforms](../deploy-platforms/) lists the platforms and how administrators turn them on or off. Platforms disabled for your organization or project appear under **Disabled** with the reason, and cannot be chosen.
+
+After you choose a platform the dialog shows:
+
+- **What you need**: the prerequisites for the platform.
+- **Keys this agent needs**: the environment variables the agent reads, such as provider keys. Have them ready. GGX never puts your keys in the bundle. The steps show where to paste each one.
+- **Download the bundle**: a zip with the agent's code, the files the platform needs and a README with the steps. **Download** saves it.
+- **View**: opens the zip in a preview dialog so you can read every file before you download. For **Databricks Agent Runtime**, **View** opens **Files of the app** instead.
+- The steps, with the most direct way first (**Most direct**) and fallbacks below it (**If that does not work**). Commands are ready to copy.
+
+Some steps contain values only you know, such as a region or an account ID. They are highlighted. Select one, type the value and choose **Use this value**: it is filled into the steps and into the files of the next download or preview. If you fill in values after downloading, the dialog tells you to download again so the files have them too.
+
+Record the deployment afterwards under **Risk & Compliance → Deployments** so reviewers can see where the agent runs.
+
+### Export as Python code
+
+**Export As Python Code** opens a dialog with a short code sample that calls the agent, and the exported code of the agent. Tick **Hide Decorators** to comment out the GGX decorators in the code, and choose **Download ZIP** to save the files. Use this for a pipeline of your own, when none of the platforms fits.
+
 Typically, production execution environments are kept separate and managed to ensure 100% uptime as these are mission-critical systems for organizations.
 
 To tackle the air gap that these systems require - all analytics registered on the platform can be exported out from the system to be put into a Production Execution Environment. These production artifacts are locked to ensure they are not tampered with when they are promoted to production. And there is **NO extra dependency** required on the production side from GGX - i.e. there is no requirement for a license key or a GGX installation in production!

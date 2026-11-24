@@ -527,6 +527,16 @@ export default defineConfig({
             ],
           },
           {
+            label: "Developers",
+            link: "/developers/",
+            icon: "seti:python",
+            items: [
+              { label: "Overview", slug: "developers" },
+              { label: "Python SDK reference", slug: "developers/sdk" },
+              { label: "How GGX reads agent code", slug: "developers/code-repo-agents" },
+            ],
+          },
+          {
             label: "Technology",
             link: "/technology/self-hosting/",
             icon: "server",

@@ -21,6 +21,7 @@ There are 2 ways to run the backup:
 
 - Use the standard backup manager as recommended/preferred for your RDBMS. For example: `expdp` for Oracle.
 - Use the `corridor-API db export` command in GGX to save your database into an SQLite file
+- Use **Export Database** in the GGX interface. An organization admin finds it under **Org Settings → System → Advanced Settings → ⋮**. It exports the database table by table and starts a download. See [Platform settings](/administration/platform-settings/#export-database-and-file-storage).
 
 The `corridor-api db export` command will create an SQLite file which is a copy of your database.
 It includes various referential guarantees that databases provide like unique constraints, foreign keys, etc.
