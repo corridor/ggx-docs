@@ -1,6 +1,6 @@
 ---
 title: "Models"
-description: "How models work in GGX: API-based, Python-based, and custom-uploaded models, supported providers, registration, testing, and a worked example."
+description: "How models work in GGX: API-based and Python-function models, provider integrations, registration, testing, and a worked example."
 ---
 
 import { Badge, LinkCard, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
@@ -11,48 +11,40 @@ import { Badge, LinkCard, Steps, Tabs, TabItem } from '@astrojs/starlight/compon
 
 A **model** is a software program that uses algorithms or rules to make informed decisions, predictions, or generations from a set of inputs without being given explicit instructions for every scenario — ML models, lookup tables, if-else rules, and LLMs all qualify.
 
-A registered model in GGX typically includes:
+A registered model in GGX includes:
 
-- **Model file** — stored weights, parameters, lookup tables, tensors, or other data needed to initialise the model.
 - **Scoring Logic** — the code that takes inputs and produces a prediction or generation.
+- **Arguments and an Output Type** — the typed inputs the model accepts and the type of value it returns.
+- For an API Based model, the **Model Provider** and **Model** it calls.
 
 <figure class="ggx-figure">
 
-![Model anatomy: typed inputs flow into scoring logic, which calls a model source — API provider, Python logic, or uploaded weights — and returns the model output.](./model-concept.svg)
+![Model anatomy: typed inputs flow into scoring logic, which calls a model source — an API provider or Python logic — and returns the model output.](./model-concept.svg)
 
 <figcaption>Inputs flow into scoring logic, which calls a model source and returns the model's output.</figcaption>
 </figure>
 
-## The three model types
+## The two input types
 
-Every model registered in GGX is one of three types. Choosing the right one is the first real decision you make on the registration form — it determines where the model runs and how it is configured.
+Every model registered in GGX has one of two **Input Types**: **API Based** or **Python Function**. Choosing the right one is the first real decision you make on the registration form — it determines how the model is called and how it is configured.
 
 <Tabs>
 <TabItem label="API-Based">
 
-<Badge text="External provider" variant="tip" /> **Best for** hosted foundation models — OpenAI, Anthropic, Google Vertex AI, Azure OpenAI, AWS Bedrock, Hugging Face Inference.
+<Badge text="External provider" variant="tip" /> **Best for** hosted models reached through a provider or gateway that you connect under **Org Settings → Integrations**.
 
-- GGX calls the provider over HTTPS using your configured credentials.
-- You pick the **Model Provider** and the specific **Model** from the dropdown.
-- You do not upload any weights.
+- You pick the **Model Provider** and the specific **Model** from the dropdowns.
+- Picking a provider fills the Scoring Logic editor with example code for that provider. If you already edited the code, GGX asks before replacing it.
+- The provider's credentials come from its integration, as environment variables, not from the code.
 
 </TabItem>
-<TabItem label="Python-Based">
+<TabItem label="Python Function">
 
 <Badge text="In-platform code" variant="note" /> **Best for** lightweight Python logic, rule-based models, or anything that runs inside GGX without an external file.
 
 - Write the model's logic directly in the Scoring Logic editor.
-- Use any libraries packaged with the platform.
-- No upload, no external provider.
-
-</TabItem>
-<TabItem label="Custom">
-
-<Badge text="Uploaded file" variant="success" /> **Best for** trained or fine-tuned models you want to host inside GGX — scikit-learn, BERT and other NLP models, custom fine-tunes.
-
-- Upload the weights or model file.
-- Write Scoring Logic that loads the file and produces a prediction.
-- Runs entirely inside GGX with no external API call.
+- Use the libraries installed in your environment, see [Python packages](../../../administration/python-packages/).
+- No provider or model is selected.
 
 </TabItem>
 </Tabs>
@@ -71,15 +63,15 @@ Click **Create** on the Models page, then work through the form:
 
 3. **Alias.** <Badge text="required" variant="caution" /> A code-safe variable name agents use to refer to this model — lowercase with underscores, no spaces.
 
-4. **Input Type.** Pick **API Based** or **Python Function** (or **Custom**, for an uploaded model file). If API Based, also pick the **Model Provider** and the specific **Model**.
+4. **Input Type.** Pick **API Based** or **Python Function**. If API Based, also pick the **Model Provider** (required) and the **Model**. See [Model providers](#model-providers).
 
 5. **Output Type.** The data type the model returns, e.g. `dict[str, str]`.
 
 6. **Input Arguments.** For each argument (typically `text`, `temperature`, `system_instruction`, etc.), set its **Alias**, **Type**, whether it is optional, and a default value.
 
-7. **Resources and weights.** Attach any registered Global Functions or Prompts the scoring logic needs. Upload the model file under **Pipeline Model File** if the type is Custom.
+7. **Resources.** Click **Add Resources** to attach registered Global Functions, Prompts and other objects the scoring logic needs.
 
-8. **Scoring Logic.** Write the Python that initialises the model and produces a result. Use **Test Code** to validate it against sample input.
+8. **Scoring Logic.** Write the Python that initialises the model and produces a result. Use **Test Code** to run test code against the model. Save the model code before you run it.
 
 9. **Save.** Add notes or attach documentation under **Additional Information**, then click **Create**. The model is saved as a **Draft** until it goes through approval.
 
@@ -88,38 +80,42 @@ Click **Create** on the Models page, then work through the form:
 ![A registered model: its description, ownership type and model type, and the code section with the alias, output type, input type and arguments](./model-details.jpg)
 
 :::note[Credentials live in Integrations, not in code]
-For API-Based models, authenticate using environment variables exposed through **Platform Integrations** (e.g. `GOOGLE_API_KEY`, `OPENAI_API_KEY`). Do not paste keys into Scoring Logic.
+For API Based models, authenticate using environment variables exposed through **Platform Integrations** (e.g. `GOOGLE_API_KEY`, `OPENAI_API_KEY`). Do not paste keys into Scoring Logic.
 :::
 
 </helper-panel>
 
-## Supported providers
+## Model providers
 
-API-Based models can connect to any of the following providers. Each integration page covers the credentials and configuration the provider expects.
+The **Model Provider** list on an API Based model contains the services in the **Cloud Providers**, **LLM Providers** and **LLM Gateways** categories of **Org Settings → Integrations**, plus **Other**. Each provider shows the models GGX knows for it in the **Model** list, so the list is not limited to six providers. The credentials and fields each provider needs are on its integration page:
 
-| Provider | Use it for |
-|----------|------------|
-| [OpenAI](../../../integrations/llm-providers/openai/) | GPT family and OpenAI-hosted models. |
-| [Anthropic](../../../integrations/llm-providers/anthropic/) | Claude family. |
-| [AWS Bedrock](../../../integrations/llm-providers/aws-bedrock/) | Bedrock-hosted foundation models from multiple vendors. |
-| [Google Vertex AI](../../../integrations/llm-providers/gcp-vertexai/) | Gemini and Vertex-hosted models. |
-| [Azure AI](../../../integrations/llm-providers/azureai/) | Azure-hosted OpenAI and other Azure foundation models. |
-| [Hugging Face](../../../integrations/llm-providers/huggingface/) | Inference endpoints for open-source models. |
+| Category | Page |
+|----------|------|
+| **Cloud Providers** (Azure AI, Google Vertex AI, Amazon Bedrock) and **LLM Providers** (for example OpenAI, Anthropic, Deepseek, Groq, Together AI, Fireworks AI, Mistral AI, Cohere, xAI, Ollama, vLLM) | [Setting up Integrations](../../../integrations/llm-providers/) |
+| **LLM Gateways** (for example LiteLLM Proxy, OpenRouter, Portkey, Kong AI Gateway) | [LLM Gateways](../../../integrations/llm-gateways/) |
+
+- **Model** appears once a provider other than **Other** is selected. Its last entry is **Other**, for a model that is not listed.
+- **Other** as a provider means a provider that is not listed. It has no model list and no example code.
+- **Judges**, a separate category in the integrations catalogue, is not in the provider list.
+
+:::caution[Provider not connected]
+When you select a provider that is not connected, an editable model shows **This model provider is not integrated** with a **Connect now** button that opens the provider's integration form. In a project, GGX checks the integrations the project uses; outside a project, it checks the organization's. The model's code needs the provider's credentials to call it.
+:::
 
 <LinkCard title="All LLM provider integrations" description="Browse every supported provider and how to wire up its credentials." href={`${import.meta.env.BASE_URL}integrations/llm-providers/`} />
 
 ## Testing a model
 
-Testing a model means confirming three things: the scoring logic runs without error, it can reach its source (provider API, uploaded file, or in-platform code), and the output matches the **Output Type** you declared. GGX gives you two levels for this.
+Testing a model means confirming three things: the scoring logic runs without error, it can reach its source (provider API or in-platform code), and the output matches the **Output Type** you declared. GGX gives you two levels for this.
 
 ### Quick check — Test Code in the editor
 
-On a model's page, the **Test Code** button at the bottom-right of the Scoring Logic editor runs the model against sample inputs without saving. Use it during development to:
+On a model's page, the **Test Code** button on the Scoring Logic editor opens a box where you write test code that calls the model, and **Run** executes it. The resources used in the model are available there as Python functions. Save the model code before you run the test. Use it during development to:
 
 - Confirm the API credentials configured in Integrations actually reach the provider.
 - Verify the return value matches the declared **Output Type** (e.g. `dict[str, str]`).
 - Sanity-check temperature, max-token, and system-instruction handling.
-- Catch import errors or missing dependencies before saving.
+- Catch import errors or missing dependencies.
 
 ### Bulk simulation across a dataset
 

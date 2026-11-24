@@ -17,6 +17,7 @@ Organization administrators run GGX from **Org Settings**. Open the profile menu
 - [Users and Teams](/administration/users-and-teams/): create and invite users, set the user type, deactivate accounts, group people into teams and read a user's activity.
 - [Organization permissions](/administration/permissions/): what **All Project Read**, **All Project Write**, **All Project Manage** and **Organization Admin** allow.
 - [Advanced Settings](/administration/platform-settings/): governance, execution, security and onboarding settings, update checks and backups.
+- [Python packages](/administration/python-packages/): add, update and remove the Python packages and package indexes used by code runs, for the organization or one project.
 - [System Health](/administration/system-health/): server load, processes, installed packages and the diagnostic bundle.
 - [AI Policy and Risk Library](/administration/ai-policy-and-risk-library/): choose the frameworks agents are assessed against and see the controls behind them.
 - [Branding, Account and Notifications](/administration/branding-and-notifications/): your logo, your own account, in-app notifications and the Home page.

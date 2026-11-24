@@ -53,6 +53,8 @@ The connection dialog shows which package the source needs. If it is missing, th
 
 ### Organization and project packages
 
+For search, versions, indexes and inheritance, see [Python packages](/administration/python-packages/).
+
 - At the organization level, the page is described as managing "Python packages inherited by all projects".
 - At the project level, packages are added to that project's environment and are used by code runs and simulations.
 - Use the search box and the **Added packages** filter to find packages. **Indexes** sets the package indexes to use.

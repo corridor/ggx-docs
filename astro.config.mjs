@@ -544,6 +544,7 @@ export default defineConfig({
               { label: "Users and Teams", slug: "administration/users-and-teams" },
               { label: "Organization Permissions", slug: "administration/permissions" },
               { label: "Advanced Settings", slug: "administration/platform-settings" },
+              { label: "Python packages", slug: "administration/python-packages" },
               { label: "System Health", slug: "administration/system-health" },
               { label: "AI Policy and Risk Library", slug: "administration/ai-policy-and-risk-library" },
               {

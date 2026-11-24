@@ -66,7 +66,7 @@ Lifecycle stage: [Deploy & Monitor](/deploy-and-monitor/).
 
 | Item | What it is for | Documentation |
 |------|----------------|---------------|
-| **Project Settings** | Project members, project roles, integrations, Python packages and advanced settings. Visible to everyone who can open the project. | Members and roles: [Collaboration](/register-and-refine/collaboration/#access-management). Integrations: [GGX Integrations](/integrations/). **No page yet** for Python packages or advanced project settings. |
+| **Project Settings** | Project members, project roles, integrations, Python packages and advanced settings. Visible to everyone who can open the project. | Members and roles: [Collaboration](/register-and-refine/collaboration/#access-management). Integrations: [GGX Integrations](/integrations/). Python packages: [Python packages](/administration/python-packages/). **No page yet** for advanced project settings. |
 
 ## Header and profile menu
 

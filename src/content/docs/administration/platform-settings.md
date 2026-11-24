@@ -20,7 +20,7 @@ Both are **Yes** or **No** choices. See [Approval Workflows](/evaluate-and-appro
 
 ### Relevant industries
 
-Pick one or more of **Healthcare providers**, **Insurance payers**, **Banks**, **Credit unions** or **Other**. The setting records the industries that GGX serves for your organization. Every user can read it. Leaving it empty is allowed.
+Pick one or more of **Healthcare providers**, **Insurance payers**, **Banks**, **Credit unions** or **Other**. The setting records the industries that GGX caters to for your organization. Every signed-in user can read it, and only an organization admin can change it. Leaving it empty is allowed. Changes are recorded in the settings' change history. Nothing else in GGX, such as project templates, Corra or the risk library, reads this value or changes its behaviour because of it.
 
 ## Setup Execution Environment
 

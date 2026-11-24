@@ -80,14 +80,37 @@ Review-only users land on **My assignments** (`/assignments`) instead.
 
 ## Learning Hub
 
-The Learning Hub holds guided tours and recorded webinars. It is available only when your administrator has turned it on. When it is on, open it from **Learning Hub** at the bottom of the sidebar or **Visit the Learning Hub** on Home.
+The Learning Hub is a dialog with guided tours and recorded webinars. Open it from **Learning Hub** at the bottom of the sidebar, or from **Visit the Learning Hub** under **New around here?** on Home. The **Learning Hub** item in the profile menu opens the same dialog, but it appears only when your installation also has a Product Fruits workspace configured. Press Esc or click outside the dialog to close it.
 
-The hub has these parts:
+### Sections
 
-- **Tracks**: groups of tours. The built-in tracks are **Getting Started** (find your way around GGX), **How To Guides** (hands-on walkthroughs where you do the clicks) and **Learn Risk in AI** (why each control exists, shown on a real chatbot). Each track shows how many tours you have done and the minutes left.
-- **Tours**: each has a **Start** button, which becomes **Continue** when you are partway and **Replay** when you have finished. An **Up next** banner suggests the next tour.
-- **Search tours…**: finds tours by name across all tracks.
-- **Webinars**: recorded sessions from the GGX team. **Watch** plays one, and **PDF** downloads its slides when available.
-- **Documentation**: a link to this site.
+| Section | What it lists |
+|---------|---------------|
+| **Tracks** | Tours grouped by track. The built-in tracks are **Getting Started** (find your way around GGX), **How To Guides** (hands-on walkthroughs where you do the clicks, split into sub-headings) and **Learn Risk in AI** (why each control exists, shown on the real chatbot). Each track shows how many tours you have done and the minutes left. |
+| **Search tours…** | Finds tours across all tracks by title, description or track name. |
+| **Webinars** | Recorded sessions, each with its length in minutes. **Watch** opens the video in a new tab. **PDF** downloads the slides when a file is attached. |
+| **Documentation** | A link to [docs.genguardx.ai](https://docs.genguardx.ai). |
 
-The tour **Know your way around** starts automatically the first time, until you complete it.
+Each tour row shows its steps and estimated minutes, and a **Start**, **Continue** or **Replay** button. **Start** is for a tour you have not finished. **Replay** appears after you finish it, and **Continue** marks the tour the **Up next** banner suggests. A tour that has no built-in walkthrough yet shows **Coming soon** with a locked button. The sidebar summary shows how many tours you have done across all tracks.
+
+### Run a tour
+
+1. In the Learning Hub, click **Start** on a tour. The dialog closes. Some tours switch to the project they use, or ask you to open a specific page first and tell you so if you are in the wrong place.
+2. Most tours open with an intro screen. Click **Begin tour**, or **Explore on my own** to leave.
+3. Follow the highlighted steps. **Continue** and **Back** move between steps. Some steps ask you to click the highlighted item yourself.
+4. Click **Exit tour** at any time to stop.
+5. At the end, a finish screen offers **Start next tour** or **Back to the Learning Hub**.
+
+To restart a tour, open the Learning Hub and click **Start** or **Replay** on it. A tour you exit does not count as done, and exiting does not save your place, except for the required tour below.
+
+GGX records each tour start and finish on the server against your user. That record decides which tours show as done, so your progress follows you across browsers.
+
+The tour **Know your way around** is required. It starts automatically when you open Home until you complete it, has no **Explore on my own** option, and resumes from the step where you exited the next time you sign in. That resume position is stored in your browser.
+
+### Where the content comes from
+
+Tour titles, descriptions, tracks and webinars are rows in the GGX database, not an external Help Center. The tour steps themselves are built into the GGX web app. Webinar videos are links, hosted by Vimeo in the standard content, and the app fetches video thumbnails from Vimeo, so those need internet access from the user's browser. Which tours and webinars a given installation lists depends on what has been loaded into its database; the dialog shows **No Tours Available** or **No Webinars Available** when there are none. GGX has no screen for editing them.
+
+### Turn it off
+
+The Learning Hub is controlled by the `UI_CONFIGS__enableLearningHub` setting in the API configuration. It is off unless set to `True`. When it is off, the sidebar button and the Home link are hidden. The hub's endpoints apply no extra permission check beyond being signed in. The **Know your way around** tour check on Home is not tied to this setting.
