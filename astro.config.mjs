@@ -101,6 +101,16 @@ export default defineConfig({
         starlightImageZoom(),
         starlightSidebarTopics([
           {
+            label: "Getting Started",
+            link: "/getting-started/",
+            icon: "open-book",
+            items: [
+              { label: "How GGX is organized", slug: "getting-started" },
+              { label: "Platform tour", slug: "getting-started/platform-tour" },
+              { label: "Using the platform", slug: "getting-started/using-the-platform" },
+            ],
+          },
+          {
             id: "register-and-refine",
             label: "Register and Refine",
             link: "/register-and-refine/",
