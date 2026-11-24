@@ -14,6 +14,8 @@ Corra can write a set of tests for the agent behind a [Feedback Portal](../), ru
 
 ## Start a run
 
+![The Generate tests with Corra AI dialog showing a proposed plan of five dimensions with 3 cases each, a Model of Corra selector, and a Generate 15 tests button](./corra-generate-tests.jpg)
+
 You need write access to the portal.
 
 1. Open the portal and choose **⋮ → Generate tests with Corra AI**. On a portal with no tests, click **Generate tests**.

@@ -14,6 +14,8 @@ You need write access to the portal.
 
 Use **Next** and **Back**, or click a step you have already reached. **Finish** saves the plan. Next is off until the step is valid, and the footer says what is missing. The **Plan so far** panel on the left shows the running totals: **Dimensions**, **Personas**, **Values to cover**, **Total tests**, **Testers** and **Total time**.
 
+![The Create your testing plan dialog on step 1, Coverage, with a list of dimensions to tick such as Intent, Language, User tone and Ambiguity, and the Plan so far totals on the left](./testing-plan-coverage.jpg)
+
 ## Step 1: Coverage
 
 *What the agent is tested on.* A **dimension** is a way the tests should vary, such as the topic of the request, with a list of values.
