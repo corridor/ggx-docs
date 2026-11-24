@@ -5,6 +5,8 @@ description: "Create and link tickets in Jira Cloud, GitHub, GitLab, Linear, Azu
 
 When review finds a problem, GGX can turn the issue into a ticket in your tracker, link existing tickets, and keep each ticket's status visible next to the issue. Configure a tracker in **Org Settings → Integrations → Issue trackers**. To post issues into a chat channel instead, see [Issue channels](../issue-channels/).
 
+![Org Settings Integrations page filtered to Issue Trackers, listing Jira Cloud, Linear, ClickUp, Azure Boards, GitLab, monday dev, Trello, Rally, Asana, ServiceNow, Notion and more, each with a Not connected status and a Configure link](./org-settings-issue-trackers.jpg)
+
 ## How people connect
 
 Each tracker uses one of three connection styles:

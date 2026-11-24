@@ -5,6 +5,8 @@ description: "Open JupyterHub, Google Colab, Visual Studio Code or GitHub Codesp
 
 IDE providers give users a development environment to open from GGX. They are listed in **Org Settings → Integrations** under **IDE/Notebook Integrations**.
 
+![Org Settings Integrations page filtered to IDE/Notebook Integrations, listing JupyterHub (Connected), Google Colab, Visual Studio Code and GitHub Codespaces with a Configure link each](./org-settings-ide.jpg)
+
 | Integration | What it does | Who sets it up |
 | --- | --- | --- |
 | [JupyterHub](jupyterhub/) | Managed Jupyter notebooks on your own JupyterHub. | An organization administrator, in **Org Settings → Integrations**. |

@@ -5,6 +5,8 @@ description: "Connect Vanta, Drata, Secureframe, Credo AI, OneTrust, ServiceNow 
 
 A GRC tool is the system where your compliance team keeps policies and controls. GGX connects to it so the compliance system and the AI lifecycle can work from the same records.
 
+![Org Settings Integrations page filtered to GRC Tools, listing Drata, Vanta, Secureframe, Credo AI, OneTrust, ServiceNow IRM, Archer and IBM watsonx.governance, each Not connected with a Configure link](./org-settings-grc-tools.jpg)
+
 An organization has one GRC system, so these tools are set up once for the whole organization. Projects do not have their own, and Project Settings does not list them.
 
 ## Current status

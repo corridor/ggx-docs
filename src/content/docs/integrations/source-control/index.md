@@ -5,6 +5,8 @@ description: "Connect GitHub, GitHub Enterprise Server, GitLab, Bitbucket Cloud 
 
 Source control integrations let a project keep its code in Code Repos that are cloned from, synced with, and pushed to your repository host. Administrators turn a host on once for the organization in **Org Settings → Integrations → Source Control**. Each person then connects their own account, and GGX uses that account for every clone, sync, and push.
 
+![Org Settings Integrations page filtered to Source Control, listing GitHub (Connected), GitHub Enterprise Server, Bitbucket, GitLab and Other Git server, each with a Configure link](./org-settings-source-control.jpg)
+
 | Integration | What it does |
 | --- | --- |
 | [GitHub](github/) | Clone, sync, and push repositories on github.com, and serve GitHub Issues. |

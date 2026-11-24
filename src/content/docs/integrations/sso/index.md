@@ -5,6 +5,8 @@ description: "Let users sign in to GGX with your identity provider over SAML, an
 
 GGX signs users in through SAML. All four providers listed under **Single Sign On (SSO)** in **Org Settings → Integrations** share one connection: selecting **Configure** on any of them opens the same **Configure SSO** dialog, and all four show the same status.
 
+![Org Settings Integrations page filtered to Single Sign On (SSO), listing Google Workspace, Auth0 by Okta, OneLogin and Microsoft Entra ID, each Not connected with a Configure link](./org-settings-sso.jpg)
+
 | Provider | Page |
 | --- | --- |
 | Google Workspace | [Google Workspace](google-workspace/) |
