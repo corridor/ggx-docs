@@ -5,6 +5,8 @@ description: "Set the request and response types of a GGX deployment, choose the
 
 The **Code** tab of a deployment holds everything that defines how it behaves. The left **Configuration** panel (collapse it with **Hide Configuration**) has the settings; the right side has the code.
 
+![A deployment's Code tab: the Configuration panel with Request Type, Response Type, Deployment UI and Resources, next to the Endpoint Logic code](./deployment-code-tab.jpg)
+
 The example here is a deployment that takes a customer question and returns an answer from a support agent.
 
 ## Request and response types

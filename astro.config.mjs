@@ -492,7 +492,7 @@ export default defineConfig({
               { label: "Overview", slug: "administration" },
               { label: "Users and Teams", slug: "administration/users-and-teams" },
               { label: "Organization Permissions", slug: "administration/permissions" },
-              { label: "Platform Settings", slug: "administration/platform-settings" },
+              { label: "Advanced Settings", slug: "administration/platform-settings" },
               { label: "System Health", slug: "administration/system-health" },
               { label: "AI Policy and Risk Library", slug: "administration/ai-policy-and-risk-library" },
               {

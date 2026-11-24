@@ -22,6 +22,8 @@ Both pages have a **How it works** button that explains the flow.
 
 The list is grouped as **Your organization**, **Built-in frameworks** and **Archived** (folded by default). Each row shows the version, publication date and issuer.
 
+![Org Settings → AI Policy: the built-in frameworks with their issuer and version, an on/off switch for each, the default policy and the Add your AI policy button](./ai-policy.jpg)
+
 - Turn a framework or policy on or off with its switch. A framework that is off is left out of the Risk Assessment page. If none is on, the page shows **No AI policy is on**.
 - Choose the **Default AI policy** from the list. Its row shows a **Default** tag.
 
@@ -57,6 +59,8 @@ Click a highlight to see its controls. When you click **Upload a new version**, 
 ## Risk Library
 
 Open **Risk Library** to browse controls by category. Each category has a code such as `ACC` and a question it answers. Switch between the list and the cards, and group the controls by topic with the toggle.
+
+![Org Settings → Risk Library: the Accuracy category with its controls, each marked Test or Test and attest](./risk-library.jpg)
 
 Open a control to see:
 

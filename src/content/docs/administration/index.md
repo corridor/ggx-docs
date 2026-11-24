@@ -1,6 +1,6 @@
 ---
 title: "Administration"
-description: "Manage users, teams, permissions, platform settings, AI policy and the Risk Library in GGX Org Settings."
+description: "Manage users, teams, permissions, advanced settings, AI policy and the Risk Library in GGX Org Settings."
 ---
 
 Organization administrators run GGX from **Org Settings**. Open the profile menu at the bottom left and choose **Org Settings**. The menu groups settings like this:
@@ -16,7 +16,7 @@ Organization administrators run GGX from **Org Settings**. Open the profile menu
 
 - [Users and Teams](/administration/users-and-teams/): create and invite users, set the user type, deactivate accounts, group people into teams and read a user's activity.
 - [Organization permissions](/administration/permissions/): what **All Project Read**, **All Project Write**, **All Project Manage** and **Organization Admin** allow.
-- [Platform settings](/administration/platform-settings/): governance, execution, security and onboarding settings, update checks and backups.
+- [Advanced Settings](/administration/platform-settings/): governance, execution, security and onboarding settings, update checks and backups.
 - [System Health](/administration/system-health/): server load, processes, installed packages and the diagnostic bundle.
 - [AI Policy and Risk Library](/administration/ai-policy-and-risk-library/): choose the frameworks agents are assessed against and see the controls behind them.
 - [Branding, Account and Notifications](/administration/branding-and-notifications/): your logo, your own account, in-app notifications and the Home page.

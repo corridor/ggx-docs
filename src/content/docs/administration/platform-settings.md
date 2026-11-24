@@ -1,11 +1,13 @@
 ---
-title: "Platform Settings"
+title: "Advanced Settings"
 description: "Reference for Org Settings, Advanced Settings in GGX: governance, execution environment, security limits, user onboarding email, update checks and backups."
 ---
 
 **Advanced Settings** holds the organization-wide limits and defaults of the platform. Only users with the **Organization Admin** permission see it. Open **Org Settings**, then **System → Advanced Settings**. Change the values, then click **Save**, or **Cancel** to discard.
 
 The **⋮** menu next to **Save** opens **Maintenance Scripts**, **Check for updates** and **Export Database**.
+
+![Org Settings → Advanced Settings: the Governance switches, Relevant industries and the start of the execution environment, with the Org Settings menu on the left](./advanced-settings.jpg)
 
 ## Governance
 
