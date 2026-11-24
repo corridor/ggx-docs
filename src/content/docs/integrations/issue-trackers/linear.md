@@ -14,6 +14,9 @@ description: "Create and link Linear issues from GGX issues and keep their statu
 
 ## How to connect
 
+
+![The Linear Integration dialog with a Set up Linear for your organization guide that shows the callback URL and scopes to copy, and the statuses to create in Linear. The address in the callback URL is replaced with a placeholder in this image](./linear-integration.jpg)
+
 1. An administrator registers an OAuth application in Linear (**Settings**, then **API**) and saves its client ID and client secret in **Org Settings → Integrations → Issue trackers → Linear**. The dialog shows the callback URL and scopes to copy into Linear.
 2. Each person opens **My Account → Integrations → Linear** and signs in with Linear.
 3. Optional: an administrator can tick **Let people connect with a personal API token** in the same dialog. People can then paste a personal API key from their Linear account settings (Security & access) instead. This is off by default, because a personal token acts as its owner and does not expire until revoked.

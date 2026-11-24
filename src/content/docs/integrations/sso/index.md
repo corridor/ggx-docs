@@ -22,9 +22,12 @@ For self-hosted installations, an administrator also has to allow SAML login in 
 
 ## How users sign in
 
-When SAML login is allowed, the sign-in page shows an **SSO** button next to the other sign-in options. Selecting it sends the user to your identity provider. After the provider confirms the user, GGX opens with the user signed in.
+When SAML login is allowed, the sign-in page shows an **SSO** button next to the other sign-in options. Selecting it sends the user to your identity provider. After the provider confirms the user, GGX opens with the user signed in. GGX identifies the user by the username it reads from the response: the Name ID, or the attribute you map under **Username** in the **Attribute Mapping** section below. If sign-in fails after the provider has confirmed the user, ask your GGX administrator to check the API logs.
 
 ## Fields of the Configure SSO dialog
+
+
+![The Configure SSO dialog with the service provider settings, identity provider details and attribute mapping sections. The address in the Entity ID and ACS URL is replaced with a placeholder in this image](./configure-sso-dialog.jpg)
 
 Saving needs the three required fields of the service provider and identity provider sections. Everything else is optional unless a toggle below asks for it.
 

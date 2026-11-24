@@ -25,6 +25,10 @@ ggx.init(api_key="your-api-key", api_url="https://your-ggx-instance.example.com"
 
 The package also installs the `ggx` command, which reads `GGX_API_KEY` and `GGX_URL` from the environment. Its commands are `ggx whoami` and `ggx sync FILE`.
 
+On an agent, choose **⋮ → Use with SDK** to see these steps with the agent's own values: install, connect, fetch the agent and try examples. **Copy all as one cell** copies everything, and **Open in JupyterHub** opens a notebook. The connect step contains an API key, so treat what you copy as a secret.
+
+![The Use Pipeline with SDK dialog for an agent, with steps to install the SDK, connect with an API key and instance address, and fetch the agent by name and version, followed by examples. The key and address are replaced with placeholders in this image](./use-with-sdk.jpg)
+
 ## How objects work
 
 Every class below loads an object from GGX when you create it, and exposes what it found as read-only properties.
