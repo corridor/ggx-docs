@@ -21,4 +21,4 @@ description: "Connect GitHub accounts to GGX to clone, sync, and push the code r
 
 - Disconnecting removes the saved GGX credentials; it keeps your GitHub installations and local Code Repos.
 - GitHub validates access when you perform a repository operation.
-- GitHub Enterprise Server runs the same way against your own host and is set up by an administrator.
+- For a GitHub server your organization hosts, see [GitHub Enterprise Server](../github-enterprise-server/).

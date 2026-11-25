@@ -100,9 +100,9 @@ return {"output": message.content[0].text, "context": None}
 Before registering models, configure your Anthropic credentials:
 
 1. Navigate to **Org Settings → Integrations**
-2. Click on **Anthropic**
+2. Find **Anthropic** under **LLM Providers** and click **Configure**
 3. Enter your Anthropic API key
-4. Test the connection
+4. Click **Test Connection**, then **Save**
 
 The platform creates environment variables automatically:
 - `ANTHROPIC_API_KEY`

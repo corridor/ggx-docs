@@ -1,13 +1,13 @@
 ---
 title: "Google Cloud Vertex AI Integration"
-description: "Configure Google Cloud Vertex AI in GGX and register Gemini models with service credentials, provider settings, input arguments, and scoring logic."
+description: "Configure Google Vertex AI in GGX with an API key and register Gemini models with provider settings, input arguments, and scoring logic."
 ---
 
 The Google Cloud Vertex AI integration provides access to Gemini models and AI agents through a unified interface. Configure once, use everywhere with enterprise-grade security and scalability.
 
 ## Integrating Google Cloud Vertex AI
 
-Simply upload your service account JSON key once in the Platform Integrations section. This enables authorized users to access Google Cloud Vertex AI models within the platform. Once integrated, models can be registered and used as any other python object on the platform.
+Enter your Google API key once in the Platform Integrations section. This enables authorized users to access Google Cloud Vertex AI models within the platform. Once integrated, models can be registered and used as any other python object on the platform.
 
 ```python
 # Example: Using a registered Gemini model
@@ -72,7 +72,7 @@ import os
 from google import genai
 from google.genai import types
 
-client = genai.Client(api_key=os.getenv("GOOGLE_API_TOKEN"))
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 config = types.GenerateContentConfig(
     temperature=temperature, 
@@ -91,17 +91,15 @@ return {"response": response.text}
 
 ## Platform Integration Setup
 
-Before registering models, configure your Google Cloud credentials:
+Before registering models, configure your Google credentials:
 
 1. Navigate to **Org Settings → Integrations**
-2. Click on **Google Vertex AI**
-3. Upload your service account JSON key file
-4. Enter your Google Cloud project ID
-5. Test the connection
+2. Find **Google Vertex AI** under **Cloud Providers** and click **Configure**
+3. Enter your Google API key
+4. Click **Test Connection**, then **Save**
 
-The platform creates environment variables automatically:
-- `GOOGLE_API_TOKEN`
-- `GOOGLE_CLOUD_PROJECT`
+The platform creates this environment variable automatically:
+- `GOOGLE_API_KEY`
 
 ## Example Use Case: Content Analysis Model
 

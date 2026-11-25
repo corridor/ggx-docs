@@ -43,6 +43,10 @@
     --ggx-radius: 0.5rem;
     --ggx-radius-lg: 0.625rem;
 
+    /* Content rhythm */
+    --ggx-list-gap: 0.4em;
+    --ggx-media-gap: 1.5rem;
+
     /* Type scale: calmer than Starlight's default, same at every breakpoint. */
     --sl-text-h1: 2.125rem;
     --sl-text-h2: 1.5rem;
@@ -339,6 +343,46 @@
     margin-top: 0.875rem;
 }
 
+/* Hero → first heading: the title panel's padding already separates them.
+   Starlight's container stack margin (1.5rem) and a full h2 margin on top of
+   that left ~70px, versus 40px above every other h2. */
+.sl-container:not(:has(> .hero)) > .sl-markdown-content {
+    margin-top: 0;
+}
+
+.sl-markdown-content > .sl-heading-wrapper:first-child {
+    margin-top: 0.5rem;
+}
+
+/* Lists: room between items so wrapped items stay distinct, and one gap
+   for every step in a nested list (parent → child, child → child, group → group). */
+.sl-markdown-content li + li:not(:where(.not-content *)),
+.sl-markdown-content li > :is(ul, ol):not(:where(.not-content *)) {
+    margin-top: var(--ggx-list-gap);
+}
+
+.sl-markdown-content li > :is(ul, ol):not(:where(.not-content *)) {
+    margin-bottom: 0;
+}
+
+/* Media blocks (tables, standalone images) get the same space on both sides. */
+.sl-markdown-content
+    :is(table, p:has(> img:only-child), p:has(> starlight-image-zoom-zoomable:only-child)):not(:where(.not-content *)) {
+    margin-block: var(--ggx-media-gap);
+}
+
+/* Drop the inline descender gap under images wrapped in a paragraph. */
+.sl-markdown-content p > starlight-image-zoom-zoomable {
+    display: block;
+}
+
+/* Screenshots: hairline edge so white UI doesn't bleed into the page.
+   SVG diagrams, cards and .not-content blocks keep their own treatment. */
+.sl-markdown-content img:not([src$=".svg"]):not(:where(.not-content *, .card *, .ggx-figure *)) {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: var(--ggx-radius);
+}
+
 .sl-markdown-content a:not(:where(.not-content *)) {
     color: var(--sl-color-text-accent);
     font-weight: 500;
@@ -360,6 +404,20 @@
 .sl-markdown-content table:not(:where(.not-content *)) {
     font-size: var(--sl-text-sm);
     font-variant-numeric: tabular-nums;
+}
+
+/* Break long cell text into even lines instead of leaving a one-word orphan. */
+.sl-markdown-content td:not(:where(.not-content *)) {
+    text-wrap: pretty;
+}
+
+/* Keep link labels (e.g. a "Docs" column) on one line; the surrounding
+   cell text still wraps, so prose cells with an inline link are unaffected.
+   Desktop only: on phones the other columns need that width more. */
+@media (min-width: 50rem) {
+    .sl-markdown-content td a:not(:where(.not-content *)) {
+        white-space: nowrap;
+    }
 }
 
 .sl-markdown-content th:not(:where(.not-content *)) {

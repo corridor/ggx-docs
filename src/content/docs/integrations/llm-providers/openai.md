@@ -103,9 +103,9 @@ return {"output": completion.choices[0].message.content, "context": None}
 Before registering models, configure your OpenAI credentials:
 
 1. Navigate to **Org Settings → Integrations**
-2. Click on **OpenAI**
+2. Find **OpenAI** under **LLM Providers** and click **Configure**
 3. Enter your OpenAI API key
-4. Test the connection
+4. Click **Test Connection**, then **Save**
 
 The platform creates environment variables automatically:
 - `OPENAI_API_KEY`

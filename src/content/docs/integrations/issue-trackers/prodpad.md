@@ -1,6 +1,6 @@
 ---
 title: "ProdPad"
-description: "Create and link ProdPad ideas from GGX issues and keep their status in sync, with a personal API key per person."
+description: "Create and link ProdPad ideas from GGX issues and keep their status in sync, with a personal API key an administrator allows."
 ---
 
 [ProdPad](https://www.prodpad.com/) is a product management tool. GGX uses it to turn issues found in annotation queues and feedback portals into ProdPad ideas.
@@ -13,8 +13,9 @@ description: "Create and link ProdPad ideas from GGX issues and keep their statu
 
 ## How to connect
 
-1. Each person generates an API key in their ProdPad profile settings and pastes it in **My Account → Integrations → ProdPad**.
-2. Optional: an administrator can set another ProdPad API URL in **Org Settings → Integrations → Issue trackers → ProdPad**.
+1. An administrator opens **Org Settings → Integrations → Issue trackers → ProdPad** and ticks **Let people connect with a personal API token**. ProdPad has no sign-in, so nobody can connect until this is on. A personal token acts as its owner, and ProdPad records what GGX does under that person.
+2. Each person generates an API key in their ProdPad profile settings and pastes it in **My Account → Integrations → ProdPad**.
+3. Optional: in the same dialog, an administrator can set another ProdPad API URL.
 
 ## Notes
 

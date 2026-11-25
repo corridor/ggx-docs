@@ -53,3 +53,7 @@ Continuous monitoring is crucial to maintaining performance and mitigating issue
 - **Human-Integrated Pre-Production Testing:** Facilitates real-world-like testing by allowing different teams to conduct robust validation before deployment.
 - **Artifact Export and Documentation:** Supports production artifact export and ODD generations.
 - **Monitoring:** Connects to production data sources for response labelling and automated performance monitoring and alerting.
+
+## Start from a template
+
+To begin with a ready-made project instead of an empty one, see [Project Templates](project-templates/).

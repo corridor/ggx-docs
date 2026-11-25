@@ -1,0 +1,228 @@
+---
+/**
+ * The GGX lifecycle on the home page: six numbered stages, each with link cards into the docs.
+ * Stage names and order match the GenGuardX website. Fully static, no client JavaScript.
+ */
+import { Icon } from "@astrojs/starlight/components";
+
+type IconName = Parameters<typeof Icon>[0]["name"];
+type Card = { title: string; href: string; icon: IconName };
+type Stage = { title: string; cards: Card[] };
+
+const stages: Stage[] = [
+  {
+    title: "Build & Connect",
+    cards: [
+      { title: "Register agents", href: "/register-and-refine/inventory-management/pipelines/", icon: "puzzle" },
+      { title: "Models", href: "/register-and-refine/inventory-management/model-catalog/", icon: "setting" },
+      { title: "Prompts", href: "/register-and-refine/inventory-management/prompts/", icon: "comment" },
+      { title: "Datasets", href: "/register-and-refine/inventory-management/table-registry/", icon: "database" },
+      { title: "Integrations", href: "/integrations/", icon: "link" },
+      { title: "Project templates", href: "/register-and-refine/project-templates/", icon: "add-document" },
+      { title: "Python SDK", href: "/developers/sdk/", icon: "laptop" },
+      { title: "GGX Sync", href: "/register-and-refine/sync/", icon: "code-branch" },
+    ],
+  },
+  {
+    title: "Business Confidence",
+    cards: [
+      { title: "Feedback portals", href: "/evaluate-and-approve/feedback-portals/", icon: "comment-alt" },
+      { title: "Testing plan", href: "/evaluate-and-approve/feedback-portals/testing-plan/", icon: "list-format" },
+      { title: "Generate tests with Corra", href: "/evaluate-and-approve/feedback-portals/test-generation/", icon: "star" },
+      { title: "Expert feedback", href: "/evaluate-and-approve/get-feedback-from-expert/", icon: "pen" },
+      { title: "Simulation", href: "/evaluate-and-approve/simulation/", icon: "random" },
+    ],
+  },
+  {
+    title: "Risk Approval",
+    cards: [
+      { title: "Risk assessment", href: "/evaluate-and-approve/risk-assessment/", icon: "warning" },
+      { title: "Reporting", href: "/evaluate-and-approve/reporting/", icon: "analytics" },
+      { title: "LLM judges", href: "/llm-judges/", icon: "approve-check-circle" },
+      { title: "Approval workflows", href: "/evaluate-and-approve/approval-workflows/", icon: "approve-check" },
+      { title: "Document generation", href: "/evaluate-and-approve/document-generation/", icon: "document" },
+    ],
+  },
+  {
+    title: "Deployment",
+    cards: [
+      { title: "Direct to production", href: "/deploy-and-monitor/direct-to-production/", icon: "rocket" },
+      { title: "Deployment platforms", href: "/deploy-and-monitor/deploy-platforms/", icon: "server" },
+      { title: "Deployment jobs", href: "/deploy-and-monitor/deployment-jobs/", icon: "clock" },
+      { title: "Request types", href: "/deploy-and-monitor/deployment-request-types/", icon: "script" },
+    ],
+  },
+  {
+    title: "Monitoring",
+    cards: [
+      { title: "Performance", href: "/deploy-and-monitor/performance/", icon: "analytics" },
+      { title: "Oversight", href: "/deploy-and-monitor/oversight/", icon: "magnifier" },
+      { title: "Annotation queues", href: "/deploy-and-monitor/annotation-queues/", icon: "notes" },
+      { title: "Issues found", href: "/deploy-and-monitor/annotation-queue-issues/", icon: "error" },
+    ],
+  },
+  {
+    title: "Re-evaluate",
+    cards: [
+      { title: "Rerun reports", href: "/evaluate-and-approve/rerun-reports/", icon: "random" },
+      { title: "Compare versions", href: "/evaluate-and-approve/comparison/", icon: "list-format" },
+      { title: "Prompt optimization", href: "/register-and-refine/prompt-optimization/", icon: "up-arrow" },
+      { title: "Version management", href: "/register-and-refine/version-management/", icon: "code-branch" },
+      { title: "Lineage", href: "/register-and-refine/lineage-tracking/", icon: "link-alt" },
+    ],
+  },
+];
+
+const across: Card[] = [
+  { title: "Getting started", href: "/getting-started/", icon: "open-book" },
+  { title: "Corra AI", href: "/corra/", icon: "star" },
+  { title: "Administration", href: "/administration/", icon: "setting" },
+  { title: "Developers", href: "/developers/", icon: "laptop" },
+];
+---
+
+<section class="ggx-journey not-content" aria-labelledby="ggx-journey-title">
+  <p class="ggx-journey-eyebrow">Platform journey</p>
+  <h2 id="ggx-journey-title" class="ggx-journey-title">From build to production</h2>
+  <p class="ggx-journey-intro">Follow the lifecycle or jump to what you need.</p>
+
+  <ol class="ggx-stages">
+    {
+      stages.map((stage, i) => (
+        <li class="ggx-stage">
+          <span class="ggx-stage-num" aria-hidden="true">{i + 1}</span>
+          <div class="ggx-stage-body">
+            <h3 class="ggx-stage-title">{stage.title}</h3>
+            <ul class="ggx-cards">
+              {stage.cards.map((card) => (
+                <li>
+                  <a class="ggx-card" href={card.href}>
+                    <Icon name={card.icon} size="1.15rem" class="ggx-card-icon" />
+                    <span>{card.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <div class="ggx-across">
+    <h3 class="ggx-across-title">Across every stage</h3>
+    <ul class="ggx-cards">
+      {
+        across.map((card) => (
+          <li>
+            <a class="ggx-card" href={card.href}>
+              <Icon name={card.icon} size="1.15rem" class="ggx-card-icon" />
+              <span>{card.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .ggx-journey {
+    margin-block: 2rem 2.5rem;
+  }
+  .ggx-journey-eyebrow {
+    margin: 0;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+  .ggx-journey-title {
+    margin: 0.25rem 0 0.35rem;
+    font-size: var(--sl-text-h2);
+    color: var(--sl-color-white);
+  }
+  .ggx-journey-intro {
+    margin: 0 0 1.5rem;
+    color: var(--sl-color-gray-2);
+  }
+  .ggx-stages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ggx-stage {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.75rem;
+  }
+  /* Vertical line joining the stage numbers. */
+  .ggx-stage::before {
+    content: "";
+    position: absolute;
+    left: 0.9375rem;
+    top: 2rem;
+    bottom: 0;
+    width: 1px;
+    background: var(--sl-color-gray-5);
+  }
+  .ggx-stage:last-child::before {
+    display: none;
+  }
+  .ggx-stage-num {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 999px;
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+  }
+  .ggx-stage-body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .ggx-stage-title,
+  .ggx-across-title {
+    margin: 0.15rem 0 0.75rem;
+    font-size: var(--sl-text-h4);
+    color: var(--sl-color-white);
+  }
+  .ggx-cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr));
+    gap: 0.6rem;
+  }
+  .ggx-card {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    height: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--sl-color-gray-6);
+    border-radius: 0.6rem;
+    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+    text-decoration: none;
+    transition: border-color 0.15s ease;
+  }
+  .ggx-card:hover,
+  .ggx-card:focus-visible {
+    border-color: var(--sl-color-accent);
+  }
+  .ggx-card :global(.ggx-card-icon) {
+    flex: 0 0 auto;
+    color: var(--sl-color-gray-3);
+  }
+  .ggx-across {
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+</style>

@@ -26,24 +26,26 @@ From GGX (Service Provider):
 
 - ACS URL: `http://<sp_domain>/api/v1/saml/acs`
 - Entity ID: `http://<sp_domain>/api/v1/saml/metadata`
-- Start URL: `http://<sp_domain>/api/v1/users/saml/sso`
+- Start URL: `http://<sp_domain>/api/v1/saml/sso`
 
 On completing the Sign On flow on the IDP side, the information returned to GGXhould contain:
 
 - The Name ID
 - The following attributes:
 
-    - Email (The Attribute's name can be configured with `SAML_EMAIL_ATTRIBUTE`)
-    - List of Roles/Groups of the user (The Attribute's name can be configured with `SAML_ROLE_ATTRIBUTE`)
+    - Email (the attribute name is set in **Org Settings → Integrations → Single Sign On (SSO)**, under **Attribute Mapping**; the Name ID is used when no attribute is set)
+    - List of Roles/Groups of the user (the attribute name is set under **Attribute Mapping** after selecting **Assign Project Roles from SAML**)
+
+The SSO dialog is described in [Single Sign-On (SAML)](../../../integrations/sso/).
 
 ### Configurations
 
 In the API configurations, the following configurations need to be set:
 
-- `SAML_ENABLED = True`  
+- `ALLOWED_LOGINS` must include `"saml"`  
   Needs to be set to enable SAML as the method of authentication for login.
 - `SAML_SETTINGS = {...}`  
-  Needs to be set as described in the configurations section to connect to the SP and IDP.  
+  Used to connect to the SP and IDP when no SSO configuration is saved in Org Settings → Integrations.  
   The SAML_SETTINGS is a dictionary with the following information defining the SP and IDP information:
 
 ```python

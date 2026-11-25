@@ -16,6 +16,14 @@ Use LiteLLM with GGX when:
 - You want to evaluate several providers through one gateway layer.
 - You want LiteLLM to handle provider credentials, routing, fallback, or cost tracking while GGX handles evaluation, approval, and monitoring.
 
+## Connect LiteLLM in GGX
+
+1. Open **Org Settings → Integrations** from the profile menu, and find **LiteLLM Proxy** under **LLM Gateways**.
+2. Click **Configure**, then enter the **API Endpoint** of your LiteLLM proxy and, if the proxy requires one, its **API Key**.
+3. Click **Test Connection**, then **Save**.
+
+The endpoint is available to model code as `LITELLM_BASE_URL` and the key as `LITELLM_API_KEY`.
+
 ## Register LiteLLM as a Model
 
 Create one GGX Model per LiteLLM model alias, or create one parameterized model that accepts a `model` argument.
@@ -26,7 +34,7 @@ Create one GGX Model per LiteLLM model alias, or create one parameterized model 
 | **Description** | Note the LiteLLM proxy URL, allowed model aliases, provider list, and fallback policy. |
 | **Model Provider** | Use a custom/API-based model or Python function that calls the LiteLLM proxy. |
 | **Arguments** | `messages`, `model`, `temperature`, `max_tokens` |
-| **Environment variables** | `LITELLM_API_KEY`, `LITELLM_BASE_URL`, `LITELLM_MODEL` |
+| **Environment variables** | `LITELLM_API_KEY` and `LITELLM_BASE_URL` (set by the integration), and optionally your own `LITELLM_MODEL` default |
 
 ## Example scoring logic
 

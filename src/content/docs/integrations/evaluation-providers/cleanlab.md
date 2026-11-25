@@ -3,7 +3,7 @@ title: "Cleanlab"
 description: "Connect Cleanlab with GGX to use external data quality and evaluation signals in model, RAG, agent, and dataset assessment workflows."
 ---
 
-![alt text](cleanlab_logo.png)
+![Cleanlab logo](cleanlab_logo.png)
 
 ## About Cleanlab
 
@@ -13,7 +13,7 @@ Recognized among the **Forbes AI 50, CB Insights GenAI 50, and Analytics India M
 
 ## Integrating Cleanlab
 
-Simply enter your Cleanlab API key once in the **Integrations** section of GGX. This enables authorized users to access Cleanlab’s capabilities within the platform. Once integrated, Cleanlab can be used as any other python package on the platform.
+Enter your Cleanlab API key once in **Org Settings → Integrations**, under **Judges → CleanLabs**. The key is available to code on the platform as the environment variable `CLEANLAB_TLM_API_KEY`, which the `cleanlab_tlm` package reads. Once integrated, Cleanlab can be used like any other Python package on the platform.
 
 ```
 from cleanlab_tlm import TLM
@@ -40,11 +40,11 @@ Cleanlab strengthens GGX by adding a **trust and reliability layer** that evalua
 
 Cleanlab significantly helps test IVR (Interactive Voice Response) systems by providing trustworthiness scores for various AI-driven processes. It evaluates the reliability of LLM decisions in classifying caller intent and routing calls, providing responses. Furthermore, Cleanlab can assesses the accuracy of human data labels used in validation, helping to pinpoint mislabeled data. For the auto-generated call summaries and candidate responses, Cleanlab's scores can highlight problematic outputs and areas where the agent may need further improvement.
 
-![alt text](raw_trust_score.png)
+![Cleanlab raw trust score output](raw_trust_score.png)
 
 For example, check below, Cleanlab can score how trustworthy each response is, making it easy to spot which types of questions or categories have issues.
 
-![alt text](trust_score.png)
+![Cleanlab trust score report](trust_score.png)
 
 ## Want to Learn More ?
 

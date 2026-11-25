@@ -1,10 +1,16 @@
 ---
 title: GenGuardX (GGX)
-description: GenGuardX is where enterprises test, approve, and monitor high-stakes GenAI, with business confidence before launch, risk evidence at approval, and visibility after.
+description: "GenGuardX is where enterprises test, approve, and monitor high-stakes GenAI: business confidence before launch, risk evidence at approval, visibility after."
 topic: register-and-refine
+head:
+  - tag: meta
+    attrs:
+      property: og:type
+      content: website
 ---
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import LifecycleJourney from '../../components/LifecycleJourney.astro';
 
 **GenGuardX (GGX) is where enterprises test, approve, and monitor high-stakes GenAI.** It gives business teams confidence before launch, risk teams evidence at approval, and both continuous visibility in production — one shared environment that takes a GenAI solution from pilot to production and keeps it trustworthy once it is there.
 
@@ -13,6 +19,8 @@ Designed by veterans of risk management in regulated industries, GGX is a Respon
 :::tip[From AI pilot → production, without a leap of faith]
 The bottleneck is rarely the model. It is the gap between *"we built something impressive"* and *"we are willing to put it in front of customers."* GGX closes that gap for high-impact applications such as IVR systems, agent-assist tools, and chatbots by replacing screenshots, ad-hoc scripts, and subjective sign-offs with evidence both teams can stand behind.
 :::
+
+<LifecycleJourney />
 
 <video controls preload="metadata">
     <source src="GGX_Home_video.mp4" type="video/mp4" />
@@ -128,8 +136,6 @@ Everything above connects into one closed loop. Each pass leaves the next approv
   <span style={pillarChip} role="listitem">New evidence</span>
 </div>
 
-See [Agent Observability](agent-observability/) for how GGX records, evaluates, and files findings on production traffic.
-
 ## Key pillars of the GGX platform
 
 export const pillarRow = { display: 'flex', gap: '1.25rem', alignItems: 'flex-start', borderTop: '1px solid var(--sl-color-gray-5)', paddingTop: '1.4rem' };
@@ -190,14 +196,17 @@ export const pillarChip = { display: 'inline-block', padding: '6px 12px', border
 
 ## A structured lifecycle
 
-GGX organizes everything into three stages, with agent observability across live traffic. Explore the documentation for each:
+GGX organizes everything into three stages. Explore the documentation for each:
 
 <CardGrid>
   <LinkCard title="Register & Refine" href={`${import.meta.env.BASE_URL}register-and-refine/`} description="Point-and-click building of GenAI apps, with prompt, RAG, and agent optimization." />
   <LinkCard title="Evaluate & Approve" href={`${import.meta.env.BASE_URL}evaluate-and-approve/`} description="Standardized and custom testing, human-in-the-loop dashboards, and approval tracking." />
   <LinkCard title="Deploy & Monitor" href={`${import.meta.env.BASE_URL}deploy-and-monitor/`} description="Direct-to-production deployment with continuous monitoring and alerts." />
-  <LinkCard title="Agent Observability" href={`${import.meta.env.BASE_URL}agent-observability/`} description="Every LLM call, tool call, retrieval, and autonomous agent decision in production, with evaluators, monitors, and governance signals." />
 </CardGrid>
+
+New to the app? The platform tour maps the sidebar to the documentation:
+
+<LinkCard title="Getting started" href={`${import.meta.env.BASE_URL}getting-started/`} description="How GGX is organized, a tour of the sidebar, and the header tools." />
 
 ## The Responsible AI Sandbox
 

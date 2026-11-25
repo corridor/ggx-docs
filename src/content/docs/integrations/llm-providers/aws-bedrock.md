@@ -122,13 +122,17 @@ return {
 Before registering models, configure your AWS credentials:
 
 1. Navigate to **Org Settings → Integrations**
-2. Click on **Amazon Bedrock**
-3. Configure AWS credentials:
+2. Find **Amazon Bedrock** under **Cloud Providers** and click **Configure**
+3. Choose how GGX authenticates with AWS:
+   * **Environment Variables**: enter the credentials below.
+   * **Assume Role Provider**: GGX assumes an IAM role to call Bedrock.
+   * **EC2 Role Based**: GGX uses the IAM role of the EC2 instance it runs on.
+4. For **Environment Variables**, enter:
    * **Access Key ID**: Your AWS access key
    * **Secret Access Key**: Your AWS secret key
    * **Session Token**: Optional temporary session token
    * **Default Region**: AWS region (e.g., us-east-1)
-4. Test the connection
+5. Click **Save**
 
 The platform creates environment variables automatically:
 - `AWS_ACCESS_KEY_ID`

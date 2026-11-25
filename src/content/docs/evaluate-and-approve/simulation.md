@@ -3,30 +3,56 @@ title: "Simulation"
 description: "Run GGX simulation jobs on datasets to evaluate objects, generate reports, inspect metrics, validate evaluators, and compare results before approval."
 ---
 
-The most common type of execution is a **Simulation** - used to execute analytics contained in the definition of an object that has been registered in the platform. And additionally, run dashboards and reports on that output.
+A **Simulation** is the most common type of evaluation. It runs a registered object (an agent, model, RAG or prompt) on a dataset and computes one or more reports on its output.
 
-A Simulation task typically involves:
+A simulation job holds:
 
-- **Current object:** Object which is currently selected and being tested. This can be an Agent, Model, RAG, or Prompt.
-- **Data Source:** The data to run the object on.
-- **Report & Metrices:** Exact evaluation metrics to be run on the output.
+- **Current object:** the object being tested, at the version you open it from.
+- **Evaluations:** one or more reports to compute, each with its own data source and type.
+- **Data source:** the registered tables, or uploaded data, that the object runs on.
+- **Metric thresholds:** optional lower and upper limits for each metric of a report, which colour the results green or red.
 
-## How to run a Simulation Task?
+## How to run a Simulation
 
-- **Register the object** on the platform.
-- Go to the **Details** page of an object to be compared and click on the **Run -> Simulation** button.
-- **Provide description** about the run.
-- **Select Dashboard** to be evaluated in **Dashboard Selection**.
-- Prepare the data in **Data Sources** which will be used for evaluation.
-- Click on **Run** at the bottom and wait for job completion.
+1. Open the object under **Data & AI Assets** (for example **Agents**) and click **Run → Simulation**.
+2. Rename the job if you like, and add a **Description** of what the run checks.
+3. Optionally, open **Show Additional Options** to set the **Execution Concurrency** (how many rows run at once) and the **Execution Timeout**.
+4. In **Evaluation #1**, select the report to run.
+5. Choose the **Evaluation Type**:
+    - **Single Turn**: one input per row of the data.
+    - **Multi Turn**: a tester agent holds a full conversation with the agent.
+6. Choose the **Data Source**:
+    - **Use Registered Tables**: pick one or more registered tables under **Input Tables**.
+    - **Upload Custom Data**: provide your own data for this evaluation.
 
-    - Once a job has been submitted it starts in the NEW status
-    - The job will go through the following statuses: COMPILING > QUEUED > RUNNING and finally stop at COMPLETED of FAILED
+    The form lists the columns the data must contain, for example `user_message`, `context` and `history` for a chat agent.
+7. Click **Add Additional Evaluation** to run more reports in the same job. If several evaluations use the same agent and data, they can share one run: see [Reuse the output of another evaluation](../rerun-reports/#reuse-the-output-of-another-evaluation).
+8. Click **Run Job**.
 
-All simulation tasks are systematically recorded on the platform and displayed on the Jobs page of an object in a structured format. They can also be exported as part of the automated documentation process.
+![The Run Job form for a Simulation: description, execution concurrency and timeout, and Evaluation #1 with its report, evaluation type and data source](./run-job-form.jpg)
 
-> **Note:** The platform allows customizing reports and dashboards specifically for simulation tasks.
-> **Note:** GGX allows running jobs in parallel and multiple threads at a time within a job to expedite the evaluation process.
+A submitted job starts in the **NEW** status and moves through **COMPILING**, **QUEUED** and **RUNNING** before it stops at **COMPLETED** or **FAILED**.
+
+## Reading the results
+
+The job page has a **Job Details** tab, a **Job Results** tab and one tab for each report. **Job Details** shows the status, the compile, queue and run times, and the full configuration of every evaluation, so anyone can see exactly what was run and on which data.
+
+![Job Details tab of a completed simulation: status, durations, description, execution settings and the first evaluation](./job-details.jpg)
+
+Each report tab is a dashboard of figures. Figures can carry a target line and a drill-down button that lists the rows behind a number.
+
+![A report tab of a completed simulation: accuracy by topic against an 88% target, with the one topic below target in red](./job-report-dashboard.jpg)
+
+From the job page you can:
+
+- **Rerun** the job with the same configuration, for example on a new version of the object. To run only the reports again on the existing output, or one report as a new attempt, see [Rerun reports and attempts](../rerun-reports/).
+- **Hillclimb**: change prompts, models or the Code Repo branch and compare against this job. See [Hillclimb](../comparison/#hillclimb-change-an-agent-and-compare).
+- **Compare with other Simulation** (in the **⋮** menu): open this job side by side with another run.
+- Pin the job so that it stays at the top of the **Evaluations** page and the object's **Jobs** tab.
+
+All simulation jobs are recorded on the platform, listed under **Human Integrated Testing → Evaluations → Batch** and on the object's **Jobs** tab, and can be exported as part of the automated documentation.
+
+> **Note:** Reports and dashboards can be customized for simulation tasks. See [Reporting](../reporting/).
 
 ## Validating an evaluator
 

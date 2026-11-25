@@ -100,12 +100,13 @@ return {"output": completion.choices[0].message.content, "context": None}
 Before registering models, configure your Azure credentials:
 
 1. Navigate to **Org Settings → Integrations**
-2. Click on **Azure AI**
-3. Enter your Azure OpenAI API key
-4. Provide your Azure endpoint URL
-5. Test the connection
+2. Find **Azure AI** under **Cloud Providers** and click **Configure**
+3. Enter your Azure OpenAI **API Key**
+4. Enter your Azure **API Endpoint**
+5. Click **Test Connection**, then **Save**
 
 The platform creates environment variables automatically:
+- `AZURE_OPENAI_API_KEY`
 - `AZURE_ENDPOINT`
 
 ## Example Use Case: Document Processing Model

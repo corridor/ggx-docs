@@ -87,7 +87,7 @@ import os
 from google import genai
 from google.genai import types
 
-client = genai.Client(api_key=os.getenv("GOOGLE_API_TOKEN"))
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 config = types.GenerateContentConfig(
     temperature=temperature, 
@@ -108,7 +108,7 @@ return {
 
 **What This Code Does:**
 
-- Authenticates using the `GOOGLE_API_TOKEN` environment variable (configured in Platform Integrations)
+- Authenticates using the `GOOGLE_API_KEY` environment variable (configured in Platform Integrations)
 - Sets up generation config with temperature and system instruction
 - Calls the Gemini 2.0 Flash model with the input text
 - Returns the generated response

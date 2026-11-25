@@ -65,16 +65,17 @@ Fixing the LLM, the metrics, and the dataset is what makes the comparison fair: 
 
 <Steps>
 
-1. Open the object's **Details** page.
-2. Click **Run → Hill Climbing**.
+1. Run a Simulation of the agent and wait for it to complete. This is the baseline.
+2. On the agent, click **Run → Hillclimb**, answer **Do you have a base job?** with **Yes**, choose the baseline and click **Start Hillclimb**.
 3. **Provide a description** of the run.
-4. Under **Dashboard Selection**, choose the dashboard to evaluate against.
-5. Make the **changes to the prompts** that are part of the object.
-6. Prepare the evaluation data under **Data Sources**.
-7. Click **Run** and wait for the job to complete.
-8. When it finishes, review the optimization progress in the **Dashboards**.
+4. Under **Prompts**, edit the text of the prompts to try. Click **Add prompt** to include another prompt the agent uses, or the sync icon to reset one to its registered text.
+5. Optionally, replace attached models under **Models**, or choose another branch under **Code Repo** for an agent that runs code from a Code Repo.
+6. Keep the evaluations and data of the baseline, and click **Run Job**.
+7. When it finishes, review the results side by side with the baseline.
 
 </Steps>
+
+See [Hillclimb](../../evaluate-and-approve/comparison/#hillclimb-change-an-agent-and-compare) for what each panel does.
 
 :::tip[Start from your best prompt]
 Hill climbing builds on the baseline, so a stronger starting point reaches a higher peak in fewer iterations.

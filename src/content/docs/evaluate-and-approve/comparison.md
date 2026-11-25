@@ -3,32 +3,50 @@ title: "Comparisons"
 description: "Compare GGX objects against challengers using shared datasets, selected metrics, automated reports, and side-by-side results for model and agent evaluation."
 ---
 
-Platform provides the ability to compare the registered objects for a specific task using standard and customized metrics. Using this comparison capability one can quickly evaluate a list of candidates to select the best one.
+GGX can compare results on the same task, with standard and customized metrics, so you can quickly pick the best of several candidates. There are two ways to compare:
 
-A comparison task typically involves:
+- **Comparison** opens two completed jobs side by side. It does not run a new job.
+- **Hillclimb** keeps the agent as it is but changes its prompts, one or more of its attached models, or the Code Repo branch it runs, and compares the result with a baseline job.
 
-- **Current object:** Object which is currently selected and needs to be compared with others.
-- **Challenger objects:** Challenger objects are objects of the same type (e.g., models can be
-  compared with other models, prompts can be compared with prompts, etc.).
-- **Data Source:** A common data source on which objects would be evaluated.
-- **Report & Metrices:** Exact evaluation metrics to be compared.
+> **Note:** Use **Copy** or **Clone** on an object to create a challenger quickly, then change its definition or swap components such as models, prompts or processing. Run a [Simulation](../simulation/) of each, then compare the two jobs.
 
-> **Note:** On the platform one can quickly create **Copy** of current objects and change the definitions, swap in swap out components (Like Models, Prompts, Processing etc.) to create challengers.
+## How to run a Comparison
 
-## How to run a Comparison Task?
+1. Run a [Simulation](../simulation/) for each version you want to compare and wait for both to be **COMPLETED**.
+2. Open the object's page and click **Run → Comparison**.
+3. In **Comparison Configuration**, answer **Do you have 2 completed jobs to compare?** with **Yes**. If you answer **No**, click **Run a Job** to start a Simulation first.
+4. Choose the **Left Job** and the **Right Job**. They must be different jobs.
+5. Click **Start Comparison**.
 
-- **Register the object and its challenger** versions on the platform.
-- Go to the **Details** page of an object to be compared and click on the **Run -> Comparison** button.
-- **Provide description** about the comparison run.
-- **Select Dashboard** to be evaluated in **Dashboard Selection**.
-- Select challenger objects which need to be compared in **Dependencies Section**.
-- Prepare the data in **Data Sources** which will be used for evaluation.
-- Click on **Run** at the bottom and wait for job completion.
+You can also open a completed job, click **⋮ → Compare with other Simulation** and choose the job to compare it with. Choose **Stop Comparison** from the same menu to go back.
 
-    - Once a job has been submitted it starts in the NEW status
-    - The job will go through the following statuses: COMPILING > QUEUED > RUNNING and finally stop at COMPLETED of FAILED
+## Hillclimb: change an agent and compare
 
-All comparison tasks are systematically recorded on the platform and displayed on the Jobs page of an object in a structured format. They can also be exported as part of the automated documentation process.
+**Hillclimb** answers questions like *"Can we move to a lighter model without losing quality?"* or *"Does this prompt do better?"*. It reruns the baseline job's evaluations with the changes you make. It is available for agents.
 
-> **Note:** The platform allows customizing reports and dashboards specifically for comparison tasks.
-> **Note:** GGX allows running jobs in parallel and multiple threads at a time within a job to expedite the evaluation process.
+1. Run a [Simulation](../simulation/) of the agent as it is. This is the baseline.
+2. Click **Run → Hillclimb** on the agent, answer **Do you have a base job?** with **Yes**, choose the completed job and click **Start Hillclimb**. If you answer **No**, click **Run base Job** to create one first. You can also open a completed job and click **Hillclimb**.
+3. Make one or more changes in the panels below.
+4. Keep the same evaluations and data, and click **Run Job**.
+
+### What you can change
+
+| Panel | What you can do |
+| --- | --- |
+| **Models** | Replace any attached model with another model from the catalogue. Click **Revert** on one model, or **Revert All**. The panel only appears when the agent has attached models. |
+| **Code Repo** | For an agent that runs code from a Code Repo: choose another branch to run. The job runs the commit the branch is at when it starts. The panel shows **Branch changed** until you click **Revert**. |
+| **Prompts** | Edit the text of any prompt the agent uses. Click **Add prompt** to include another prompt, the sync icon to reset a prompt to its registered text, and the trash icon to remove it. |
+
+These changes apply to this job only. They do not change the registered agent, model or prompt.
+
+The results open side by side with the baseline, report by report, so a metric that moved is easy to spot. Use the selector at the top to choose which job to compare against.
+
+![Hillclimb results: the baseline and the lighter-model run side by side, with the probes below their target in red](./hillclimb-side-by-side.jpg)
+
+The Job Details of a hillclimb job list the models that were replaced, for example *1 model · 1 replaced*. On a finished hillclimb job, the prompts show as a difference against the registered text.
+
+All comparison and hillclimb jobs are recorded on the platform, shown on the object's **Jobs** tab and under **Human Integrated Testing → Evaluations → Batch**, and can be exported as part of the automated documentation.
+
+> **Note:** Reports and dashboards can be customized for comparison tasks. See [Reporting](../reporting/).
+>
+> **Note:** GGX runs jobs in parallel, and runs several rows at a time within a job (the **Execution Concurrency**), to speed up evaluation.

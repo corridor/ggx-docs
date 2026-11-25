@@ -3,114 +3,74 @@ title: "Setting up Integrations"
 description: "Configure LLM provider integrations in GGX by adding API keys, testing connections, and exposing secure environment variables to model code."
 ---
 
-Setup integrations to services that provide LLMs as an API. Configure your API keys once to access multiple AI providers across the platform.
+Set up integrations with the services that provide LLMs as an API. Configure your credentials once, and every authorized user can call those models from the platform.
 
-## Getting Started
+## Getting started
 
-Open **Org Settings → Integrations** from the profile menu to configure your LLM providers. Each provider requires an API key that creates secure environment variables for your models.
+Open **Org Settings → Integrations** from the profile menu. The **Platform Integrations** page lists every supported service, grouped by category, with its status (**Connected** or **Not connected**). Search for a provider, or switch to **Connected** to see only the integrations that are set up.
 
-## LLM Providers
+![Platform Integrations in Org Settings: providers grouped by category, each with its status and a Configure link](../platform-integrations.jpg)
 
-### OpenAI
-**Models available**: o4-mini, o3, o3-mini, etc
+To set up a provider:
 
-1. Click the OpenAI card
-2. Enter your API key from platform.openai.com
-3. Test connection and save
+1. Click **Configure** next to it.
+2. Enter its credentials. Each field shows the name of the environment variable it creates.
+3. Click **Test Connection**, where available, to check the credentials.
+4. Click **Save**.
 
-### Anthropic
-**Models available**: claude-4-opus, claude-4-sonnet, claude-3.7-sonnet, etc
+![The OpenAI integration form: the API key field, the environment variable it creates, Test Connection and Save](../integration-form-openai.jpg)
 
-1. Click the Anthropic card
-2. Enter your API key from console.anthropic.com
-3. Test connection and save
+If the credentials are already provided by the environment that runs GGX (for example, set by your administrator at deployment), click **Already Preconfigured?** instead of entering them.
 
-### Azure AI
-**Models available**: o4-mini, o3, o3-mini, etc
+Credentials can also be set for a single project, in the project's integrations, when a project needs its own keys.
 
-1. Click the Azure AI card
-2. Enter your Azure OpenAI API key
-3. Test connection and save
+## Cloud providers
 
-### Amazon Bedrock
-**Models available**: amazon.titan-text-premier-v1:0, amazon.titan-text-express-v1, amazon.titan-text-lite-v1, etc
+| Provider | What to enter | Environment variables |
+| --- | --- | --- |
+| **Azure AI** (models on Microsoft Foundry) | API key and API endpoint | `AZURE_OPENAI_API_KEY`, `AZURE_ENDPOINT` |
+| **Google Vertex AI** (Gemini API and Vertex AI) | API key | `GOOGLE_API_KEY` |
+| **Amazon Bedrock** | Choose **Environment Variables**, **Assume Role Provider** or **EC2 Role Based** authentication. With environment variables, enter the access key ID, secret access key, optional session token and default region. | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_DEFAULT_REGION` |
 
-1. Click the Amazon Bedrock card
-2. Configure AWS credentials:
-   * **Access Key ID**: Your AWS access key
-   * **Secret Access Key**: Your AWS secret key
-   * **Session Token**: Optional temporary session token
-   * **Default Region**: AWS region (e.g., us-east-1)
-3. Test connection and save
+## LLM providers
 
-### DeepSeek
-**Models available**: deepseek-r1, deepseek-v3, deepseek-v2.5
+| Provider | What to enter | Environment variable |
+| --- | --- | --- |
+| **OpenAI** | API key from platform.openai.com | `OPENAI_API_KEY` |
+| **Anthropic** | API key from console.anthropic.com | `ANTHROPIC_API_KEY` |
+| **Deepseek** | API key from the DeepSeek platform | `DEEPSEEK_API_KEY` |
 
-1. Click the DeepSeek card
-2. Get your API key from DeepSeek Platform
-3. Enter your API key in the field
-4. Click "Test Connection" to verify
-5. Click "Save" to complete setup
+The catalog also includes **Groq**, **Together AI**, **Fireworks AI**, **Mistral AI**, **Cohere**, **xAI**, and self-hosted model servers: **Ollama**, **vLLM** and **LM Studio**. Each form shows the fields it needs and the environment variables it creates.
 
-### Google Vertex AI
-**Models available**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash, etc
+## Model hubs and gateways
 
-1. Click the Google Vertex AI card
-2. Upload service account JSON key
-3. Test connection and save
+These services are listed under **LLM Gateways** in the catalog:
 
-### Hugging Face
-**Models available**: llama-3.1-8b-instruct, llama-3.1-70b-instruct, llama-3.1-405b-instruct, etc
+| Provider | What to enter | Environment variables |
+| --- | --- | --- |
+| **Hugging Face** | API token from huggingface.co/settings/tokens | `HUGGING_FACE_HUB_TOKEN` |
+| **Nvidia NIM** | API key and API endpoint | `NVIDIA_API_KEY`, `NVIDIA_NIM_ENDPOINT` |
+| **Github Models** | GitHub token | `GITHUB_TOKEN` |
 
-1. Click the Hugging Face card
-2. Enter your HF token from huggingface.co/settings/tokens
-3. Test connection and save
+For routing gateways such as LiteLLM, Portkey, OpenRouter, Cloudflare AI Gateway and Databricks AI Gateway, see [LLM Gateways](../llm-gateways/).
 
-### Nvidia NIM 
-**Models available**: llama-3.1-nemotron-instruct-70b, llama-3.3-nemotron-super-49b-reasoning, llama-3.1-nemotron-ultra-253b-v1-reasoning, etc
+## What else uses these integrations
 
-1. Click the Nvidia NIM card
-2. Enter your Nvidia API key
-3. Test connection and save
+An integration serves two purposes. Your model code can read its environment variables, as described below. GGX also calls the connected providers and gateways itself, for Corra, the judge of annotation queues, the issue finder of annotation queues, and the automatic chats of feedback portals and simulations. A gateway that is not **Enabled** is not used. A project can override a gateway of the organization, or add one of its own. See [LLM Gateways](../llm-gateways/#gateways-per-project).
 
-### GitHub Models
-**Models available**: o4-mini, o3, o3-mini, etc
+## Using environment variables
 
-1. Click the GitHub Models card
-2. Enter your GitHub token
-3. Test connection and save
-
-## Integration Status
-
-* **Active**: Ready to use in model registration
-* **Inactive**: Needs configuration or has connection issues
-
-## Setting Up API Keys
-
-Each integration creates environment variables that you can use in your model code:
-
-* **OpenAI**: `OPENAI_API_KEY`
-* **Anthropic**: `ANTHROPIC_API_KEY`
-* **Azure AI**: `AZURE_ENDPOINT`
-* **DeepSeek**: `DEEPSEEK_API_KEY`
-* **Google Vertex AI**: `GOOGLE_API_TOKEN`
-* **Hugging Face**: `HUGGING_FACE_HUB_TOKEN`
-* **GitHub Models**: `GITHUB_TOKEN`
-* **Amazon Bedrock**: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_DEFAULT_REGION`
-
-## Using Environment Variables
-
-Once configured, the environment variables are automatically available in your model code:
+Once an integration is saved, its environment variables are available in your model code:
 
 ```python
 import os
 
-# Access your API keys
 openai_key = os.getenv("OPENAI_API_KEY")
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+azure_key = os.getenv("AZURE_OPENAI_API_KEY")
 azure_endpoint = os.getenv("AZURE_ENDPOINT")
 deepseek_key = os.getenv("DEEPSEEK_API_KEY")
-google_token = os.getenv("GOOGLE_API_TOKEN")
+google_key = os.getenv("GOOGLE_API_KEY")
 hf_token = os.getenv("HUGGING_FACE_HUB_TOKEN")
 github_token = os.getenv("GITHUB_TOKEN")
 
@@ -121,11 +81,13 @@ aws_session_token = os.getenv("AWS_SESSION_TOKEN")
 aws_region = os.getenv("AWS_DEFAULT_REGION")
 ```
 
-## Need Help?
+Never hard-code keys in model code: a missing variable means the integration is not configured for the organization or the project.
 
-* Use "Test Connection" to verify your API keys
-* Check provider documentation for API key setup
-* Ensure proper permissions for your API keys
+## Need help?
+
+- Use **Test Connection** to verify your keys before saving.
+- Check the provider's documentation for how to create a key.
+- Make sure the key has the permissions your models need.
 
 ## More integrations
 

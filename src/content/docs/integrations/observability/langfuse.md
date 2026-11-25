@@ -1,30 +1,23 @@
 ---
 title: "Langfuse"
-description: "Use Langfuse traces, scores, datasets, and annotation queues with GGX to close the monitoring loop across judges, human review, bugs, and approvals."
+description: "Use Langfuse observations as an annotation queue ingestion source in GGX, so production traces can be reviewed by people."
 ---
 
-[Langfuse](https://langfuse.com/docs) is an open-source AI engineering platform for LLM observability, prompt management, evaluations, dashboards, datasets, experiments, user feedback, and annotation queues.
+[Langfuse](https://langfuse.com/docs) is an open-source platform for LLM observability, prompt management, and evaluations. GGX can fetch its observations into an annotation queue for human review.
 
-## How Langfuse fits with GGX
+## What it does in GGX
 
-Langfuse can capture production traces and scores across LLM calls, retrieval, embedding, API calls, sessions, agents, and user interactions. GGX can connect those traces to governed monitoring and review workflows.
+- Langfuse is an **Ingestion Source** for an annotation queue. GGX fetches observations from the Langfuse API for a date range you choose.
+- Reviewers label them in the queue. Accepted interactions can become ground truth, and failures can become bugs or findings.
 
-Use this pattern when:
+## How to connect
 
-- You already use Langfuse as the trace and evaluation layer for LLM applications.
-- You want selected Langfuse traces to be reviewed by SMEs or risk teams in GGX.
-- You want Langfuse scores and user feedback to influence GGX monitoring rules.
-- You want reviewed Langfuse examples to power future GGX datasets, judges, and approval evidence.
+1. Open a project's annotation queue and go to its settings.
+2. Set **Ingestion Source** to **Langfuse**.
+3. Enter the **Langfuse Host URL** (it starts as `https://cloud.langfuse.com`), the **Langfuse Public Key**, and the **Langfuse Secret Key**.
+4. Adjust the fetch script if you need to filter observations or rename columns. It is plain Python.
 
-## Trace-to-review workflow
+## Notes
 
-1. Send Langfuse traces, scores, sessions, prompt versions, user feedback, and metadata to GGX.
-2. Use GGX monitoring logic to identify traces that need judge review, human review, or no review.
-3. Promote positively reviewed traces into ground truth.
-4. Convert negatively reviewed traces into GGX bugs or findings.
-5. Categorize common failures so teams can see where prompt, RAG, model, tool, or policy changes are needed.
-6. Reuse those examples in GGX simulations and judge-development workflows.
-
-## GGX value add
-
-Langfuse provides strong observability and evaluation workflows. GGX makes the monitoring lifecycle actionable across stakeholders: positive monitoring reviews become test data, negative reviews become remediation work, and both feed the evaluation and approval system used to manage production AI.
+- Langfuse has no organization-level integration entry in GGX. The keys belong to the queue.
+- A fetch needs at least one observation in the selected date range.

@@ -19,21 +19,6 @@ export default defineConfig({
   site: "https://docs.genguardx.ai",
   base,
   outDir: "./dist",
-  // The section moved from /tracing/ to /agent-observability/; keep old links working.
-  redirects: {
-    "/tracing": "/agent-observability/",
-    "/tracing/agents-and-sessions": "/agent-observability/agents-and-sessions/",
-    "/tracing/api-reference": "/agent-observability/api-reference/",
-    "/tracing/cost-and-retention": "/agent-observability/cost-and-retention/",
-    "/tracing/data-masking": "/agent-observability/data-masking/",
-    "/tracing/evaluators": "/agent-observability/evaluators/",
-    "/tracing/exploring-traces": "/agent-observability/exploring-traces/",
-    "/tracing/governance-signals": "/agent-observability/governance-signals/",
-    "/tracing/monitors": "/agent-observability/monitors/",
-    "/tracing/scores-and-feedback": "/agent-observability/scores-and-feedback/",
-    "/tracing/search-and-analytics": "/agent-observability/search-and-analytics/",
-    "/tracing/sending-traces": "/agent-observability/sending-traces/",
-  },
   // Astro 6.4.x was causing issues with the table rendering.
   // REF: https://github.com/withastro/starlight/issues/3934
   // REF: https://github.com/withastro/astro/issues/16971
@@ -116,6 +101,16 @@ export default defineConfig({
         starlightImageZoom(),
         starlightSidebarTopics([
           {
+            label: "Getting Started",
+            link: "/getting-started/",
+            icon: "open-book",
+            items: [
+              { label: "How GGX is organized", slug: "getting-started" },
+              { label: "Platform tour", slug: "getting-started/platform-tour" },
+              { label: "Using the platform", slug: "getting-started/using-the-platform" },
+            ],
+          },
+          {
             id: "register-and-refine",
             label: "Register and Refine",
             link: "/register-and-refine/",
@@ -168,6 +163,10 @@ export default defineConfig({
                 slug: "register-and-refine/lineage-tracking",
               },
               {
+                label: "Project Templates",
+                slug: "register-and-refine/project-templates",
+              },
+              {
                 label: "Prompt Optimization",
                 slug: "register-and-refine/prompt-optimization",
               },
@@ -216,6 +215,7 @@ export default defineConfig({
             items: [
               { label: "Overview", slug: "evaluate-and-approve" },
               { label: "Simulation", slug: "evaluate-and-approve/simulation" },
+              { label: "Rerun reports and attempts", slug: "evaluate-and-approve/rerun-reports" },
               { label: "Comparison", slug: "evaluate-and-approve/comparison" },
               { label: "Reporting", slug: "evaluate-and-approve/reporting" },
               {
@@ -228,7 +228,19 @@ export default defineConfig({
               },
               {
                 label: "Feedback Portals",
-                slug: "evaluate-and-approve/feedback-portals",
+                items: [
+                  { label: "Overview", slug: "evaluate-and-approve/feedback-portals" },
+                  { label: "Generate tests with Corra", slug: "evaluate-and-approve/feedback-portals/test-generation" },
+                  { label: "Testing plan", slug: "evaluate-and-approve/feedback-portals/testing-plan" },
+                ],
+              },
+              {
+                label: "Get feedback from an expert",
+                slug: "evaluate-and-approve/get-feedback-from-expert",
+              },
+              {
+                label: "Risk Assessment",
+                slug: "evaluate-and-approve/risk-assessment",
               },
               {
                 label: "Document Generation",
@@ -248,62 +260,31 @@ export default defineConfig({
               },
               { label: "Oversight", slug: "deploy-and-monitor/oversight" },
               { label: "Performance", slug: "deploy-and-monitor/performance" },
+              { label: "Deployment Platforms", slug: "deploy-and-monitor/deploy-platforms" },
               {
                 label: "Annotation Queues",
                 slug: "deploy-and-monitor/annotation-queues",
               },
+              { label: "Ingesting Data", slug: "deploy-and-monitor/annotation-queue-ingestion" },
+              { label: "Finding Issues", slug: "deploy-and-monitor/annotation-queue-issues" },
+              { label: "Reports and Figures", slug: "deploy-and-monitor/annotation-queue-reports" },
+              { label: "Jobs, Chats and Insights", slug: "deploy-and-monitor/deployment-jobs" },
+              { label: "Types and Custom Interfaces", slug: "deploy-and-monitor/deployment-request-types" },
             ],
           },
           {
-            label: "Agent Observability",
-            link: "/agent-observability/",
-            icon: "list-format",
+            label: "Corra AI",
+            link: "/corra/",
+            icon: "star",
             items: [
-              { label: "Overview", slug: "agent-observability" },
-              {
-                label: "Start Here",
-                items: [
-                  { label: "Sending Traces", slug: "agent-observability/sending-traces" },
-                  { label: "Data Masking", slug: "agent-observability/data-masking" },
-                ],
-              },
-              {
-                label: "Use It",
-                items: [
-                  {
-                    label: "Exploring Traces",
-                    slug: "agent-observability/exploring-traces",
-                  },
-                  {
-                    label: "Search, Analytics and Export",
-                    slug: "agent-observability/search-and-analytics",
-                  },
-                  {
-                    label: "Agents and Sessions",
-                    slug: "agent-observability/agents-and-sessions",
-                  },
-                  {
-                    label: "Scores and Feedback",
-                    slug: "agent-observability/scores-and-feedback",
-                  },
-                  { label: "Evaluators", slug: "agent-observability/evaluators" },
-                  { label: "Monitors", slug: "agent-observability/monitors" },
-                  {
-                    label: "Governance Signals",
-                    slug: "agent-observability/governance-signals",
-                  },
-                ],
-              },
-              {
-                label: "Operate It",
-                items: [
-                  {
-                    label: "Cost and Retention",
-                    slug: "agent-observability/cost-and-retention",
-                  },
-                  { label: "API Reference", slug: "agent-observability/api-reference" },
-                ],
-              },
+              { label: "Overview", slug: "corra" },
+              { label: "Chat and activity", slug: "corra/chat-and-activity" },
+              { label: "Write descriptions", slug: "corra/write-descriptions" },
+              { label: "Fill a risk assessment", slug: "corra/fill-risk-assessments" },
+              { label: "Generate portal tests", slug: "corra/generate-portal-tests" },
+              { label: "Discuss issues and tweak results", slug: "corra/discuss-and-tweak" },
+              { label: "Create a project", slug: "corra/create-a-project" },
+              { label: "Corra MCP settings", slug: "corra/corra-mcp" },
             ],
           },
           {
@@ -374,6 +355,10 @@ export default defineConfig({
                     slug: "integrations/llm-gateways/portkey",
                   },
                   {
+                    label: "Apache APISIX",
+                    slug: "integrations/llm-gateways/apache-apisix",
+                  },
+                  {
                     label: "OpenRouter",
                     slug: "integrations/llm-gateways/openrouter",
                   },
@@ -407,6 +392,10 @@ export default defineConfig({
                     label: "Databricks",
                     slug: "integrations/data-warehouses/databricks-unity-catalog",
                   },
+                  {
+                    label: "Data sources",
+                    slug: "integrations/data-warehouses/data-sources",
+                  },
                 ],
               },
               {
@@ -417,20 +406,8 @@ export default defineConfig({
                     slug: "integrations/observability",
                   },
                   {
-                    label: "LangSmith",
-                    slug: "integrations/observability/langsmith",
-                  },
-                  {
-                    label: "Arize Phoenix",
-                    slug: "integrations/observability/arize-phoenix",
-                  },
-                  {
                     label: "Langfuse",
                     slug: "integrations/observability/langfuse",
-                  },
-                  {
-                    label: "Humanloop",
-                    slug: "integrations/observability/humanloop",
                   },
                   {
                     label: "Datadog",
@@ -450,6 +427,7 @@ export default defineConfig({
                   },
                   { label: "MedBAR", slug: "integrations/evaluation-providers/medbar" },
                   { label: "Guardrails AI", slug: "integrations/evaluation-providers/guardrails-ai" },
+                  { label: "Perspective API", slug: "integrations/evaluation-providers/perspective-api" },
                 ],
               },
               {
@@ -463,6 +441,7 @@ export default defineConfig({
                   { label: "Vapi AI", slug: "integrations/agent-studios/vapi-ai" },
                   { label: "Amazon Lex", slug: "integrations/agent-studios/amazon-lex" },
                   { label: "CustomGPT", slug: "integrations/agent-studios/customgpt" },
+                  { label: "Custom agent builder", slug: "integrations/custom-agent-builder" },
                   { label: "Dialogflow CX", slug: "integrations/agent-studios/dialogflow-cx" },
                 ],
               },
@@ -478,6 +457,26 @@ export default defineConfig({
                   { label: "ProdPad", slug: "integrations/issue-trackers/prodpad" },
                   { label: "ProductPlan", slug: "integrations/issue-trackers/productplan" },
                   { label: "Hive", slug: "integrations/issue-trackers/hive" },
+                  { label: "Linear", slug: "integrations/issue-trackers/linear" },
+                  { label: "ClickUp", slug: "integrations/issue-trackers/clickup" },
+                  { label: "GitLab Issues", slug: "integrations/issue-trackers/gitlab-issues" },
+                  { label: "monday dev", slug: "integrations/issue-trackers/monday-dev" },
+                  { label: "Asana", slug: "integrations/issue-trackers/asana" },
+                  { label: "Trello", slug: "integrations/issue-trackers/trello" },
+                  { label: "ServiceNow", slug: "integrations/issue-trackers/servicenow" },
+                  { label: "Basecamp", slug: "integrations/issue-trackers/basecamp" },
+                  { label: "Zoho Sprints", slug: "integrations/issue-trackers/zoho-sprints" },
+                  { label: "Perforce Helix ALM", slug: "integrations/issue-trackers/helix-alm" },
+                  { label: "Notion", slug: "integrations/issue-trackers/notion" },
+                  { label: "Smartsheet", slug: "integrations/issue-trackers/smartsheet" },
+                ],
+              },
+              {
+                label: "Issue Channels",
+                items: [
+                  { label: "Overview", slug: "integrations/issue-channels" },
+                  { label: "Slack", slug: "integrations/issue-channels/slack" },
+                  { label: "Microsoft Teams", slug: "integrations/issue-channels/microsoft-teams" },
                 ],
               },
               {
@@ -485,13 +484,34 @@ export default defineConfig({
                 items: [
                   { label: "Overview", slug: "integrations/source-control" },
                   { label: "GitHub", slug: "integrations/source-control/github" },
+                  { label: "GitHub Enterprise Server", slug: "integrations/source-control/github-enterprise-server" },
+                  { label: "GitLab", slug: "integrations/source-control/gitlab" },
+                  { label: "Bitbucket", slug: "integrations/source-control/bitbucket" },
+                  { label: "Other Git server", slug: "integrations/source-control/git-server" },
                 ],
+              },
+              {
+                label: "GRC Tools",
+                items: [{ label: "Overview", slug: "integrations/grc-tools" }],
               },
               {
                 label: "IDE Providers",
                 items: [
                   { label: "Overview", slug: "integrations/ide" },
                   { label: "JupyterHub", slug: "integrations/ide/jupyterhub" },
+                  { label: "Google Colab", slug: "integrations/ide/google-colab" },
+                  { label: "Visual Studio Code", slug: "integrations/ide/visual-studio-code" },
+                  { label: "GitHub Codespaces", slug: "integrations/ide/github-codespaces" },
+                ],
+              },
+              {
+                label: "Single Sign-On (SAML)",
+                items: [
+                  { label: "Overview", slug: "integrations/sso" },
+                  { label: "Google Workspace", slug: "integrations/sso/google-workspace" },
+                  { label: "Auth0 by Okta", slug: "integrations/sso/auth0" },
+                  { label: "OneLogin", slug: "integrations/sso/onelogin" },
+                  { label: "Microsoft Entra ID", slug: "integrations/sso/microsoft-entra-id" },
                 ],
               },
               {
@@ -501,6 +521,34 @@ export default defineConfig({
                   { label: "Deepgram", slug: "integrations/voice-providers/deepgram" },
                 ],
               },
+            ],
+          },
+          {
+            label: "Administration",
+            link: "/administration/",
+            icon: "setting",
+            items: [
+              { label: "Overview", slug: "administration" },
+              { label: "Users and Teams", slug: "administration/users-and-teams" },
+              { label: "Organization Permissions", slug: "administration/permissions" },
+              { label: "Advanced Settings", slug: "administration/platform-settings" },
+              { label: "Python packages", slug: "administration/python-packages" },
+              { label: "System Health", slug: "administration/system-health" },
+              { label: "AI Policy and Risk Library", slug: "administration/ai-policy-and-risk-library" },
+              {
+                label: "Branding, Account and Notifications",
+                slug: "administration/branding-and-notifications",
+              },
+            ],
+          },
+          {
+            label: "Developers",
+            link: "/developers/",
+            icon: "seti:python",
+            items: [
+              { label: "Overview", slug: "developers" },
+              { label: "Python SDK reference", slug: "developers/sdk" },
+              { label: "How GGX reads agent code", slug: "developers/code-repo-agents" },
             ],
           },
           {

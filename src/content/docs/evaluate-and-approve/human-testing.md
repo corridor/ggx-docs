@@ -3,50 +3,56 @@ title: "Human Integrated Testing"
 description: "Run human-integrated GGX tests where reviewers evaluate agent behavior, capture qualitative feedback, validate outcomes, and support approval decisions."
 ---
 
-The Human Integrated Testing module enables comprehensive testing of GenAI agents both before approval (Pre-Approval) and after deployment (Post-Approval/Post-Deployment), involving humans in the loop.
+Human Integrated Testing brings people into the loop: reviewers talk to an agent the way its users will, rate each answer, and record what went wrong. It works before approval (to validate a release) and after deployment (to keep checking it).
 
-## What is a Pre-Approval Testing?
+## What is a test session?
 
-The Pre-Approval Testing allows users to test the full end-to-end agent in a production-like environment, providing an opportunity to manually validate the final solution before deployment. It simulates real-world scenarios by replicating end-user experiences. This module abstracts the internal technical details, presenting only the final inputs and outputs for a streamlined evaluation process.
+A **test session** is one conversation between a reviewer and an agent in a production-like environment. The session hides the agent's internal steps and shows only the inputs and outputs, so business, risk and clinical reviewers can judge the experience without reading code.
 
-**Note:** Currently, only the chat-based agents registered on the platform are available for manual testing.
+Every message, rating and comment is saved immediately. Sessions are listed under **Human Integrated Testing → Evaluations → Single**, with the agent, the rating, the status and who ran them.
 
-It enables reviewers to capture their feedback and scores during testing, offering valuable insights for the development team to improve the solution. Additionally, all testing data can be exported from the platform for different purposes, making it easier for developers and reviewers to collaborate.
+![Evaluations page, Single view: test sessions with their agent, thumbs-up or thumbs-down rating, status and reviewer](./evaluations-single.jpg)
 
-## Performing Pre-Approval Testing on the Platform:
+> **Note:** For structured testing by many reviewers, with test definitions, closing questions and insights, use a [Feedback Portal](../feedback-portals/). Sessions run from a portal are listed here too.
 
-All the chat-based agents are available for Pre-Approval Testing.
+## Starting a session
 
-1. Click on **Start Session** in the Pre-Approval Testing module.
-2. Choose the agent to be tested from a list of registered agents.
-3. Once the agent is selected, a new window will open where you can start interacting.
-   ![Testing Window](./test-session-output.png)
-4. Start interacting in the chat window. Optionally, select a Persona to simulate real-life scenarios, or begin chatting directly.
-   ![Persona Selection](./persona-selection.png)
-5. Provide feedback: Use 👍 if satisfactory, 👎 if not; reasons/comments are prompted for 👎.
-6. Once testing is completed, an experience summary can be recorded by providing an overall session rating and testing notes.
-   ![Testing Feedback](./test-session-feedback.png)
-7. You can download the transcript of the session for external documentation or further analysis.
+1. Go to **Human Integrated Testing → Evaluations**, switch to **Single** and click **Start Session**. You can also click **Run → Start Chat** on an agent's page.
+2. Choose why you are testing:
+    - **Business Testing & Feedback**: build ground truth and give feedback on the agent.
+    - **Model Development**: check that the agent works while you build it.
+3. Choose the agent to test and start chatting.
 
-**Note:**
+![Create a new Session dialog: Business Testing & Feedback, or Model Development](./start-session-dialog.jpg)
 
-More information about the Testing Session and GenAI Agent can be seen in the information panel on the left. There are 4 buttons in the information panel:
+## During the session
 
-- View other sessions from the same agent.
-- View the context being used in the agent. This is additional information that will be utilized by LLM to answer user questions. For example, it can be customer metadata being pulled from some knowledge base.
-- View more details about the agent and the Gen AI assets used in this agent.
-- View any configurations provided to the agent by the Modeler, such as temperature, random seed, etc.
-  ![Information Panel](./test-session-information-panel.png)
+- Rate each answer with 👍 or 👎. A 👎 asks for a reason and a comment.
+- Add comments to any message, copy it, or open its menu for more options.
+- When you are done, click **Review Session** to record an overall rating and testing notes. Once a session has ended, its chat is read only.
+- In **Testing Notes**, write rich text and attach files, so that files made during the review stay with the session. Type `/` and choose **File** to upload a file, or drop or paste a file into the notes. Images show inline and other files appear as links.
 
-Every interaction, feedback, and comment in the Test Session is auto-saved immediately and recorded in history and recorded along with report cards in customized groups.
+![A completed test session: the reviewer's messages, the agent's answers, and a thumbs-down with a comment on the last answer](./test-session-chat.jpg)
 
-## Benefits of Pre-Approval Testing:
+The panel on the left has two views:
 
-- **Human-in-the-loop testing before approving** the agent for production.
-- Easy to follow and **intuitive user interface** to test agents.
-- **Abstraction** of complex agent logic from MRM/Fair-Lending/Business teams.
-- **Record feedback and generate report cards** for continuous improvement.
-- Allows **Multi-Turn testing** for real-world scenarios.
-- **Load transcripts from other environments** for human scoring.
+- **Information**: the session name, the agent and its version, the feedback portal, a **Feedback Summary** of every rating and comment, and the **Assets** the agent uses (models, sub-agents and prompts, each linked to its page).
+- **Configuration**: the settings passed to the agent. They can only be changed where the session allows it.
 
-Similar to this an agent can be tested/monitored post approval also. Visit [Deploy and Monitor](../../deploy-and-monitor/) section to know more on this.
+![The Information panel of a session: agent version, feedback portal, feedback summary with the reviewer's comment, and the models, agents and prompts in use](./test-session-information.jpg)
+
+The **⋮** menu at the top right of a session offers **Debug Mode**, **Edit Session**, **View Events**, **Download Transcript** and **Delete Session**. A session can be run again against the agent; the **Run** selector shows which run you are looking at.
+
+### Fork a chat
+
+In a session that belongs to a [Feedback Portal](../feedback-portals/), choose **Fork Chat** in the **⋮** menu to start a new chat with the same history, so you can take the conversation another way from that point. It needs write access, and is disabled while a comparison is open or the agent is still answering. The fork is named `[Fork]` followed by the original name, and a divider in the chat marks where the copied messages end, with a link back to the original. If the portal has processing logic, it receives the ids of the chat; see [Processing logic](../feedback-portals/#processing-logic).
+
+## Benefits
+
+- **Human-in-the-loop testing before approval** of the agent for production.
+- An **intuitive chat interface** that hides complex agent logic from business, risk and compliance reviewers.
+- **Feedback and ratings on every answer**, rolled up into a summary for the development team.
+- **Multi-turn testing** of real-world scenarios.
+- **Transcripts** that can be downloaded for documentation or further analysis.
+
+An agent can also be tested and monitored after approval. See [Deploy and Monitor](../../deploy-and-monitor/).

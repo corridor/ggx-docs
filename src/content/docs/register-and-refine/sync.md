@@ -9,6 +9,10 @@ The GGX Sync system enables you to programmatically manage and version-control y
 
 ---
 
+To read objects, datasets and results back from Python, see the [Python SDK reference](../../developers/sdk/).
+
+---
+
 ## What Can Be Synced?
 
 GGX Sync supports six core component types:
@@ -75,6 +79,7 @@ Prompts define system instructions, templates, or conversation guidelines.
 ```python
 import genguardx as ggx
 @ggx.Prompt.declare(
+    project='my-project',  # Required: project slug
     name='My Prompt Name',           # Optional: defaults to function name
     group='My Group',                # Optional: organizational grouping
     task_type='Question Answering',  # Optional: Classification | Summarization | etc.
@@ -102,6 +107,7 @@ Models wrap LLM API calls with consistent interfaces and cost tracking.
 ```python
 import genguardx as ggx
 @ggx.Model.declare(
+    project='my-project',  # Required: project slug
     name='My Model Name',          # Optional: defaults to function name
     group='My Group',              # Optional: organizational grouping
     ownership_type='Proprietary',  # Optional: Proprietary | Open Source
@@ -132,6 +138,7 @@ RAGs connect to knowledge bases, databases, or document stores to retrieve relev
 import pathlib
 import genguardx as ggx
 @ggx.Rag.declare(
+    project='my-project',  # Required: project slug
     name='My RAG System',                    # Optional: defaults to function name
     group='My Group',                        # Optional: organizational grouping
     knowledge_base_format='Relational Database',    # Optional: Vector Database | Graph Database | etc.
@@ -165,13 +172,14 @@ Agents orchestrate multiple components into complete workflows.
 import typing as t
 import genguardx as ggx
 @ggx.Pipeline.declare(
+    project='my-project',  # Required: project slug
     name='My Pipeline',                    # Optional: defaults to function name
     group='My Group',                      # Optional: organizational grouping
     usecase_type='Question Answering',     # Optional: Summarization | Translation
     task_type='Generative Responses',      # Optional: Classification | Templated Responses | etc.
     impact='External Facing',              # Optional: Internal Only | Internal - with external implications
     data_usage=['Customer Specific Data'], # Optional: list of data types
-    pipeline_type='Chat based - OpenAI Spec',  # Required: or 'Custom Return Type'
+    pipeline_type='Chat based - OpenAI Spec',  # Optional: Chat based - OpenAI Spec (default) | Custom Return Type | Classification | Summarization
 )
 def my_pipeline_function(
     user_message: str,
@@ -201,6 +209,7 @@ Global Functions are reusable utility functions that can be referenced by other 
 ```python
 import genguardx as ggx
 @ggx.GlobalFunction.declare(
+    project='my-project',  # Required: project slug
     name='My Utility Function',  # Optional: defaults to function name
     group='My Group',            # Optional: organizational grouping
 )
@@ -231,14 +240,14 @@ Reports generate evaluation dashboards with metrics and visualizations for monit
 import typing as t
 import genguardx as ggx
 @ggx.Report.declare(
+    project='my-project',  # Required: project slug
     name='My Evaluation Report',                     # Optional: defaults to function name
     object_types=['PIPELINE', 'FOUNDATION_MODEL'],   # Required: list of object types this report evaluates
     group='My Group',                                # Optional: organizational grouping
     risk_type='Accuracy',                            # Optional: Accuracy | Stability | Bias | Vulnerability | Toxicity | Others
     task_type='Classification',                      # Optional: Classification | Templated Responses | etc.
     risk_domain='Model Risk Management',             # Optional: Model Risk Management | Fair Lending | Technology | Infosec | Others
-    evaluation_methodology='Statistical / ML Algorithms',  # Optional: LLM-as-a-Judge | Rule-based | Statistical / ML Algorithms | Others
-    report_methodology='Custom methodology',          # Optional: free text description
+    evaluation_methodology='NLP / ML Algorithms',  # Optional: LLM-as-a-Judge | Rule-based | NLP / ML Algorithms | Others
     parameters=[],                                   # Optional: list of report parameters
 )
 def my_evaluation_report(job: t.Any, data: t.Any, *, cache: dict = {}) -> t.Any:
@@ -259,6 +268,20 @@ ggx.sync(my_evaluation_report)
 - Helper components use the `report` parameter to associate with their parent report (e.g., `report='My Evaluation Report'`)
 - Report functions typically receive `job` and `data` parameters and return processed results
 - ReportOutput functions generate visualizations (Plotly figures, Pandas DataFrames, or HTML/Markdown strings)
+
+## Sync from the command line
+
+The `genguardx` package also installs a `ggx` command. Set `GGX_API_KEY` (required) and optionally `GGX_URL`, then run:
+
+```bash
+export GGX_API_KEY="your-api-key-here"
+export GGX_URL="https://your-ggx-instance.example.com"
+
+ggx whoami            # show the authenticated user
+ggx sync my_file.py   # import the file and sync every declared object in it
+```
+
+`ggx sync` imports the file and syncs each Prompt, Model, RAG, Agent, Global Function and Report declared at its top level, so you do not need to call `ggx.sync(...)` in the file.
 
 ## Key Concepts
 
@@ -312,20 +335,20 @@ When you sync an Agent, the system:
 ```python
 # Define components
 import genguardx as ggx
-@ggx.Prompt.declare(name='System Prompt')
+@ggx.Prompt.declare(project='my-project', name='System Prompt')
 def system_prompt(*, cache: dict = {}, prompt: str = "You are a helpful assistant."):
     """System instruction for the assistant."""
     # -- BEGIN DEFINITION --
     return prompt
 
-@ggx.Model.declare(name='GPT-4', provider='openai', model='gpt-4', ownership_type='Proprietary', model_type='LLM')
+@ggx.Model.declare(project='my-project', name='GPT-4', provider='openai', model='gpt-4', ownership_type='Proprietary', model_type='LLM')
 def gpt4(text: str, *, cache: dict = {}):
     """GPT-4 model wrapper."""
     # -- BEGIN DEFINITION --
     # Implementation
     return {"response": "..."}
 
-@ggx.Pipeline.declare(name='Q&A Pipeline', pipeline_type='Chat based - OpenAI Spec')
+@ggx.Pipeline.declare(project='my-project', name='Q&A Pipeline', pipeline_type='Chat based - OpenAI Spec')
 def qa_pipeline(
     user_message: str,
     history: list[t.TypedDict("T", {'role': str, 'content': str}, total=False)] = (),
@@ -354,7 +377,7 @@ You can declare and sync components **without** using them in an agent:
 
 ```python
 # Declare a standalone prompt
-@ggx.Prompt.declare(name='Greeting Prompt', group='Standalone')
+@ggx.Prompt.declare(project='my-project', name='Greeting Prompt', group='Standalone')
 def greeting_prompt(*, cache: dict = {}, prompt: str = "Hello! How can I help you today?"):
     """Greeting message prompt."""
     # -- BEGIN DEFINITION --
@@ -370,7 +393,7 @@ ggx.sync(greeting_prompt)
 Or use components together in an agent (they'll sync automatically):
 
 ```python
-@ggx.Pipeline.declare(name='Greeter Bot', pipeline_type='Chat based - OpenAI Spec')
+@ggx.Pipeline.declare(project='my-project', name='Greeter Bot', pipeline_type='Chat based - OpenAI Spec')
 def greeter_pipeline(
     user_message: str,
     history: list[t.TypedDict("T", {'role': str, 'content': str}, total=False)] = (),
@@ -395,6 +418,7 @@ ggx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
 
 - `name` (str, optional): Display name on platform. Defaults to function name.
 - `group` (str, optional): Organizational grouping. Must exist on platform.
+- `project` (str, required): The slug of the project the component belongs to.
 
 ### Prompt-Specific Parameters
 
@@ -420,7 +444,10 @@ ggx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
 - `task_type` (str, optional): `'Classification'` | `'Templated Responses'` | `'Generative Responses'` | `'Summarization'` | `'Others'`
 - `impact` (str, optional): `'External Facing'` | `'Internal Only'` | `'Internal - with external implications'`
 - `data_usage` (list, optional): List of data types: `['No Additional Data', 'General Public Data', 'Internal Policies/Data', 'Customer Specific Data']`
-- `pipeline_type` (str, required): `'Chat based - OpenAI Spec'` | `'Custom Return Type'`
+- `pipeline_type` (str, optional): `'Chat based - OpenAI Spec'` (default) | `'Custom Return Type'` | `'Classification'` | `'Summarization'`
+- `provider` (str, optional): If provided, the agent is treated as an external agent.
+- `agent` (str, optional): The agent within the provider.
+- `personas` (list of dict, optional): Personas for the agent.
 
 ### Global Function Parameters
 
@@ -435,8 +462,7 @@ ggx.sync(greeter_pipeline)  # Syncs both prompt and pipeline
 - `risk_type` (str, optional): `'Accuracy'` | `'Stability'` | `'Bias'` | `'Vulnerability'` | `'Toxicity'` | `'Others'`
 - `task_type` (str, optional): `'Classification'` | `'Templated Responses'` | `'Generative Responses'` | `'Summarization'` | `'Others'`
 - `risk_domain` (str, optional): `'Model Risk Management'` | `'Fair Lending'` | `'Technology'` | `'Infosec'` | `'Others'`
-- `evaluation_methodology` (str, optional): `'LLM-as-a-Judge'` | `'Rule-based'` | `'Statistical / ML Algorithms'` | `'Others'`
-- `report_methodology` (str, optional): Free-text description of the methodology
+- `evaluation_methodology` (str, optional): `'LLM-as-a-Judge'` | `'Rule-based'` | `'NLP / ML Algorithms'` | `'Others'`
 - `parameters` (list, optional): List of parameter dictionaries for report execution
 
 ---
@@ -455,6 +481,7 @@ ggx.init(
 
 # Step 2: Declare components
 @ggx.Prompt.declare(
+    project='my-project',  # Required: project slug
     name='FAQ Prompt',
     group='Support',
     task_type='Question Answering',
@@ -466,6 +493,7 @@ def faq_prompt(*, cache: dict = {}, prompt: str = "Answer FAQs concisely and pro
     return prompt
 
 @ggx.Model.declare(
+    project='my-project',  # Required: project slug
     name='GPT-3.5',
     group='Models',
     ownership_type='Proprietary',
@@ -480,6 +508,7 @@ def gpt35(text: str, *, cache: dict = {}):
     return {"response": "..."}
 
 @ggx.Pipeline.declare(
+    project='my-project',  # Required: project slug
     name='FAQ Bot',
     group='Support',
     usecase_type='Question Answering',
@@ -558,7 +587,7 @@ ggx.sync(faq_pipeline)
 
 ```python
 import genguardx as ggx
-@ggx.Prompt.declare(name='My Prompt')
+@ggx.Prompt.declare(project='my-project', name='My Prompt')
 def my_prompt(*, cache: dict = {}, prompt: str = "Hello"):
     """Docstring here"""
     # -- BEGIN DEFINITION --  # <-- Add this line
@@ -583,7 +612,7 @@ def helper_function():
     return "result"
 
 # After (no warning)
-@ggx.Prompt.declare(name='Helper')
+@ggx.Prompt.declare(project='my-project', name='Helper')
 def helper_function(*, cache: dict = {}, prompt: str = "result"):
     # -- BEGIN DEFINITION --
     return prompt
@@ -622,7 +651,7 @@ def helper_function(*, cache: dict = {}, prompt: str = "result"):
 
 ```python
 import genguardx as ggx
-@ggx.Prompt.declare(name='My Prompt')
+@ggx.Prompt.declare(project='my-project', name='My Prompt')
 def my_prompt(*, cache: dict = {}, prompt: str = "Your prompt text here"):
     """Docstring"""
     # -- BEGIN DEFINITION --

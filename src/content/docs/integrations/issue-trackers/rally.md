@@ -1,6 +1,6 @@
 ---
 title: "Rally"
-description: "Create and link Rally defects, user stories, and tasks from GGX issues and keep their state in sync, with a personal API key per person."
+description: "Create and link Rally defects, user stories, and tasks from GGX issues and keep their state in sync, with a personal API key an administrator allows."
 ---
 
 [Rally](https://www.broadcom.com/products/software/value-stream-management/rally) is Broadcom's agile planning and tracking tool. GGX uses it to turn issues found in annotation queues and feedback portals into Rally items.
@@ -13,8 +13,9 @@ description: "Create and link Rally defects, user stories, and tasks from GGX is
 
 ## How to connect
 
-1. Each person creates an API key with write access on the **API Keys** page of their Rally account and pastes it in **My Account → Integrations → Rally**. Your subscription administrator must allow API keys.
-2. Optional: an administrator can set another Rally server URL or API version in **Org Settings → Integrations → Issue trackers → Rally**. Rally in the cloud at `https://rally1.rallydev.com` works with nothing saved.
+1. An administrator opens **Org Settings → Integrations → Issue trackers → Rally** and ticks **Let people connect with a personal API token**. Rally has no sign-in, so nobody can connect until this is on. A personal token acts as its owner, and Rally records what GGX does under that person.
+2. Each person creates an API key with write access on the **API Keys** page of their Rally account and pastes it in **My Account → Integrations → Rally**. Your subscription administrator must allow API keys.
+3. Optional: in the same dialog, an administrator can set another Rally server URL or API version. Rally in the cloud at `https://rally1.rallydev.com` works with nothing saved.
 
 ## Notes
 

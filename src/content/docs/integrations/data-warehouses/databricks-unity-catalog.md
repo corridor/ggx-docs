@@ -38,11 +38,11 @@ Keep the service account's grants read-only. GGX does not need `MODIFY`, `CREATE
 
 1. In Databricks, open your SQL warehouse's **Connection Details** and copy its **Server Hostname** and **HTTP Path**.
 2. In GGX, open **Org Settings → Integrations** from the profile menu.
-3. Under **Data Providers**, select **Databricks**.
+3. Under **Data Lake/Warehouse**, find **Databricks** and click **Configure**.
 4. Enter **Server Hostname** and **HTTP Path**, then choose an authentication type as described below.
 5. Enter the matching credential and click **Save**.
 
-![GGX Databricks Integration form with Server Hostname, HTTP Path, OAuth Token and Azure Managed Identity authentication options, and Access Token field.](./databricks-integration.webp)
+![GGX Databricks Integration form with Server Hostname, HTTP Path, OAuth Token and Azure Managed Identity authentication options, and Access Token field.](./databricks-integration.jpg)
 
 ### Authentication options
 
